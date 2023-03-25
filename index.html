@@ -21,23 +21,36 @@
     <div class="chapter-content" id="chapter-content">
       <!-- Chapter content will be displayed here -->
     </div>
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        var disqus_config = function () {
+          this.page.identifier = "chapter-" + chapterIndex;
+          this.page.url = window.location.href.split("#")[0] + "#chapter-" + chapterIndex;
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://sugiharayoki.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </main>
 </body>
 </html>
-<!-- Add this inside the main element -->
-<!--<img src="book_cover.png" alt="My Image" class="right-side-image">>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <!-- Add this line inside the head section -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Website Title</title>
+  <title>妄想限界：白夜今明</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Your website content goes here -->
+  <script id="dsq-count-scr" src="//sugiharayoki.disqus.com/count.js" async></script>
 </body>
 </html>

@@ -5,10 +5,12 @@ const chapters = [
   {
     title: "第零章：无法抗拒，因为这是命运",
     filePath: "chapter0.txt",
+    id: 1,
   },
   {
     title: "第壹章：这种善意，绝对不是免费的",
     filePath: "chapter1.txt",
+    id: 2,
   },
   // Add more chapters as needed
 ];
@@ -70,8 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error fetching chapter content:", error);
       chapterContent.innerHTML = `<h2>Error</h2><p>Failed to load chapter content.</p>`;
+      //loadDisqusComments(index);
     }
   }
+  
 
   // Display the first chapter by default
   displayChapter(0);
