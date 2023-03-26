@@ -12,12 +12,19 @@ const chapters = [
     filePath: "chapter1.txt",
     id: 2,
   },
-  // Add more chapters as needed
+];
+
+const linktails = [
+  {
+    content: "还有时间的话，也来浏览一下这些网站吧！",
+    id: 1,
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
   const chapterList = document.getElementById("chapter-list");
   const chapterContent = document.getElementById("chapter-content");
+  const tailLinks = document.getElementById("tail-links");
 
   chapters.forEach((chapter, index) => {
     // Replace the existing forEach loop with this code
@@ -69,13 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = await response.text();
       //chapterContent.innerHTML = `<h2>${chapters[index].title}</h2><p>${content}</p>`;
       chapterContent.innerHTML = `<p>${content}</p>`;
+      displayTailLinks(0);
     } catch (error) {
       console.error("Error fetching chapter content:", error);
       chapterContent.innerHTML = `<h2>Error</h2><p>Failed to load chapter content.</p>`;
       //loadDisqusComments(index);
     }
   }
-  
+
+  function displayTailLinks(index) {
+    tailLinks.innerHTML = `<p>${linktails[index].content}</p>`;
+  }
 
   // Display the first chapter by default
   displayChapter(0);

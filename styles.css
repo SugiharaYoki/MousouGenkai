@@ -14,7 +14,7 @@ body {
 }
 
 .chapter-list {
-  width: 40%;
+  width: 60%;
   height: 80%;
   color: rgb(255, 255, 255);
 }
@@ -43,18 +43,21 @@ body {
   border: 3px solid #1b1b1b;
   background-color: #2b2927;
   color: rgb(255, 255, 255);
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   line-height: 1.9;
 }
 
-/* Add this to your styles.css 
-.right-side-image {
-  position: absolute;
-  top: 160px;
-  right: 40px;
-  width: 300px;
-}*/
-/* Add this to your styles.css */
+.tail-linker {
+  width: 65%;
+  padding: 1.0rem;
+  margin-left: 0.5rem;
+  font-size: 1.3rem;
+  color: rgb(199, 167, 206);
+  margin-bottom: 2rem;
+  line-height: 0;
+  font-weight: bold;
+}
+
 .header-image {
   display: block;
   width: 100%;
@@ -62,6 +65,18 @@ body {
   max-width: 100%; /* Ensures the image doesn't exceed the screen width */
   object-fit: cover; /* Ensures the image covers the entire header area */
 }
+
+.tail-linker-image {
+  display: n;
+  width: 15%;
+  height: auto;
+  margin-left: 1.5rem;
+  max-width: 15%;
+  object-fit: contain;
+  margin-bottom: 0.3rem;
+  border: 1.4px solid #4e4e4e;
+}
+
 /* Add this to your styles.css */
 .pagination {
   display: flex;
