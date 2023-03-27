@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000000;
+  /*font-family: 'GenJyuuLight', sans-serif;*/
 }
 
 
@@ -33,6 +34,14 @@ body {
   border: 1px solid #4b4e4e;
   background-color: #262626;
   color: rgb(255, 255, 255);
+  filter: brightness(100%); /* Darken the image by 50% when not hovered */
+  transition: filter 0.2s ease; /* Add a smooth transition effect */
+  transition: border 0.2s ease; /* Add a smooth transition effect */
+}
+
+.chapter-list ul li:hover {
+  filter: brightness(120%); /* Set the image brightness to normal when hovered */
+  border: 1px solid #aeb3b3;
 }
 
 .chapter-content {
@@ -74,7 +83,14 @@ body {
   max-width: 15%;
   object-fit: contain;
   margin-bottom: 0.3rem;
-  border: 1.4px solid #4e4e4e;
+  border: 1.4px solid #353535;
+  filter: brightness(100%); /* Darken the image by 50% when not hovered */
+  transition: filter 0.3s ease; /* Add a smooth transition effect */
+  transition: border 0.1s ease; /* Add a smooth transition effect */
+}
+.tail-linker-image:hover {
+  filter: brightness(120%); /* Set the image brightness to normal when hovered */
+  border: 1.4px solid #8e6989;
 }
 
 /* Add this to your styles.css */
@@ -98,4 +114,42 @@ body {
 .page-number.active {
   background-color: #202020;
   color: rgb(231, 231, 231);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.lhalf-image {
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s ease;
+}
+.lhalf-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  transition: filter 0.3s ease;
+}
+.lhalf-image:hover {
+  width: 30%;
+}
+.lhalf-image img:hover {
+  filter: brightness(100%);
+}
+
+@font-face {
+  font-family: 'GenJyuuLight';
+  src: url('fonts/GenJyuuGothic-P-Light.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
 }
