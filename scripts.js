@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = await response.text();
       //chapterContent.innerHTML = `<h2>${chapters[index].title}</h2><p>${content}</p>`;
       chapterContent.innerHTML = `<p>${content}</p>`;
+      //window.history.pushState(null, null, 'mousougenkai_chapter' + index);
       displayTailLinks(0);
     } catch (error) {
       console.error("Error fetching chapter content:", error);
