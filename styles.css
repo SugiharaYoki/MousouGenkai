@@ -80,8 +80,9 @@ body {
 }
 
 .chapter-list {
-  width: 60%;
+  width: 50%;
   height: 80%;
+  margin-left: 3.0rem;
   color: rgb(255, 255, 255);
 }
 
@@ -112,7 +113,7 @@ body {
 .chapter-content {
   width: 65%;
   padding: 1rem;
-  margin-left: 0.5rem;
+  margin-left: 3.5rem;
   font-size: 0.9rem;
   border: 3px solid #1b1b1b;
   background-color: #2b2927;
