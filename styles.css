@@ -7,6 +7,63 @@ body {
   /*font-family: 'GenJyuuLight', sans-serif;*/
 }
 
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.character-list-title {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #323232;
+  border: 1px solid #5c5c5c;
+  max-width: 100%;
+  padding: 0.2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.character-tabs {
+  width: 300px;
+  max-width: 100%;
+  margin-right: 50px;
+  background-color: #0f0f0f;
+}
+
+.character-tab {
+  display: inline-block;
+  padding: 3px 10px;
+  width: 85px;
+  background-color: #323232;
+  border: 1.3px solid #5c5c5c;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.character-details {
+  display: none;
+  padding: 10px;
+  border: 1.3px solid #5c5c5c;
+  border-top: none;
+  border-right: none;
+  color: #ffffff;
+}
+
+.tab-container:hover > .character-tab {
+  background-color: #aeb0ca;
+  border-bottom-color: transparent;
+}
+
+.tab-container:hover > .character-details {
+  display: block;
+}
+
+
 
 .main {
   display: flex;
