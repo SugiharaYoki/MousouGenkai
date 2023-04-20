@@ -23,7 +23,7 @@
       <div class="main-content" id="chapter-content">
         <!-- Chapter content -->
       </div>
-      <div class="character-tabs">
+      <div class="character-tabs" id="character-tabs">
         <!-- Character tabs -->
         <div class="character-list-title">登场人物情报库</div>
         <div class="tab-container">
@@ -93,6 +93,20 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </main>
+  <script>
+    window.addEventListener('scroll', function() {
+      var characterTabs = document.getElementById('character-tabs');
+      var chapterContent = document.getElementById('chapter-content');
+      var characterTabsRect = characterTabs.getBoundingClientRect();
+      var chapterContentRect = chapterContent.getBoundingClientRect();
+
+      if (characterTabsRect.top <= 0 && chapterContentRect.bottom > 0) {
+        characterTabs.classList.add('fixed-tabs');
+      } else {
+        characterTabs.classList.remove('fixed-tabs');
+      }
+    });
+  </script>
   <script id="dsq-count-scr" src="//sugiharayoki.disqus.com/count.js" async></script>
 </body>
 </html>
