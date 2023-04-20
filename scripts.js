@@ -12,6 +12,11 @@ const chapters = [
     filePath: "chapter1.txt",
     id: 2,
   },
+  {
+    title: "第贰章：既然并非现世，大家定会友好相处吧",
+    filePath: "chapter2.txt",
+    id: 3,
+  },
 ];
 
 const linktails = [
