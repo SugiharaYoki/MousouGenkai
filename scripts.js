@@ -35,49 +35,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const chapterContent = document.getElementById("chapter-content");
   const tailLinks = document.getElementById("tail-links");
 
-  chapters.forEach((chapter, index) => {
-    // Replace the existing forEach loop with this code
-    const totalPages = Math.ceil(chapters.length / chaptersPerPage);
+  // Move the code to display the chapter list outside of the forEach loop
+  const totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
-    function displayChapterList() {
-      chapterList.innerHTML = '';
-    
-      for (let i = (currentPage - 1) * chaptersPerPage; i < currentPage * chaptersPerPage && i < chapters.length; i++) {
-        const listItem = document.createElement('li');
-        listItem.textContent = chapters[i].title;
-        listItem.addEventListener('click', () => displayChapter(i));
-        chapterList.appendChild(listItem);
-      }
-    
-      displayPagination();
+  function displayChapterList() {
+    chapterList.innerHTML = "";
+
+    for (
+      let i = (currentPage - 1) * chaptersPerPage;
+      i < currentPage * chaptersPerPage && i < chapters.length;
+      i++
+    ) {
+      const listItem = document.createElement("li");
+      listItem.textContent = chapters[i].title;
+      listItem.addEventListener("click", () => {
+        displayChapter(i);
+        setActiveChapterButton(i);
+        setActiveChapterTitle(i); // Call the function here
+      });
+      listItem.addEventListener("click", () => displayChapter(i));
+      chapterList.appendChild(listItem);
     }
 
-    function displayPagination() {
-      const pagination = document.createElement('div');
-      pagination.className = 'pagination';
-    
-      for (let i = 1; i <= totalPages; i++) {
-        const pageNumber = document.createElement('button');
-        pageNumber.textContent = i;
-        pageNumber.className = 'page-number';
-        pageNumber.addEventListener('click', () => {
-          currentPage = i;
-          displayChapterList();
-        });
-      
-        if (i === currentPage) {
-          pageNumber.classList.add('active');
-        }
-      
-        pagination.appendChild(pageNumber);
+    displayPagination();
+  }
+
+  function displayPagination() {
+    const pagination = document.createElement("div");
+    pagination.className = "pagination";
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageNumber = document.createElement("button");
+      pageNumber.textContent = i;
+      pageNumber.className = "page-number";
+      pageNumber.addEventListener("click", () => {
+        currentPage = i;
+        displayChapterList();
+      });
+
+      if (i === currentPage) {
+        pageNumber.classList.add("active");
       }
-    
-      chapterList.appendChild(pagination);
+
+      pagination.appendChild(pageNumber);
     }
 
-    displayChapterList();
+    chapterList.appendChild(pagination);
+  }
 
-  });
+  displayChapterList();
 
   async function displayChapter(index) {
     try {
@@ -117,9 +123,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function setActiveChapterButton(index) {
+    const chapterButtons = document.querySelectorAll('.chapter-button');
+    chapterButtons.forEach((button, i) => {
+      if (i === index) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
+  function setActiveChapterTitle(index) {
+    const chapterListItems = document.querySelectorAll("#chapter-list li");
+    chapterListItems.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+  }
+  
+  document.getElementById("fontSizer").addEventListener("click", function () {
+    var content = document.getElementById("chapter-content");
+    var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
+  
+    var newSize;
+    switch (currentFontSize) {
+      case 14:
+        newSize = "15px";
+        break;
+      case 15:
+        newSize = "16px";
+        break;
+      case 16:
+        newSize = "14px";
+        break;
+      default:
+        newSize = "15px";
+        break;
+    }
+  
+    content.style.fontSize = newSize;
+  });
+
+  document.getElementById("toggleInvertColors").addEventListener("click", function() {
+    document.body.classList.toggle("light-mode");
+  });
+
+
   // Display the first chapter by default
   displayChapter(0);
   setCharacterAvailability(1);
+  setActiveChapterButton(0);
+  setActiveChapterTitle(0);
 });
 
 

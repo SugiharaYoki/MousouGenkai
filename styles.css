@@ -7,6 +7,10 @@ body {
   /*font-family: 'GenJyuuLight', sans-serif;*/
 }
 
+.light-mode {
+  background-color: #f4f4f4;
+}
+
 .content-wrapper {
   display: flex;
   justify-content: space-between;
@@ -23,6 +27,11 @@ body {
   margin-bottom: 3rem;
   line-height: 1.9;
 }
+.light-mode .main-content {
+  border: 3px solid #1b1b1b;
+  background-color: #f3e6d9;
+  color: #000000;
+}
 
 .character-list-title {
   font-size: 20px;
@@ -34,8 +43,11 @@ body {
   text-align: center;
   color: #ffffff;
 }
-
-
+.light-mode .character-list-title {
+  background-color: #c7c7c7;
+  border: 1px solid #979797;
+  color: #000000;
+}
 
 .character-tabs {
   width: 300px;
@@ -43,6 +55,9 @@ body {
   margin-right: 50px;
   margin-left: 20px;
   background-color: #0f0f0f;
+}
+.light-mode .character-tabs {
+  background-color: #ebebeb;
 }
 
 .character-tab {
@@ -54,6 +69,11 @@ body {
   color: #ffffff;
   cursor: pointer;
 }
+.light-mode .character-tab {
+  background-color: #b9b9b9;
+  border: 1.3px solid #949494;
+  color: #000000;
+}
 
 .character-details {
   display: none;
@@ -63,6 +83,25 @@ body {
   border-right: none;
   color: #ffffff;
 }
+.light-mode .character-details {
+  border: 1.3px solid #949494;
+  color: #000000;
+}
+
+.chapter-list ul li.active {
+  background-color: #7c3114; 
+}
+.light-mode .chapter-list ul li.active {
+  background-color: #a9dfff; 
+}
+#chapter-list li.active {
+  color: #ffffff; 
+  font-size: 18px;
+  font-weight: bold;
+}
+.light-mode #chapter-list li.active {
+  color: #000000; 
+}
 
 .character-tab:hover ~ .character-details {
   display: block;
@@ -71,6 +110,9 @@ body {
 .tab-container:hover > .character-tab {
   background-color: #aeb0ca;
   border-bottom-color: transparent;
+}
+.light-mode .tab-container:hover > .character-tab {
+  background-color: #b3ddf6;
 }
 
 .main {
@@ -84,6 +126,9 @@ body {
   height: 80%;
   margin-left: 3.0rem;
   color: rgb(255, 255, 255);
+}
+.light-mode .chapter-list {
+  color: rgb(0, 0, 0);
 }
 
 .chapter-list ul {
@@ -110,59 +155,81 @@ body {
   transition: filter 0.2s ease; /* Add a smooth transition effect */
   transition: border 0.2s ease; /* Add a smooth transition effect */
 }
+.light-mode .chapter-list ul li {
+  border: 1.2px solid #5b697b;
+  background-color: #dfdfdf;
+  color: rgb(0, 0, 0);
+  filter: brightness(100%);
+}
 
 .chapter-list ul li:hover {
   filter: brightness(120%); /* Set the image brightness to normal when hovered */
   border: 1px solid #aeb3b3;
+}
+.light-mode .chapter-list ul li:hover {
+  filter: brightness(95%); /* Set the image brightness to normal when hovered */
+  border: 1px solid #a5dbff;
 }
 
 .chapter-content {
   width: 65%;
   padding: 1rem;
   margin-left: 3.5rem;
-  font-size: 0.9rem;
+  font-size: 14.5px;
   border: 3px solid #1b1b1b;
   background-color: #2b2927;
   color: rgb(255, 255, 255);
   margin-bottom: 3rem;
   line-height: 1.9;
 }
+.light-mode .chapter-content {
+  border: 3px solid #717171;
+  background-color: #ececec;
+  color: rgb(0, 0, 0);
+}
 
 .tail-linker {
   width: 65%;
   padding: 1.0rem;
-  margin-left: 0.5rem;
+  margin-left: 2.5rem;
   font-size: 1.3rem;
-  color: rgb(199, 167, 206);
+  color: rgb(227, 187, 255);
   margin-bottom: 2rem;
   line-height: 0;
   font-weight: bold;
+}
+.light-mode .tail-linker {
+  color: rgb(45, 85, 172);
 }
 
 .header-image {
   display: block;
   width: 100%;
-  height: auto; /* Maintains the aspect ratio of the image */
-  max-width: 100%; /* Ensures the image doesn't exceed the screen width */
-  object-fit: cover; /* Ensures the image covers the entire header area */
+  height: auto; 
+  max-width: 100%; 
+  object-fit: cover; 
 }
 
 .tail-linker-image {
   display: n;
   width: 15%;
   height: auto;
-  margin-left: 1.5rem;
+  margin-left: 3.5rem;
   max-width: 15%;
   object-fit: contain;
   margin-bottom: 0.3rem;
   border: 1.4px solid #353535;
-  filter: brightness(100%); /* Darken the image by 50% when not hovered */
-  transition: filter 0.3s ease; /* Add a smooth transition effect */
-  transition: border 0.1s ease; /* Add a smooth transition effect */
+  filter: brightness(100%); 
+  transition: filter 0.3s ease; 
+  transition: border 0.1s ease;
 }
 .tail-linker-image:hover {
-  filter: brightness(120%); /* Set the image brightness to normal when hovered */
+  filter: brightness(120%); 
   border: 1.4px solid #8e6989;
+}
+.light-mode .tail-linker-image:hover {
+  filter: brightness(120%);
+  border: 1.4px solid #2e84c6;
 }
 
 /* Add this to your styles.css */
@@ -182,10 +249,18 @@ body {
   margin: 0.25rem;
   padding: 0.25rem;
 }
+.light-mode .page-number {
+  border: 1px solid #cacaca;
+  /*font-weight: bold;*/
+}
 
 .page-number.active {
   background-color: #202020;
   color: rgb(231, 231, 231);
+}
+.light-mode .page-number.active {
+  background-color: #dfdfdf;
+  color: rgb(0, 0, 0);
 }
 
 .image-container {
@@ -225,3 +300,13 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.disqus-container {
+  background-color: #030303;
+  padding: 3rem;
+}
+
+.light-mode .disqus-container {
+  background-color: #020f16;
+}
+
