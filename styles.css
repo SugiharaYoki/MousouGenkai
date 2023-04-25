@@ -193,7 +193,7 @@ body {
   padding: 1.0rem;
   margin-left: 2.5rem;
   font-size: 1.3rem;
-  color: rgb(227, 187, 255);
+  color: rgb(232, 155, 113);
   margin-bottom: 2rem;
   line-height: 0;
   font-weight: bold;
@@ -225,7 +225,7 @@ body {
 }
 .tail-linker-image:hover {
   filter: brightness(120%); 
-  border: 1.4px solid #8e6989;
+  border: 1.4px solid #a5663e;
 }
 .light-mode .tail-linker-image:hover {
   filter: brightness(120%);
@@ -302,7 +302,7 @@ body {
 }
 
 .disqus-container {
-  background-color: #030303;
+  background-color: #070300;
   padding: 3rem;
 }
 
