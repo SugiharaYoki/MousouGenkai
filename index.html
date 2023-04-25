@@ -5,19 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>选择想要前往的页面</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    function confirmAge() {
+      const answer = confirm("本小说存在不适合未成年人阅读的段落，你是否已年满18岁？");
+      if (answer) {
+        window.location.href = "mousougenkai_book.html";
+      } else {
+        alert("请遵守相关法规，未成年禁止阅读成人小说。");
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="image-container">
     <div class="lhalf-image">
-      <a href="mousougenkai_book.html">
+      <a href="#" onclick="confirmAge();">
         <img src="book_cover.png" alt="点击进入『妄想限界：白夜今明』系列故事">
-    </a>
+      </a>
     </div>
     <div class="lhalf-image">
       <a href="centergardenofsariel.html">
         <img src="azriel_cover.png" alt="点击进入『亚兹列尔的中庭花园』主页">
-    </a>
+      </a>
+    </div>
   </div>
-</div>
 </body>
 </html>

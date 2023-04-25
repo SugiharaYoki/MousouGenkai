@@ -150,6 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     var newSize;
     switch (currentFontSize) {
+      case 13:
+        newSize = "14px";
+        break;
       case 14:
         newSize = "15px";
         break;
@@ -157,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newSize = "16px";
         break;
       case 16:
-        newSize = "14px";
+        newSize = "13px";
         break;
       default:
         newSize = "15px";

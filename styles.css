@@ -16,6 +16,15 @@ body {
   justify-content: space-between;
 }
 
+button:hover {
+  cursor: pointer;
+}
+.custom-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6, 0 0 12px #b6b6b6;
+}
+
+
 .main-content {
   width: 65%;
   padding: 1rem;
@@ -172,10 +181,14 @@ body {
 }
 
 .chapter-content {
+  max-height: 650px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
   width: 65%;
   padding: 1rem;
   margin-left: 3.5rem;
-  font-size: 14.5px;
+  font-size: 15px;
   border: 3px solid #1b1b1b;
   background-color: #2b2927;
   color: rgb(255, 255, 255);
@@ -187,6 +200,21 @@ body {
   background-color: #ececec;
   color: rgb(0, 0, 0);
 }
+.chapter-content::-webkit-scrollbar {
+  width: 3.4px;
+  background-color: rgba(64, 64, 64, 0.1);
+}
+
+.chapter-content::-webkit-scrollbar-thumb {
+  background-color: rgba(108, 108, 108, 0.2);
+  border-radius: 5px;
+}
+
+.chapter-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(101, 101, 101, 0.8);
+}
+
+
 
 .tail-linker {
   width: 65%;
