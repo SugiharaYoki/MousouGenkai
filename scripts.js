@@ -18,7 +18,11 @@ const chapters = [
     id: 3,
   },
 ];
-
+const characterAvailability = {
+  1: [1,2],
+  2: [1,2,3,4,5],
+  3: [1,2,3,4,5,6,7,8],
+};
 const linktails = [
   {
     content: "还有时间的话，也来浏览一下这些网站吧！",
@@ -83,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       chapterContent.innerHTML = `<p>${content}</p>`;
       //window.history.pushState(null, null, 'mousougenkai_chapter' + index);
       displayTailLinks(0);
+      setCharacterAvailability(index + 1);
     } catch (error) {
       console.error("Error fetching chapter content:", error);
       chapterContent.innerHTML = `<h2>Error</h2><p>Failed to load chapter content.</p>`;
@@ -94,8 +99,27 @@ document.addEventListener("DOMContentLoaded", () => {
     tailLinks.innerHTML = `<p>${linktails[index].content}</p>`;
   }
 
+  function setCharacterAvailability(chapterId) {
+    const availableCharacters = characterAvailability[chapterId] || [];
+    const tabSelectors = document.querySelectorAll(".tab-selector");
+    const characterLabels = document.querySelectorAll(".character-tab");
+  
+    tabSelectors.forEach((selector, index) => {
+      selector.disabled = !availableCharacters.includes(index + 1);
+    });
+  
+    characterLabels.forEach((label, index) => {
+      if (!availableCharacters.includes(index + 1)) {
+        label.classList.add("disabled");
+      } else {
+        label.classList.remove("disabled");
+      }
+    });
+  }
+
   // Display the first chapter by default
   displayChapter(0);
+  setCharacterAvailability(1);
 });
 
 
