@@ -89,7 +89,7 @@ body {
 }
 
 .chapter-list ul li.active {
-  background-color: #7c3114; 
+  background-color: #494e9e; 
 }
 .light-mode .chapter-list ul li.active {
   background-color: #a9dfff; 
@@ -108,7 +108,7 @@ body {
 }
 
 .tab-container:hover > .character-tab {
-  background-color: #aeb0ca;
+  background-color: #696eb0;
   border-bottom-color: transparent;
 }
 .light-mode .tab-container:hover > .character-tab {
@@ -193,13 +193,13 @@ body {
   padding: 1.0rem;
   margin-left: 2.5rem;
   font-size: 1.3rem;
-  color: rgb(232, 155, 113);
+  color: rgb(189, 192, 255);
   margin-bottom: 2rem;
   line-height: 0;
   font-weight: bold;
 }
 .light-mode .tail-linker {
-  color: rgb(45, 85, 172);
+  color: rgb(64, 111, 211);
 }
 
 .header-image {
@@ -225,7 +225,7 @@ body {
 }
 .tail-linker-image:hover {
   filter: brightness(120%); 
-  border: 1.4px solid #a5663e;
+  border: 1.4px solid #6c76ff;
 }
 .light-mode .tail-linker-image:hover {
   filter: brightness(120%);
@@ -302,7 +302,7 @@ body {
 }
 
 .disqus-container {
-  background-color: #070300;
+  background-color: #000007;
   padding: 3rem;
 }
 

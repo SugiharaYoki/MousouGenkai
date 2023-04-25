@@ -25,7 +25,7 @@ const characterAvailability = {
 };
 const linktails = [
   {
-    content: "还有时间的话，也来浏览一下这些网站吧！",
+    content: "还有空闲时间的话，也来浏览一下这些网站吧！",
     id: 1,
   },
 ];
