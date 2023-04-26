@@ -17,11 +17,17 @@ const chapters = [
     filePath: "chapter2.txt",
     id: 3,
   },
+  {
+    title: "「未完成」第叁章：此世，未免过于斑斓梦幻",
+    filePath: "chapter3.txt",
+    id: 4,
+  },
 ];
 const characterAvailability = {
   1: [1,2],
   2: [1,2,3,4,5],
   3: [1,2,3,4,5,6,7,8],
+  4: [1,2,3,4,5,6,7,8,9,10,11],
 };
 const linktails = [
   {
