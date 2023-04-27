@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const chapterContent = document.getElementById("chapter-content");
   const tailLinks = document.getElementById("tail-links");
 
-  // Move the code to display the chapter list outside of the forEach loop
   const totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
   async function displayChapterList() {
@@ -68,14 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
       listItem.addEventListener("click", () => {
         displayChapter(i);
-        setActiveChapterButton(i);
         setActiveChapterTitle(i);
       });
   
       chapterList.appendChild(listItem);
     }
-  
     displayPagination();
+    setActiveChapterTitle(lastChapterIndex);
   }
 
   function displayPagination() {
@@ -141,16 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function setActiveChapterButton(index) {
-    const chapterButtons = document.querySelectorAll('.chapter-button');
-    chapterButtons.forEach((button, i) => {
-      if (i === index) {
-        button.classList.add('active');
-      } else {
-        button.classList.remove('active');
-      }
-    });
-  }
   function setActiveChapterTitle(index) {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
     chapterListItems.forEach((item, i) => {
@@ -160,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.classList.remove("active");
       }
     });
+    saveLastChapter(index);
   }
   
   document.getElementById("fontSizer").addEventListener("click", function () {
@@ -237,15 +226,27 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("light-mode");
     }
   }
-  applyFontSizeFromCookie();
-  applyColorModeFromCookie();
+
+  function saveLastChapter(chapterIndex) {
+    setCookie("lastChapter", chapterIndex, 7);
+  }
+  
+  function loadLastChapter() {
+    const chapterIndex = parseInt(getCookie("lastChapter"));
+    if (!isNaN(chapterIndex) && chapterIndex >= 0 && chapterIndex < chapters.length) {
+      return chapterIndex;
+    } else {
+      return 0; // Default to the first chapter
+    }
+  }
   
   // Display the first chapter by default
-  displayChapter(0);
-  setCharacterAvailability(1);
-  setActiveChapterButton(0);
-  setActiveChapterTitle(0);
+  const lastChapterIndex = loadLastChapter();
+  displayChapter(lastChapterIndex);
+  setCharacterAvailability(lastChapterIndex + 1);
 
+  applyFontSizeFromCookie();
+  applyColorModeFromCookie();
 });
 
 
