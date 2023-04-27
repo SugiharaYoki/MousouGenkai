@@ -18,7 +18,7 @@ const chapters = [
     id: 3,
   },
   {
-    title: "「未完成」第叁章：此世，未免过于斑斓梦幻",
+    title: "第叁章：此世，未免过于斑斓梦幻「试读」",
     filePath: "chapter3.txt",
     id: 4,
   },
@@ -44,25 +44,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // Move the code to display the chapter list outside of the forEach loop
   const totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
-  function displayChapterList() {
+  async function displayChapterList() {
     chapterList.innerHTML = "";
-
+  
     for (
       let i = (currentPage - 1) * chaptersPerPage;
       i < currentPage * chaptersPerPage && i < chapters.length;
       i++
     ) {
       const listItem = document.createElement("li");
-      listItem.textContent = chapters[i].title;
+      listItem.classList.add("chapter-item");
+  
+      const titleElement = document.createElement("div");
+      titleElement.textContent = chapters[i].title;
+      listItem.appendChild(titleElement);
+  
+      const characterCount = await getCharacterCount(chapters[i].filePath);
+      const characterCountElement = document.createElement("div");
+      const readingTime = Math.round(characterCount / 300);
+      characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
+      characterCountElement.classList.add("chapter-character-count");
+      listItem.appendChild(characterCountElement);
+  
       listItem.addEventListener("click", () => {
         displayChapter(i);
         setActiveChapterButton(i);
-        setActiveChapterTitle(i); // Call the function here
+        setActiveChapterTitle(i);
       });
-      listItem.addEventListener("click", () => displayChapter(i));
+  
       chapterList.appendChild(listItem);
     }
-
+  
     displayPagination();
   }
 
@@ -174,18 +186,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     content.style.fontSize = newSize;
+    setCookie("userFontSize", newSize, 365);
   });
 
   document.getElementById("toggleInvertColors").addEventListener("click", function() {
     document.body.classList.toggle("light-mode");
+    const isLightMode = document.body.classList.contains("light-mode");
+    setCookie("userColorMode", isLightMode ? "light" : "dark", 7);
   });
 
+  async function getCharacterCount(filePath) {
+    try {
+      const response = await fetch(filePath);
+      const content = await response.text();
+      return content.length;
+    } catch (error) {
+      console.error("Error fetching chapter content for character count:", error);
+      return 0;
+    }
+  }
 
+  function setCookie(name, value, days) {
+    let expires = '';
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; path=/';
+  }
+  
+  function getCookie(name) {
+    const value = '; ' + document.cookie;
+    const parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  function applyFontSizeFromCookie() {
+    const userFontSize = getCookie("userFontSize");
+    if (userFontSize) {
+      const content = document.getElementById("chapter-content");
+      content.style.fontSize = userFontSize;
+    }
+  }
+  function applyColorModeFromCookie() {
+    const userColorMode = getCookie("userColorMode");
+    if (userColorMode === "light") {
+      document.body.classList.add("light-mode");
+    } else if (userColorMode === "dark") {
+      document.body.classList.remove("light-mode");
+    }
+  }
+  applyFontSizeFromCookie();
+  applyColorModeFromCookie();
+  
   // Display the first chapter by default
   displayChapter(0);
   setCharacterAvailability(1);
   setActiveChapterButton(0);
   setActiveChapterTitle(0);
+
 });
 
 

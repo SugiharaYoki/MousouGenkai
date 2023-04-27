@@ -24,6 +24,19 @@ button:hover {
   box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6, 0 0 12px #b6b6b6;
 }
 
+.chapter-item {
+  position: relative;
+}
+
+.chapter-character-count {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.5rem;
+  color: #7a7a7a;
+}
+
 
 .main-content {
   width: 65%;
@@ -131,8 +144,8 @@ button:hover {
 }
 
 .chapter-list {
-  width: 50%;
-  height: 80%;
+  width: 520px;
+  max-width: 150%;
   margin-left: 3.0rem;
   color: rgb(255, 255, 255);
 }
@@ -160,9 +173,9 @@ button:hover {
   border: 1px solid #4b4e4e;
   background-color: #262626;
   color: rgb(255, 255, 255);
-  filter: brightness(100%); /* Darken the image by 50% when not hovered */
-  transition: filter 0.2s ease; /* Add a smooth transition effect */
-  transition: border 0.2s ease; /* Add a smooth transition effect */
+  filter: brightness(100%);
+  transition: filter 0.2s ease;
+  transition: border 0.2s ease;
 }
 .light-mode .chapter-list ul li {
   border: 1.2px solid #5b697b;
