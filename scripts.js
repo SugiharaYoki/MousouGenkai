@@ -1,5 +1,4 @@
-let currentPage = 1;
-const chaptersPerPage = 5; // You can adjust this number as needed
+let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
@@ -31,49 +30,31 @@ const characterAvailability = {
 };
 const linktails = [
   {
-    content: "还有空闲时间的话，也来浏览一下这些网站吧！",
+    content: "也来浏览一下这些网站吧！",
     id: 1,
   },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  const chapterList = document.getElementById("chapter-list");
-  const chapterContent = document.getElementById("chapter-content");
-  const tailLinks = document.getElementById("tail-links");
-
-  const totalPages = Math.ceil(chapters.length / chaptersPerPage);
+  const chapterList = document.getElementById("chapter-list"), chapterContent = document.getElementById("chapter-content"), tailLinks = document.getElementById("tail-links"), totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
   async function displayChapterList() {
     chapterList.innerHTML = "";
-  
-    for (
-      let i = (currentPage - 1) * chaptersPerPage;
-      i < currentPage * chaptersPerPage && i < chapters.length;
-      i++
-    ) {
+    for (let i = (currentPage - 1) * chaptersPerPage; i < currentPage * chaptersPerPage && i < chapters.length; i++) {
       const listItem = document.createElement("li");
       listItem.classList.add("chapter-item");
-  
       const titleElement = document.createElement("div");
       titleElement.textContent = chapters[i].title;
       listItem.appendChild(titleElement);
-  
       const characterCount = await getCharacterCount(chapters[i].filePath);
-      const characterCountElement = document.createElement("div");
-      const readingTime = Math.round(characterCount / 300);
+      const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 300);
       characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
       characterCountElement.classList.add("chapter-character-count");
       listItem.appendChild(characterCountElement);
-  
-      listItem.addEventListener("click", () => {
-        displayChapter(i);
-        setActiveChapterTitle(i);
-      });
-  
+      listItem.addEventListener("click", () => { displayChapter(i); setActiveChapterTitle(i); });
       chapterList.appendChild(listItem);
     }
-    displayPagination();
-    setActiveChapterTitle(lastChapterIndex);
+    displayPagination(); setActiveChapterTitle(lastChapterIndex);
   }
 
   function displayPagination() {
@@ -98,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     chapterList.appendChild(pagination);
   }
-
   displayChapterList();
 
   async function displayChapter(index) {
@@ -113,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error fetching chapter content:", error);
       chapterContent.innerHTML = `<h2>Error</h2><p>Failed to load chapter content.</p>`;
-      //loadDisqusComments(index);
     }
   }
 
@@ -181,7 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("toggleInvertColors").addEventListener("click", function() {
     document.body.classList.toggle("light-mode");
     const isLightMode = document.body.classList.contains("light-mode");
-    setCookie("userColorMode", isLightMode ? "light" : "dark", 7);
+    setCookie("userColorMode", isLightMode ? "light" : "dark", 365);
+  });
+  document.getElementById("toggleCharacterList").addEventListener("click", function () {
+    const characterList = document.getElementById("character-tabs");
+    characterList.classList.toggle("hidden");
+    const isHidden = characterList.classList.contains("hidden");
+    setCookie("enableCharacterWiki", isHidden ? "hidden" : "shown", 365);
   });
 
   async function getCharacterCount(filePath) {
@@ -211,19 +196,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-  function applyFontSizeFromCookie() {
+  function applyCookie() {
     const userFontSize = getCookie("userFontSize");
     if (userFontSize) {
       const content = document.getElementById("chapter-content");
       content.style.fontSize = userFontSize;
     }
-  }
-  function applyColorModeFromCookie() {
     const userColorMode = getCookie("userColorMode");
     if (userColorMode === "light") {
       document.body.classList.add("light-mode");
     } else if (userColorMode === "dark") {
       document.body.classList.remove("light-mode");
+    }
+    const enableCharacterWiki = getCookie("enableCharacterWiki");
+    const characterList = document.getElementById("character-tabs");
+    if (enableCharacterWiki === "hidden") {
+      characterList.classList.add("hidden");
+    } else if (enableCharacterWiki === "shown") {
+      characterList.classList.remove("hidden");
     }
   }
 
@@ -236,17 +226,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isNaN(chapterIndex) && chapterIndex >= 0 && chapterIndex < chapters.length) {
       return chapterIndex;
     } else {
-      return 0; // Default to the first chapter
+      return 0;
     }
   }
   
-  // Display the first chapter by default
   const lastChapterIndex = loadLastChapter();
   displayChapter(lastChapterIndex);
   setCharacterAvailability(lastChapterIndex + 1);
 
-  applyFontSizeFromCookie();
-  applyColorModeFromCookie();
+  applyCookie();
 });
 
 
