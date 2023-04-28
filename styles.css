@@ -128,7 +128,7 @@ button:hover {
 .character-tab:hover ~ .character-details {
   display: block;
   transition: block 1.1s ease;
-  top: 67.1%;
+  top: 74%;
 }
 .tab-container:hover > .character-tab {
   background-color: #696eb0;
