@@ -6,7 +6,6 @@ body {
   background-color: #000000;
   /*font-family: 'GenJyuuLight', sans-serif;*/
 }
-
 .light-mode {
   background-color: #f4f4f4;
 }
@@ -38,14 +37,6 @@ button:hover {
   position: relative;
 }
 
-.chapter-character-count {
-  font-size: 0.8rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 0.5rem;
-  color: #7a7a7a;
-}
 
 .main-content {
   width: 65%;
@@ -168,7 +159,6 @@ button:hover {
 }
 #chapter-list li.active {
   color: #ffffff; 
-  font-size: 18px;
   font-weight: bold;
 }
 .light-mode #chapter-list li.active {
@@ -233,6 +223,14 @@ button:hover {
   filter: brightness(95%); 
   border: 1px solid #a5dbff;
 }
+.chapter-character-count {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.5rem;
+  color: #7a7a7a;
+}
 
 .chapter-content {
   max-height: 650px;
@@ -291,11 +289,10 @@ button:hover {
 }
 
 .tail-linker-image {
-  display: n;
   width: 15%;
   height: auto;
   margin-left: 3.5rem;
-  max-width: 15%;
+  max-width: 50%;
   object-fit: contain;
   margin-bottom: 0.3rem;
   border: 1.4px solid #353535;
@@ -342,36 +339,6 @@ button:hover {
   color: rgb(0, 0, 0);
 }
 
-.image-container {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-}
-.lhalf-image {
-  display: flex;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 25%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  transition: width 0.3s ease;
-}
-.lhalf-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(50%);
-  transition: filter 0.3s ease;
-}
-.lhalf-image:hover {
-  width: 600px;
-}
-.lhalf-image img:hover {
-  filter: brightness(100%);
-}
 
 @font-face {
   font-family: 'GenJyuuLight';
@@ -415,16 +382,13 @@ button:hover {
   font-family: 'jingyue';
   src: url('fonts/静月.ttf') format('truetype');
 }
-
 .disqus-container {
   background-color: #000007;
   padding: 3rem;
 }
-
 .light-mode .disqus-container {
   background-color: #020f16;
 }
-
 .chapter-summary-box {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -455,10 +419,135 @@ button:hover {
 .chapter-summary-box::-webkit-scrollbar-thumb:hover {
   background-color: rgba(101, 101, 101, 0.8);
 }
-
 .list-and-summary {
   display: flex;
   justify-content:flex-start;
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .chapter-list {
+    max-width: 95%;
+    min-width: 50%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+    color: rgb(255, 255, 255);
+    font-family: 'PangMenZhengDaoXiXianTi-2';
+  }
+  .chapter-list ul li {
+    cursor: pointer;
+    max-width: 80%;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    border: 1px solid #4b4e4e;
+    background-color: #262626;
+    color: rgb(255, 255, 255);
+    filter: brightness(100%);
+    transition: filter 0.2s ease;
+    transition: border 0.2s ease;
+    font-family: 'SourceHansNormal';
+  }
+  .chapter-character-count {
+    font-size: 0.52rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 0.3rem;
+    color: #7a7a7a;
+  }
+  .list-and-summary {
+    display: block;
+    justify-content:flex-start;
+    align-items: center;
+  }
+  .chapter-summary-box {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: inline-block;
+    max-width: 80%;
+    justify-content:center;
+    margin-left: 2.0rem;
+    margin-right: 2.0rem;
+    margin-top: -0.3rem;
+    margin-bottom: 0.8rem;
+    font-size: 12.5px;
+    color: rgb(255, 255, 255);
+    line-height: 1.4;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'SourceHansNormal';
+    border: 1.6px solid #34343431;
+  }
+  .chapter-content {
+    max-height: 650px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.0rem;
+    width: 100%;
+    margin-left: 1.1rem;
+    margin-right: 1.1rem;
+    font-size: 13px;
+    border: 3px solid #1b1b1b;
+    background-color: #2b2927;
+    color: rgb(255, 255, 255);
+    margin-bottom: 3rem;
+    line-height: 1.9;
+  }
+  .tail-linker {
+    width: 100%;
+    margin-left: 1.0rem;
+    font-size: 1.2rem;
+    color: rgb(189, 192, 255);
+    line-height: 0;
+    font-weight: bold;
+    font-family: 'PangMenZhengDaoXiXianTi-2';
+    display: none;
+  }
+  .tail-linker-image {
+    width: 50%;
+    height: auto;
+    margin-left: 2.2rem;
+    max-width: 100%;
+    object-fit: contain;
+    border: 1.4px solid #353535;
+    filter: brightness(100%); 
+    transition: border 0.1s ease;
+  }
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .character-tabs {
+    width: 60%;
+    max-width: 768px;
+    height: 500px;
+    max-height: 100%;
+    margin-left: 30px;
+    background-color: #0f0f0f;
+    position: absolute;
+    border: 1.9px solid #353535;
+  }
+  .character-details {
+    display: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1.5px solid #5c5c5c;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #ffffff;
+    font-size: 14.5px;
+    clear: both;
+    position:absolute;
+    width: 50%;
+    max-width: 250px;
+    margin-left:103px;
+    margin-top:-365px;
+  }
+}
