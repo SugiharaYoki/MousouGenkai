@@ -17,9 +17,21 @@ body {
 button:hover {
   cursor: pointer;
 }
+
 .custom-button:hover {
   cursor: pointer;
   box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6, 0 0 12px #b6b6b6;
+}
+.custom-button {
+  font-family: 'jingyue';
+  border-radius: 50%; 
+  color: rgb(244, 235, 255); 
+  font-weight: bold; 
+  font-size: 12px; 
+  border: none;
+}
+.light-mode .custom-button {
+  color: rgb(237, 237, 237); 
 }
 
 .chapter-item {
@@ -64,9 +76,11 @@ button:hover {
   border: 1px solid #5c5c5c;
   max-width: 100%;
   padding: 0.3rem;
+  padding-top: 0.5rem;
   text-align: center;
   color: #ffffff;
   position: relative;
+  font-family: 'PangMenZhengDaoXiXianTi-2';
 }
 .light-mode .character-list-title {
   background-color: #c7c7c7;
@@ -80,6 +94,7 @@ button:hover {
   margin-right: 50px;
   margin-left: -20px;
   background-color: #0f0f0f;
+  position: relative;
 }
 .light-mode .character-tabs {
   background-color: #ebebeb;
@@ -97,6 +112,7 @@ button:hover {
   color: #ffffff;
   cursor: pointer;
   position: relative;
+  font-family: 'SourceHansNormal';
 }
 .light-mode .character-tab {
   background-color: #b9b9b9;
@@ -118,8 +134,9 @@ button:hover {
   position:absolute;
   width: calc(16.0vw);
   max-width: 210px;
-  margin-left:100px;
-  margin-top:-30px;
+  margin-left:103px;
+  margin-top:-560px;
+  /* writing-mode: vertical-lr; */
 }
 .light-mode .character-details {
   border: 1.3px solid #949494;
@@ -172,6 +189,7 @@ button:hover {
   max-width: 150%;
   margin-left: 3.0rem;
   color: rgb(255, 255, 255);
+  font-family: 'PangMenZhengDaoXiXianTi-2';
 }
 .light-mode .chapter-list {
   color: rgb(0, 0, 0);
@@ -199,6 +217,7 @@ button:hover {
   filter: brightness(100%);
   transition: filter 0.2s ease;
   transition: border 0.2s ease;
+  font-family: 'SourceHansNormal';
 }
 .light-mode .chapter-list ul li {
   border: 1.2px solid #5b697b;
@@ -240,16 +259,13 @@ button:hover {
   width: 3.4px;
   background-color: rgba(64, 64, 64, 0.1);
 }
-
 .chapter-content::-webkit-scrollbar-thumb {
   background-color: rgba(108, 108, 108, 0.2);
   border-radius: 5px;
 }
-
 .chapter-content::-webkit-scrollbar-thumb:hover {
   background-color: rgba(101, 101, 101, 0.8);
 }
-
 
 
 .tail-linker {
@@ -261,6 +277,7 @@ button:hover {
   margin-bottom: 2rem;
   line-height: 0;
   font-weight: bold;
+  font-family: 'PangMenZhengDaoXiXianTi-2';
 }
 .light-mode .tail-linker {
   color: rgb(64, 111, 211);
@@ -359,9 +376,45 @@ button:hover {
 
 @font-face {
   font-family: 'GenJyuuLight';
-  src: url('fonts/GenJyuuGothic-P-Light.ttf') format('ttf');
+  src: url('fonts/GenJyuuGothic-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+@font-face {
+  font-family: 'GenJyuuNormal';
+  src: url('fonts/GenJyuuGothic-Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceHansLight';
+  src: url('fonts/SourceHanSansSC-Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceHansNormal';
+  src: url('fonts/SourceHanSansSC-Normal.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceHansRegular';
+  src: url('fonts/SourceHanSansSC-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PangMenZhengDaoXiXianTi-2';
+  src: url('fonts/PangMenZhengDaoXiXianTi-2.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'baiyu';
+  src: url('fonts/白雨.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'jingyue';
+  src: url('fonts/静月.ttf') format('truetype');
 }
 
 .disqus-container {
