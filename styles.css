@@ -182,7 +182,11 @@ button:hover {
   padding: 0;
 }
 
-
+.chapter-list .chapter-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
 .chapter-list ul li {
   cursor: pointer;
   padding: 0.5rem;

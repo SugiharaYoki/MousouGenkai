@@ -53,17 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
       listItem.classList.add("chapter-item");
       const titleElement = document.createElement("div");
       titleElement.textContent = chapters[i].title;
-      listItem.appendChild(titleElement);
+      const listLinker = document.createElement("a");
+      listLinker.href = `mousou_chapter${i + 1}.html`;
+      listItem.appendChild(listLinker);
+      listLinker.appendChild(titleElement);
+      listLinker.classList.add("chapter-link");
       const characterCount = await getCharacterCount(chapters[i].filePath);
       const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 300);
       characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
       characterCountElement.classList.add("chapter-character-count");
-      listItem.appendChild(characterCountElement);
-      listItem.addEventListener("click", () => { displayChapter(i); setActiveChapterTitle(i); });
+      listLinker.appendChild(characterCountElement);
       chapterList.appendChild(listItem);
     }
-    displayPagination(); setActiveChapterTitle(lastChapterIndex);
-  }
+    displayPagination(); setActiveChapterTitle();
+  } 
 
   function displayPagination() {
     const pagination = document.createElement("div");
@@ -100,8 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      console.error("Error fetching chapter content:", error);
-      chapterContent.innerHTML = `<h2>Error</h2><p>Failed to load chapter content.</p>`;
+      chapterContent.innerHTML = `<br><br><br><h3>“在那只存在纷争与妄想的世界之中，<br>唯独你的信念给予了我无限的希望。”</h3><br><br><br>`;
+      setCharacterAvailability(1);
+      displayChapterSummary(0);
     }
   }
 
@@ -127,18 +131,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function setActiveChapterTitle(index) {
+  function setActiveChapterTitle() {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
+    const currentPageIndex = getCurrentPageIndex();
     chapterListItems.forEach((item, i) => {
-      if (i === index) {
+      if (i === currentPageIndex) {
         item.classList.add("active");
       } else {
         item.classList.remove("active");
       }
     });
-    saveLastChapter(index);
   }
+  function getCurrentPageIndex() {
+    const currentPath = window.location.pathname;
+    const chapterIndexRegex = /mousou_chapter(\d+)\.html/;
+    const match = currentPath.match(chapterIndexRegex);
   
+    if (match) {
+      return parseInt(match[1]) - 1;
+    } else {
+      return 0;
+    }
+  }
+
+
   document.getElementById("fontSizer").addEventListener("click", function () {
     var content = document.getElementById("chapter-content");
     var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
@@ -231,23 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
       characterList.classList.remove("hidden");
     }
   }
-
-  function saveLastChapter(chapterIndex) {
-    setCookie("lastChapter", chapterIndex, 7);
-  }
-  
-  function loadLastChapter() {
-    const chapterIndex = parseInt(getCookie("lastChapter"));
-    if (!isNaN(chapterIndex) && chapterIndex >= 0 && chapterIndex < chapters.length) {
-      return chapterIndex;
-    } else {
-      return 0;
-    }
-  }
-  
-  const lastChapterIndex = loadLastChapter();
-  displayChapter(lastChapterIndex);
-  setCharacterAvailability(lastChapterIndex + 1);
+  displayChapter(getCurrentPageIndex()); 
+  setActiveChapterTitle();
 
   applyCookie();
 });
