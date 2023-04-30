@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><br><h3>“在那只存在纷争与妄想的世界之中，<br>唯独你的信念给予了我无限的希望。”</h3><br><br><br>`;
+      chapterContent.innerHTML = `<br><br><br><h3>“纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。”</h3>`;
       setCharacterAvailability(1);
       displayChapterSummary(0);
     }
