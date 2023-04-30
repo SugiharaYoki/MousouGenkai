@@ -31,6 +31,7 @@ const chapters = [
   },
 ];
 const characterAvailability = {
+  0: [1,2],
   1: [1,2],
   2: [1,2,3,4,5],
   3: [1,2,3,4,5,6,7,8],
@@ -96,17 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(chapters[index].filePath);
       const content = await response.text();
-      //chapterContent.innerHTML = `<h2>${chapters[index].title}</h2><p>${content}</p>`;
       chapterContent.innerHTML = `<p>${content}</p>`;
-      //window.history.pushState(null, null, 'mousougenkai_chapter' + index);
-      displayTailLinks(0);
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><br><h3>“纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。”</h3>`;
-      setCharacterAvailability(1);
+      chapterContent.innerHTML = `<br><br><h3>“纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。”</h3><br><br>`;
+      setCharacterAvailability(0);
       displayChapterSummary(0);
     }
+    displayTailLinks(0);
   }
 
   function displayTailLinks(index) {

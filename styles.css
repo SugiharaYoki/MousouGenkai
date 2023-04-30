@@ -111,7 +111,6 @@ button:hover {
   border: 1.3px solid #5c5c5c;
   color: #ffffff;
   cursor: pointer;
-  position: relative;
   font-family: 'SourceHansNormal';
 }
 .light-mode .character-tab {
@@ -135,7 +134,7 @@ button:hover {
   width: calc(16.0vw);
   max-width: 210px;
   margin-left:103px;
-  margin-top:-265px;
+  margin-top:-565px;
   /* writing-mode: vertical-lr; */
 }
 .light-mode .character-details {
