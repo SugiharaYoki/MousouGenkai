@@ -69,8 +69,6 @@
           <label class="character-tab" id="character11">池谷彻</label>
           <div class="character-details">元素：风<br>武器：大型战镰<br><br>独行三无派男玩家。<br>归属雾雨红的公会“凶染Rhyme”，但从未出席任何公会聚餐。<br>个性阴暗，常给人一种不舒服的感觉。<br>竹内町“异维杀戮”事件的关键角色之一。</div>
         </div>
-        
-        <!-- Add more character tabs here -->
       </div>
     </div>
     <div class="tail-linker" id="tail-links">
@@ -90,14 +88,10 @@
       <div id="disqus_thread"></div>
     </div>
     <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
         var disqus_config = function () {
-          //this.page.identifier = '/x21/';
           this.page.url = window.location.href;
         };
-        (function() { // DON'T EDIT BELOW THIS LINE
+        (function() {
         var d = document, s = d.createElement('script');
         s.src = 'https://sugiharayoki.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
@@ -105,20 +99,6 @@
         })();
     </script>
   </main>
-  <script>
-    window.addEventListener('scroll', function() {
-      var characterTabs = document.getElementById('character-tabs');
-      var chapterContent = document.getElementById('chapter-content');
-      var characterTabsRect = characterTabs.getBoundingClientRect();
-      var chapterContentRect = chapterContent.getBoundingClientRect();
-
-      if (characterTabsRect.top <= 0 && chapterContentRect.bottom > 0) {
-        characterTabs.classList.add('fixed-tabs');
-      } else {
-        characterTabs.classList.remove('fixed-tabs');
-      }
-    });
-  </script>
   <script id="dsq-count-scr" src="//sugiharayoki.disqus.com/count.js" async></script>
 </body>
 </html>
