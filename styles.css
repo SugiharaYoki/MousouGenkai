@@ -546,7 +546,7 @@ button:hover {
     font-size: 14.5px;
     clear: both;
     position:absolute;
-    width: 80%;
+    width: 70%;
     max-width: 250px;
     margin-left:103px;
     margin-top:-365px;
@@ -556,8 +556,8 @@ button:hover {
     border-radius: 30%; 
     color: rgb(244, 235, 255); 
     font-weight: bold; 
-    font-size: 11px; 
+    font-size: 10px; 
     border: none;
-    border: 1.5px solid rgb(175, 175, 175);
+    border: 1.4px solid rgb(175, 175, 175);
   }
 }
