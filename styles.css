@@ -96,9 +96,9 @@ button:hover {
   padding: 1.5px; 
   padding-left: 5.5px;
   /*padding: 2.5px 7.3px;*/
-  width: 90px;
+  width: 100px;
   /*font-size: calc(8px + 0.5vw);*/
-  font-size: 16px;
+  font-size: 15.3px;
   background-color: #323232;
   border: 1.3px solid #5c5c5c;
   color: #ffffff;
@@ -125,7 +125,7 @@ button:hover {
   position:absolute;
   width: calc(16.0vw);
   max-width: 210px;
-  margin-left:103px;
+  margin-left:110px;
   margin-top:-565px;
   /* writing-mode: vertical-lr; */
 }

@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const availableCharacters = characterAvailability[chapterId] || [];
     const tabSelectors = document.querySelectorAll(".tab-selector");
     const characterLabels = document.querySelectorAll(".character-tab");
+    const termLabels = document.querySelectorAll(".term-tab");
   
     tabSelectors.forEach((selector, index) => {
       selector.disabled = !availableCharacters.includes(index + 1);
@@ -127,6 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         label.classList.remove("disabled");
       }
+    });
+    termLabels.forEach((label, index) => {
+      label.classList.remove("disabled");
     });
   }
 
@@ -188,9 +192,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("toggleCharacterList").addEventListener("click", function () {
     const characterList = document.getElementById("character-tabs");
+    const termList = document.getElementById("term-tabs");
     characterList.classList.toggle("hidden");
+    termList.classList.add("hidden");
     const isHidden = characterList.classList.contains("hidden");
+    const isHidden2 = termList.classList.contains("hidden");
     setCookie("enableCharacterWiki", isHidden ? "hidden" : "shown", 365);
+    setCookie("enableTermWiki", isHidden2 ? "hidden" : "shown", 365);
+  });
+  document.getElementById("toggleTermList").addEventListener("click", function () {
+    const termList = document.getElementById("term-tabs");
+    const characterList = document.getElementById("character-tabs");
+    termList.classList.toggle("hidden");
+    characterList.classList.add("hidden");
+    const isHidden = termList.classList.contains("hidden");
+    const isHidden2 = characterList.classList.contains("hidden");
+    setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
+    setCookie("enableCharacterWiki", isHidden2 ? "hidden" : "shown", 365);
   });
 
   async function getCharacterCount(filePath) {
@@ -239,11 +257,18 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("light-mode");
     }
     const enableCharacterWiki = getCookie("enableCharacterWiki");
+    const enableTermWiki = getCookie("enableTermWiki");
     const characterList = document.getElementById("character-tabs");
+    const termList = document.getElementById("term-tabs");
     if (enableCharacterWiki === "hidden") {
       characterList.classList.add("hidden");
     } else if (enableCharacterWiki === "shown") {
       characterList.classList.remove("hidden");
+    }
+    if (enableTermWiki === "hidden") {
+      termList.classList.add("hidden");
+    } else if (enableTermWiki === "shown") {
+      termList.classList.remove("hidden");
     }
   }
   displayChapter(getCurrentPageIndex()); 
