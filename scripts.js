@@ -226,6 +226,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const summaryBox = document.getElementById("chapter-summary");
     summaryBox.innerHTML = `<h3>${chapters[index].shortTitle} 故事概览</h3><p>${chapters[index].summary}</p>`;
   }
+
+  
   
 
   function setCookie(name, value, days) {

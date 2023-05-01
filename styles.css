@@ -27,11 +27,77 @@ button:hover {
   color: rgb(244, 235, 255); 
   font-weight: bold; 
   font-size: 12px; 
-  border: none;
   border: 1.5px solid rgb(175, 175, 175);
+  z-index: 50;
 }
 .light-mode .custom-button {
   color: rgb(237, 237, 237); 
+}
+.bottom-scroller {
+  position: fixed; 
+  bottom: 765px; 
+  right: 55px; 
+  z-index: 0;
+}
+.top-scroller {
+  position: fixed; 
+  bottom: 770px; 
+  right: 18px; 
+  z-index: 0;
+  transform: rotate(180deg);
+  border-color:#000007;
+}
+.light-mode .bottom-scroller {
+  filter: invert(1.0);
+}
+.light-mode .top-scroller {
+  filter: invert(1.0);
+}
+#shareButton {
+  cursor: pointer;
+  margin-top: -0px;
+  margin-left: 60px;
+  margin-bottom: 3.5rem;
+  display: block;
+}
+#shareMessage {
+  margin-left: 28.5px;
+  margin-top: -117px;
+  z-index:15;
+  color:rgb(251, 255, 251);
+  font-size: 11.5px;
+  font-family: 'SourceHansNormal';
+  position:absolute;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.lhalf-image {
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s ease;
+}
+.lhalf-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  transition: filter 0.3s ease;
+}
+.lhalf-image:hover {
+  width: 600px;
+}
+.lhalf-image img:hover {
+  filter: brightness(100%);
 }
 
 .chapter-item {
@@ -267,15 +333,16 @@ button:hover {
 
 
 .tail-linker {
-  width: 65%;
+  width: 35%;
   padding: 1.0rem;
   margin-left: 2.5rem;
   font-size: 1.3rem;
   color: rgb(189, 192, 255);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 0;
   font-weight: bold;
   font-family: 'PangMenZhengDaoXiXianTi-2';
+  display: none;
 }
 .light-mode .tail-linker {
   color: rgb(64, 111, 211);
@@ -290,16 +357,16 @@ button:hover {
 }
 
 .tail-linker-image {
-  width: 15%;
+  width: 30%;
   height: auto;
   margin-left: 3.5rem;
-  max-width: 50%;
+  max-width: 30%;
   object-fit: contain;
   margin-bottom: 0.3rem;
   border: 1.4px solid #353535;
   filter: brightness(100%); 
-  transition: filter 0.3s ease; 
   transition: border 0.1s ease;
+  display:inline-block;
 }
 .tail-linker-image:hover {
   filter: brightness(120%); 
@@ -503,6 +570,7 @@ button:hover {
     width: 100%;
     margin-left: 1.0rem;
     font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     color: rgb(189, 192, 255);
     line-height: 0;
     font-weight: bold;
@@ -515,6 +583,7 @@ button:hover {
     margin-left: 2.2rem;
     max-width: 100%;
     object-fit: contain;
+    display:block;
     border: 1.4px solid #353535;
     filter: brightness(100%); 
     transition: border 0.1s ease;

@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js" defer></script>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+  <div id="top"></div>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -134,6 +140,8 @@
         </div>
       </div>
     </div>
+    <img id="shareButton" src="button_share.png" alt="Share" onclick="copyLink()">
+    <div id="shareMessage" style="display:none">故事链接复制成功</div>
     <div class="tail-linker" id="tail-links">
     </div>
     <a href="https://srs.c8h11no2.xyz/" target="_blank">
@@ -149,6 +157,13 @@
     <button id="toggleTermList" class="custom-button" style="position: fixed; bottom: 120px; right: 20px; width: 40px; height: 40px; background-color: #8a7d68;">白夜<br>筆記</button>
     <button id="toggleInvertColors" class="custom-button" style="position: fixed; bottom: 70px; right: 20px; width: 40px; height: 40px; background-color: #7089ab;">更替<br>昼夜</button>
     <button id="fontSizer" class="custom-button" style="position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
+    <a href="#bottom" class="bottom-scroller">
+      <img src="button_bottom.png" alt="Scroll to the bottom">
+    </a>
+    <a href="#top" class="top-scroller">
+      <img src="button_bottom.png" alt="Scroll to the top">
+    </a>
+    <div id="bottom"></div>
     <div class="disqus-container">
       <div id="disqus_thread"></div>
     </div>
@@ -162,6 +177,18 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+        function copyLink() {
+        const textarea = document.createElement('textarea');
+        textarea.value = window.location.href;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const shareMessage = document.getElementById('shareMessage');
+        shareMessage.style.display = 'block';
+        setTimeout(() => {shareMessage.style.display = 'none';}, 2000);
+      }
     </script>
   </main>
   <script id="dsq-count-scr" src="//sugiharayoki.disqus.com/count.js" async></script>
