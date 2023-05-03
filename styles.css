@@ -625,7 +625,7 @@ button:hover {
     border-radius: 30%; 
     color: rgb(244, 235, 255); 
     font-weight: bold; 
-    font-size: 10px; 
+    font-size: 8px; 
     border: none;
     border: 1.4px solid rgb(175, 175, 175);
   }
