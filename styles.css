@@ -301,6 +301,7 @@ button:hover {
 
 .chapter-content {
   max-height: 650px;
+  min-height: 650px;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 1rem;
