@@ -35,13 +35,13 @@ button:hover {
 }
 .bottom-scroller {
   position: fixed; 
-  bottom: 765px; 
+  top: 25px; 
   right: 55px; 
   z-index: 0;
 }
 .top-scroller {
   position: fixed; 
-  bottom: 770px; 
+  top: 20px; 
   right: 18px; 
   z-index: 0;
   transform: rotate(180deg);
