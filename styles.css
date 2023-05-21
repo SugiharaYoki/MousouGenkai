@@ -210,6 +210,9 @@ button:hover {
 .light-mode .character-details {
   border: 1.3px solid #949494;
   color: #000000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 .character-tab:hover ~ .character-details {
   display: block;
