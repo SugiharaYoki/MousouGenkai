@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleElement = document.createElement("div");
         titleElement.textContent = chapters[i].title;
         const listLinker = document.createElement("a");
-        listLinker.href = `mousou_chapter${i + 1}.html`;
+        listLinker.href = `mousou_side1_${i + 1}.html`;
         listItem.appendChild(listLinker);
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
