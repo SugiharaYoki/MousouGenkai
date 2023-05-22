@@ -36,6 +36,13 @@ const chapters = [
     id: 5,
     summary: "若你也想要创作『妄想限界』世界观的故事，请仔细阅读这里的内容哦！<br>此页面会包含许多正常章节不曾明细阐述的设定与背景故事。<br><br>月星世界的某一部分，或将诞生于你的笔尖……",
   },
+  {
+    title: "第肆章：星离月会，复返世事之公理（试读）",
+    shortTitle: "第肆章 故事",
+    filePath: "chapter4.txt",
+    id: 6,
+    summary: "阴云笼罩的竹内町，聆弦与绫栾兵分两路，各自着手调查杀害NPC莎娜阿姨的凶手玩家身份。<br>当天深夜，因心中某种难言之隐而执意找寻幕后凶手的夏月为调查更多的线索而回到案件的现场，却撞见了早已在此等候多时的聆弦。<br>面对同为心中怀有不可告人之思想的夏月，聆弦向他提出了……<br><br>另一边，独立查案追猎凶手的绫栾整夜未眠却毫无成果。清晨回归公会之时，她在门口遇见了一位熟悉而陌生的拜访者。<br>她一眼便识得，这女孩就是一日前与她共同见证了那场杀人凶案的词音。",
+  },
 ];
 const characterAvailability = {
   0: [1,2],
@@ -44,6 +51,7 @@ const characterAvailability = {
   3: [1,2,3,4,5,6,7,8],
   4: [1,2,3,4,5,6,7,8,9],
   5: [1],
+  6: [1,2,3,4,5,6,7,8,9,10],
 };
 const linktails = [
   {
@@ -94,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pageNumber.addEventListener("click", () => {
         currentPage = i;
         displayChapterList();
+        setActiveChapterTitle();
       });
 
       if (i === currentPage) {
@@ -105,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     chapterList.appendChild(pagination);
   }
-  displayChapterList();
 
   async function displayChapter(index) {
     try {
@@ -150,9 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setActiveChapterTitle() {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
-    const currentPageIndex = getCurrentPageIndex();
+    const currentPageIndex = getCurrentPageIndex() % chaptersPerPage;
     chapterListItems.forEach((item, i) => {
-      if (i === currentPageIndex) {
+      if (i === currentPageIndex && chapters[getCurrentPageIndex()].id / (chaptersPerPage + 1) < currentPage) {
         item.classList.add("active");
       } else {
         item.classList.remove("active");
@@ -294,6 +302,13 @@ document.addEventListener("DOMContentLoaded", () => {
       termList.classList.remove("hidden");
     }
   }
+  currentPage = 1;
+  for (let i = 1; i <= getCurrentPageIndex(); i++) {
+    if (i / 5 === 1) {
+      currentPage += 1;
+    }
+  }
+  displayChapterList();
   displayChapter(getCurrentPageIndex()); 
   setActiveChapterTitle();
 

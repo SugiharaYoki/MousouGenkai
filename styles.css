@@ -279,6 +279,8 @@ button:hover {
 .chapter-list ul li {
   cursor: pointer;
   padding: 0.5rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
   margin-left: 0.5rem;
   margin-bottom: 0.4rem;
   font-size: 1.1rem;
@@ -408,19 +410,25 @@ button:hover {
   font-size: 0.8rem;
   margin: 0.25rem;
   padding: 0.25rem;
+  background-color: #2e2e2e;
+  color: rgb(214, 214, 214);
+  font-family: 'jingyue';
+  font-weight: bold;
+  border-radius: 15%;
 }
 .light-mode .page-number {
   border: 1px solid #cacaca;
-  /*font-weight: bold;*/
+  background-color: #d3d3d3;
+  color: rgb(31, 31, 31);
 }
 
 .page-number.active {
-  background-color: #202020;
-  color: rgb(231, 231, 231);
+  background-color: #d3d3d3;
+  color: rgb(31, 31, 31);
 }
 .light-mode .page-number.active {
-  background-color: #dfdfdf;
-  color: rgb(0, 0, 0);
+  background-color: #2e2e2e;
+  color: rgb(214, 214, 214);
 }
 
 
@@ -671,8 +679,5 @@ button:hover {
     font-size: 8px; 
     border: none;
     border: 1.4px solid rgb(175, 175, 175);
-  }
-  .side-stories {
-    display: none;
   }
 }
