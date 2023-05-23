@@ -81,6 +81,14 @@ button:hover {
   font-family: 'SourceHansNormal';
   position:absolute;
 }
+#hideButton {
+  cursor: pointer;
+  position: fixed; bottom: 16px; right: 55px;
+  transform: scaleX(30%) scaleY(40%);
+}
+#hideButton:hover {
+  filter: brightness(200%);
+}
 .image-container {
   display: flex;
   justify-content: center;

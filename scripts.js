@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
     const currentPageIndex = getCurrentPageIndex() % chaptersPerPage;
     chapterListItems.forEach((item, i) => {
-      if (i === currentPageIndex && chapters[getCurrentPageIndex()].id / (chaptersPerPage + 1) < currentPage) {
+      if (i === currentPageIndex && Math.ceil(chapters[getCurrentPageIndex()].id / (chaptersPerPage)) === currentPage) {
         item.classList.add("active");
       } else {
         item.classList.remove("active");

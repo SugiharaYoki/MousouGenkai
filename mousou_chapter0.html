@@ -59,6 +59,7 @@
     <button id="toggleTermList" class="custom-button" style="display:none; position: fixed; bottom: 120px; right: 20px; width: 40px; height: 40px; background-color: #8a7d68;">白夜<br>筆記</button>
     <button id="toggleInvertColors" class="custom-button" style="position: fixed; bottom: 70px; right: 20px; width: 40px; height: 40px; background-color: #7089ab;">更替<br>昼夜</button>
     <button id="fontSizer" class="custom-button" style="position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
+    <img id="hideButton" src="button_stackicon.png" alt="Hide" onclick="hideButtons()">
     <a href="#bottom" class="bottom-scroller">
       <img src="button_bottom.png" alt="Scroll to the bottom">
     </a>
@@ -90,6 +91,39 @@
         const shareMessage = document.getElementById('shareMessage');
         shareMessage.style.display = 'block';
         setTimeout(() => {shareMessage.style.display = 'none';}, 2000);
+      }
+        let buttonHidden = false;
+        function hideButtons() {
+          const b_1 = document.getElementById('toggleCharacterList');
+          const b_2 = document.getElementById('toggleTermList');
+          const b_3 = document.getElementById('toggleInvertColors');
+          const b_4 = document.getElementById('fontSizer');
+          const b_this = document.getElementById('hideButton');
+          if (buttonHidden === false) {
+            b_1.style.transition = 'transform 0.5s';
+            b_1.style.transform = 'translateX(150%)';
+            b_2.style.transition = 'transform 0.5s';
+            b_2.style.transform = 'translateX(150%)';
+            b_3.style.transition = 'transform 0.5s';
+            b_3.style.transform = 'translateX(150%)';
+            b_4.style.transition = 'transform 0.5s';
+            b_4.style.transform = 'translateX(150%)';
+            b_this.style.transition = 'transform 0.5s';
+            b_this.style.transform = 'translateX(150%)scaleX(50%) scaleY(60%)';
+            buttonHidden = true;
+          } else {
+            b_1.style.transition = 'transform 0.5s';
+            b_1.style.transform = 'translateX(-0%)';
+            b_2.style.transition = 'transform 0.5s';
+            b_2.style.transform = 'translateX(0%)';
+            b_3.style.transition = 'transform 0.5s';
+            b_3.style.transform = 'translateX(0%)';
+            b_4.style.transition = 'transform 0.5s';
+            b_4.style.transform = 'translateX(0%)';
+            b_this.style.transition = 'transform 0.5s';
+            b_this.style.transform = 'translateX(0%)scaleX(30%) scaleY(40%)';
+            buttonHidden = false;
+          }
       }
     </script>
   </main>
