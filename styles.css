@@ -523,7 +523,7 @@ button:hover {
   display: inline-block;
   width: 100%;
   line-height: 1.5;
-  max-width: 500px;
+  max-width: 380px;
   max-height: 2205px;
 }.side-stories-image {
   width: 60px;
@@ -546,9 +546,9 @@ button:hover {
 
 @media (max-width: 768px) {
   .chapter-list {
-    max-width: 95%;
-    min-width: 50%;
-    margin-left: 0.5rem;
+    max-width: 100.5%;
+    min-width: 60%;
+    margin-left: 1.55rem;
     margin-right: 0.5rem;
     font-size: 0.7rem;
     color: rgb(255, 255, 255);
