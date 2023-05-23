@@ -72,6 +72,33 @@ button:hover {
   margin-bottom: 3.5rem;
   display: block;
 }
+.light-mode #shareButton {
+  filter: invert(1.0);
+}
+#hintContainer {
+  color:#ffffff;
+  position: relative; 
+  top: -42px;
+  left: 61px;
+  margin-bottom: -1.44rem;
+  font-family: 'SourceHansRegular';
+  font-size: 0.9rem;
+  width: 50%;
+}
+.light-mode #hintContainer {
+  color:#000000;
+}
+#hintButton {
+  cursor: pointer;
+  margin-top: -84px;
+  margin-left: 110px;
+  margin-bottom: 3.5rem;
+  display: block;
+  transform: scale(110%);
+}
+.light-mode #hintButton {
+  filter: invert(1.0);
+}
 #shareMessage {
   margin-left: 28.5px;
   margin-top: -117px;
@@ -80,6 +107,9 @@ button:hover {
   font-size: 11.5px;
   font-family: 'SourceHansNormal';
   position:absolute;
+}
+.light-mode #shareMessage {
+  color:rgb(17, 18, 17);
 }
 #hideButton {
   cursor: pointer;

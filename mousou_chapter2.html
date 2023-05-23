@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js" defer></script>
   <script src="popmimi.js" defer></script>
+  <script src="scripts_hint.js" defer></script>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
   <div id="top"></div>
   <style>
@@ -93,7 +94,9 @@
       </div>
     </div>
     <img id="shareButton" src="button_share.png" alt="Share" onclick="copyLink()">
+    <img id="hintButton" src="button_hint.png" alt="Hint" onclick="showHint()">
     <div id="shareMessage" style="display:none">故事链接复制成功</div>
+    <div id="hintContainer" style="display:none"></div>
     <div class="tail-linker" id="tail-links">
     </div>
     <a href="https://srs.c8h11no2.xyz/" target="_blank">
