@@ -689,6 +689,7 @@ button:hover {
   right: -15px;
   transform: scale(0.6);
   transform-origin: top right;
+  z-index: 50;
 }
 #popmimi {
   position: absolute;
