@@ -5,26 +5,31 @@ body {
   padding: 0;
   background-color: #000000;
   /*font-family: 'GenJyuuLight', sans-serif;*/
+  transition: background-color 0.6s;
 }
 .light-mode {
   background-color: #f4f4f4;
+  transition: background-color 0.6s;
 }
 .hidden {
   display: none;
 }
 .highlight {
   background-color: #0b659d;
+  transition: background-color 0.5s;
 }
 .light-mode .highlight {
   background-color: #9ad7ff;
+  transition: background-color 0.5s;
 }
 .majorhighlight {
   background-color: #9d210b;
+  transition: background-color 0.5s;
 }
 .light-mode .majorhighlight {
   background-color: #ff7676;
+  transition: background-color 0.5s;
 }
-
 button:hover {
   cursor: pointer;
 }
@@ -41,15 +46,18 @@ button:hover {
   font-size: 12px; 
   border: 1.5px solid rgb(175, 175, 175);
   z-index: 50;
+  transition: color 0.5s;
 }
 .light-mode .custom-button {
   color: rgb(237, 237, 237); 
+  transition: color 0.5s;
 }
 .bottom-scroller {
   position: fixed; 
   top: 25px; 
   right: 55px; 
   z-index: 0;
+  transition: filter 0.6s;
 }
 .top-scroller {
   position: fixed; 
@@ -58,12 +66,15 @@ button:hover {
   z-index: 0;
   transform: rotate(180deg);
   border-color:#000007;
+  transition: filter 0.6s;
 }
 .light-mode .bottom-scroller {
   filter: invert(1.0);
+  transition: filter 0.6s;
 }
 .light-mode .top-scroller {
   filter: invert(1.0);
+  transition: filter 0.6s;
 }
 #shareButton {
   cursor: pointer;
@@ -71,6 +82,7 @@ button:hover {
   margin-left: 60px;
   margin-bottom: 3.5rem;
   display: block;
+  transition: filter 0.6s;
 }
 .light-mode #shareButton {
   filter: invert(1.0);
@@ -84,6 +96,7 @@ button:hover {
   font-family: 'SourceHansRegular';
   font-size: 0.9rem;
   width: 50%;
+  transition: color 0.5s;
 }
 .light-mode #hintContainer {
   color:#000000;
@@ -95,6 +108,7 @@ button:hover {
   margin-bottom: 3.5rem;
   display: block;
   transform: scale(110%);
+  transition: filter 0.6s;
 }
 .light-mode #hintButton {
   filter: invert(1.0);
@@ -107,6 +121,7 @@ button:hover {
   font-size: 11.5px;
   font-family: 'SourceHansNormal';
   position:absolute;
+  transition: color 0.5s;
 }
 .light-mode #shareMessage {
   color:rgb(17, 18, 17);
@@ -115,9 +130,16 @@ button:hover {
   cursor: pointer;
   position: fixed; bottom: 16px; right: 55px;
   transform: scaleX(30%) scaleY(40%);
+  transition: filter 0.6s;
+}
+.light-mode #hideButton {
+  filter: invert(1.0);
 }
 #hideButton:hover {
   filter: brightness(200%);
+}
+.light-mode #hideButton:hover {
+  filter: brightness(0%);
 }
 .image-container {
   display: flex;
@@ -165,11 +187,15 @@ button:hover {
   color: #ffffff;
   margin-bottom: 3rem;
   line-height: 1.9;
+  transition: color 0.6s;
+  transition: background-color 0.6s;
 }
 .light-mode .main-content {
   border: 3px solid #1b1b1b;
   background-color: #f3e6d9;
   color: #000000;
+  transition: color 0.6s;
+  transition: background-color 0.6s;
 }
 
 
@@ -189,11 +215,17 @@ button:hover {
   color: #ffffff;
   position: relative;
   font-family: 'PangMenZhengDaoXiXianTi-2';
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
 }
 .light-mode .character-list-title {
   background-color: #c7c7c7;
   border: 1px solid #979797;
   color: #000000;
+  transition: color 0.6s;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
 }
 
 .character-tabs {
@@ -203,9 +235,12 @@ button:hover {
   margin-left: -20px;
   background-color: #0f0f0f;
   position: relative;
+  transition: background-color 0.5s;
+  animation: general-easein 0.5s ease-in-out;
 }
 .light-mode .character-tabs {
   background-color: #ebebeb;
+  transition: background-color 0.5s;
 }
 .character-tab {
   display: flex;
@@ -220,11 +255,17 @@ button:hover {
   color: #ffffff;
   cursor: pointer;
   font-family: 'SourceHansNormal';
+  transition: color 0.5s;
+  transition: border 0.5s;
+  transition: background-color 0.13s;
 }
 .light-mode .character-tab {
   background-color: #b9b9b9;
   border: 1.3px solid #949494;
   color: #000000;
+  transition: color 0.5s;
+  transition: border 0.5s;
+  transition: background-color 0.13s;
 }
 .character-details {
   display: none;
@@ -243,6 +284,7 @@ button:hover {
   max-width: 210px;
   margin-left:110px;
   margin-top:-565px;
+  animation: details-easein 0.25s ease-in-out;
   /* writing-mode: vertical-lr; */
 }
 .light-mode .character-details {
@@ -251,6 +293,23 @@ button:hover {
   border-top: none;
   border-left: none;
   border-right: none;
+  animation: details-easein-light 0.25s ease-in-out;
+}
+@keyframes details-easein {
+  0% {
+    color: #ffffff00;
+  }
+  100% {
+    color: #ffffff;
+  }
+}
+@keyframes details-easein-light  {
+  0% {
+    color: #00000000;
+  }
+  100% {
+    color: #000000;
+  }
 }
 .character-tab:hover ~ .character-details {
   display: block;
@@ -273,9 +332,11 @@ button:hover {
 
 .chapter-list ul li.active {
   background-color: #494e9e; 
+  transition: background-color 0.5s;
 }
 .light-mode .chapter-list ul li.active {
   background-color: #a9dfff; 
+  transition: background-color 0.5s;
 }
 #chapter-list li.active {
   color: #ffffff; 
@@ -299,9 +360,12 @@ button:hover {
   margin-left: 3.0rem;
   color: rgb(255, 255, 255);
   font-family: 'PangMenZhengDaoXiXianTi-2';
+  transition: color 0.5s;
+  animation: general-easein 0.6s ease-in-out;
 }
 .light-mode .chapter-list {
   color: rgb(0, 0, 0);
+  transition: color 0.5s;
 }
 
 .chapter-list ul {
@@ -326,24 +390,27 @@ button:hover {
   background-color: #262626;
   color: rgb(255, 255, 255);
   filter: brightness(100%);
-  transition: filter 0.2s ease;
   transition: border 0.2s ease;
   font-family: 'SourceHansNormal';
+  transition: color 0.5s;
 }
 .light-mode .chapter-list ul li {
   border: 1.2px solid #5b697b;
   background-color: #dfdfdf;
   color: rgb(0, 0, 0);
   filter: brightness(100%);
+  transition: color 0.5s;
 }
 
 .chapter-list ul li:hover {
   filter: brightness(120%); 
   border: 1px solid #aeb3b3;
+  transition: border 0.5s;
 }
 .light-mode .chapter-list ul li:hover {
   filter: brightness(95%); 
   border: 1px solid #a5dbff;
+  transition: border 0.5s;
 }
 .chapter-character-count {
   font-size: 0.8rem;
@@ -369,22 +436,31 @@ button:hover {
   color: rgb(255, 255, 255);
   margin-bottom: 3rem;
   line-height: 1.9;
+  animation: details-easein 0.6s ease-in-out;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
 }
 .light-mode .chapter-content {
   border: 3px solid #717171;
   background-color: #ececec;
   color: rgb(0, 0, 0);
+  animation: details-easein-light 0.6s ease-in-out;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
 }
 .chapter-content::-webkit-scrollbar {
   width: 3.4px;
   background-color: rgba(64, 64, 64, 0.1);
+  animation: general-easein 0.6s ease-in-out;
 }
 .chapter-content::-webkit-scrollbar-thumb {
   background-color: rgba(108, 108, 108, 0.2);
   border-radius: 5px;
+  animation: general-easein 0.6s ease-in-out;
 }
 .chapter-content::-webkit-scrollbar-thumb:hover {
   background-color: rgba(101, 101, 101, 0.8);
+  animation: general-easein 0.6s ease-in-out;
 }
 
 
@@ -410,6 +486,8 @@ button:hover {
   height: auto; 
   max-width: 100%; 
   object-fit: cover; 
+  background-color: black;
+  /*animation: header-easein 0.7s ease-in-out;*/
 }
 
 .tail-linker-image {
@@ -440,6 +518,7 @@ button:hover {
   margin-top: 0.3rem;
   margin-left: 1.0rem;
   margin-bottom: 1.0rem;
+  animation: general-easein 0.2s ease-in-out;
 }
 
 .page-number {
@@ -453,20 +532,30 @@ button:hover {
   font-family: 'jingyue';
   font-weight: bold;
   border-radius: 15%;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
 }
 .light-mode .page-number {
   border: 1px solid #cacaca;
   background-color: #d3d3d3;
   color: rgb(31, 31, 31);
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
 }
 
 .page-number.active {
   background-color: #d3d3d3;
   color: rgb(31, 31, 31);
+  transition: color 0.5s;
+  transition: background-color 0.5s;
 }
 .light-mode .page-number.active {
   background-color: #2e2e2e;
   color: rgb(214, 214, 214);
+  transition: color 0.5s;
+  transition: background-color 0.5s;
 }
 
 
@@ -534,6 +623,8 @@ button:hover {
   max-width: 598px;
   max-height: 215px;
   overflow-y: auto;
+  animation: general-easein 0.4s ease-in-out;
+  transition: color 0.5s;
 }
 .light-mode .chapter-summary-box {
   color: rgb(0, 0, 0);
@@ -554,7 +645,6 @@ button:hover {
   justify-content:flex-start;
   align-items: center;
 }
-
 .side-stories {
   margin-left: 2.0rem;
   margin-right: 2.0rem;
@@ -574,12 +664,42 @@ button:hover {
   transition: border 0.1s ease;
   display:inline-block;
   border: 1.1px solid #ffffff;
+  animation: side-stories-easein 0.6s ease-in-out;
 }
 .light-mode .side-stories-image {
   border: 1.1px solid #000000;
 }
 .side-stories-image:hover {
   filter: brightness(120%); 
+}
+@keyframes side-stories-easein {
+  0% {
+    filter:opacity(0%);
+    transform: translateX(5%);
+  }
+  50% {
+    filter:opacity(100%);
+  }
+  100% {
+    filter:opacity(100%);
+    transform: translateX(0%);
+  }
+}
+@keyframes general-easein {
+  0% {
+    filter:opacity(0%);
+  }
+  100% {
+    filter:opacity(100%);
+  }
+}
+@keyframes header-easein {
+  0% {
+    filter: brightness(0%); 
+  }
+  100% {
+    filter: brightness(100%); 
+  }
 }
 
 @media (max-width: 768px) {

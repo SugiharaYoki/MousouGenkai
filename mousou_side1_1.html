@@ -157,10 +157,10 @@
     <button id="fontSizer" class="custom-button" style="position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
     <img id="hideButton" src="button_stackicon.png" alt="Hide" onclick="hideButtons()">
     <a href="#bottom" class="bottom-scroller">
-      <img src="button_bottom.png" alt="Scroll to the bottom">
+      <img src="button_bottom.png" id="bottomScroller" alt="Scroll to the bottom">
     </a>
     <a href="#top" class="top-scroller">
-      <img src="button_bottom.png" alt="Scroll to the top">
+      <img src="button_bottom.png" id="topScroller" alt="Scroll to the top">
     </a>
     <div id="bottom"></div>
     <div class="disqus-container">
@@ -194,6 +194,8 @@
           const b_2 = document.getElementById('toggleTermList');
           const b_3 = document.getElementById('toggleInvertColors');
           const b_4 = document.getElementById('fontSizer');
+          const b_5 = document.getElementById('topScroller');
+          const b_6 = document.getElementById('bottomScroller');
           const b_this = document.getElementById('hideButton');
           if (buttonHidden === false) {
             b_1.style.transition = 'transform 0.5s';
@@ -204,6 +206,10 @@
             b_3.style.transform = 'translateX(150%)';
             b_4.style.transition = 'transform 0.5s';
             b_4.style.transform = 'translateX(150%)';
+            b_5.style.transition = 'transform 0.5s';
+            b_5.style.transform = 'translateY(250%)';
+            b_6.style.transition = 'transform 0.5s';
+            b_6.style.transform = 'translateY(-250%)';
             b_this.style.transition = 'transform 0.5s';
             b_this.style.transform = 'translateX(150%)scaleX(50%) scaleY(60%)';
             buttonHidden = true;
@@ -216,6 +222,10 @@
             b_3.style.transform = 'translateX(0%)';
             b_4.style.transition = 'transform 0.5s';
             b_4.style.transform = 'translateX(0%)';
+            b_5.style.transition = 'transform 0.5s';
+            b_5.style.transform = 'translateY(0%)';
+            b_6.style.transition = 'transform 0.5s';
+            b_6.style.transform = 'translateY(0%)';
             b_this.style.transition = 'transform 0.5s';
             b_this.style.transform = 'translateX(0%)scaleX(30%) scaleY(40%)';
             buttonHidden = false;

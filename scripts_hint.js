@@ -92,7 +92,7 @@ function showHint() {
   currentHintTimeout = setTimeout(() => {
     hintContainer.textContent = "";
     hintContainer.style.display = 'none';
-  }, 2500);
+  }, randomSentence.length * 130);
 }
 
 hintButton.addEventListener("click", showHint);
