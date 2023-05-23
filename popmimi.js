@@ -4,7 +4,7 @@ let poppedOut = false;
 
 function shouldPopOut() {
   const rng = Math.random();
-  return rng < 0.5;
+  return rng < 0.03;
 }
 
 function popOut() {
