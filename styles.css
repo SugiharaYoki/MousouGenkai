@@ -681,3 +681,18 @@ button:hover {
     border: 1.4px solid rgb(175, 175, 175);
   }
 }
+
+#popmimicontainer {
+  position: fixed;
+  width: 10%;
+  height: 130vh;
+  right: -15px;
+  transform: scale(0.6);
+  transform-origin: top right;
+}
+#popmimi {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  transition: transform 0.5s;
+}
