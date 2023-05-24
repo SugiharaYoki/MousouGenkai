@@ -13,7 +13,7 @@
       }
     }
 
-    function writeAccessTimestamp() {
+    async function writeAccessTimestamp() {
       const accessToken = "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";
       const owner = "SugiharaYoki";
       const repo = "MousouGenkai";
@@ -22,24 +22,40 @@
       const now = new Date();
       const timestamp = now.toISOString();
 
-      fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: "Add new access timestamp",
-          content: btoa(unescape(encodeURIComponent(timestamp))),
-        }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Handle the response data if needed
-        })
-        .catch(error => {
-          // Handle any errors
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+      try {
+        // Fetch the current content of the file
+        const response = await fetch(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
         });
+        const data = await response.json();
+        const currentContent = data.content;
+
+        // Create a new commit with the updated content
+        const updateData = {
+          message: "Update access timestamp",
+          content: btoa(unescape(encodeURIComponent(timestamp))),
+          sha: data.sha,
+        };
+
+        await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        });
+
+        // Handle the success if needed
+        console.log("Access timestamp updated successfully");
+      } catch (error) {
+        // Handle any errors
+        console.error("Error updating access timestamp:", error);
+      }
     }
 
     window.addEventListener("DOMContentLoaded", writeAccessTimestamp);
