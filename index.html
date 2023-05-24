@@ -12,6 +12,37 @@
         window.location.href = "mousou_chapter0.html";
       }
     }
+
+    function writeAccessTimestamp() {
+      const accessToken = "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";
+      const owner = "SugiharaYoki";
+      const repo = "MousouGenkai";
+      const path = "accessattempt.txt";
+
+      const now = new Date();
+      const timestamp = now.toISOString();
+
+      fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Add new access timestamp",
+          content: btoa(unescape(encodeURIComponent(timestamp))),
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data if needed
+        })
+        .catch(error => {
+          // Handle any errors
+        });
+    }
+
+    window.addEventListener("DOMContentLoaded", writeAccessTimestamp);
   </script>
 </head>
 <body>
