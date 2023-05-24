@@ -12,53 +12,6 @@
         window.location.href = "mousou_chapter0.html";
       }
     }
-
-    async function writeAccessTimestamp() {
-      const accessToken = "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";
-      const owner = "SugiharaYoki";
-      const repo = "MousouGenkai";
-      const path = "accessattempt.txt";
-
-      const now = new Date();
-      const timestamp = now.toISOString();
-
-      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-      try {
-        // Fetch the current content of the file
-        const response = await fetch(apiUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        const data = await response.json();
-        const currentContent = data.content;
-
-        // Create a new commit with the updated content
-        const updateData = {
-          message: "Update access timestamp",
-          content: btoa(unescape(encodeURIComponent(timestamp))),
-          sha: data.sha,
-        };
-
-        await fetch(apiUrl, {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updateData),
-        });
-
-        // Handle the success if needed
-        console.log("Access timestamp updated successfully");
-      } catch (error) {
-        // Handle any errors
-        console.error("Error updating access timestamp:", error);
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", writeAccessTimestamp);
   </script>
 </head>
 <body>
