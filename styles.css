@@ -855,3 +855,13 @@ button:hover {
   right: -0px;
   transition: transform 0.5s;
 }
+.web-version {
+  position: absolute;
+  right: 30px;
+  top: 220px;
+  color: rgb(221, 221, 221);
+  z-index: 500;
+  font-family: 'jingyue';
+  font-size: 14px; 
+  filter: opacity(80%);
+}
