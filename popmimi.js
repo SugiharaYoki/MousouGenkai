@@ -12,19 +12,19 @@ function popOut() {
   mimi.style.transition = 'transform 3s';
   const rng2 = Math.random();
   if (rng2 <= 0.2) {
-    mimi.style.transform = 'translateX(-45%) translateY(-45%)';
+    mimi.style.transform = 'translateX(-69%) translateY(-45%)';
   }
   if (rng2 > 0.2 && rng2 <= 0.4) {
-    mimi.style.transform = 'translateX(-45%) translateY(-30%)';
+    mimi.style.transform = 'translateX(-69%) translateY(-30%)';
   }
   if (rng2 > 0.4 && rng2 <= 0.6) {
-    mimi.style.transform = 'translateX(-45%) translateY(-15%)';
+    mimi.style.transform = 'translateX(-69%) translateY(-15%)';
   }
   if (rng2 > 0.6 && rng2 <= 0.8) {
-    mimi.style.transform = 'translateX(-45%) translateY(-0%)';
+    mimi.style.transform = 'translateX(-69%) translateY(-0%)';
   }
   if (rng2 > 0.8) {
-    mimi.style.transform = 'translateX(-45%) translateY(-15%)';
+    mimi.style.transform = 'translateX(-69%) translateY(-15%)';
   }
   poppedOut = true;
 }

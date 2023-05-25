@@ -844,7 +844,7 @@ button:hover {
   position: fixed;
   width: 10%;
   height: 130vh;
-  right: -15px;
+  right: -115px;
   transform: scale(0.6);
   transform-origin: top right;
   z-index: 50;
@@ -852,6 +852,6 @@ button:hover {
 #popmimi {
   position: absolute;
   bottom: 0;
-  right: -100px;
+  right: -0px;
   transition: transform 0.5s;
 }
