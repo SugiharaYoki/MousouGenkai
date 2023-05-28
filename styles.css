@@ -237,6 +237,7 @@ button:hover {
   position: relative;
   transition: background-color 0.5s;
   animation: general-easein 0.5s ease-in-out;
+  height: 652px;
 }
 .light-mode .character-tabs {
   background-color: #ebebeb;
@@ -283,7 +284,7 @@ button:hover {
   width: calc(16.0vw);
   max-width: 210px;
   margin-left:110px;
-  margin-top:-565px;
+  margin-top:50px;
   animation: details-easein 0.25s ease-in-out;
   /* writing-mode: vertical-lr; */
 }
@@ -314,7 +315,7 @@ button:hover {
 .character-tab:hover ~ .character-details {
   display: block;
   transition: block 1.1s ease;
-  top: 83%;
+  top: 0%;
 }
 .tab-container:hover > .character-tab {
   background-color: #696eb0;
@@ -824,7 +825,7 @@ button:hover {
     font-size: 14.5px;
     clear: both;
     position:absolute;
-    width: 70%;
+    width: 60%;
     max-width: 250px;
     margin-left:103px;
     margin-top:-365px;
