@@ -703,6 +703,32 @@ button:hover {
   }
 }
 
+#popmimicontainer {
+  position: fixed;
+  width: 10%;
+  height: 130vh;
+  right: -115px;
+  transform: scale(0.6);
+  transform-origin: top right;
+  z-index: 50;
+}
+#popmimi {
+  position: absolute;
+  bottom: 0;
+  right: -0px;
+  transition: transform 0.5s;
+}
+.web-version {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  color: rgb(221, 221, 221);
+  z-index: 500;
+  font-family: 'jingyue';
+  font-size: 14px; 
+  filter: opacity(80%);
+}
+
 @media (max-width: 768px) {
   .chapter-list {
     max-width: 100.5%;
@@ -805,7 +831,6 @@ button:hover {
   .character-tabs {
     width: 86.5%;
     max-width: 768px;
-    height: 500px;
     max-height: 100%;
     margin-left: 30px;
     background-color: #0f0f0f;
@@ -832,37 +857,24 @@ button:hover {
   }
   .custom-button {
     font-family: 'jingyue';
-    border-radius: 30%; 
+    border-radius: 25%; 
     color: rgb(244, 235, 255); 
     font-weight: bold; 
     font-size: 8px; 
     border: none;
-    border: 1.4px solid rgb(175, 175, 175);
+    border: 2px solid rgb(175, 175, 175);
+  }
+  #hideButton {
+    display: none;
+  }
+  .top-scroller {
+    display: none;
+  }
+  .bottom-scroller {
+    display: none;
+  }
+  #popmimicontainer {
+    height: 90vh;
   }
 }
 
-#popmimicontainer {
-  position: fixed;
-  width: 10%;
-  height: 130vh;
-  right: -115px;
-  transform: scale(0.6);
-  transform-origin: top right;
-  z-index: 50;
-}
-#popmimi {
-  position: absolute;
-  bottom: 0;
-  right: -0px;
-  transition: transform 0.5s;
-}
-.web-version {
-  position: fixed;
-  right: 10px;
-  bottom: 5px;
-  color: rgb(221, 221, 221);
-  z-index: 500;
-  font-family: 'jingyue';
-  font-size: 14px; 
-  filter: opacity(80%);
-}
