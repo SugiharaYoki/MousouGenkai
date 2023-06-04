@@ -878,3 +878,15 @@ button:hover {
   }
 }
 
+#music_player {
+  width:400px;
+  height:50px;
+  margin-top: 50px;
+  filter: invert(80%);
+  transform: scaleY(90%);
+  transform: scale(100%);
+  transition: filter 0.3 ease;
+}
+.light-mode #music_player  {
+  filter: invert(10%);
+}
