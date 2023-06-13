@@ -152,24 +152,23 @@ button:hover {
   justify-content: center;
   top: 0;
   left: 0;
-  width: 25%;
+  width: 20%;
   height: 100vh;
   overflow: hidden;
   position: relative;
   transition: width 0.3s ease;
+  animation: index-image-easein 1.5s ease-in-out;
 }
 .lhalf-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(50%);
   transition: filter 0.3s ease;
 }
 .lhalf-image:hover {
   width: 600px;
 }
 .lhalf-image img:hover {
-  filter: brightness(100%);
 }
 
 .chapter-item {
@@ -694,6 +693,19 @@ button:hover {
     filter:opacity(100%);
   }
 }
+@keyframes index-image-easein {
+  0% {
+    filter:opacity(0%) grayscale(100%);
+    width: 12%;
+  }
+  50% {
+    filter:opacity(100%) grayscale(100%);
+  }
+  100% {
+    filter:opacity(100%) grayscale(0%);
+    width: 20%;
+  }
+}
 @keyframes header-easein {
   0% {
     filter: brightness(0%); 
@@ -727,6 +739,32 @@ button:hover {
   font-family: 'jingyue';
   font-size: 14px; 
   filter: opacity(80%);
+}
+.web-intro-text {
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0);
+  color: rgb(255, 255, 255);
+  z-index: 550;
+  font-family: 'baiyu';
+  font-size: 48px; 
+  animation: web-intro-glow 1.3s ease-in-out infinite alternate, general-easein 1.3s ease-in-out;
+  animation-delay: 1.3s;
+  filter: opacity(0%);
+  text-shadow: 0 0 5px #ffffff;
+  pointer-events: none;
+}
+
+@-webkit-keyframes web-intro-glow {
+  from {
+    text-shadow: 0 0 10px #000000;
+    filter: opacity(30%);
+  }
+  to {
+    text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
+    filter: opacity(100%);
+  }
 }
 
 @media (max-width: 768px) {
