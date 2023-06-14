@@ -1,6 +1,10 @@
 const webLoader = document.getElementById('webloader');
+const imageContainer = document.getElementById('imagecontainerx');
+const webIntroTextAll = document.getElementById('webintrotextall');
 window.addEventListener('load', () => {
   webLoader.classList.add("webloader-finished");
+  imageContainer.style.display = "flex";
+  webIntroTextAll.style.display = "flex";
 });
 
 

@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="styles.css">
   <script src="scripts_index.js" defer></script>
 </head>
-<div class="web-intro-text">-  門扉的選支  -</div>
-<div class="web-intro-text-mobile">門扉的選支</div>
+<div id="webintrotextall">
+  <div class="web-intro-text" id="webintrotext1">-  門扉的選支  -</div>
+  <div class="web-intro-text-mobile" id="webintrotext2">門扉的選支</div>
+</div>
 <body>
   <div class="webloader" id="webloader">
     <!---img src="loading.gif"><!-->
     <div class="webloader-text">纯粹的微光 终将诞生于凄美的长夜</div>
     <div class="webloader-text2">The Web Reader is being Loaded ...</div>
   </div>
-  <div class="image-container">
+  <div class="image-container" id="imagecontainerx" style="display: none">
     <div class="lhalf-image">
       <a href="#" onclick="confirmAge();">
         <img src="book_cover.png" alt="点击进入『妄想限界：白夜今明』系列故事">
