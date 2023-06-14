@@ -914,6 +914,33 @@ button:hover {
   #popmimicontainer {
     height: 90vh;
   }
+  .lhalf-image {
+    width: 100%;
+    height: 40vh;
+    top: 25%;
+    justify-content:center;
+    margin:5px;
+  }
+  .lhalf-image:hover {
+    filter: brightness(150%);
+  }
+  .web-intro-text {
+    font-size: 30px; 
+    top: 8%;
+  }
+  @keyframes index-image-easein {
+    0% {
+      filter:opacity(0%) grayscale(100%);
+      width: 15%;
+    }
+    50% {
+      filter:opacity(100%) grayscale(100%);
+    }
+    100% {
+      filter:opacity(100%) grayscale(0%);
+      width: 100%;
+    }
+  }
 }
 
 #music_player {
