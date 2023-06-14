@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>选择想要前往的页面</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
-    function confirmAge() {
-      const answer = confirm("本小说存在不适合青少年阅读的段落，你是否已年满15岁？");
-      if (answer) {
-        window.location.href = "mousou_chapter0.html";
-      }
-    }
-  </script>
+  <script src="scripts_index.js" defer></script>
 </head>
 <div class="web-intro-text">-  門扉的選支  -</div>
+<div class="web-intro-text-mobile">門扉的選支</div>
 <body>
+  <div class="webloader" id="webloader">
+    <!---img src="loading.gif"><!-->
+    <div class="webloader-text">纯粹的微光 终将诞生于长夜</div>
+    <div class="webloader-text2">The Web Reader is being Loaded ...</div>
+  </div>
   <div class="image-container">
     <div class="lhalf-image">
       <a href="#" onclick="confirmAge();">
@@ -29,5 +28,5 @@
     </div>
   </div>
 </body>
-<div class="web-version">版本：&nbsp;1.6.14.2236.1<br>作者：&nbsp;杉原夜季<br>All Right Reserved.</div>
+<div class="web-version">版本：&nbsp;1.6.15.0002.1<br>作者：&nbsp;杉原夜季<br>All Right Reserved.</div>
 </html>

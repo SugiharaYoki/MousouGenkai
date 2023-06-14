@@ -33,6 +33,55 @@ body {
 button:hover {
   cursor: pointer;
 }
+.webloader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 114514;
+  background-color: #000000cf;
+}
+.webloader-text {
+  position: fixed;
+  left: 10%;
+  bottom: 50%;
+  color: rgb(255, 255, 255);
+  z-index: 114550;
+  font-family: 'PangMenZhengDaoXiXianTi-2';
+  font-size: 38px; 
+  animation: web-intro-glow 1.3s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #ffffff;
+  pointer-events: none;
+}
+.webloader-text2 {
+  position: fixed;
+  left: 10%;
+  bottom: 47%;
+  color: rgb(153, 153, 153);
+  z-index: 114550;
+  font-family: 'PangMenZhengDaoXiXianTi-2';
+  font-size: 22px; 
+  animation: web-intro-glow-strong 1.3s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #ffffff;
+  pointer-events: none;
+}
+.webloader-finished {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 114514;
+  background-color: #000000cf;
+  animation: webloader-easeout 1.5s ease-in-out;
+  filter: opacity(0%);
+}
+.webloader img{
+  position: relative;
+  left: 40%;
+  top: 40%;
+}
 
 .custom-button:hover {
   cursor: pointer;
@@ -693,6 +742,14 @@ button:hover {
     filter:opacity(100%);
   }
 }
+@keyframes webloader-easeout {
+  0% {
+    filter:opacity(100%);
+  }
+  100% {
+    filter:opacity(0%);
+  }
+}
 @keyframes index-image-easein {
   0% {
     filter:opacity(0%) grayscale(100%);
@@ -755,6 +812,22 @@ button:hover {
   text-shadow: 0 0 5px #ffffff;
   pointer-events: none;
 }
+.web-intro-text-mobile {
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0);
+  color: rgb(255, 255, 255);
+  z-index: 550;
+  font-family: 'baiyu';
+  font-size: 48px; 
+  animation: web-intro-glow 1.3s ease-in-out infinite alternate, general-easein 1.3s ease-in-out;
+  animation-delay: 1.3s;
+  filter: opacity(0%);
+  text-shadow: 0 0 5px #ffffff;
+  pointer-events: none;
+  display: none;
+}
 
 @-webkit-keyframes web-intro-glow {
   from {
@@ -763,6 +836,16 @@ button:hover {
   }
   to {
     text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
+    filter: opacity(100%);
+  }
+}
+@-webkit-keyframes web-intro-glow-strong {
+  from {
+    text-shadow: 0 0 10px #000000;
+    filter: opacity(70%);
+  }
+  to {
+    text-shadow: 0 0 10px #000000, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
     filter: opacity(100%);
   }
 }
@@ -925,12 +1008,12 @@ button:hover {
     filter: brightness(150%);
   }
   .web-intro-text {
+    display:none;
+  }
+  .web-intro-text-mobile {
     font-size: 28px; 
     top: 8%;
-    left: 50%;
-    bottom: 10%;
-    transform: translate(-17.5%, 0)
-    width: 100%;
+    display:flex;
   }
   @keyframes index-image-easein {
     0% {
