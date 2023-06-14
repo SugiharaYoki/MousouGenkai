@@ -941,6 +941,9 @@ button:hover {
       width: 100%;
     }
   }
+  .chapter-character-count {
+    display: none;
+  }
 }
 
 #music_player {
