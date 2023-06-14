@@ -925,7 +925,7 @@ button:hover {
     filter: brightness(150%);
   }
   .web-intro-text {
-    font-size: 30px; 
+    font-size: 24px; 
     top: 8%;
   }
   @keyframes index-image-easein {
