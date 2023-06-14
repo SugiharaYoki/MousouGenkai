@@ -76,6 +76,7 @@ button:hover {
   background-color: #000000cf;
   animation: webloader-easeout 1.5s ease-in-out;
   filter: opacity(0%);
+  pointer-events: none;
 }
 .webloader img{
   position: relative;
