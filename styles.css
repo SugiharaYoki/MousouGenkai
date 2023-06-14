@@ -925,8 +925,12 @@ button:hover {
     filter: brightness(150%);
   }
   .web-intro-text {
-    font-size: 24px; 
+    font-size: 28px; 
     top: 8%;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-17.5%, 0)
+    width: 100%;
   }
   @keyframes index-image-easein {
     0% {
