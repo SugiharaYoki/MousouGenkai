@@ -243,6 +243,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
     setCookie("enableCharacterWiki", isHidden2 ? "hidden" : "shown", 365);
   });
+  document.getElementById("toggleWorldMap").addEventListener("click", function () {
+    const worldMap = document.getElementById("world-map");
+    worldMap.classList.toggle("hidden");
+  });
 
   async function getCharacterCount(filePath) {
     try {

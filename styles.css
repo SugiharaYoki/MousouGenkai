@@ -1047,3 +1047,15 @@ button:hover {
 .light-mode #music_player  {
   filter: invert(10%);
 }
+.world-map  {
+  position: absolute;
+  top: 650px;
+  left: 70px;
+  z-index: 200;
+  box-shadow: 0 0 6px #0b2888, 0 0 12px #6783ff;
+}
+.deriv-instruction  {
+  width: 35%;
+  margin-left: 56px;
+  box-shadow: 0 0 6px #5a5a5a, 0 0 12px #818181, 0 0 18px #202020;
+}
