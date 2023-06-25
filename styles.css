@@ -14,6 +14,10 @@ body {
 .hidden {
   display: none;
 }
+.hide-on-pc {
+  filter: opacity(0%);
+  pointer-events: none;
+}
 .highlight {
   background-color: #0b659d;
   transition: background-color 0.5s;
@@ -1032,6 +1036,10 @@ button:hover {
   }
   .webloader-text2 {
     font-size: 16px;
+  }
+  .hide-on-pc {
+    filter: opacity(100%);
+    pointer-events: visible;
   }
 }
 

@@ -120,6 +120,7 @@
     <button id="toggleInvertColors" class="custom-button" style="position: fixed; bottom: 80px; right: 20px; width: 40px; height: 40px; background-color: #7089ab;">更替<br>昼夜</button>
     <button id="fontSizer" class="custom-button" style="position: fixed; bottom: 30px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
     <img id="hideButton" src="button_stackicon.png" alt="Hide" onclick="hideButtons()">
+    <button id="hideButtonMobile" onclick="hideButtons()" class="custom-button hide-on-pc" style="position: fixed; bottom: 280px; right: 20px; width: 40px; height: 40px; background-color: #363636;">隠蔵<br>按鍵</button>
     <a href="#bottom" class="bottom-scroller">
       <img src="button_bottom.png" id="bottomScroller" alt="Scroll to the bottom">
     </a>
@@ -160,6 +161,7 @@
           const b_4 = document.getElementById('fontSizer');
           const b_5 = document.getElementById('topScroller');
           const b_6 = document.getElementById('bottomScroller');
+          const b_7 = document.getElementById('toggleWorldMap');
           const b_this = document.getElementById('hideButton');
           if (buttonHidden === false) {
             b_1.style.transition = 'transform 0.5s';
@@ -170,6 +172,8 @@
             b_3.style.transform = 'translateX(150%)';
             b_4.style.transition = 'transform 0.5s';
             b_4.style.transform = 'translateX(150%)';
+            b_7.style.transition = 'transform 0.5s';
+            b_7.style.transform = 'translateX(150%)';
             b_5.style.transition = 'transform 0.5s';
             b_5.style.transform = 'translateY(250%)';
             b_6.style.transition = 'transform 0.5s';
@@ -186,6 +190,8 @@
             b_3.style.transform = 'translateX(0%)';
             b_4.style.transition = 'transform 0.5s';
             b_4.style.transform = 'translateX(0%)';
+            b_7.style.transition = 'transform 0.5s';
+            b_7.style.transform = 'translateX(0%)';
             b_5.style.transition = 'transform 0.5s';
             b_5.style.transform = 'translateY(0%)';
             b_6.style.transition = 'transform 0.5s';
