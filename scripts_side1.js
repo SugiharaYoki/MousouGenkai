@@ -184,23 +184,66 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("toggleCharacterList").addEventListener("click", function () {
     const characterList = document.getElementById("character-tabs");
+    page = 0;
     const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
     characterList.classList.toggle("hidden");
     termList.classList.add("hidden");
-    const isHidden = characterList.classList.contains("hidden");
-    const isHidden2 = termList.classList.contains("hidden");
-    setCookie("enableCharacterWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki", isHidden2 ? "hidden" : "shown", 365);
+    termList2.classList.add("hidden");
+    termList3.classList.add("hidden");
+    const isHidden = termList.classList.contains("hidden");
+    const isHidden2 = termList2.classList.contains("hidden");
+    const isHidden3 = termList3.classList.contains("hidden");
+    const isHiddenb = characterList.classList.contains("hidden");
+    setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
+    setCookie("enableTermWiki2", isHidden2 ? "hidden" : "shown", 365);
+    setCookie("enableTermWiki3", isHidden3 ? "hidden" : "shown", 365);
+    setCookie("enableCharacterWiki", isHiddenb ? "hidden" : "shown", 365);
   });
   document.getElementById("toggleTermList").addEventListener("click", function () {
     const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
     const characterList = document.getElementById("character-tabs");
-    termList.classList.toggle("hidden");
     characterList.classList.add("hidden");
+    if (!(page >= 0)) {
+      page = 0;
+    }
+    if (page == 2 && termList2 == null) {
+      page = 0;
+    }
+    if (page == 3 && termList3 == null) {
+      page = 0;
+    }
+    page += 1;
+    if (page == 1) {
+      termList.classList.remove("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 2) {
+      termList.classList.add("hidden");
+      termList2.classList.remove("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 3) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.remove("hidden");
+    }
     const isHidden = termList.classList.contains("hidden");
-    const isHidden2 = characterList.classList.contains("hidden");
+    const isHidden2 = termList2.classList.contains("hidden");
+    const isHidden3 = termList3.classList.contains("hidden");
+    const isHiddenb = characterList.classList.contains("hidden");
     setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableCharacterWiki", isHidden2 ? "hidden" : "shown", 365);
+    setCookie("enableTermWiki2", isHidden2 ? "hidden" : "shown", 365);
+    setCookie("enableTermWiki3", isHidden3 ? "hidden" : "shown", 365);
+    setCookie("enableCharacterWiki", isHiddenb ? "hidden" : "shown", 365);
+  });
+  document.getElementById("toggleWorldMap").addEventListener("click", function () {
+    const worldMap = document.getElementById("world-map");
+    worldMap.classList.toggle("hidden");
   });
 
   async function getCharacterCount(filePath) {
@@ -246,19 +289,33 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (userColorMode === "dark") {
       document.body.classList.remove("light-mode");
     }
-    const enableCharacterWiki = getCookie("enableCharacterWiki");
-    const enableTermWiki = getCookie("enableTermWiki");
     const characterList = document.getElementById("character-tabs");
     const termList = document.getElementById("term-tabs");
-    if (enableCharacterWiki === "hidden") {
-      characterList.classList.add("hidden");
-    } else if (enableCharacterWiki === "shown") {
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
+    const enableCharacterWiki = getCookie("enableCharacterWiki");
+    const enableTermWiki = getCookie("enableTermWiki");
+    const enableTermWiki2 = getCookie("enableTermWiki2");
+    const enableTermWiki3 = getCookie("enableTermWiki3");
+    if (enableCharacterWiki === "shown") {
       characterList.classList.remove("hidden");
+    } else if (enableCharacterWiki === "hidden") {
+      characterList.classList.add("hidden");
     }
-    if (enableTermWiki === "hidden") {
-      termList.classList.add("hidden");
-    } else if (enableTermWiki === "shown") {
+    if (enableTermWiki === "shown") {
       termList.classList.remove("hidden");
+    } else if (enableTermWiki === "hidden") {
+      termList.classList.add("hidden");
+    }
+    if (enableTermWiki2 === "shown") {
+      termList2.classList.remove("hidden");
+    } else if (enableTermWiki2 === "hidden") {
+      termList2.classList.add("hidden");
+    }
+    if (enableTermWiki3 === "shown") {
+      termList3.classList.remove("hidden");
+    } else if (enableTermWiki3 === "hidden") {
+      termList3.classList.add("hidden");
     }
   }
   displayChapter(getCurrentPageIndex()); 
