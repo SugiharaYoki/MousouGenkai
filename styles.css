@@ -285,7 +285,7 @@ button:hover {
   position: relative;
   transition: background-color 0.5s;
   animation: general-easein 0.5s ease-in-out;
-  height: 652px;
+  height: 666px;
 }
 .light-mode .character-tabs {
   background-color: #ebebeb;

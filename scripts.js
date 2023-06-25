@@ -233,10 +233,37 @@ document.addEventListener("DOMContentLoaded", () => {
     setCookie("enableCharacterWiki", isHidden ? "hidden" : "shown", 365);
     setCookie("enableTermWiki", isHidden2 ? "hidden" : "shown", 365);
   });
+  var page;
   document.getElementById("toggleTermList").addEventListener("click", function () {
     const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
     const characterList = document.getElementById("character-tabs");
-    termList.classList.toggle("hidden");
+    if (!(page >= 0)) {
+      page = 0;
+    }
+    if (page == 2 && termList2 == null) {
+      page = 0;
+    }
+    if (page == 3 && termList3 == null) {
+      page = 0;
+    }
+    page += 1;
+    if (page == 1) {
+      termList.classList.remove("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 2) {
+      termList.classList.add("hidden");
+      termList2.classList.remove("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 3) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.remove("hidden");
+    }
     characterList.classList.add("hidden");
     const isHidden = termList.classList.contains("hidden");
     const isHidden2 = characterList.classList.contains("hidden");
