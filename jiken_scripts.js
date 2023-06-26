@@ -151,50 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  document.getElementById("fontSizer").addEventListener("click", function () {
-    var content = document.getElementById("chapter-content");
-    var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
-  
-    var newSize;
-    switch (currentFontSize) {
-      case 8:
-        newSize = "10px";
-        break;
-      case 10:
-        newSize = "13px";
-        break;
-      case 13:
-        newSize = "14px";
-        break;
-      case 14:
-        newSize = "15px";
-        break;
-      case 15:
-        newSize = "16px";
-        break;
-      case 16:
-        if (getCurrentPageIndex() == 4) {
-          newSize = "8px";
-        }
-        else {
-          newSize = "13px";
-        }
-        break;
-      default:
-        newSize = "15px";
-        break;
-    }
-  
-    content.style.fontSize = newSize;
-    setCookie("userFontSize", newSize, 365);
-  });
-
-  document.getElementById("toggleInvertColors").addEventListener("click", function() {
-    document.body.classList.toggle("light-mode");
-    const isLightMode = document.body.classList.contains("light-mode");
-    setCookie("userColorMode", isLightMode ? "light" : "dark", 365);
-  });
   document.getElementById("toggleCharacterList").addEventListener("click", function () {
     const characterList = document.getElementById("character-tabs");
     const termList = document.getElementById("term-tabs");
@@ -230,61 +186,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const summaryBox = document.getElementById("chapter-summary");
     summaryBox.innerHTML = `<h3>${chapters[index].shortTitle}概览</h3><p>${chapters[index].summary}</p>`;
   }
-
-  function setCookie(name, value, days) {
-    let expires = '';
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = '; expires=' + date.toUTCString();
-    }
-    document.cookie = name + '=' + (value || '') + expires + '; path=/';
-  }
-  
-  function getCookie(name) {
-    const value = '; ' + document.cookie;
-    const parts = value.split('; ' + name + '=');
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-
-  function applyCookie() {
-    const userFontSize = getCookie("userFontSize");
-    if (userFontSize) {
-      const content = document.getElementById("chapter-content");
-      content.style.fontSize = userFontSize;
-    }
-    const userColorMode = getCookie("userColorMode");
-    if (userColorMode === "light") {
-      document.body.classList.add("light-mode");
-    } else if (userColorMode === "dark") {
-      document.body.classList.remove("light-mode");
-    }
-    const enableCharacterWiki = getCookie("enableCharacterWiki");
-    const enableTermWiki = getCookie("enableTermWiki");
-    const characterList = document.getElementById("character-tabs");
-    const termList = document.getElementById("term-tabs");
-    if (enableCharacterWiki === "hidden") {
-      characterList.classList.add("hidden");
-    } else if (enableCharacterWiki === "shown") {
-      characterList.classList.remove("hidden");
-    }
-    if (enableTermWiki === "hidden") {
-      termList.classList.add("hidden");
-    } else if (enableTermWiki === "shown") {
-      termList.classList.remove("hidden");
-    }
-  }
   currentPage = 1;
   for (let i = 1; i <= getCurrentPageIndex(); i++) {
     if (i / 5 === 1) {
       currentPage += 1;
     }
   }
-  displayChapterList();
-  displayChapter(getCurrentPageIndex()); 
-  setActiveChapterTitle();
-
-  applyCookie();
   
 });
 

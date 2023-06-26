@@ -181,50 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  document.getElementById("fontSizer").addEventListener("click", function () {
-    var content = document.getElementById("chapter-content");
-    var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
-  
-    var newSize;
-    switch (currentFontSize) {
-      case 8:
-        newSize = "10px";
-        break;
-      case 10:
-        newSize = "13px";
-        break;
-      case 13:
-        newSize = "14px";
-        break;
-      case 14:
-        newSize = "15px";
-        break;
-      case 15:
-        newSize = "16px";
-        break;
-      case 16:
-        if (getCurrentPageIndex() == 4) {
-          newSize = "8px";
-        }
-        else {
-          newSize = "13px";
-        }
-        break;
-      default:
-        newSize = "15px";
-        break;
-    }
-  
-    content.style.fontSize = newSize;
-    setCookie("userFontSize", newSize, 365);
-  });
-
-  document.getElementById("toggleInvertColors").addEventListener("click", function() {
-    document.body.classList.toggle("light-mode");
-    const isLightMode = document.body.classList.contains("light-mode");
-    setCookie("userColorMode", isLightMode ? "light" : "dark", 365);
-  });
   document.getElementById("toggleCharacterList").addEventListener("click", function () {
     const characterList = document.getElementById("character-tabs");
     page = 0;
@@ -235,14 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
     termList.classList.add("hidden");
     termList2.classList.add("hidden");
     termList3.classList.add("hidden");
-    const isHidden = termList.classList.contains("hidden");
-    const isHidden2 = termList2.classList.contains("hidden");
-    const isHidden3 = termList3.classList.contains("hidden");
-    const isHiddenb = characterList.classList.contains("hidden");
-    setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki2", isHidden2 ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki3", isHidden3 ? "hidden" : "shown", 365);
-    setCookie("enableCharacterWiki", isHiddenb ? "hidden" : "shown", 365);
   });
   document.getElementById("toggleTermList").addEventListener("click", function () {
     const termList = document.getElementById("term-tabs");
@@ -264,25 +212,20 @@ document.addEventListener("DOMContentLoaded", () => {
       termList.classList.remove("hidden");
       termList2.classList.add("hidden");
       termList3.classList.add("hidden");
+      const isHidden = False;
     }
     if (page == 2) {
       termList.classList.add("hidden");
       termList2.classList.remove("hidden");
       termList3.classList.add("hidden");
+      const isHidden2 = False;
     }
     if (page == 3) {
       termList.classList.add("hidden");
       termList2.classList.add("hidden");
       termList3.classList.remove("hidden");
+      const isHidden3 = False;
     }
-    const isHidden = termList.classList.contains("hidden");
-    const isHidden2 = termList2.classList.contains("hidden");
-    const isHidden3 = termList3.classList.contains("hidden");
-    const isHiddenb = characterList.classList.contains("hidden");
-    setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki2", isHidden2 ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki3", isHidden3 ? "hidden" : "shown", 365);
-    setCookie("enableCharacterWiki", isHiddenb ? "hidden" : "shown", 365);
   });
   document.getElementById("toggleWorldMap").addEventListener("click", function () {
     const worldMap = document.getElementById("world-map");
@@ -303,64 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const summaryBox = document.getElementById("chapter-summary");
     summaryBox.innerHTML = `<h3>${chapters[index].shortTitle}概览</h3><p>${chapters[index].summary}</p>`;
   }
-
-  function setCookie(name, value, days) {
-    let expires = '';
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = '; expires=' + date.toUTCString();
-    }
-    document.cookie = name + '=' + (value || '') + expires + '; path=/';
-  }
-  
-  function getCookie(name) {
-    const value = '; ' + document.cookie;
-    const parts = value.split('; ' + name + '=');
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-
-  function applyCookie() {
-    const userFontSize = getCookie("userFontSize");
-    if (userFontSize) {
-      const content = document.getElementById("chapter-content");
-      content.style.fontSize = userFontSize;
-    }
-    const userColorMode = getCookie("userColorMode");
-    if (userColorMode === "light") {
-      document.body.classList.add("light-mode");
-    } else if (userColorMode === "dark") {
-      document.body.classList.remove("light-mode");
-    }
-    const characterList = document.getElementById("character-tabs");
-    const termList = document.getElementById("term-tabs");
-    const termList2 = document.getElementById("term-tabs2");
-    const termList3 = document.getElementById("term-tabs3");
-    const enableCharacterWiki = getCookie("enableCharacterWiki");
-    const enableTermWiki = getCookie("enableTermWiki");
-    const enableTermWiki2 = getCookie("enableTermWiki2");
-    const enableTermWiki3 = getCookie("enableTermWiki3");
-    if (enableCharacterWiki === "shown") {
-      characterList.classList.remove("hidden");
-    } else if (enableCharacterWiki === "hidden") {
-      characterList.classList.add("hidden");
-    }
-    if (enableTermWiki === "shown") {
-      termList.classList.remove("hidden");
-    } else if (enableTermWiki === "hidden") {
-      termList.classList.add("hidden");
-    }
-    if (enableTermWiki2 === "shown") {
-      termList2.classList.remove("hidden");
-    } else if (enableTermWiki2 === "hidden") {
-      termList2.classList.add("hidden");
-    }
-    if (enableTermWiki3 === "shown") {
-      termList3.classList.remove("hidden");
-    } else if (enableTermWiki3 === "hidden") {
-      termList3.classList.add("hidden");
-    }
-  }
   currentPage = 1;
   for (let i = 1; i <= getCurrentPageIndex(); i++) {
     if (i / 5 === 1) {
@@ -370,9 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
   displayChapterList();
   displayChapter(getCurrentPageIndex()); 
   setActiveChapterTitle();
-
-  applyCookie();
-  
 });
 
 
