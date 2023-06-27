@@ -117,7 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
       b_6.style.transition = 'transform 0.5s';
       b_6.style.transform = 'translateY(-250%)';
       mobile_hide.style.transition = 'transform 0.5s';
-      mobile_hide.style.transform = 'translateY(600%)';
+      if (getCurrentPageIndex() == -1) {
+        mobile_hide.style.transform = 'translateY(260%)';
+      } else {
+        mobile_hide.style.transform = 'translateY(600%)';
+      }
       b_this.style.transition = 'transform 0.5s';
       b_this.style.transform = 'translateX(150%)scaleX(50%) scaleY(60%)';
       buttonHidden = true;
