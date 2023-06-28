@@ -18,6 +18,18 @@ body {
   filter: opacity(0%);
   pointer-events: none;
 }
+.syslang {
+  font-family: 'rxt';/*, 'PangMenZhengDaoXiXianTi-2'*/
+  font-style: normal;
+	box-shadow: 0 -4px 8px -7px #838383, 0 4px 8px -7px #838383,
+              0 -5px 12px -7px #69696971, 0 5px 12px -7px #69696971;
+  padding: 3px;
+}
+.leadingtext {
+  font-family: 'ce';
+  font-style: normal;
+  padding: 1px;
+}
 .highlight {
   background-color: #0b659d;
   transition: background-color 0.5s;
@@ -649,6 +661,14 @@ button:hover {
 @font-face {
   font-family: 'jingyue';
   src: url('fonts/静月.ttf') format('truetype');
+}
+@font-face {
+  font-family: rxt;
+  src: url('fonts/金山云技术体.ttf') format('truetype');
+}
+@font-face {
+  font-family: ce;
+  src: url('fonts/GenRyuMinTW-Regular.ttf') format('truetype');
 }
 .disqus-container {
   background-color: #000007;
