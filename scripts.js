@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><h3>“纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。”</h3><br><br>`;
+      chapterContent.innerHTML = `<br><br><h3><span class="leadingtext">纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。</span></h3><br><br>`;
       setCharacterAvailability(0);
       displayChapterSummary(0);
     }

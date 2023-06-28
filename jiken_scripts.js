@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><h3>这无神体制下的信仰，<br>在我与你相遇后显得再无意义。<br><br>我将不再证伪万事。<br>我将证明万事。</h3><br><br>`;
+      chapterContent.innerHTML = `<br><br><h3><span class="leadingtext">这无神体制下的信仰，<br>在我与你相遇后显得再无意义。<br><br>我将不再证伪万事。<br>我将证明万事。</span></h3><br><br>`;
       setCharacterAvailability(0);
       displayChapterSummary(0);
     }
