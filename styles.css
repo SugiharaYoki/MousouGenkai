@@ -117,14 +117,14 @@ button:hover {
   position: fixed; 
   top: 25px; 
   right: 55px; 
-  z-index: 0;
+  z-index: 10;
   transition: filter 0.6s;
 }
 .top-scroller {
   position: fixed; 
   top: 20px; 
   right: 18px; 
-  z-index: 0;
+  z-index: 10;
   transform: rotate(180deg);
   border-color:#000007;
   transition: filter 0.6s;
@@ -548,7 +548,28 @@ button:hover {
   max-width: 100%; 
   object-fit: cover; 
   background-color: black;
+  z-index: 1;
   /*animation: header-easein 0.7s ease-in-out;*/
+}
+.header-image-night {
+  filter: opacity(100%);
+  transition: filter 0.5s ease;
+}
+.light-mode .header-image-night {
+  filter: opacity(0%);
+}
+.header-image-day {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width:100%;
+  transition: filter 0.5s ease;
+  filter: opacity(0%);
+}
+.light-mode .header-image-day {
+  z-index: 1;
+  filter: opacity(100%);
 }
 
 .tail-linker-image {
@@ -871,12 +892,12 @@ button:hover {
 }
 
 .world-map  {
-  position: absolute;
-  top: 1330px;
-  left: 40%;
+  position: fixed;
+  top: 15%;
+  left: 10%;
   z-index: 200;
   box-shadow: 0 0 6px #0b2888, 0 0 12px #6783ff;
-  width: 30%;
+  width: 40%;
 }
 
 @media (max-width: 768px) {
