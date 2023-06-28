@@ -870,19 +870,29 @@ button:hover {
   }
 }
 
+.world-map  {
+  position: absolute;
+  top: 1330px;
+  left: 40%;
+  z-index: 200;
+  box-shadow: 0 0 6px #0b2888, 0 0 12px #6783ff;
+  width: 30%;
+}
+
 @media (max-width: 768px) {
   .chapter-list {
-    max-width: 100.5%;
-    min-width: 60%;
+    width: 50%;
     margin-left: 1.55rem;
     margin-right: 0.5rem;
     font-size: 0.7rem;
     color: rgb(255, 255, 255);
     font-family: 'PangMenZhengDaoXiXianTi-2';
+    min-width: 90%;
+    max-width: 90%;
   }
   .chapter-list ul li {
     cursor: pointer;
-    max-width: 80%;
+    width: 70%;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
     padding-top: 0.2rem;
@@ -914,7 +924,8 @@ button:hover {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     display: inline-block;
-    max-width: 80%;
+    left: 10%;
+    width: 80%;
     justify-content:center;
     margin-left: 2.0rem;
     margin-right: 2.0rem;
@@ -944,7 +955,7 @@ button:hover {
     line-height: 1.9;
   }
   .tail-linker {
-    width: 100%;
+    width:100%;
     margin-left: 1.0rem;
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
@@ -1061,6 +1072,12 @@ button:hover {
     filter: opacity(100%);
     pointer-events: visible;
   }
+  .world-map  {
+    position:fixed;
+    top: 100px;
+    left: 10%;
+    width: 80%;
+  }
 }
 
 #music_player {
@@ -1074,13 +1091,6 @@ button:hover {
 }
 .light-mode #music_player  {
   filter: invert(10%);
-}
-.world-map  {
-  position: absolute;
-  top: 650px;
-  left: 70px;
-  z-index: 200;
-  box-shadow: 0 0 6px #0b2888, 0 0 12px #6783ff;
 }
 .deriv-instruction  {
   width: 35%;
