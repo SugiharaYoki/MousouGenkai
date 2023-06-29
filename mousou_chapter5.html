@@ -24,7 +24,7 @@
   <header>
     <img src="header.png" alt="Header Image" class="header-image">
   </header>
-  <div class="web-version">v1.6.28.2311.1</div>
+  <div class="web-version">v1.6.29.1453.1</div>
   <main>
     <div class="list-and-summary">
       <div class="chapter-list">
@@ -266,6 +266,14 @@
         <div class="tab-container">
           <label class="character-tab term-tab" id="term16">玩家死亡</label>
           <div class="character-details">“玩家死亡”<br><br>玩家在死亡后会立即复活在最后一次记录的重生锚锚点。<br>若绑定的重生锚已无法使用或自己在一月星小时内死亡超过三次，则会转而复活在传送广场。<br><br>复活后的玩家将会恢复50%的生命值与50%的饱食度，失去所有的增益与减益，再而获得10秒的“生命不减”与“疼痛屏蔽”增益Buff。<br>死亡不会导致玩家丢失道具、装备或经验值，除非装备在死亡时恰巧耐久值归零自然损毁。<br><br>由于在月星世界死亡会体验一回真实死亡的感受，绝大多数玩家会尽可能回避死亡结局。<br>尽管如此，仍有部分玩家会使用死亡达成快速传送的目的以节省传送水晶。</div>
+        </div>
+        <div class="tab-container">
+          <label class="character-tab term-tab" id="term16">生命值</label>
+          <div class="character-details">“生命值”<br><br>玩家在生命归零后将会立即死亡，没有任何原地复活的途径。<br>死亡后的玩家将会在重生锚锚点或传送广场复活（详见“玩家死亡”笔记）。<br><br>玩家受到伤害后，生命值被扣除的部分会立即转变为相同长度的红条，并且红条将以每秒12.5%生命值上限的速度流失。<br>这意味着玩家在满血受到一击毙命的伤害后，将有8秒时间想办法进行恢复。<br>使用恢复手段后，玩家一般会获得此恢复手段提供的生命值量，而并非将红条转绿。<br>玩家的生命值不会被扣至负数，但可以通过特殊手段超过最高生命值上限。</div>
+        </div>
+        <div class="tab-container">
+          <label class="character-tab term-tab" id="term16">饱食度</label>
+          <div class="character-details">“饱食度”<br><br>饱食度可以通过饮食恢复。在达成玩家个人的饱食度百分比要求后，玩家将会以自身的饱食度满足后恢复速度持续恢复生命。<br>饱食度百分比要求默认为90%，但玩家可以习得被动技能减少需求量。<br>若玩家生命值未满，饱食度默认一秒恢复1%的生命并同时扣除1%的饱食度。玩家可以通过习得被动技能缩短效果间隔、减少饱食度扣除量，或增加生命恢复量。<br><br>除生命恢复以外，运动、时间流逝、相关异常状态等都会导致饱食度流失。<br>默认玩家在什么都不吃什么都不干躺24月星小时后，将会失去50饱食度。若此期间玩家一直在保持慢跑，将会失去100饱食度。</div>
         </div>
       </div>
     </div>
