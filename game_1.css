@@ -31,9 +31,24 @@ canvas {
   display: none;
   pointer-events: none;
 }
+.bowoverload {
+  position: fixed;
+  top: 11%;
+  left: 5%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: white;
+  display: none;
+  pointer-events: none;
+}
+.redout {
+  color: rgb(255, 162, 162);
+}
+.exredout {
+  color: rgb(255, 57, 57);
+}
 .upgrade1 {
   position: fixed;
-  bottom: 12%;
+  bottom: 16%;
   left: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(162, 255, 185);
@@ -43,7 +58,7 @@ canvas {
 }
 .upgrade2 {
   position: fixed;
-  bottom: 9%;
+  bottom: 13%;
   left: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(162, 255, 185);
@@ -53,7 +68,17 @@ canvas {
 }
 .upgrade3 {
   position: fixed;
-  bottom: 6%;
+  bottom: 10%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade7 {
+  position: fixed;
+  bottom: 7%;
   left: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(162, 255, 185);
@@ -63,7 +88,7 @@ canvas {
 }
 .upgrade8 {
   position: fixed;
-  bottom: 3%;
+  bottom: 4%;
   left: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(162, 255, 185);
@@ -176,4 +201,31 @@ form > input:hover {
 @font-face {
   font-family: 'jingyue';
   src: url('fonts/静月.ttf') format('truetype');
+}
+
+.custom-button {
+  font-family: 'jingyue';
+  border-radius: 10%; 
+  color: rgb(244, 235, 255); 
+  font-weight: bold; 
+  font-size: 16px; 
+  border: none;
+  border: 2px solid rgb(175, 175, 175);
+  display:none;
+  filter: opacity(0%);
+}
+.custom-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3px #b6b6b6, 0 0 5px #b6b6b6, 0 0 7px #b6b6b6;
+}
+
+@media (max-width: 768px) {
+.mobilehide {
+  display: none;
+  filter: opacity(0%);
+}
+.custom-button {
+  display: none;
+  filter: opacity(100%);
+}
 }
