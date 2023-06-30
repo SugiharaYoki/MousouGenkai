@@ -23,11 +23,12 @@ const bowoverload = document.querySelector(".bowoverload");
 const upgrade1 = document.querySelector(".upgrade1");
 const upgrade2 = document.querySelector(".upgrade2");
 const upgrade3 = document.querySelector(".upgrade3");
+const upgrade7 = document.querySelector(".upgrade7");
+const upgrade8 = document.querySelector(".upgrade8");
 const upgrade1m = document.querySelector(".upgrade1m");
 const upgrade2m = document.querySelector(".upgrade2m");
 const upgrade3m = document.querySelector(".upgrade3m");
-const upgrade7 = document.querySelector(".upgrade7");
-const upgrade8 = document.querySelector(".upgrade8");
+const upgrade7m = document.querySelector(".upgrade7m");
 const web_version = document.querySelector(".web-version");
 let playerScore = 0;
 let playerCoin = 0;
@@ -54,11 +55,12 @@ document.querySelector("input").addEventListener("click", (e) => {
   upgrade1.style.display = "block";
   upgrade2.style.display = "block";
   upgrade3.style.display = "block";
+  upgrade7.style.display = "block";
+  upgrade8.style.display = "block";
   upgrade1m.style.display = "block";
   upgrade2m.style.display = "block";
   upgrade3m.style.display = "block";
-  upgrade7.style.display = "block";
-  upgrade8.style.display = "block";
+  upgrade7m.style.display = "block";
   web_version.style.display = "none";
 
   //  getting diffculty selected by user
@@ -656,16 +658,7 @@ document.addEventListener("keydown", function(event) {
     upgrade3pr();
   }
   if (event.keyCode === 55) {
-    if (playerCoin >= 1000 && upg_multishoot == 1) {
-      playerCoin -= 1000;
-      upg_multishoot += 1;
-      upgrade7.innerHTML = "";
-    }
-    if (playerCoin >= 800 && upg_multishoot == 0) {
-      playerCoin -= 800;
-      upg_multishoot += 1;
-      upgrade7.innerHTML = "数字7：背后射击 花费1000素材";
-    }
+    upgrade7pr();
   }
   if (event.keyCode === 56) {
     if (playerCoin >= 1500 && upg_rightmouse == false) {
@@ -756,6 +749,9 @@ document.getElementById("upgrade2").addEventListener("click", function(event) {
 });
 document.getElementById("upgrade3").addEventListener("click", function(event) {
   upgrade3pr();
+});
+document.getElementById("upgrade7").addEventListener("click", function(event) {
+  upgrade7pr();
 });
 
 function upgrade1pr() {
@@ -890,5 +886,19 @@ function upgrade3pr() {
     upg_randchance += 1;
     upgrade3.innerHTML = "数字3：散箭概率 当前等级LV1 花费200素材";
     upgrade3m.innerHTML = "散率 200";
+  }
+}
+function upgrade7pr() {
+  if (playerCoin >= 1000 && upg_multishoot == 1) {
+    playerCoin -= 1000;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "";
+    upgrade7m.innerHTML = "";
+  }
+  if (playerCoin >= 800 && upg_multishoot == 0) {
+    playerCoin -= 800;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "数字7：背后射击 花费1000素材";
+    upgrade7m.innerHTML = "多重 1000";
   }
 }
