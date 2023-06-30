@@ -33,8 +33,18 @@ canvas {
 }
 .bowoverload {
   position: fixed;
-  top: 11%;
+  top: 17%;
   left: 5%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: white;
+  display: none;
+  pointer-events: none;
+}
+.bowoverloadbar {
+  position: fixed;
+  top: 14%;
+  left: 5%;
+  word-spacing: 10px;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: white;
   display: none;
@@ -45,6 +55,16 @@ canvas {
 }
 .exredout {
   color: rgb(255, 57, 57);
+}
+.hisatsuwaza {
+  position: fixed;
+  bottom: 19%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
 }
 .upgrade1 {
   position: fixed;

@@ -12,7 +12,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 const context = canvas.getContext("2d");
 const lightWeaponDamage = 10;
-let difficulty = 5;
+let difficulty = 3;
 let AZR_Timer = 0.3;
 var gamePaused = false;
 var upg_rightmouse = false;
@@ -20,11 +20,14 @@ const form = document.querySelector("form");
 const scoreBoard = document.querySelector(".scoreBoard");
 const coin = document.querySelector(".coin");
 const bowoverload = document.querySelector(".bowoverload");
+const bowoverloadbar = document.querySelector(".bowoverloadbar");
+const hisatsuwaza = document.querySelector(".hisatsuwaza");
 const upgrade1 = document.querySelector(".upgrade1");
 const upgrade2 = document.querySelector(".upgrade2");
 const upgrade3 = document.querySelector(".upgrade3");
 const upgrade7 = document.querySelector(".upgrade7");
 const upgrade8 = document.querySelector(".upgrade8");
+const hisatsuwazam = document.querySelector(".hisatsuwazam");
 const upgrade1m = document.querySelector(".upgrade1m");
 const upgrade2m = document.querySelector(".upgrade2m");
 const upgrade3m = document.querySelector(".upgrade3m");
@@ -52,11 +55,14 @@ document.querySelector("input").addEventListener("click", (e) => {
   scoreBoard.style.display = "block";
   coin.style.display = "block";
   bowoverload.style.display = "block";
+  bowoverloadbar.style.display = "block";
+  hisatsuwaza.style.display = "block";
   upgrade1.style.display = "block";
   upgrade2.style.display = "block";
   upgrade3.style.display = "block";
   upgrade7.style.display = "block";
   upgrade8.style.display = "block";
+  hisatsuwazam.style.display = "block";
   upgrade1m.style.display = "block";
   upgrade2m.style.display = "block";
   upgrade3m.style.display = "block";
@@ -376,6 +382,8 @@ function animation() {
   scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
   coin.innerHTML = `魔物素材：${playerCoin}`;
   bowoverload.innerHTML = `弓箭超载：${shootCooldown} / 10`;
+  //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
+  bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
 
   // Clearing canvas on each frame
   context.fillStyle = "rgba(49, 49, 49, 1)";
@@ -477,6 +485,8 @@ function animation() {
           scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
           coin.innerHTML = `魔物素材：${playerCoin}`;
           bowoverload.innerHTML = `弓箭超载：${shootCooldown} / 10`;
+          //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
+          bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` i`.repeat(13 - shootCooldown);
           setTimeout(() => {
             enemies.splice(enemyIndex, 1);
             weapons.splice(weaponIndex, 1);
@@ -506,9 +516,11 @@ function shootBullet(e) {
     shootCooldown += 1;
     if (shootCooldown > 7) {
       bowoverload.classList.add("redout");
+      bowoverloadbar.classList.add("redout");
     }
     if (shootCooldown > 9) {
       bowoverload.classList.add("exredout");
+      bowoverloadbar.classList.add("exredout");
     }
     const myAngle = Math.atan2(
       e.clientY - canvas.height / 2,
@@ -634,9 +646,11 @@ window.setInterval(function () {
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8) {
     shootCooldown -= 1;
     bowoverload.classList.remove("exredout");
+    bowoverloadbar.classList.remove("exredout");
   }
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 6) {
     bowoverload.classList.remove("redout");
+    bowoverloadbar.classList.remove("redout");
   }
 }, 250);
 
@@ -669,6 +683,9 @@ document.addEventListener("keydown", function(event) {
   }
   if (event.keyCode === 48) {
     playerCoin += 1000;
+  }
+  if (event.keyCode === 32) {
+    hisatsu();
   }
   //refresh();
 });
@@ -752,6 +769,9 @@ document.getElementById("upgrade3").addEventListener("click", function(event) {
 });
 document.getElementById("upgrade7").addEventListener("click", function(event) {
   upgrade7pr();
+});
+document.getElementById("hisatsuwaza").addEventListener("click", function(event) {
+  hisatsu();
 });
 
 function upgrade1pr() {
@@ -900,5 +920,41 @@ function upgrade7pr() {
     upg_multishoot += 1;
     upgrade7.innerHTML = "数字7：背后射击 花费1000素材";
     upgrade7m.innerHTML = "多重 1000";
+  }
+}
+function hisatsu() {
+  if (playerCoin >= 100) {
+    playerCoin -= 100;
+    const myAngle = Math.random();
+    for (let i = 0; i <= 31; i++) {
+      const velocity1 = {
+        x: Math.cos(myAngle - i*0.1) * 16,
+        y: Math.sin(myAngle - i*0.1) * 16,
+      };
+      weapons.push(
+        new Weapon(
+          canvas.width / 2,
+          canvas.height / 2,
+          6,
+          "white",
+          velocity1,
+          lightWeaponDamage
+        )
+      );
+      const velocity2 = {
+        x: Math.cos(myAngle + i*0.1) * 16,
+        y: Math.sin(myAngle + i*0.1) * 16,
+      };
+      weapons.push(
+        new Weapon(
+          canvas.width / 2,
+          canvas.height / 2,
+          6,
+          "white",
+          velocity2,
+          lightWeaponDamage
+        )
+      );
+    }
   }
 }
