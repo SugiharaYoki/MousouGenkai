@@ -1,0 +1,179 @@
+.myGame {
+  height: 100vh;
+}
+
+canvas {
+  background-color: rgb(49, 49, 49);
+  max-width: 100%;
+  cursor: crosshair;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.scoreBoard {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: white;
+  display: none;
+  pointer-events: none;
+}
+.coin {
+  position: fixed;
+  top: 8%;
+  left: 5%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: white;
+  display: none;
+  pointer-events: none;
+}
+.upgrade1 {
+  position: fixed;
+  bottom: 12%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade2 {
+  position: fixed;
+  bottom: 9%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade3 {
+  position: fixed;
+  bottom: 6%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade8 {
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(162, 255, 185);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.hidden {
+  filter: opacity(0%);
+}
+form {
+  /*background-color: rgba(255, 255, 255, 0.158);*/
+  height: 20vh;
+  width: 60vw;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+form > select,
+form select option {
+  width: 20vw;
+  padding: 0.8vmax;
+  padding-left: 4.35%;
+  text-align: left;
+  font-size: 1.4vmax;
+  font-family: cursive;
+  outline: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+form > input {
+  margin: 2vmax;
+  padding: 1.4vmax;
+  padding-left: 5%;
+  width: 20vw;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: all 0.3s;
+  background-color: rgb(5, 80, 55);
+  font-size: 1.4vmax;
+  font-family: cursive;
+  outline: none;
+  font-weight: bold;
+}
+
+form > select:hover {
+  box-shadow: 0 0 10px white;
+}
+form > input:hover {
+  background-color: rgb(6, 133, 101);
+  box-shadow: 0 0 10px white;
+}
+
+.gameover {
+  background-color: rgba(122, 122, 122, 0.041);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  height: 100vh;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameover > button {
+  padding: 1vmax;
+  border: 2px solid rgb(255, 255, 255);
+  cursor: pointer;
+  width: 10vw;
+  background-color: white;
+  font: 900 1.1vmax cursive;
+  transition: all 0.5s;
+}
+.gameover > button:hover {
+  background-color: rgb(30, 30, 34);
+  color: white;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.gameover > div {
+  margin: 2vmax;
+  color: white;
+  font: 600 1.2vmax cursive;
+}
+
+.web-version {
+  position: fixed;
+  left: 2%;
+  bottom: 5%;
+  color: rgb(221, 221, 221);
+  z-index: 500;
+  font-family: 'jingyue';
+  font-size: 18px; 
+  filter: opacity(80%);
+}
+@font-face {
+  font-family: 'jingyue';
+  src: url('fonts/静月.ttf') format('truetype');
+}
