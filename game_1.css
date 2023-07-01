@@ -102,7 +102,7 @@ canvas {
 }
 .upgrade1 {
   position: fixed;
-  bottom: 10%;
+  bottom: 13%;
   right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(233, 255, 233);
@@ -112,7 +112,7 @@ canvas {
 }
 .upgrade2 {
   position: fixed;
-  bottom: 7%;
+  bottom: 10%;
   right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(233, 255, 233);
@@ -122,7 +122,7 @@ canvas {
 }
 .upgrade3 {
   position: fixed;
-  bottom: 4%;
+  bottom: 7%;
   right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
   color: rgb(233, 255, 233);
@@ -131,6 +131,16 @@ canvas {
   font-size: medium;
 }
 .upgrade4 {
+  position: fixed;
+  bottom: 4%;
+  right: 20%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(233, 255, 233);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade5 {
   position: fixed;
   bottom: 13%;
   right: 3%;

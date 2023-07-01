@@ -32,6 +32,7 @@ const upgrade1 = document.querySelector(".upgrade1");
 const upgrade2 = document.querySelector(".upgrade2");
 const upgrade3 = document.querySelector(".upgrade3");
 const upgrade4 = document.querySelector(".upgrade4");
+const upgrade5 = document.querySelector(".upgrade5");
 const upgrade6 = document.querySelector(".upgrade6");
 const upgrade7 = document.querySelector(".upgrade7");
 const upgrade8 = document.querySelector(".upgrade8");
@@ -40,6 +41,7 @@ const upgrade1m = document.querySelector(".upgrade1m");
 const upgrade2m = document.querySelector(".upgrade2m");
 const upgrade3m = document.querySelector(".upgrade3m");
 const upgrade4m = document.querySelector(".upgrade4m");
+const upgrade5m = document.querySelector(".upgrade5m");
 const upgrade6m = document.querySelector(".upgrade6m");
 const upgrade7m = document.querySelector(".upgrade7m");
 const web_version = document.querySelector(".web-version");
@@ -51,6 +53,7 @@ let upg_randchance = 0;
 let upg_multishoot = 0;
 let upg_health = 0;
 let upg_charge = 0;
+let upg_pierce = 0;
 let shootCooldown = 0;
 let hisatsuCooldown = 0;
 var interval1;
@@ -87,6 +90,7 @@ document.querySelector("input").addEventListener("click", (e) => {
   upgrade2.style.display = "block";
   upgrade3.style.display = "block";
   upgrade4.style.display = "block";
+  upgrade5.style.display = "block";
   upgrade6.style.display = "block";
   upgrade7.style.display = "block";
   upgrade8.style.display = "block";
@@ -95,6 +99,7 @@ document.querySelector("input").addEventListener("click", (e) => {
   upgrade2m.style.display = "block";
   upgrade3m.style.display = "block";
   upgrade4m.style.display = "block";
+  upgrade5m.style.display = "block";
   upgrade6m.style.display = "block";
   upgrade7m.style.display = "block";
   web_version.style.display = "none";
@@ -206,7 +211,9 @@ class Weapon {
     this.color = color;
     this.velocity = velocity;
     this.damage = damage;
+    this.pierce = upg_pierce;
   }
+
 
   draw() {
     context.beginPath();
@@ -577,7 +584,11 @@ function animation() {
           healthbar.innerHTML = ` ❤`.repeat(health)+ `  ♡`.repeat(3 - health + upg_health);
           setTimeout(() => {
             enemies.splice(enemyIndex, 1);
-            weapons.splice(weaponIndex, 1);
+            if (weapon.pierce <= 0) {
+              weapons.splice(weaponIndex, 1);
+            } else {
+              weapon.pierce -= 1;
+            }
           }, 0);
           //refresh();
           
@@ -636,8 +647,8 @@ function shootBullet(e) {
         e.clientX - canvas.width / 2
       );
       const velocity1 = {
-        x: Math.cos(myAngle - 0.4) * 6,
-        y: Math.sin(myAngle - 0.4) * 6,
+        x: Math.cos(myAngle - 0.3) * 6,
+        y: Math.sin(myAngle - 0.3) * 6,
       };
       weapons.push(
         new Weapon(
@@ -650,8 +661,8 @@ function shootBullet(e) {
         )
       );
       const velocity2 = {
-        x: Math.cos(myAngle + 0.4) * 6,
-        y: Math.sin(myAngle + 0.4) * 6,
+        x: Math.cos(myAngle + 0.3) * 6,
+        y: Math.sin(myAngle + 0.3) * 6,
       };
       weapons.push(
         new Weapon(
@@ -670,8 +681,8 @@ function shootBullet(e) {
         e.clientX - canvas.width / 2
       );
       const velocity1 = {
-        x: Math.cos(myAngle - 0.8) * 6,
-        y: Math.sin(myAngle - 0.8) * 6,
+        x: Math.cos(myAngle - 0.6) * 6,
+        y: Math.sin(myAngle - 0.6) * 6,
       };
       weapons.push(
         new Weapon(
@@ -684,8 +695,8 @@ function shootBullet(e) {
         )
       );
       const velocity2 = {
-        x: Math.cos(myAngle + 0.8) * 6,
-        y: Math.sin(myAngle + 0.8) * 6,
+        x: Math.cos(myAngle + 0.6) * 6,
+        y: Math.sin(myAngle + 0.6) * 6,
       };
       weapons.push(
         new Weapon(
@@ -762,7 +773,10 @@ window.setInterval(function () {
 }, 500);
 window.setInterval(function () {
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown > 8) {
-    shootCooldown -= 1;
+    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 8);
+    if (shootCooldown < 0) {
+      shootCooldown = 0;
+    }
   }
 }, 500);
 window.setInterval(function () {
@@ -772,15 +786,18 @@ window.setInterval(function () {
 }, 100);
 window.setInterval(function () {
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8) {
-    shootCooldown -= 1;
+    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 8);
+    if (shootCooldown < 0) {
+      shootCooldown = 0;
+    }
     bowoverload.classList.remove("exredout");
     bowoverloadbar.classList.remove("exredout");
+    if (shootCooldown <= 6) {
+      bowoverload.classList.remove("redout");
+      bowoverloadbar.classList.remove("redout");
+    }
   }
-  if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 6) {
-    bowoverload.classList.remove("redout");
-    bowoverloadbar.classList.remove("redout");
-  }
-}, 250);
+}, 300);
 window.setTimeout(function () {
   hisatsucharging();
 }, 5000 - upg_charge * 1000);
@@ -840,6 +857,9 @@ document.addEventListener("keydown", function(event) {
   }
   if (event.keyCode === 52) {
     upgrade4pr();
+  }
+  if (event.keyCode === 53) {
+    upgrade5pr();
   }
   if (event.keyCode === 54) {
     upgrade6pr();
@@ -943,6 +963,9 @@ document.getElementById("upgrade3").addEventListener("click", function(event) {
 document.getElementById("upgrade4").addEventListener("click", function(event) {
   upgrade4pr();
 });
+document.getElementById("upgrade5").addEventListener("click", function(event) {
+  upgrade5pr();
+});
 document.getElementById("upgrade6").addEventListener("click", function(event) {
   upgrade6pr();
 });
@@ -990,23 +1013,23 @@ function upgrade1pr() {
     upgrade1.innerHTML = "数字1：升级射速 现LV5&nbsp&nbsp $800";
     upgrade1m.innerHTML = "箭速 800";
   }
-  if (playerCoin >= 300 && upg_bulletspeed == 3) {
-    playerCoin -= 300;
+  if (playerCoin >= 200 && upg_bulletspeed == 3) {
+    playerCoin -= 200;
     upg_bulletspeed += 1;
     upgrade1.innerHTML = "数字1：升级射速 现LV4&nbsp&nbsp $500";
     upgrade1m.innerHTML = "箭速 500";
   }
-  if (playerCoin >= 120 && upg_bulletspeed == 2) {
-    playerCoin -= 120;
+  if (playerCoin >= 100 && upg_bulletspeed == 2) {
+    playerCoin -= 100;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 现LV3&nbsp&nbsp $300";
-    upgrade1m.innerHTML = "箭速 300";
+    upgrade1.innerHTML = "数字1：升级射速 现LV3&nbsp&nbsp $200";
+    upgrade1m.innerHTML = "箭速 200";
   }
   if (playerCoin >= 60 && upg_bulletspeed == 1) {
     playerCoin -= 60;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 现LV2&nbsp&nbsp $120";
-    upgrade1m.innerHTML = "箭速 120";
+    upgrade1.innerHTML = "数字1：升级射速 现LV2&nbsp&nbsp $100";
+    upgrade1m.innerHTML = "箭速 100";
   }
   if (playerCoin >= 30 && upg_bulletspeed == 0) {
     playerCoin -= 30;
@@ -1018,11 +1041,23 @@ function upgrade1pr() {
 
 
 function upgrade2pr() {
+  if (playerCoin >= 2000 && upg_randbullet == 7) {
+    playerCoin -= 2000;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV&nbsp&nbsp $？";
+    upgrade2m.innerHTML = "散射 ？";
+  }
+  if (playerCoin >= 2000 && upg_randbullet == 6) {
+    playerCoin -= 2000;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV7&nbsp&nbsp $2000";
+    upgrade2m.innerHTML = "散射 2000";
+  }
   if (playerCoin >= 2000 && upg_randbullet == 5) {
     playerCoin -= 2000;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 现LV6&nbsp&nbsp $？";
-    upgrade2m.innerHTML = "散射 ？";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV6&nbsp&nbsp $2000";
+    upgrade2m.innerHTML = "散射 2000";
   }
   if (playerCoin >= 1000 && upg_randbullet == 4) {
     playerCoin -= 1000;
@@ -1056,17 +1091,29 @@ function upgrade2pr() {
   }
 }
 function upgrade3pr() {
-  if (playerCoin >= 1000 && upg_randchance == 4) {
+  if (playerCoin >= 1500 && upg_randchance == 6) {
+    playerCoin -= 1500;
+    upg_randchance += 1;
+    upgrade3.innerHTML = "数字3：散箭概率 现LV7&nbsp&nbsp $？";
+    upgrade3m.innerHTML = "散率 ？";
+  }
+  if (playerCoin >= 1000 && upg_randchance == 5) {
     playerCoin -= 1000;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 现LV5&nbsp&nbsp $？";
-    upgrade3m.innerHTML = "散率 ？";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV6&nbsp&nbsp $1500";
+    upgrade3m.innerHTML = "散率 1500";
+  }
+  if (playerCoin >= 700 && upg_randchance == 4) {
+    playerCoin -= 700;
+    upg_randchance += 1;
+    upgrade3.innerHTML = "数字3：散箭概率 现LV5&nbsp&nbsp $1000";
+    upgrade3m.innerHTML = "散率 1000";
   }
   if (playerCoin >= 600 && upg_randchance == 3) {
     playerCoin -= 600;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 现LV4&nbsp&nbsp $1000";
-    upgrade3m.innerHTML = "散率 1000";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV4&nbsp&nbsp $700";
+    upgrade3m.innerHTML = "散率 700";
   }
   if (playerCoin >= 400 && upg_randchance == 2) {
     playerCoin -= 400;
@@ -1088,11 +1135,23 @@ function upgrade3pr() {
   }
 }
 function upgrade4pr() {
-  if (playerCoin >= 1000 && upg_charge == 4) {
-    playerCoin -= 1000;
+  if (playerCoin >= 1800 && upg_charge == 6) {
+    playerCoin -= 1800;
     upg_charge += 1;
     upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $？";
     upgrade4m.innerHTML = "充能 ？";
+  }
+  if (playerCoin >= 1300 && upg_charge == 5) {
+    playerCoin -= 1300;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $1800";
+    upgrade4m.innerHTML = "充能 1800";
+  }
+  if (playerCoin >= 1000 && upg_charge == 4) {
+    playerCoin -= 1000;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $1300";
+    upgrade4m.innerHTML = "充能 1300";
   }
   if (playerCoin >= 800 && upg_charge == 3) {
     playerCoin -= 800;
@@ -1119,26 +1178,59 @@ function upgrade4pr() {
     upgrade4m.innerHTML = "充能 500";
   }
 }
+function upgrade5pr() {
+  if (playerCoin >= 5000 && upg_pierce == 3) {
+    playerCoin -= 5000;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV4&nbsp&nbsp $？";
+    upgrade5m.innerHTML = "穿透 ？";
+  }
+  if (playerCoin >= 2500 && upg_pierce == 2) {
+    playerCoin -= 2500;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV3&nbsp&nbsp $5000";
+    upgrade5m.innerHTML = "穿透 5000";
+  }
+  if (playerCoin >= 1000 && upg_pierce == 1) {
+    playerCoin -= 1000;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV2&nbsp&nbsp $2500";
+    upgrade5m.innerHTML = "穿透 2500";
+  }
+  if (playerCoin >= 300 && upg_pierce == 0) {
+    playerCoin -= 300;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV1&nbsp&nbsp $1000";
+    upgrade5m.innerHTML = "穿透 1000";
+  }
+}
 function upgrade6pr() {
+  if (playerCoin >= 2000 && upg_health == 3) {
+    playerCoin -= 2000;
+    upg_health += 1;
+    health += 1;
+    upgrade6.innerHTML = "数字6：生命上限 现LV4&nbsp&nbsp $？";
+    upgrade6m.innerHTML = "生命 ？";
+  }
   if (playerCoin >= 2000 && upg_health == 2) {
     playerCoin -= 2000;
     upg_health += 1;
     health += 1;
-    upgrade6.innerHTML = "";
-    upgrade6m.innerHTML = "生命 ？";
+    upgrade6.innerHTML = "数字6：生命上限 现LV3&nbsp&nbsp $2000";
+    upgrade6m.innerHTML = "生命 2000";
   }
   if (playerCoin >= 1000 && upg_health == 1) {
     playerCoin -= 1000;
     upg_health += 1;
     health += 1;
-    upgrade6.innerHTML = "数字6：生命上限&nbsp&nbsp $2000";
+    upgrade6.innerHTML = "数字6：生命上限 现LV2&nbsp&nbsp $2000";
     upgrade6m.innerHTML = "生命 2000";
   }
   if (playerCoin >= 500 && upg_health == 0) {
     playerCoin -= 500;
     upg_health += 1;
     health += 1;
-    upgrade6.innerHTML = "数字6：生命上限&nbsp&nbsp $1000";
+    upgrade6.innerHTML = "数字6：生命上限 现LV1&nbsp&nbsp $1000";
     upgrade6m.innerHTML = "生命 1000";
   }
 }
@@ -1146,7 +1238,7 @@ function upgrade7pr() {
   if (playerCoin >= 2000 && upg_multishoot == 2) {
     playerCoin -= 2000;
     upg_multishoot += 1;
-    upgrade7.innerHTML = "";
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $？";
     upgrade7m.innerHTML = "多重 ？";
   }
   if (playerCoin >= 1000 && upg_multishoot == 1) {
