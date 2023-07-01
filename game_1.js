@@ -110,17 +110,17 @@ document.querySelector("input").addEventListener("click", (e) => {
     }
   }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 40) {
+    if (document.hasFocus() && AZR_Timer >= 3) {
       spawnEnemy2();
     }
   }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 70) {
+    if (document.hasFocus() && AZR_Timer >= 7) {
       spawnEnemy3();
     }
   }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 100) {
+    if (document.hasFocus() && AZR_Timer >= 10) {
       spawnEnemy4();
     }
   }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
@@ -384,7 +384,7 @@ const spawnEnemy2 = () => {
   };
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 40) {
+    if (document.hasFocus() && AZR_Timer >= 3) {
       spawnEnemy2();
     }
   }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
@@ -414,7 +414,7 @@ const spawnEnemy3 = () => {
   };
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 70) {
+    if (document.hasFocus() && AZR_Timer >= 7) {
       spawnEnemy3();
     }
   }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
@@ -444,7 +444,7 @@ const spawnEnemy4 = () => {
   };
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 100) {
+    if (document.hasFocus() && AZR_Timer >= 10) {
       spawnEnemy4();
     }
   }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
