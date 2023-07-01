@@ -46,9 +46,43 @@ canvas {
   left: 5%;
   word-spacing: 10px;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: white;
+  color: rgb(90, 255, 164);
   display: none;
   pointer-events: none;
+}
+.azrtimer {
+  position: fixed;
+  bottom: 1%;
+  left: 0.3%;
+  word-spacing: 10px;
+  font-size: 17px;
+  color: rgba(133, 133, 133, 0.247);
+  display: none;
+  pointer-events: none;
+}
+.hisatsucharge {
+  position: fixed;
+  top: 21%;
+  left: 5.05%;
+  word-spacing: 9.5px;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(255, 198, 92);
+  display: none;
+  pointer-events: none;
+  font-size: 28.4px;
+}
+.healthbar {
+  position: fixed;
+  top: 24%;
+  left: 5%;
+  word-spacing: 6.55px;
+  font-size: 24.4px;
+  color: rgb(255, 92, 206);
+  display: none;
+  pointer-events: none;
+}
+.hisatsufull {
+  color: rgb(96, 255, 48);
 }
 .redout {
   color: rgb(255, 162, 162);
@@ -58,40 +92,60 @@ canvas {
 }
 .hisatsuwaza {
   position: fixed;
-  bottom: 19%;
+  bottom: 4%;
   left: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
 }
 .upgrade1 {
   position: fixed;
-  bottom: 16%;
-  left: 3%;
+  bottom: 10%;
+  right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
 }
 .upgrade2 {
   position: fixed;
-  bottom: 13%;
-  left: 3%;
+  bottom: 7%;
+  right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
 }
 .upgrade3 {
   position: fixed;
-  bottom: 10%;
-  left: 3%;
+  bottom: 4%;
+  right: 20%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade4 {
+  position: fixed;
+  bottom: 13%;
+  right: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(233, 255, 233);
+  display: none;
+  pointer-events: none;
+  font-size: medium;
+}
+.upgrade6 {
+  position: fixed;
+  bottom: 10%;
+  right: 3%;
+  font: 600 1.2vmax "Franklin Gothic Medium";
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
@@ -99,9 +153,9 @@ canvas {
 .upgrade7 {
   position: fixed;
   bottom: 7%;
-  left: 3%;
+  right: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
@@ -109,9 +163,9 @@ canvas {
 .upgrade8 {
   position: fixed;
   bottom: 4%;
-  left: 3%;
+  right: 3%;
   font: 600 1.2vmax "Franklin Gothic Medium";
-  color: rgb(162, 255, 185);
+  color: rgb(233, 255, 233);
   display: none;
   pointer-events: none;
   font-size: medium;
@@ -233,6 +287,7 @@ form > input:hover {
   border: 2px solid rgb(175, 175, 175);
   display:none;
   filter: opacity(0%);
+  pointer-events: none;
 }
 .custom-button:hover {
   cursor: pointer;
@@ -247,5 +302,6 @@ form > input:hover {
 .custom-button {
   display: none;
   filter: opacity(100%);
+  pointer-events: all;
 }
 }

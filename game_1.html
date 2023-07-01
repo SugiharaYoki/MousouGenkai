@@ -10,22 +10,29 @@
 
   </script>
   <body>
-    <div class="web-version">版本：&nbsp;1.6.30.1851.1<br>Code Modified by 杉原夜季.<br><br>Based on the project of Abhishek Singh.<br>https://github.com/meabhisingh/canvasGame/</div>
+    <div class="web-version">版本：&nbsp;1.7.1.1238.1<br>Code Modified by 杉原夜季.<br><br>Based on the project of Abhishek Singh.<br>https://github.com/meabhisingh/canvasGame/</div>
     <div class="scoreBoard">当前设备记录：0</div>
     <div class="coin">魔物素材：0</div>
-    <div class="bowoverload">弓箭超载：0/10</div>
+    <div class="bowoverload">射速过载：0/10</div>
     <div class="bowoverloadbar">0 / 10</div>
-    <div class="hisatsuwaza mobilehide">空格：使用100素材 施放必杀</div>
-    <div class="upgrade1 mobilehide">数字1：升级射速 当前等级LV0 花费30素材</div>
-    <div class="upgrade2 mobilehide">数字2：箭矢散射 当前等级LV0 花费30素材</div>
-    <div class="upgrade3 mobilehide">数字3：散射概率 当前等级LV0 花费50素材</div>
-    <div class="upgrade7 mobilehide">数字7：三重射击 花费800素材</div>
-    <div class="upgrade8 mobilehide">数字8：解锁鼠标右键 花费1500素材</div>
-    <button id="hisatsuwaza" class="hisatsuwazam custom-button" style="position: fixed; bottom: 50px; left: 20px; width: 80px; height: 30px; background-color: #7c1b1b;">必殺 100</button>
-    <button id="upgrade1" class="upgrade1m custom-button" style="position: fixed; bottom: 200px; right: 20px; width: 80px; height: 30px; background-color: #688a84;">箭速 30</button>
-    <button id="upgrade2" class="upgrade2m custom-button" style="position: fixed; bottom: 150px; right: 20px; width: 80px; height: 30px; background-color: #8a7a68;">散射 30</button>
-    <button id="upgrade3" class="upgrade3m custom-button" style="position: fixed; bottom: 100px; right: 20px; width: 80px; height: 30px; background-color: #878a68;">散率 50</button>
-    <button id="upgrade7" class="upgrade7m custom-button" style="position: fixed; bottom: 50px; right: 20px; width: 80px; height: 30px; background-color: #686d8a;">多重 800</button>
+    <div class="hisatsucharge"></div>
+    <div class="healthbar"></div>
+    <div class="azrtimer"></div>
+    <div class="hisatsuwaza mobilehide">空格：施放光环泯灭</div>
+    <div class="upgrade1 mobilehide">数字1：升级射速 现LV0 &nbsp&nbsp$30</div>
+    <div class="upgrade2 mobilehide">数字2：箭矢散射 现LV0 &nbsp&nbsp$30</div>
+    <div class="upgrade3 mobilehide">数字3：散射概率 现LV0 &nbsp&nbsp$50</div>
+    <div class="upgrade4 mobilehide">数字4：必杀充能 现LV0 &nbsp&nbsp$300</div>
+    <div class="upgrade6 mobilehide">数字6：生命上限 &nbsp&nbsp$500</div>
+    <div class="upgrade7 mobilehide">数字7：三重射击 &nbsp&nbsp$800</div>
+    <div class="upgrade8 mobilehide">数字8：解锁鼠标右键 &nbsp&nbsp$1500</div>
+    <button id="hisatsuwaza" class="hisatsuwazam custom-button" style="position: fixed; bottom: 50px; left: 20px; width: 90px; height: 30px; background-color: #912b2b;">必殺</button>
+    <button id="upgrade1" class="upgrade1m custom-button" style="position: fixed; bottom: 130px; right: 130px; width: 90px; height: 30px; background-color: #2f8a58;">箭速 30</button>
+    <button id="upgrade2" class="upgrade2m custom-button" style="position: fixed; bottom: 90px; right: 130px; width: 90px; height: 30px; background-color: #27748b;">散射 30</button>
+    <button id="upgrade3" class="upgrade3m custom-button" style="position: fixed; bottom: 50px; right: 130px; width: 90px; height: 30px; background-color: #673397;">散率 50</button>
+    <button id="upgrade4" class="upgrade4m custom-button" style="position: fixed; bottom: 130px; right: 20px; width: 90px; height: 30px; background-color: #979135;">充能 300</button>
+    <button id="upgrade6" class="upgrade6m custom-button" style="position: fixed; bottom: 90px; right: 20px; width: 90px; height: 30px; background-color: rgb(134, 46, 115);">生命 500</button>
+    <button id="upgrade7" class="upgrade7m custom-button" style="position: fixed; bottom: 50px; right: 20px; width: 90px; height: 30px; background-color: #39489c;">多重 800</button>
     <form action="" method="get">
       <select name="" id="difficulty">
         <option value="Normal">休闲</option>

@@ -12,8 +12,11 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 const context = canvas.getContext("2d");
 const lightWeaponDamage = 10;
-let difficulty = 3;
+let difficulty = 15;
+let health = 3;
 let AZR_Timer = 0.3;
+let AZR_Timer_slow = 5;
+let muteki = 0;
 var gamePaused = false;
 var upg_rightmouse = false;
 const form = document.querySelector("form");
@@ -21,16 +24,23 @@ const scoreBoard = document.querySelector(".scoreBoard");
 const coin = document.querySelector(".coin");
 const bowoverload = document.querySelector(".bowoverload");
 const bowoverloadbar = document.querySelector(".bowoverloadbar");
+const hisatsucharge = document.querySelector(".hisatsucharge");
+const healthbar = document.querySelector(".healthbar");
+const azrtimer = document.querySelector(".azrtimer");
 const hisatsuwaza = document.querySelector(".hisatsuwaza");
 const upgrade1 = document.querySelector(".upgrade1");
 const upgrade2 = document.querySelector(".upgrade2");
 const upgrade3 = document.querySelector(".upgrade3");
+const upgrade4 = document.querySelector(".upgrade4");
+const upgrade6 = document.querySelector(".upgrade6");
 const upgrade7 = document.querySelector(".upgrade7");
 const upgrade8 = document.querySelector(".upgrade8");
 const hisatsuwazam = document.querySelector(".hisatsuwazam");
 const upgrade1m = document.querySelector(".upgrade1m");
 const upgrade2m = document.querySelector(".upgrade2m");
 const upgrade3m = document.querySelector(".upgrade3m");
+const upgrade4m = document.querySelector(".upgrade4m");
+const upgrade6m = document.querySelector(".upgrade6m");
 const upgrade7m = document.querySelector(".upgrade7m");
 const web_version = document.querySelector(".web-version");
 let playerScore = 0;
@@ -39,7 +49,18 @@ let upg_bulletspeed = 0;
 let upg_randbullet = 0;
 let upg_randchance = 0;
 let upg_multishoot = 0;
+let upg_health = 0;
+let upg_charge = 0;
 let shootCooldown = 0;
+let hisatsuCooldown = 0;
+var interval1;
+var interval2;
+var interval3;
+var interval4;
+var interval5;
+var interval6;
+var interval7;
+var interval8;
 // Basic Functions
 
 // Event Listener for Difficulty form
@@ -56,16 +77,23 @@ document.querySelector("input").addEventListener("click", (e) => {
   coin.style.display = "block";
   bowoverload.style.display = "block";
   bowoverloadbar.style.display = "block";
+  hisatsucharge.style.display = "block";
   hisatsuwaza.style.display = "block";
+  healthbar.style.display = "block";
+  azrtimer.style.display = "block";
   upgrade1.style.display = "block";
   upgrade2.style.display = "block";
   upgrade3.style.display = "block";
+  upgrade4.style.display = "block";
+  upgrade6.style.display = "block";
   upgrade7.style.display = "block";
   upgrade8.style.display = "block";
   hisatsuwazam.style.display = "block";
   upgrade1m.style.display = "block";
   upgrade2m.style.display = "block";
   upgrade3m.style.display = "block";
+  upgrade4m.style.display = "block";
+  upgrade6m.style.display = "block";
   upgrade7m.style.display = "block";
   web_version.style.display = "none";
 
@@ -73,25 +101,30 @@ document.querySelector("input").addEventListener("click", (e) => {
   const userValue = document.getElementById("difficulty").value;
 
   if (userValue == "Abnormal") {
-    difficulty = 250;
+    difficulty = 305;
   }
 
-  setInterval(function() {
+  setTimeout(function() {
     if (document.hasFocus()) {
       spawnEnemy();
     }
-  }, 2000/(difficulty**0.3) - Math.min(1900, AZR_Timer * 5));
-  setInterval(function() {
-    if (document.hasFocus()) {
+  }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 40) {
       spawnEnemy2();
     }
-  }, 5400/(difficulty**0.25) - Math.min(3200, AZR_Timer * 5));
-  setInterval(function() {
-    if (document.hasFocus()) {
+  }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 70) {
       spawnEnemy3();
     }
-  }, 8800/(difficulty**0.25) - Math.min(3200, AZR_Timer * 5));
-  return (difficulty = 15);
+  }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 100) {
+      spawnEnemy4();
+    }
+  }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  return;//(difficulty = 15);
 });
 
 // Endscreen
@@ -313,12 +346,18 @@ const spawnEnemy = () => {
 
   // Making velocity or speed of enemy by multipling chosen difficulty to radian
   const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6),
-    y: Math.sin(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6),
+    x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
+    y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
   };
 
   // Adding enemy to enemies array
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+
+  setTimeout(function() {
+    if (document.hasFocus()) {
+      spawnEnemy();
+    }
+  }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy2 = () => {
   const enemySize = 8;
@@ -340,10 +379,15 @@ const spawnEnemy2 = () => {
     canvas.width / 2 - random.x
   );
   const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6) * 1.6,
-    y: Math.sin(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6) * 1.6,
+    x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
+    y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
   };
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 40) {
+      spawnEnemy2();
+    }
+  }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy3 = () => {
   const enemySize = 30;
@@ -365,10 +409,45 @@ const spawnEnemy3 = () => {
     canvas.width / 2 - random.x
   );
   const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6) * 1.3,
-    y: Math.sin(myAngle) * difficulty * 0.8 * Math.min(AZR_Timer/4000, 6) * 1.3,
+    x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
+    y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
   };
   enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 70) {
+      spawnEnemy3();
+    }
+  }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+};
+const spawnEnemy4 = () => {
+  const enemySize = 120;
+  const enemyColor = `hsl(30,100%,50%)`;
+  let random;
+  if (Math.random() < 0.5) {
+    random = {
+      x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
+      y: Math.random() * canvas.height,
+    };
+  } else {
+    random = {
+      x: Math.random() * canvas.width,
+      y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
+    };
+  }
+  const myAngle = Math.atan2(
+    canvas.height / 2 - random.y,
+    canvas.width / 2 - random.x
+  );
+  const velocity = {
+    x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
+    y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
+  };
+  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  setTimeout(function() {
+    if (document.hasFocus() && AZR_Timer >= 100) {
+      spawnEnemy4();
+    }
+  }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
 };
 
 // ------------------------------------------------Creating Animation Function ---------------------------------------
@@ -381,9 +460,12 @@ function animation() {
   // Updating Player Score in Score board in html
   scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
   coin.innerHTML = `魔物素材：${playerCoin}`;
-  bowoverload.innerHTML = `弓箭超载：${shootCooldown} / 10`;
+  bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
+  azrtimer.innerHTML = `${AZR_Timer}&nbsp&nbsp ${AZR_Timer_slow}`;
   //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
   bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
+  hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+  healthbar.innerHTML = ` ❤`.repeat(health)+ `  ♡`.repeat(3 - health + upg_health);
 
   // Clearing canvas on each frame
   context.fillStyle = "rgba(49, 49, 49, 1)";
@@ -428,12 +510,19 @@ function animation() {
     );
 
     // Stoping Game if enemy hit player
-    if (distanceBetweenPlayerAndEnemy - hakuyo.radius - enemy.radius < 0.5) {
-      cancelAnimationFrame(animationId);
-      //gameOverSound.play();
-      //shootingSound.pause();
-      //killEnemySound.pause();
-      return gameoverLoader();
+    if ((distanceBetweenPlayerAndEnemy - hakuyo.radius - enemy.radius < -2) && muteki <= 1) {
+      if (health > 1) {
+        hisatsuCooldown = 5;
+        hisatsu();
+        health -= 1;
+        muteki += 10;
+      } else {
+        cancelAnimationFrame(animationId);
+        //gameOverSound.play();
+        //shootingSound.pause();
+        //killEnemySound.pause();
+        return gameoverLoader();
+      }
     }
 
     weapons.forEach((weapon, weaponIndex) => {
@@ -469,11 +558,11 @@ function animation() {
         }
         // Removing enemy on hit if they are below 18
         else {
-          for (let i = 0; i < enemy.radius * 2; i++) {
+          for (let i = 0; i < enemy.radius * 3; i++) {
             particles.push(
               new Particle(weapon.x, weapon.y, Math.random() * 2, enemy.color, {
-                x: (Math.random() - 0.5) * (Math.random() * 2),
-                y: (Math.random() - 0.5) * (Math.random() * 2),
+                x: (Math.random() - 0.5) * (Math.random() * 3),
+                y: (Math.random() - 0.5) * (Math.random() * 3),
               })
             );
           }
@@ -484,9 +573,12 @@ function animation() {
           // Rendering player Score in scoreboard html element
           scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
           coin.innerHTML = `魔物素材：${playerCoin}`;
-          bowoverload.innerHTML = `弓箭超载：${shootCooldown} / 10`;
+          bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
+          azrtimer.innerHTML = `${AZR_Timer}&nbsp&nbsp ${AZR_Timer_slow}`;
           //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
-          bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` i`.repeat(13 - shootCooldown);
+          bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
+          hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+          healthbar.innerHTML = ` ❤`.repeat(health)+ `  ♡`.repeat(3 - health + upg_health);
           setTimeout(() => {
             enemies.splice(enemyIndex, 1);
             weapons.splice(weaponIndex, 1);
@@ -576,6 +668,40 @@ function shootBullet(e) {
         )
       );
     }
+    if (upg_multishoot >= 3) {
+      const myAngle = Math.atan2(
+        e.clientY - canvas.height / 2,
+        e.clientX - canvas.width / 2
+      );
+      const velocity1 = {
+        x: Math.cos(myAngle - 0.8) * 6,
+        y: Math.sin(myAngle - 0.8) * 6,
+      };
+      weapons.push(
+        new Weapon(
+          canvas.width / 2,
+          canvas.height / 2,
+          6,
+          "white",
+          velocity1,
+          lightWeaponDamage
+        )
+      );
+      const velocity2 = {
+        x: Math.cos(myAngle + 0.8) * 6,
+        y: Math.sin(myAngle + 0.8) * 6,
+      };
+      weapons.push(
+        new Weapon(
+          canvas.width / 2,
+          canvas.height / 2,
+          6,
+          "white",
+          velocity2,
+          lightWeaponDamage
+        )
+      );
+    }
     if (upg_multishoot >= 2) {
       const myAngle = Math.atan2(
         e.clientY - canvas.height / 2,
@@ -634,7 +760,8 @@ animation();
 
 window.setInterval(function () {
   if (document.hasFocus()) {
-    AZR_Timer = AZR_Timer + 1;
+    AZR_Timer += 0.01;
+    AZR_Timer_slow += 0.005;
   }
 }, 500);
 window.setInterval(function () {
@@ -642,6 +769,11 @@ window.setInterval(function () {
     shootCooldown -= 1;
   }
 }, 500);
+window.setInterval(function () {
+  if (muteki >= 0) {
+    muteki -= 1;
+  }
+}, 100);
 window.setInterval(function () {
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8) {
     shootCooldown -= 1;
@@ -653,6 +785,21 @@ window.setInterval(function () {
     bowoverloadbar.classList.remove("redout");
   }
 }, 250);
+window.setTimeout(function () {
+  hisatsucharging();
+}, 5000 - upg_charge * 1000);
+
+function hisatsucharging() {
+  if (document.hasFocus() && hisatsuCooldown < 5) {
+    hisatsuCooldown += 1;
+    if (hisatsuCooldown == 5) {
+      hisatsucharge.classList.add("hisatsufull");
+    }
+  }
+  window.setTimeout(function () {
+    hisatsucharging();
+  }, 5000 - upg_charge * 300);
+}
 
 canvas.addEventListener("blur", function() {
   gamePaused = true;
@@ -670,6 +817,12 @@ document.addEventListener("keydown", function(event) {
   }
   if (event.keyCode === 51) {
     upgrade3pr();
+  }
+  if (event.keyCode === 52) {
+    upgrade4pr();
+  }
+  if (event.keyCode === 54) {
+    upgrade6pr();
   }
   if (event.keyCode === 55) {
     upgrade7pr();
@@ -767,6 +920,12 @@ document.getElementById("upgrade2").addEventListener("click", function(event) {
 document.getElementById("upgrade3").addEventListener("click", function(event) {
   upgrade3pr();
 });
+document.getElementById("upgrade4").addEventListener("click", function(event) {
+  upgrade4pr();
+});
+document.getElementById("upgrade6").addEventListener("click", function(event) {
+  upgrade6pr();
+});
 document.getElementById("upgrade7").addEventListener("click", function(event) {
   upgrade7pr();
 });
@@ -778,61 +937,61 @@ function upgrade1pr() {
   if (playerCoin >= 1000 && upg_bulletspeed == 9) {
     playerCoin -= 1000;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV10 花费？素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV10&nbsp&nbsp $？";
     upgrade1m.innerHTML = "箭速 ？";
   }
   if (playerCoin >= 1000 && upg_bulletspeed == 8) {
     playerCoin -= 1000;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV9 花费1000素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV9&nbsp&nbsp $1000";
     upgrade1m.innerHTML = "箭速 1000";
   }
   if (playerCoin >= 1000 && upg_bulletspeed == 7) {
     playerCoin -= 1000;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV8 花费1000素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV8&nbsp&nbsp $1000";
     upgrade1m.innerHTML = "箭速 1000";
   }
   if (playerCoin >= 1000 && upg_bulletspeed == 6) {
     playerCoin -= 1000;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV7 花费1000素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV7&nbsp&nbsp $1000";
     upgrade1m.innerHTML = "箭速 1000";
   }
   if (playerCoin >= 800 && upg_bulletspeed == 5) {
     playerCoin -= 800;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV6 花费1000素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV6&nbsp&nbsp $1000";
     upgrade1m.innerHTML = "箭速 1000";
   }
   if (playerCoin >= 500 && upg_bulletspeed == 4) {
     playerCoin -= 500;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV5 花费800素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV5&nbsp&nbsp $800";
     upgrade1m.innerHTML = "箭速 800";
   }
   if (playerCoin >= 300 && upg_bulletspeed == 3) {
     playerCoin -= 300;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV4 花费500素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV4&nbsp&nbsp $500";
     upgrade1m.innerHTML = "箭速 500";
   }
   if (playerCoin >= 120 && upg_bulletspeed == 2) {
     playerCoin -= 120;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV3 花费300素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV3&nbsp&nbsp $300";
     upgrade1m.innerHTML = "箭速 300";
   }
   if (playerCoin >= 60 && upg_bulletspeed == 1) {
     playerCoin -= 60;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV2 花费120素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV2&nbsp&nbsp $120";
     upgrade1m.innerHTML = "箭速 120";
   }
   if (playerCoin >= 30 && upg_bulletspeed == 0) {
     playerCoin -= 30;
     upg_bulletspeed += 1;
-    upgrade1.innerHTML = "数字1：升级射速 当前等级LV1 花费60素材";
+    upgrade1.innerHTML = "数字1：升级射速 现LV1&nbsp&nbsp $60";
     upgrade1m.innerHTML = "箭速 60";
   }
 };
@@ -842,37 +1001,37 @@ function upgrade2pr() {
   if (playerCoin >= 2000 && upg_randbullet == 5) {
     playerCoin -= 2000;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV6 花费？素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV6&nbsp&nbsp $？";
     upgrade2m.innerHTML = "散射 ？";
   }
   if (playerCoin >= 1000 && upg_randbullet == 4) {
     playerCoin -= 1000;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV5 花费2000素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV5&nbsp&nbsp $2000";
     upgrade2m.innerHTML = "散射 2000";
   }
   if (playerCoin >= 600 && upg_randbullet == 3) {
     playerCoin -= 600;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV4 花费1000素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV4&nbsp&nbsp $1000";
     upgrade2m.innerHTML = "散射 1000";
   }
   if (playerCoin >= 300 && upg_randbullet == 2) {
     playerCoin -= 300;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV3 花费600素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV3&nbsp&nbsp $600";
     upgrade2m.innerHTML = "散射 600";
   }
   if (playerCoin >= 100 && upg_randbullet == 1) {
     playerCoin -= 100;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV2 花费300素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV2&nbsp&nbsp $300";
     upgrade2m.innerHTML = "散射 300";
   }
   if (playerCoin >= 30 && upg_randbullet == 0) {
     playerCoin -= 30;
     upg_randbullet += 1;
-    upgrade2.innerHTML = "数字2：箭矢散射 当前等级LV1 花费100素材";
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV1&nbsp&nbsp $100";
     upgrade2m.innerHTML = "散射 100";
   }
 }
@@ -880,50 +1039,113 @@ function upgrade3pr() {
   if (playerCoin >= 1000 && upg_randchance == 4) {
     playerCoin -= 1000;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 当前等级LV5 花费？素材";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV5&nbsp&nbsp $？";
     upgrade3m.innerHTML = "散率 ？";
   }
   if (playerCoin >= 600 && upg_randchance == 3) {
     playerCoin -= 600;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 当前等级LV4 花费1000素材";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV4&nbsp&nbsp $1000";
     upgrade3m.innerHTML = "散率 1000";
   }
   if (playerCoin >= 400 && upg_randchance == 2) {
     playerCoin -= 400;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 当前等级LV3 花费600素材";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV3&nbsp&nbsp $600";
     upgrade3m.innerHTML = "散率 600";
   }
   if (playerCoin >= 200 && upg_randchance == 1) {
     playerCoin -= 200;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 当前等级LV2 花费400素材";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV2&nbsp&nbsp $400";
     upgrade3m.innerHTML = "散率 400";
   }
   if (playerCoin >= 50 && upg_randchance == 0) {
     playerCoin -= 50;
     upg_randchance += 1;
-    upgrade3.innerHTML = "数字3：散箭概率 当前等级LV1 花费200素材";
+    upgrade3.innerHTML = "数字3：散箭概率 现LV1&nbsp&nbsp $200";
     upgrade3m.innerHTML = "散率 200";
   }
 }
+function upgrade4pr() {
+  if (playerCoin >= 1000 && upg_charge == 4) {
+    playerCoin -= 1000;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $？";
+    upgrade4m.innerHTML = "充能 ？";
+  }
+  if (playerCoin >= 800 && upg_charge == 3) {
+    playerCoin -= 800;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV4&nbsp&nbsp $1000";
+    upgrade4m.innerHTML = "充能 1000";
+  }
+  if (playerCoin >= 600 && upg_charge == 2) {
+    playerCoin -= 600;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV3&nbsp&nbsp $800";
+    upgrade4m.innerHTML = "充能 800";
+  }
+  if (playerCoin >= 500 && upg_charge == 1) {
+    playerCoin -= 500;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV2&nbsp&nbsp $600";
+    upgrade4m.innerHTML = "充能 600";
+  }
+  if (playerCoin >= 300 && upg_charge == 0) {
+    playerCoin -= 300;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV1&nbsp&nbsp $500";
+    upgrade4m.innerHTML = "充能 500";
+  }
+}
+function upgrade6pr() {
+  if (playerCoin >= 2000 && upg_health == 2) {
+    playerCoin -= 2000;
+    upg_health += 1;
+    health += 1;
+    upgrade6.innerHTML = "";
+    upgrade6m.innerHTML = "生命 ？";
+  }
+  if (playerCoin >= 1000 && upg_health == 1) {
+    playerCoin -= 1000;
+    upg_health += 1;
+    health += 1;
+    upgrade6.innerHTML = "数字6：生命上限&nbsp&nbsp $2000";
+    upgrade6m.innerHTML = "生命 2000";
+  }
+  if (playerCoin >= 500 && upg_health == 0) {
+    playerCoin -= 500;
+    upg_health += 1;
+    health += 1;
+    upgrade6.innerHTML = "数字6：生命上限&nbsp&nbsp $1000";
+    upgrade6m.innerHTML = "生命 1000";
+  }
+}
 function upgrade7pr() {
+  if (playerCoin >= 2000 && upg_multishoot == 2) {
+    playerCoin -= 2000;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "";
+    upgrade7m.innerHTML = "多重 ？";
+  }
   if (playerCoin >= 1000 && upg_multishoot == 1) {
     playerCoin -= 1000;
     upg_multishoot += 1;
-    upgrade7.innerHTML = "";
-    upgrade7m.innerHTML = "";
+    upgrade7.innerHTML = "数字7：五重射击&nbsp&nbsp $2000";
+    upgrade7m.innerHTML = "多重 2000";
   }
   if (playerCoin >= 800 && upg_multishoot == 0) {
     playerCoin -= 800;
     upg_multishoot += 1;
-    upgrade7.innerHTML = "数字7：背后射击 花费1000素材";
+    upgrade7.innerHTML = "数字7：背后射击&nbsp&nbsp $1000";
     upgrade7m.innerHTML = "多重 1000";
   }
 }
 function hisatsu() {
-  if (playerCoin >= 100) {
+  if (hisatsuCooldown >= 5) {
+    hisatsuCooldown -= 5;
+    hisatsucharge.classList.remove("hisatsufull");
     playerCoin -= 100;
     const myAngle = Math.random();
     for (let i = 0; i <= 31; i++) {
@@ -955,6 +1177,6 @@ function hisatsu() {
           lightWeaponDamage
         )
       );
-    }
+    };
   }
 }
