@@ -151,26 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.getElementById("toggleCharacterList").addEventListener("click", function () {
-    const characterList = document.getElementById("character-tabs");
-    const termList = document.getElementById("term-tabs");
-    characterList.classList.toggle("hidden");
-    termList.classList.add("hidden");
-    const isHidden = characterList.classList.contains("hidden");
-    const isHidden2 = termList.classList.contains("hidden");
-    setCookie("enableCharacterWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableTermWiki", isHidden2 ? "hidden" : "shown", 365);
-  });
-  document.getElementById("toggleTermList").addEventListener("click", function () {
-    const termList = document.getElementById("term-tabs");
-    const characterList = document.getElementById("character-tabs");
-    termList.classList.toggle("hidden");
-    characterList.classList.add("hidden");
-    const isHidden = termList.classList.contains("hidden");
-    const isHidden2 = characterList.classList.contains("hidden");
-    setCookie("enableTermWiki", isHidden ? "hidden" : "shown", 365);
-    setCookie("enableCharacterWiki", isHidden2 ? "hidden" : "shown", 365);
-  });
 
   async function getCharacterCount(filePath) {
     try {
@@ -192,6 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPage += 1;
     }
   }
+  displayChapterList();
+  displayChapter(getCurrentPageIndex()); 
+  setActiveChapterTitle();
   
 });
 
