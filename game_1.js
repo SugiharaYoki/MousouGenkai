@@ -61,6 +61,7 @@ var interval5;
 var interval6;
 var interval7;
 var interval8;
+var gamestart = false;
 // Basic Functions
 
 // Event Listener for Difficulty form
@@ -75,6 +76,7 @@ document.querySelector("input").addEventListener("click", (e) => {
   // making scoreBoard visble
   scoreBoard.style.display = "block";
   coin.style.display = "block";
+  gamestart = true;
   bowoverload.style.display = "block";
   bowoverloadbar.style.display = "block";
   hisatsucharge.style.display = "block";
@@ -110,19 +112,13 @@ document.querySelector("input").addEventListener("click", (e) => {
     }
   }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 3) {
-      spawnEnemy2();
-    }
+    spawnEnemy2();
   }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 7) {
-      spawnEnemy3();
-    }
+    spawnEnemy3();
   }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
   setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 10) {
-      spawnEnemy4();
-    }
+    spawnEnemy4();
   }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
   return;//(difficulty = 15);
 });
@@ -360,93 +356,93 @@ const spawnEnemy = () => {
   }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy2 = () => {
-  const enemySize = 8;
-  const enemyColor = `hsl(300,100%,50%)`;
-  let random;
-  if (Math.random() < 0.5) {
-    random = {
-      x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
-      y: Math.random() * canvas.height,
-    };
-  } else {
-    random = {
-      x: Math.random() * canvas.width,
-      y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
-    };
-  }
-  const myAngle = Math.atan2(
-    canvas.height / 2 - random.y,
-    canvas.width / 2 - random.x
-  );
-  const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
-    y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
-  };
-  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
-  setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 3) {
-      spawnEnemy2();
+  if (document.hasFocus() && AZR_Timer >= 1.5) {
+    const enemySize = 8;
+    const enemyColor = `hsl(300,100%,50%)`;
+    let random;
+    if (Math.random() < 0.5) {
+      random = {
+        x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
+        y: Math.random() * canvas.height,
+      };
+    } else {
+      random = {
+        x: Math.random() * canvas.width,
+        y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
+      };
     }
+    const myAngle = Math.atan2(
+      canvas.height / 2 - random.y,
+      canvas.width / 2 - random.x
+    );
+    const velocity = {
+      x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
+      y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3200, 12) ** 0.85) * 1.6,
+    };
+    enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  }
+  setTimeout(function() {
+    spawnEnemy2();
   }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy3 = () => {
-  const enemySize = 30;
-  const enemyColor = `hsl(100,100%,50%)`;
-  let random;
-  if (Math.random() < 0.5) {
-    random = {
-      x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
-      y: Math.random() * canvas.height,
-    };
-  } else {
-    random = {
-      x: Math.random() * canvas.width,
-      y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
-    };
-  }
-  const myAngle = Math.atan2(
-    canvas.height / 2 - random.y,
-    canvas.width / 2 - random.x
-  );
-  const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
-    y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
-  };
-  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
-  setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 7) {
-      spawnEnemy3();
+  if (document.hasFocus() && AZR_Timer >= 2.5) {
+    const enemySize = 30;
+    const enemyColor = `hsl(100,100%,50%)`;
+    let random;
+    if (Math.random() < 0.5) {
+      random = {
+        x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
+        y: Math.random() * canvas.height,
+      };
+    } else {
+      random = {
+        x: Math.random() * canvas.width,
+        y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
+      };
     }
+    const myAngle = Math.atan2(
+      canvas.height / 2 - random.y,
+      canvas.width / 2 - random.x
+    );
+    const velocity = {
+      x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
+      y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.9,
+    };
+    enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  }
+  setTimeout(function() {
+    spawnEnemy3();
   }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy4 = () => {
-  const enemySize = 120;
-  const enemyColor = `hsl(30,100%,50%)`;
-  let random;
-  if (Math.random() < 0.5) {
-    random = {
-      x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
-      y: Math.random() * canvas.height,
-    };
-  } else {
-    random = {
-      x: Math.random() * canvas.width,
-      y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
-    };
-  }
-  const myAngle = Math.atan2(
-    canvas.height / 2 - random.y,
-    canvas.width / 2 - random.x
-  );
-  const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
-    y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
-  };
-  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
-  setTimeout(function() {
-    if (document.hasFocus() && AZR_Timer >= 10) {
-      spawnEnemy4();
+  if (document.hasFocus() && AZR_Timer >= 3.5) {
+    const enemySize = 120;
+    const enemyColor = `hsl(30,100%,50%)`;
+    let random;
+    if (Math.random() < 0.5) {
+      random = {
+        x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
+        y: Math.random() * canvas.height,
+      };
+    } else {
+      random = {
+        x: Math.random() * canvas.width,
+        y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
+      };
     }
+    const myAngle = Math.atan2(
+      canvas.height / 2 - random.y,
+      canvas.width / 2 - random.x
+    );
+    const velocity = {
+      x: Math.cos(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
+      y: Math.sin(myAngle) * difficulty * 0.7 * (Math.min(AZR_Timer_slow/4300, 6) ** 1.2) * 0.3,
+    };
+    enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  }
+  setTimeout(function() {
+    spawnEnemy4();
   }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
 };
 
@@ -801,12 +797,36 @@ function hisatsucharging() {
   }, 5000 - upg_charge * 300);
 }
 
-canvas.addEventListener("blur", function() {
-  gamePaused = true;
-});
-canvas.addEventListener("focus", function() {
-  gamePaused = false;
-});
+window.setInterval(function () {
+  if (gamestart && !document.hasFocus() && gamePaused == false) {
+    gamePaused = true;
+    alert("暂停游戏中");
+  }
+  if (gamestart && document.hasFocus() && gamePaused == true) {
+    gamePaused = false;
+    setTimeout(function() {
+      if (document.hasFocus()) {
+        spawnEnemy();
+      }
+    }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
+    setTimeout(function() {
+      if (document.hasFocus() && AZR_Timer >= 2) {
+        spawnEnemy2();
+      }
+    }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
+    setTimeout(function() {
+      if (document.hasFocus() && AZR_Timer >= 3) {
+        spawnEnemy3();
+      }
+    }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+    setTimeout(function() {
+      if (document.hasFocus() && AZR_Timer >= 4) {
+        spawnEnemy4();
+      }
+    }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  }
+}, 100);
+
 
 document.addEventListener("keydown", function(event) {
   if (event.keyCode === 49) {
