@@ -536,8 +536,8 @@ function animation() {
       if (health > 1) {
         if (userChara == "Taketori") {
           hisatsuCooldown = 4;
-          taketori_hisatsu -= 4;
-          hisatsuCooldown -= 4;
+          taketori_hisatsu = 0;
+          hisatsuCooldown = 0;
           health -= 1;
           muteki += 10;
           for (let j = 0; j < 4; j++) {
@@ -1723,7 +1723,7 @@ function hisatsu() {
     };
   }
   if (hisatsuCooldown >= 4 && userChara == "Taketori") {
-    hisatsuCooldown -= 4;
+    hisatsuCooldown = 4;
     hisatsucharge.classList.remove("hisatsufull");
     taketori_hisatsu = 4;
   }
