@@ -536,16 +536,56 @@ function animation() {
       if (health > 1) {
         if (userChara == "Taketori") {
           hisatsuCooldown = 4;
+          taketori_hisatsu -= 4;
+          hisatsuCooldown -= 4;
+          health -= 1;
+          muteki += 10;
+          for (let j = 0; j < 4; j++) {
+            const myAngle = Math.floor(Math.random() * 360);
+            for (let i = 0; i <= 15; i++) {
+              const velocity1 = {
+                x: Math.cos(myAngle - i*0.1) * (16 - i*0.3 **-0.3),
+                y: Math.sin(myAngle - i*0.1) * (16 - i*0.3 **-0.3),
+              };
+              weapons.push(
+                new Weapon(
+                  canvas.width / 2,
+                  canvas.height / 2,
+                  6,
+                  "white",
+                  velocity1,
+                  lightWeaponDamage
+                )
+              );
+              const velocity2 = {
+                x: Math.cos(myAngle + i*0.1) * (16 - i*0.3 **-0.3),
+                y: Math.sin(myAngle + i*0.1) * (16 - i*0.3 **-0.3),
+              };
+              weapons.push(
+                new Weapon(
+                  canvas.width / 2,
+                  canvas.height / 2,
+                  6,
+                  "white",
+                  velocity2,
+                  lightWeaponDamage
+                )
+              );
+            };
+          }
         }
         if (userChara == "Hakuyo") {
           hisatsuCooldown = 5;
+          hisatsu();
+          health -= 1;
+          muteki += 10;
         }
         if (userChara == "Ayamado") {
           hisatsuCooldown = 3;
+          hisatsu();
+          health -= 1;
+          muteki += 10;
         }
-        hisatsu();
-        health -= 1;
-        muteki += 10;
       } else {
         cancelAnimationFrame(animationId);
         //gameOverSound.play();
@@ -981,7 +1021,7 @@ function shootExecute(e) {
 function shootBullet(e) {
   const userChara = document.getElementById("character").value;
   if (shootCooldown <= 10 && userChara != "Ayamado") {
-    if (shootCooldown == 10) {
+    if (shootCooldown >= 9.5) {
       shootCooldown += 2;
     }
     shootCooldown += 1;
@@ -1040,7 +1080,7 @@ window.setInterval(function () {
 }, 500);
 window.setInterval(function () {
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown > 8) {
-    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 8);
+    shootCooldown -= 1 + parseFloat((upg_bulletspeed / 8).toFixed(2));
     if (shootCooldown < 0) {
       shootCooldown = 0;
     }
@@ -1054,7 +1094,7 @@ window.setInterval(function () {
 window.setInterval(function () {
   const userChara = document.getElementById("character").value;
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Hakuyo") {
-    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 12 - upg_multishoot / 6);
+    shootCooldown -= 1 + parseFloat((upg_bulletspeed / 12 - upg_multishoot / 6).toFixed(2));
     if (shootCooldown < 0) {
       shootCooldown = 0;
     }
@@ -1066,7 +1106,7 @@ window.setInterval(function () {
     }
   }
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Taketori") {
-    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 12 - upg_multishoot / 3.5);
+    shootCooldown -= 1 + parseFloat((upg_bulletspeed / 12 - upg_multishoot / 3.5).toFixed(2));
     if (shootCooldown < 0) {
       shootCooldown = 0;
     }
@@ -1078,7 +1118,7 @@ window.setInterval(function () {
     }
   }
   if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Ayamado") {
-    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 18 - upg_multishoot / 9);
+    shootCooldown -= 1 + parseFloat((upg_bulletspeed / 18 - upg_multishoot / 9).toFixed(2));
     if (shootCooldown < 0) {
       shootCooldown = 0;
     }
@@ -1648,7 +1688,7 @@ function hisatsu() {
     hisatsuCooldown -= 3;
     hisatsucharge.classList.remove("hisatsufull");
     let myAngle = Math.random();
-    for (let j = 0; j <= 5 + upg_multishoot; j++) {
+    for (let j = 0; j <= 3 + upg_multishoot; j++) {
       myAngle = Math.floor(Math.random() * 360);
       for (let i = 0; i <= 26; i++) {
         const velocity = {
@@ -1659,9 +1699,23 @@ function hisatsu() {
           new Weapon(
             canvas.width / 2,
             canvas.height / 2,
-            0.25 + i*0.25,
+            0.5 + i*0.125,
             "white",
             velocity,
+            5
+          )
+        );
+        const velocity2 = {
+          x: Math.cos(myAngle) * -(22 - 0.75*i),
+          y: Math.sin(myAngle) * -(22 - 0.75*i),
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            0.5 + i*0.125,
+            "white",
+            velocity2,
             5
           )
         );
