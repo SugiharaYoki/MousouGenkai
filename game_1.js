@@ -1471,13 +1471,13 @@ function upgrade4pr() {
   if (playerCoin >= 1800 && upg_charge == 6) {
     playerCoin -= 1800;
     upg_charge += 1;
-    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $？";
+    upgrade4.innerHTML = "数字4：必杀充能 现LV7&nbsp&nbsp $？";
     upgrade4m.innerHTML = "充能 ？";
   }
   if (playerCoin >= 1300 && upg_charge == 5) {
     playerCoin -= 1300;
     upg_charge += 1;
-    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $1800";
+    upgrade4.innerHTML = "数字4：必杀充能 现LV6&nbsp&nbsp $1800";
     upgrade4m.innerHTML = "充能 1800";
   }
   if (playerCoin >= 1000 && upg_charge == 4) {
