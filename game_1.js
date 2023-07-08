@@ -1589,8 +1589,8 @@ function upgrade7pr() {
 }
 function hisatsu() {
   const userChara = document.getElementById("character").value;
-  if (hisatsuCooldown >= 0 && userChara == "Hakuyo") {
-    hisatsuCooldown -= 0;
+  if (hisatsuCooldown >= 5 && userChara == "Hakuyo") {
+    hisatsuCooldown -= 5;
     hisatsucharge.classList.remove("hisatsufull");
     const myAngle = Math.random();
     for (let i = 0; i <= 31; i++) {
