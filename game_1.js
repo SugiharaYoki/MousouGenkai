@@ -11,8 +11,9 @@ document.querySelector(".myGame").appendChild(canvas);
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const context = canvas.getContext("2d");
-const lightWeaponDamage = 10;
-let difficulty = 15;
+let lightWeaponDamage = 10;
+let taketori_hisatsu = 0;
+let difficulty = 85;
 let health = 3;
 let AZR_Timer = 0.3;
 let AZR_Timer_slow = 5;
@@ -106,25 +107,27 @@ document.querySelector("input").addEventListener("click", (e) => {
 
   //  getting diffculty selected by user
   const userValue = document.getElementById("difficulty").value;
+  const userChara = document.getElementById("character").value;
 
+  if (userChara == "Taketori") {
+    lightWeaponDamage = 5;
+    hisatsuwaza.innerHTML = `空格：吟唱 煌晷的业莲`;
+  }
+  if (userChara == "Ayamado") {
+    lightWeaponDamage = 20;
+    hisatsuwaza.innerHTML = `空格：施放 空泠断灭`;
+  }
+
+  if (userValue == "Casual") {
+    difficulty = 15;
+  }
   if (userValue == "Abnormal") {
     difficulty = 305;
   }
-
-  setTimeout(function() {
-    if (document.hasFocus()) {
-      spawnEnemy();
-    }
-  }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
-  setTimeout(function() {
-    spawnEnemy2();
-  }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
-  setTimeout(function() {
-    spawnEnemy3();
-  }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
-  setTimeout(function() {
-    spawnEnemy4();
-  }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  timeout1 = setTimeout(spawnEnemy, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
+  timeout2 = setTimeout(spawnEnemy2, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
+  timeout3 = setTimeout(spawnEnemy3, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  timeout4 = setTimeout(spawnEnemy4, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
   return;//(difficulty = 15);
 });
 
@@ -317,50 +320,53 @@ const particles = [];
 
 //----------------------------- Function To Spawn Enemy at Random Location-----------------------------
 const spawnEnemy = () => {
-  // generating random size for enemy
-  const enemySize = 10;//Math.random() * (40 - 5) + 5;
-  // generating random color for enemy
-  //const enemyColor = `hsl(${Math.floor(Math.random() * 360)},100%,50%)`;
-  const enemyColor = `hsl(370,100%,50%)`;
-
-  // random is Enemy Spawn position
-  let random;
-
-  // Making Enemy Location Random but only from outsize of screen
-  if (Math.random() < 0.5) {
-    // Making X equal to very left off of screen or very right off of screen and setting Y to any where vertically
-    random = {
-      x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
-      y: Math.random() * canvas.height,
-    };
-  } else {
-    // Making Y equal to very up off of screen or very down off of screen and setting X to any where horizontally
-    random = {
-      x: Math.random() * canvas.width,
-      y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
-    };
-  }
-
-  // Finding Angle between center (means Player Position) and enemy position
-  const myAngle = Math.atan2(
-    canvas.height / 2 - random.y,
-    canvas.width / 2 - random.x
-  );
-
-  // Making velocity or speed of enemy by multipling chosen difficulty to radian
-  const velocity = {
-    x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
-    y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
-  };
-
-  // Adding enemy to enemies array
-  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
-
-  setTimeout(function() {
-    if (document.hasFocus()) {
-      spawnEnemy();
+  if (document.hasFocus()) {
+    // generating random size for enemy
+    //Math.random() * (40 - 5) + 5;
+    let enemySize = 10;
+    let enemyColor = `hsl(370,100%,50%)`;
+    const userChara = document.getElementById("character").value;
+    if (Math.random() < 0.2) {
+       enemySize = 18;
+       enemyColor = `hsl(350,100%,50%)`;
     }
-  }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
+    // generating random color for enemy
+    //const enemyColor = `hsl(${Math.floor(Math.random() * 360)},100%,50%)`;
+
+    // random is Enemy Spawn position
+    let random;
+
+    // Making Enemy Location Random but only from outsize of screen
+    if (Math.random() < 0.5) {
+      // Making X equal to very left off of screen or very right off of screen and setting Y to any where vertically
+      random = {
+        x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
+        y: Math.random() * canvas.height,
+      };
+    } else {
+      // Making Y equal to very up off of screen or very down off of screen and setting X to any where horizontally
+      random = {
+        x: Math.random() * canvas.width,
+        y: Math.random() < 0.5 ? canvas.height + enemySize : 0 - enemySize,
+      };
+    }
+
+    // Finding Angle between center (means Player Position) and enemy position
+    const myAngle = Math.atan2(
+      canvas.height / 2 - random.y,
+      canvas.width / 2 - random.x
+    );
+
+    // Making velocity or speed of enemy by multipling chosen difficulty to radian
+    const velocity = {
+      x: Math.cos(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
+      y: Math.sin(myAngle) * difficulty * 0.8 * (Math.min(AZR_Timer_slow/3900, 8) ** 0.92),
+    };
+
+    // Adding enemy to enemies array
+    enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+  }
+  timeout1 = setTimeout(spawnEnemy, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy2 = () => {
   if (document.hasFocus() && AZR_Timer >= 1.5) {
@@ -388,14 +394,16 @@ const spawnEnemy2 = () => {
     };
     enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   }
-  setTimeout(function() {
-    spawnEnemy2();
-  }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
+  timeout2 = setTimeout(spawnEnemy2, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy3 = () => {
   if (document.hasFocus() && AZR_Timer >= 2.5) {
-    const enemySize = 30;
-    const enemyColor = `hsl(100,100%,50%)`;
+    let enemySize = 30;
+    let enemyColor = `hsl(100,100%,50%)`;
+    if (Math.random() < 0.2) {
+       enemySize = 40;
+       enemyColor = `hsl(80,100%,50%)`;
+    }
     let random;
     if (Math.random() < 0.5) {
       random = {
@@ -418,9 +426,7 @@ const spawnEnemy3 = () => {
     };
     enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   }
-  setTimeout(function() {
-    spawnEnemy3();
-  }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  timeout3 = setTimeout(spawnEnemy3, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
 };
 const spawnEnemy4 = () => {
   if (document.hasFocus() && AZR_Timer >= 3.5) {
@@ -448,26 +454,39 @@ const spawnEnemy4 = () => {
     };
     enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
   }
-  setTimeout(function() {
-    spawnEnemy4();
-  }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+  timeout4 = setTimeout(spawnEnemy4, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
 };
 
 // ------------------------------------------------Creating Animation Function ---------------------------------------
 
 let animationId;
 function animation() {
+  const userChara = document.getElementById("character").value;
   // Making Recursion
   animationId = requestAnimationFrame(animation);
 
   // Updating Player Score in Score board in html
-  scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
+  scoreBoard.innerHTML = `当前分数：${playerScore}`;
   coin.innerHTML = `魔物素材：${playerCoin}`;
-  bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
   azrtimer.innerHTML = `${AZR_Timer}&nbsp&nbsp ${AZR_Timer_slow}`;
   //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
-  bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
-  hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+  if (userChara != "Ayamado") {
+    bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
+    bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
+  }
+  if (userChara == "Ayamado") {
+    bowoverload.innerHTML = `射速过载：${shootCooldown} / 7`;
+    bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(10 - shootCooldown);
+  }
+  if (userChara == "Hakuyo") {
+    hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+  }
+  if (userChara == "Taketori") {
+    hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(4 - hisatsuCooldown);
+  }
+  if (userChara == "Ayamado") {
+    hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(3 - hisatsuCooldown);
+  }
   healthbar.innerHTML = ` ❤`.repeat(health)+ `  ♡`.repeat(3 - health + upg_health);
 
   // Clearing canvas on each frame
@@ -515,7 +534,15 @@ function animation() {
     // Stoping Game if enemy hit player
     if ((distanceBetweenPlayerAndEnemy - hakuyo.radius - enemy.radius < -2) && muteki <= 1) {
       if (health > 1) {
-        hisatsuCooldown = 5;
+        if (userChara == "Taketori") {
+          hisatsuCooldown = 4;
+        }
+        if (userChara == "Hakuyo") {
+          hisatsuCooldown = 5;
+        }
+        if (userChara == "Ayamado") {
+          hisatsuCooldown = 3;
+        }
         hisatsu();
         health -= 1;
         muteki += 10;
@@ -574,13 +601,27 @@ function animation() {
           playerCoin += Math.floor(Math.random() * 10 + 5) + parseInt(AZR_Timer / 10);
 
           // Rendering player Score in scoreboard html element
-          scoreBoard.innerHTML = `当前设备记录：${playerScore}`;
+          scoreBoard.innerHTML = `当前分数：${playerScore}`;
           coin.innerHTML = `魔物素材：${playerCoin}`;
-          bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
           azrtimer.innerHTML = `${AZR_Timer}&nbsp&nbsp ${AZR_Timer_slow}`;
           //bowoverloadbar.innerHTML = `${shootCooldown} / 10`;
-          bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
-          hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+          if (userChara != "Ayamado") {
+            bowoverload.innerHTML = `射速过载：${shootCooldown} / 10`;
+            bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(13 - shootCooldown);
+          }
+          if (userChara == "Ayamado") {
+            bowoverload.innerHTML = `射速过载：${shootCooldown} / 7`;
+            bowoverloadbar.innerHTML = ` I`.repeat(shootCooldown)+ ` .`.repeat(10 - shootCooldown);
+          }
+          if (userChara == "Hakuyo") {
+            hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(5 - hisatsuCooldown);
+          }
+          if (userChara == "Taketori") {
+            hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(4 - hisatsuCooldown);
+          }
+          if (userChara == "Ayamado") {
+            hisatsucharge.innerHTML = ` ◆`.repeat(hisatsuCooldown)+ ` ◇`.repeat(3 - hisatsuCooldown);
+          }
           healthbar.innerHTML = ` ❤`.repeat(health)+ `  ♡`.repeat(3 - health + upg_health);
           setTimeout(() => {
             enemies.splice(enemyIndex, 1);
@@ -604,11 +645,342 @@ function animation() {
 canvas.addEventListener("click", (e) => {
   //shootingSound.play();
   // finding angle between player position(center) and click co-ordinates
-  shootBullet(e);
+  if (taketori_hisatsu > 0) {
+    taketori_hisat(e);
+    taketori_hisatsu -= 1;
+    hisatsuCooldown -= 1;
+  } else {
+    shootBullet(e);
+  }
 });
 
+function taketori_hisat(e) {
+  const myAngle = Math.atan2(
+    e.clientY - canvas.height / 2,
+    e.clientX - canvas.width / 2
+  );
+  for (let i = 0; i <= 15; i++) {
+    const velocity1 = {
+      x: Math.cos(myAngle - i*0.1) * (16 - i*0.3 **-0.3),
+      y: Math.sin(myAngle - i*0.1) * (16 - i*0.3 **-0.3),
+    };
+    weapons.push(
+      new Weapon(
+        canvas.width / 2,
+        canvas.height / 2,
+        6,
+        "white",
+        velocity1,
+        lightWeaponDamage
+      )
+    );
+    const velocity2 = {
+      x: Math.cos(myAngle + i*0.1) * (16 - i*0.3 **-0.3),
+      y: Math.sin(myAngle + i*0.1) * (16 - i*0.3 **-0.3),
+    };
+    weapons.push(
+      new Weapon(
+        canvas.width / 2,
+        canvas.height / 2,
+        6,
+        "white",
+        velocity2,
+        lightWeaponDamage
+      )
+    );
+  };
+}
+
+function shootExecute(e) {
+  const userChara = document.getElementById("character").value;
+  const myAngle = Math.atan2(
+    e.clientY - canvas.height / 2,
+    e.clientX - canvas.width / 2
+  );
+  // Making const speed for light weapon
+  let velocity = {
+    x: Math.cos(myAngle) * 6,
+    y: Math.sin(myAngle) * 6,
+  };
+  if (userChara == "Taketori") {
+    velocity = {
+      x: Math.cos(myAngle) * 8,
+      y: Math.sin(myAngle) * 8,
+    };
+  }
+  if (userChara == "Ayamado") {
+    velocity = {
+      x: Math.cos(myAngle) * 16,
+      y: Math.sin(myAngle) * 16,
+    };
+  }
+  // Adding light weapon in weapons array
+  weapons.push(
+    new Weapon(
+      playerPosition.x, 
+      playerPosition.y,
+      6,
+      "white",
+      velocity,
+      lightWeaponDamage
+    )
+  );
+  if (upg_multishoot >= 1 && userChara == "Taketori") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity1 = {
+      x: Math.cos(myAngle - 0.6) * 6,
+      y: Math.sin(myAngle - 0.6) * 6,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity1,
+        lightWeaponDamage
+      )
+    );
+    const velocity2 = {
+      x: Math.cos(myAngle + 0.6) * 6,
+      y: Math.sin(myAngle + 0.6) * 6,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity2,
+        lightWeaponDamage
+      )
+    );
+  }
+  if (upg_multishoot >= 2 && userChara == "Taketori") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity1 = {
+      x: Math.cos(myAngle - 0.9) * 4,
+      y: Math.sin(myAngle - 0.9) * 4,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity1,
+        lightWeaponDamage
+      )
+    );
+    const velocity2 = {
+      x: Math.cos(myAngle + 0.9) * 4,
+      y: Math.sin(myAngle + 0.9) * 4,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity2,
+        lightWeaponDamage
+      )
+    );
+  }
+  if (upg_multishoot >= 3 && userChara == "Taketori") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity1 = {
+      x: Math.cos(myAngle - 0.12) * 2,
+      y: Math.sin(myAngle - 0.12) * 2,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity1,
+        lightWeaponDamage
+      )
+    );
+    const velocity2 = {
+      x: Math.cos(myAngle + 0.12) * 2,
+      y: Math.sin(myAngle + 0.12) * 2,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity2,
+        lightWeaponDamage
+      )
+    );
+  }
+  if (upg_multishoot >= 1 && userChara == "Ayamado") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    for (let i = 0; i <= upg_multishoot * 3; i++) {
+      const velocity1 = {
+        x: Math.cos(myAngle) * (22 - 2*i),
+        y: Math.sin(myAngle) * (22 - 2*i),
+      };
+      weapons.push(
+        new Weapon(
+          canvas.width / 2,
+          canvas.height / 2,
+          7 - i*0.25,
+          "white",
+          velocity1,
+          lightWeaponDamage + 5 - i * 1.5
+        )
+      );
+    };
+  }
+  if (upg_multishoot >= 1 && userChara == "Hakuyo") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity = {
+      x: Math.cos(myAngle) * 6 * -1,
+      y: Math.sin(myAngle) * 6 * -1,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity,
+        lightWeaponDamage
+      )
+    );
+  }
+  if (upg_multishoot >= 2 && userChara == "Hakuyo") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity = {
+      x: Math.cos(myAngle + 1.58) * 6,
+      y: Math.sin(myAngle + 1.58) * 6,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity,
+        lightWeaponDamage
+      )
+    );
+    const velocity2 = {
+      x: Math.cos(myAngle - 1.58) * 6,
+      y: Math.sin(myAngle - 1.58) * 6,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        6,
+        "white",
+        velocity2,
+        lightWeaponDamage
+      )
+    );
+  }
+  if (upg_multishoot >= 3 && userChara == "Hakuyo") {
+    const myAngle = Math.atan2(
+      e.clientY - canvas.height / 2,
+      e.clientX - canvas.width / 2
+    );
+    const velocity = {
+      x: Math.sin(myAngle) * 6 * 1.3,
+      y: Math.cos(myAngle) * 6 * 1.3,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        3,
+        "white",
+        velocity,
+        lightWeaponDamage - 5
+      )
+    );
+    const velocity2 = {
+      x: Math.sin(myAngle) * -6 * 1.3,
+      y: Math.cos(myAngle) * -6 * 1.3,
+    };
+    weapons.push(
+      new Weapon(
+        playerPosition.x, 
+        playerPosition.y,
+        3,
+        "white",
+        velocity2,
+        lightWeaponDamage - 5
+      )
+    );
+  }
+  for (let i = 0; i < upg_randbullet; i++) {
+    if (Math.floor(Math.random() * 20) >= (19 - upg_randchance / 2)) {
+      const myAngle = Math.floor(Math.random() * 360);
+      if (userChara != "Ayamado") {
+        const velocity = {
+          x: Math.cos(myAngle) * 6,
+          y: Math.sin(myAngle) * 6,
+        };
+        weapons.push(
+          new Weapon(
+            playerPosition.x, 
+            playerPosition.y,
+            6,
+            "white",
+            velocity,
+            lightWeaponDamage
+          )
+        );
+      }
+      if (userChara == "Ayamado") {
+        for (let i = 0; i < upg_multishoot + 1; i++) {
+          const velocity2 = {
+            x: Math.cos(myAngle) * (5.5 - 0.5*i),
+            y: Math.sin(myAngle) * (5.5 - 0.5*i),
+          };
+          weapons.push(
+            new Weapon(
+              playerPosition.x, 
+              playerPosition.y,
+              3.5 - 0.5*i,
+              "white",
+              velocity2,
+              5
+            )
+          );
+        }
+      }
+    }
+  }
+}
+
 function shootBullet(e) {
-  if (shootCooldown <= 10) {
+  const userChara = document.getElementById("character").value;
+  if (shootCooldown <= 10 && userChara != "Ayamado") {
     if (shootCooldown == 10) {
       shootCooldown += 2;
     }
@@ -621,139 +993,34 @@ function shootBullet(e) {
       bowoverload.classList.add("exredout");
       bowoverloadbar.classList.add("exredout");
     }
-    const myAngle = Math.atan2(
-      e.clientY - canvas.height / 2,
-      e.clientX - canvas.width / 2
-    );
-    // Making const speed for light weapon
-    const velocity = {
-      x: Math.cos(myAngle) * 6,
-      y: Math.sin(myAngle) * 6,
-    };
-    // Adding light weapon in weapons array
-    weapons.push(
-      new Weapon(
-        canvas.width / 2,
-        canvas.height / 2,
-        6,
-        "white",
-        velocity,
-        lightWeaponDamage
-      )
-    );
-    if (upg_multishoot >= 1) {
-      const myAngle = Math.atan2(
-        e.clientY - canvas.height / 2,
-        e.clientX - canvas.width / 2
-      );
-      const velocity1 = {
-        x: Math.cos(myAngle - 0.3) * 6,
-        y: Math.sin(myAngle - 0.3) * 6,
-      };
-      weapons.push(
-        new Weapon(
-          canvas.width / 2,
-          canvas.height / 2,
-          6,
-          "white",
-          velocity1,
-          lightWeaponDamage
-        )
-      );
-      const velocity2 = {
-        x: Math.cos(myAngle + 0.3) * 6,
-        y: Math.sin(myAngle + 0.3) * 6,
-      };
-      weapons.push(
-        new Weapon(
-          canvas.width / 2,
-          canvas.height / 2,
-          6,
-          "white",
-          velocity2,
-          lightWeaponDamage
-        )
-      );
+    shootExecute(e);
+  }
+  if (shootCooldown <= 7 && userChara == "Ayamado") {
+    if (shootCooldown == 7) {
+      shootCooldown += 2;
     }
-    if (upg_multishoot >= 3) {
-      const myAngle = Math.atan2(
-        e.clientY - canvas.height / 2,
-        e.clientX - canvas.width / 2
-      );
-      const velocity1 = {
-        x: Math.cos(myAngle - 0.6) * 6,
-        y: Math.sin(myAngle - 0.6) * 6,
-      };
-      weapons.push(
-        new Weapon(
-          canvas.width / 2,
-          canvas.height / 2,
-          6,
-          "white",
-          velocity1,
-          lightWeaponDamage
-        )
-      );
-      const velocity2 = {
-        x: Math.cos(myAngle + 0.6) * 6,
-        y: Math.sin(myAngle + 0.6) * 6,
-      };
-      weapons.push(
-        new Weapon(
-          canvas.width / 2,
-          canvas.height / 2,
-          6,
-          "white",
-          velocity2,
-          lightWeaponDamage
-        )
-      );
+    shootCooldown += 1;
+    if (shootCooldown > 4) {
+      bowoverload.classList.add("redout");
+      bowoverloadbar.classList.add("redout");
     }
-    if (upg_multishoot >= 2) {
-      const myAngle = Math.atan2(
-        e.clientY - canvas.height / 2,
-        e.clientX - canvas.width / 2
-      );
-      const velocity = {
-        x: Math.cos(myAngle) * 6 * -1,
-        y: Math.sin(myAngle) * 6 * -1,
-      };
-      weapons.push(
-        new Weapon(
-          canvas.width / 2,
-          canvas.height / 2,
-          6,
-          "white",
-          velocity,
-          lightWeaponDamage
-        )
-      );
+    if (shootCooldown > 6) {
+      bowoverload.classList.add("exredout");
+      bowoverloadbar.classList.add("exredout");
     }
-    for (let i = 0; i < upg_randbullet; i++) {
-      if (Math.floor(Math.random() * 20) >= (19 - upg_randchance / 2)) {
-        const myAngle = Math.floor(Math.random() * 360);
-        const velocity = {
-          x: Math.cos(myAngle) * 6,
-          y: Math.sin(myAngle) * 6,
-        };
-        weapons.push(
-          new Weapon(
-            canvas.width / 2,
-            canvas.height / 2,
-            6,
-            "white",
-            velocity,
-            lightWeaponDamage
-          )
-        );
-      }
-    }
+    shootExecute(e);
   }
 };
 
 canvas.addEventListener("contextmenu", (e) => {
   if (upg_rightmouse == true) {
-    shootBullet(e);
+    if (taketori_hisatsu > 0) {
+      taketori_hisat(e);
+      taketori_hisatsu -= 1;
+      hisatsuCooldown -= 1;
+    } else {
+      shootBullet(e);
+    }
   }
   e.preventDefault();
   return false;
@@ -785,8 +1052,9 @@ window.setInterval(function () {
   }
 }, 100);
 window.setInterval(function () {
-  if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8) {
-    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 8);
+  const userChara = document.getElementById("character").value;
+  if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Hakuyo") {
+    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 12 - upg_multishoot / 6);
     if (shootCooldown < 0) {
       shootCooldown = 0;
     }
@@ -797,15 +1065,54 @@ window.setInterval(function () {
       bowoverloadbar.classList.remove("redout");
     }
   }
+  if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Taketori") {
+    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 12 - upg_multishoot / 3.5);
+    if (shootCooldown < 0) {
+      shootCooldown = 0;
+    }
+    bowoverload.classList.remove("exredout");
+    bowoverloadbar.classList.remove("exredout");
+    if (shootCooldown <= 6) {
+      bowoverload.classList.remove("redout");
+      bowoverloadbar.classList.remove("redout");
+    }
+  }
+  if (document.hasFocus() && shootCooldown > 0 && shootCooldown <= 8 && userChara == "Ayamado") {
+    shootCooldown -= 1 + parseFloat(upg_bulletspeed / 18 - upg_multishoot / 9);
+    if (shootCooldown < 0) {
+      shootCooldown = 0;
+    }
+    if (shootCooldown <= 5) {
+      bowoverload.classList.remove("exredout");
+      bowoverloadbar.classList.remove("exredout");
+    }
+    if (shootCooldown <= 3) {
+      bowoverload.classList.remove("redout");
+      bowoverloadbar.classList.remove("redout");
+    }
+  }
 }, 300);
 window.setTimeout(function () {
   hisatsucharging();
 }, 5000 - upg_charge * 1000);
 
 function hisatsucharging() {
-  if (document.hasFocus() && hisatsuCooldown < 5) {
+  const userChara = document.getElementById("character").value;
+  if (document.hasFocus() && hisatsuCooldown < 5 && userChara == "Hakuyo") {
     hisatsuCooldown += 1;
     if (hisatsuCooldown == 5) {
+      hisatsucharge.classList.add("hisatsufull");
+    }
+  }
+  if (document.hasFocus() && hisatsuCooldown < 4 && userChara == "Taketori" && taketori_hisatsu <= 0) {
+    hisatsuCooldown += 1;
+    if (hisatsuCooldown == 4) {
+      hisatsucharge.classList.add("hisatsufull");
+    }
+  }
+  if (document.hasFocus() && hisatsuCooldown < 3 && userChara == "Ayamado") {
+    hisatsuCooldown += 1;
+    if (hisatsuCooldown == 3) {
       hisatsucharge.classList.add("hisatsufull");
     }
   }
@@ -817,32 +1124,20 @@ function hisatsucharging() {
 window.setInterval(function () {
   if (gamestart && !document.hasFocus() && gamePaused == false) {
     gamePaused = true;
+    clearTimeout(timeout1);
+    clearTimeout(timeout2);
+    clearTimeout(timeout3);
+    clearTimeout(timeout4);
     alert("暂停游戏中");
   }
   if (gamestart && document.hasFocus() && gamePaused == true) {
     gamePaused = false;
-    setTimeout(function() {
-      if (document.hasFocus()) {
-        spawnEnemy();
-      }
-    }, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
-    setTimeout(function() {
-      if (document.hasFocus() && AZR_Timer >= 2) {
-        spawnEnemy2();
-      }
-    }, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
-    setTimeout(function() {
-      if (document.hasFocus() && AZR_Timer >= 3) {
-        spawnEnemy3();
-      }
-    }, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
-    setTimeout(function() {
-      if (document.hasFocus() && AZR_Timer >= 4) {
-        spawnEnemy4();
-      }
-    }, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+    timeout1 = setTimeout(spawnEnemy, 2000/(difficulty**0.3) - Math.min(1900, (AZR_Timer*7) ** 1.5));
+    timeout2 = setTimeout(spawnEnemy2, 5400/(difficulty**0.25) - Math.min(3900, (AZR_Timer*7) ** 1.5));
+    timeout3 = setTimeout(spawnEnemy3, 8800/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
+    timeout4 = setTimeout(spawnEnemy4, 20000/(difficulty**0.25) - Math.min(5000, (AZR_Timer*7) ** 1.5));
   }
-}, 100);
+}, 200);
 
 
 document.addEventListener("keydown", function(event) {
@@ -878,7 +1173,7 @@ document.addEventListener("keydown", function(event) {
     playerCoin += 1000;
   }
   if (event.keyCode === 32) {
-    hisatsu();
+    hisatsu(event);
   }
   //refresh();
 });
@@ -1038,8 +1333,6 @@ function upgrade1pr() {
     upgrade1m.innerHTML = "箭速 60";
   }
 };
-
-
 function upgrade2pr() {
   if (playerCoin >= 2000 && upg_randbullet == 7) {
     playerCoin -= 2000;
@@ -1244,21 +1537,21 @@ function upgrade7pr() {
   if (playerCoin >= 1000 && upg_multishoot == 1) {
     playerCoin -= 1000;
     upg_multishoot += 1;
-    upgrade7.innerHTML = "数字7：五重射击&nbsp&nbsp $2000";
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $2000";
     upgrade7m.innerHTML = "多重 2000";
   }
   if (playerCoin >= 800 && upg_multishoot == 0) {
     playerCoin -= 800;
     upg_multishoot += 1;
-    upgrade7.innerHTML = "数字7：背后射击&nbsp&nbsp $1000";
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $1000";
     upgrade7m.innerHTML = "多重 1000";
   }
 }
 function hisatsu() {
-  if (hisatsuCooldown >= 5) {
-    hisatsuCooldown -= 5;
+  const userChara = document.getElementById("character").value;
+  if (hisatsuCooldown >= 0 && userChara == "Hakuyo") {
+    hisatsuCooldown -= 0;
     hisatsucharge.classList.remove("hisatsufull");
-    playerCoin -= 100;
     const myAngle = Math.random();
     for (let i = 0; i <= 31; i++) {
       const velocity1 = {
@@ -1289,6 +1582,95 @@ function hisatsu() {
           lightWeaponDamage
         )
       );
+      if (upg_bulletspeed >= 3) {
+        const velocity3 = {
+          x: Math.cos(myAngle - i*0.1) * 8,
+          y: Math.sin(myAngle - i*0.1) * 8,
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            3,
+            "white",
+            velocity3,
+            5
+          )
+        );
+        const velocity4 = {
+          x: Math.cos(myAngle + i*0.1) * 8,
+          y: Math.sin(myAngle + i*0.1) * 8,
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            3,
+            "white",
+            velocity4,
+            5
+          )
+        );
+      }
+      if (upg_bulletspeed >= 6) {
+        const velocity5 = {
+          x: Math.cos(myAngle - i*0.1) * 12,
+          y: Math.sin(myAngle - i*0.1) * 12,
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            3,
+            "white",
+            velocity5,
+            5
+          )
+        );
+        const velocity6 = {
+          x: Math.cos(myAngle + i*0.1) * 12,
+          y: Math.sin(myAngle + i*0.1) * 12,
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            3,
+            "white",
+            velocity6,
+            5
+          )
+        );
+      }
     };
+  }
+  if (hisatsuCooldown >= 3 && userChara == "Ayamado") {
+    hisatsuCooldown -= 3;
+    hisatsucharge.classList.remove("hisatsufull");
+    let myAngle = Math.random();
+    for (let j = 0; j <= 5 + upg_multishoot; j++) {
+      myAngle = Math.floor(Math.random() * 360);
+      for (let i = 0; i <= 26; i++) {
+        const velocity = {
+          x: Math.cos(myAngle) * (22 - 0.75*i),
+          y: Math.sin(myAngle) * (22 - 0.75*i),
+        };
+        weapons.push(
+          new Weapon(
+            canvas.width / 2,
+            canvas.height / 2,
+            0.25 + i*0.25,
+            "white",
+            velocity,
+            5
+          )
+        );
+      };
+    };
+  }
+  if (hisatsuCooldown >= 0 && userChara == "Taketori") {
+    hisatsuCooldown -= 0;
+    hisatsucharge.classList.remove("hisatsufull");
+    taketori_hisatsu = 4;
   }
 }

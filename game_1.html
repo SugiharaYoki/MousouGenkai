@@ -10,7 +10,7 @@
 
   </script>
   <body>
-    <div class="web-version">版本：&nbsp;1.7.4.2138.1<br>Code Modified by 杉原夜季.<br><br>Based on the project of Abhishek Singh.<br>https://github.com/meabhisingh/canvasGame/</div>
+    <div class="web-version">版本：&nbsp;1.7.8.1515.1<br>Code Modified by 杉原夜季.<br><br>Based on the project of Abhishek Singh.<br>https://github.com/meabhisingh/canvasGame/</div>
     <div class="scoreBoard">当前设备记录：0</div>
     <div class="coin">魔物素材：0</div>
     <div class="bowoverload">射速过载：0/10</div>
@@ -18,14 +18,14 @@
     <div class="hisatsucharge"></div>
     <div class="healthbar"></div>
     <div class="azrtimer"></div>
-    <div class="hisatsuwaza mobilehide">空格：施放光环泯灭</div>
+    <div class="hisatsuwaza mobilehide">空格：施放 光环泯灭</div>
     <div class="upgrade1 mobilehide">数字1：升级射速 现LV0 &nbsp&nbsp$30</div>
     <div class="upgrade2 mobilehide">数字2：箭矢散射 现LV0 &nbsp&nbsp$30</div>
     <div class="upgrade3 mobilehide">数字3：散射概率 现LV0 &nbsp&nbsp$50</div>
     <div class="upgrade4 mobilehide">数字4：必杀充能 现LV0 &nbsp&nbsp$300</div>
     <div class="upgrade5 mobilehide">数字5：穿透箭击 现LV0 &nbsp&nbsp$300</div>
     <div class="upgrade6 mobilehide">数字6：生命上限 &nbsp&nbsp$500</div>
-    <div class="upgrade7 mobilehide">数字7：三重射击 &nbsp&nbsp$800</div>
+    <div class="upgrade7 mobilehide">数字7：射击强化 &nbsp&nbsp$800</div>
     <div class="upgrade8 mobilehide">数字8：解锁鼠标右键 &nbsp&nbsp$1500</div>
     <button id="hisatsuwaza" class="hisatsuwazam custom-button" style="position: fixed; bottom: 50px; left: 20px; width: 90px; height: 30px; background-color: #912b2b;">必殺</button>
     <button id="upgrade1" class="upgrade1m custom-button" style="position: fixed; bottom: 130px; right: 130px; width: 90px; height: 30px; background-color: #2f8a58;">箭速 30</button>
@@ -37,8 +37,14 @@
     <button id="upgrade7" class="upgrade7m custom-button" style="position: fixed; bottom: 50px; right: 20px; width: 90px; height: 30px; background-color: #39489c;">多重 800</button>
     <form action="" method="get">
       <select name="" id="difficulty">
-        <option value="Normal">休闲</option>
-        <option value="Abnormal">噩梦</option>
+        <option value="Casual">休闲模式</option>
+        <option value="Normal">普通模式</option>
+        <option value="Abnormal">噩梦模式</option>
+      </select>
+      <select name="" id="character">
+        <option value="Hakuyo">星碎的微光：向濑白夜</option>
+        <option value="Taketori">萤火复轮返：竹取月</option>
+        <option value="Ayamado">雾妆的梦蝶：月见花绫栾</option>
       </select>
       <input type="submit" value="开始特训" />
     </form>
