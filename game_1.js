@@ -1722,8 +1722,8 @@ function hisatsu() {
       };
     };
   }
-  if (hisatsuCooldown >= 0 && userChara == "Taketori") {
-    hisatsuCooldown -= 0;
+  if (hisatsuCooldown >= 4 && userChara == "Taketori") {
+    hisatsuCooldown -= 4;
     hisatsucharge.classList.remove("hisatsufull");
     taketori_hisatsu = 4;
   }
