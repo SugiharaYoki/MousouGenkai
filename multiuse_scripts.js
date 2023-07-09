@@ -1,46 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-  function getCurrentPageIndex() {
-    const currentPath = window.location.pathname;
-    const chapterIndexRegex = /jiken_chapter(\d+)\.html/;
-    const match = currentPath.match(chapterIndexRegex);
-  
-    if (match) {
-      return parseInt(match[1]) - 1;
-    } else {
-      return 0;
-    }
+function getCurrentPageIndex() {
+  const currentPath = window.location.pathname;
+  const chapterIndexRegex = /mousou_chapter(\d+)\.html/;
+  const match = currentPath.match(chapterIndexRegex);
+
+  if (match) {
+    return parseInt(match[1]) - 1;
+  } else {
+    return 0;
   }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  
   document.getElementById("fontSizer").addEventListener("click", function () {
     var content = document.getElementById("chapter-content");
+    var fontsizetext = document.getElementById("fontSizer2");
     var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
   
     var newSize;
     switch (currentFontSize) {
       case 8:
         newSize = "10px";
+        fontsizetext.innerHTML = "10";
         break;
       case 10:
         newSize = "13px";
+        fontsizetext.innerHTML = "13";
         break;
       case 13:
         newSize = "14px";
+        fontsizetext.innerHTML = "14";
         break;
       case 14:
         newSize = "15px";
+        fontsizetext.innerHTML = "15";
         break;
       case 15:
         newSize = "16px";
+        fontsizetext.innerHTML = "16";
         break;
       case 16:
         if (getCurrentPageIndex() == 4) {
           newSize = "8px";
+          fontsizetext.innerHTML = "8";
         }
         else {
           newSize = "13px";
+          fontsizetext.innerHTML = "13";
         }
         break;
       default:
         newSize = "15px";
+        fontsizetext.innerHTML = "15";
         break;
     }
   
@@ -50,6 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("toggleInvertColors").addEventListener("click", function() {
     document.body.classList.toggle("light-mode");
+    var themetext = document.getElementById("toggleInvertColors2");
+    if (document.body.classList.contains("light-mode")) {
+      themetext.innerHTML = "白昼";
+    } else {
+      themetext.innerHTML = "黒夜";
+    }
     const isLightMode = document.body.classList.contains("light-mode");
     setCookie("userColorMode", isLightMode ? "light" : "dark", 365);
   });

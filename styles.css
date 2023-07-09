@@ -99,6 +99,30 @@ button:hover {
   cursor: pointer;
   box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6, 0 0 12px #b6b6b6;
 }
+.custom-button-chara:hover ~ .extra-chara {
+  filter: opacity(100%);
+  right: 50px;
+  width: 50px; 
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
+}
+.custom-button-term:hover ~ .extra-term {
+  filter: opacity(100%);
+  right: 50px;
+  width: 50px; 
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
+}
+.custom-button-theme:hover ~ .extra-theme {
+  filter: opacity(100%);
+  right: 50px;
+  width: 50px; 
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
+}
+.custom-button-fontsize:hover ~ .extra-fontsize {
+  filter: opacity(100%);
+  right: 50px;
+  width: 50px; 
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
+}
 .custom-button {
   font-family: 'jingyue';
   border-radius: 50%; 
@@ -108,6 +132,19 @@ button:hover {
   border: 1.5px solid rgb(175, 175, 175);
   z-index: 50;
   transition: color 0.5s;
+  transition: box-shadow 0.12s;
+  overflow: hidden;
+}
+.extra {
+  filter: opacity(00%);
+  z-index: 48;
+  right: 25px;
+  border-radius: 15%; 
+  padding-left: 0px;
+  width: 30px; 
+  transition: right 0.5s;
+  transition: width 0.25s;
+  overflow: hidden;
 }
 .light-mode .custom-button {
   color: rgb(237, 237, 237); 
