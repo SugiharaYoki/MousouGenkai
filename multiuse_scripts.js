@@ -1,3 +1,4 @@
+
 function getCurrentPageIndex() {
   const currentPath = window.location.pathname;
   const chapterIndexRegex = /mousou_chapter(\d+)\.html/;
@@ -170,6 +171,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   applyCookie();
+  var themetextx = document.getElementById("toggleInvertColors2");
+  if (document.body.classList.contains("light-mode")) {
+    themetextx.innerHTML = "白昼";
+  } else {
+    themetextx.innerHTML = "黒夜";
+  }
+  var contentx = document.getElementById("chapter-content");
+  var fontsizetextx = document.getElementById("fontSizer2");
+  var currentFontSizex = parseInt(window.getComputedStyle(contentx).fontSize);
+  switch (currentFontSizex) {
+    case 8:
+      fontsizetextx.innerHTML = "8";
+      break;
+    case 10:
+      fontsizetextx.innerHTML = "10";
+      break;
+    case 13:
+      fontsizetextx.innerHTML = "13";
+      break;
+    case 14:
+      fontsizetextx.innerHTML = "14";
+      break;
+    case 15:
+      fontsizetextx.innerHTML = "15";
+      break;
+    case 16:
+      fontsizetextx.innerHTML = "16";
+      break;
+    }
 });
 
 
