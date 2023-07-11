@@ -2,56 +2,15 @@ let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
-    title: "第零章：无法抗拒，因为这是命运",
-    shortTitle: "第零章 故事",
-    filePath: "chapter0.txt",
+    title: "虚之序章：",
+    shortTitle: "虚之序章 故事",
+    filePath: "cside2_1.txt",
     id: 1,
-    summary: "这是与「虚假」无缘的世事。这是与「真实」无关的命运。<br>你将化作深邃的黑夜中那束苍白的光芒。若是你，定可拯救这失控的世界，扭转被绝望所笼罩的结局。<br>你是向濑白夜，也是黑羽谅璃。永无天日的虚妄白夜之下，你终会让这冰冷的世界迎来破晓的光明。<br><br>——而今，继续朝着前方的微光加速吧。<br>直到你抵达最快的境界。",
-  },
-  {
-    title: "第壹章：这种善意，绝对不是免费的",
-    shortTitle: "第壹章 故事",
-    filePath: "chapter1.txt",
-    id: 2,
-    summary: "初入《月星-Online-》游戏世界的向濑白夜察觉到自己所使用的游戏账号已非初始状态。<br>没有新手教程引导，也不知晓怎样执行系统操作。迷茫之际，一位游玩时长已超过2000小时，ID为“和歌森勿栖”的女性TBO玩家自告奋勇地提出愿为白夜现场答疑。<br>适应游玩方式的同时，白夜也将首次接触到有关“四大元素”、“五大属性”、“想象力决定武器类型”等与TBO玩法息息相关的基本事项。<br>“这样的老玩家为何要给自己这名陌生新手玩家讲解游戏知识？她是否抱有其他目的？我……该不该信任她？”<br><br>——既然此处已不再是现实世界，至少要做出一次自己内心真正渴望的选择。<br>与勿栖同行的旅途上，白夜决意尝试向面前这位女生敞开心扉……",
-  },
-  {
-    title: "第贰章：既然并非现世，大家定会友好相处吧",
-    shortTitle: "第贰章 故事",
-    filePath: "chapter2.txt",
-    id: 3,
-    summary: "初入月星的向濑白夜意识到自己正在操控的实为黑羽谅璃留下的二手角色。迷茫之际，和歌森勿栖出现在白夜眼前，引领她前往了安全地带。<br>在勿栖的帮助下，白夜在月星世界内度过了第一周。今时，她决定与勿栖一同前往艾兹维泽以外的世界看看。<br>二人定下的第一站将会是薙峯霞林的安全区“竹内町”，顺便探望勿栖曾经的同伴：茶屋和伊。<br><br>在竹内町的街道，白夜、勿栖与和伊将同月见花绫栾、久礼夏月、方聆弦、神来社词音首次相见。<br>月星之世，七人的传奇故事，将由此正式拉开帷幕……",
-  },
-  {
-    title: "第叁章：阴郁之穹，交响薄雨终会落尽",
-    shortTitle: "第叁章 故事",
-    filePath: "chapter3.txt",
-    id: 4,
-    summary: "竹内町北部街区，月见花绫栾与方聆弦因白夜不知情的恩怨而大打出手。<br>混乱之中，某处药水店内传来了一声尖叫。众人闻声停止争斗，立即赶去，却见药水店的NPC老板娘已被屠杀，一旁则是惊恐万分的玖琳然。<br><br>“有人正在凭借屠杀NPC而赚取经验值与稀有道具”。在聆弦如此点破后，数人意识到发生在他们眼前的恐怕是一起极为恶性的玩家犯罪事件。<br>若不加以制裁，类似的犯罪事件将会愈渐频繁，直至与所有玩家息息相关。",
-  },
-  {
-    title: "资料章：妄想限界世界观 衍生资料",
-    shortTitle: "资料章 内容",
-    filePath: "chapter999.txt",
-    id: 5,
-    summary: "若你也想要创作『妄想限界』世界观的故事，请仔细阅读这里的内容哦！<br>此页面会包含许多正常章节不曾明细阐述的设定与背景故事。<br><br>月星世界的某一部分，或将诞生于你的笔尖……",
-  },
-  {
-    title: "第肆章：星离月会，复返世事之公理（试读）",
-    shortTitle: "第肆章 故事",
-    filePath: "chapter4.txt",
-    id: 6,
-    summary: "阴云笼罩的竹内町，聆弦与绫栾兵分两路，各自着手调查杀害NPC莎娜阿姨的凶手玩家身份。<br>当天深夜，因心中某种难言之隐而执意找寻幕后凶手的夏月为调查更多的线索而回到案件的现场，却撞见了早已在此等候多时的聆弦。<br>面对同为心中怀有不可告人之思想的夏月，聆弦向他提出了……<br><br>另一边，独立查案追猎凶手的绫栾整夜未眠却毫无成果。清晨回归公会之时，她在门口遇见了一位熟悉而陌生的拜访者。<br>她一眼便识得，这女孩就是一日前与她共同见证了那场杀人凶案的词音。",
+    summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>",
   },
 ];
 const characterAvailability = {
-  0: [1,2],
-  1: [1,2],
-  2: [1,2,3,4,5],
-  3: [1,2,3,4,5,6,7,8],
-  4: [1,2,3,4,5,6,7,8,9],
-  5: [1],
-  6: [1,2,3,4,5,6,7,8,9,10],
+  1: [1],
 };
 const linktails = [
   {
@@ -76,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleElement = document.createElement("div");
         titleElement.textContent = chapters[i].title;
         const listLinker = document.createElement("a");
-        listLinker.href = `mousou_chapter${i + 1}.html`;
+        listLinker.href = `mousou_side2_${i + 1}.html`;
         listItem.appendChild(listLinker);
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
@@ -106,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
       pageNumber.addEventListener("click", () => {
         currentPage = i;
         displayChapterList();
-        setActiveChapterTitle();
       });
 
       if (i === currentPage) {
@@ -118,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     chapterList.appendChild(pagination);
   }
+  displayChapterList();
 
   async function displayChapter(index) {
     try {
@@ -127,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><h3><span class="leadingtext">纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。</span></h3><br><br>`;
+      chapterContent.innerHTML = `<br><br><h3>“纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。”</h3><br><br>`;
       setCharacterAvailability(0);
       displayChapterSummary(0);
     }
@@ -162,9 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setActiveChapterTitle() {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
-    const currentPageIndex = getCurrentPageIndex() % chaptersPerPage;
+    const currentPageIndex = getCurrentPageIndex();
     chapterListItems.forEach((item, i) => {
-      if (i === currentPageIndex && Math.ceil(chapters[getCurrentPageIndex()].id / (chaptersPerPage)) === currentPage) {
+      if (i === currentPageIndex) {
         item.classList.add("active");
       } else {
         item.classList.remove("active");
@@ -261,9 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPage += 1;
     }
   }
-  displayChapterList();
   displayChapter(getCurrentPageIndex()); 
   setActiveChapterTitle();
+  
 });
 
 

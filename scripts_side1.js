@@ -19,6 +19,10 @@ const linktails = [
   },
 ];
 
+var page = 0;
+var listtext = document.getElementById("toggleTermList2");
+listtext.innerHTML = `Pg.${page}`;
+
 document.addEventListener("DOMContentLoaded", () => {
   const chapterList = document.getElementById("chapter-list"), chapterContent = document.getElementById("chapter-content"), tailLinks = document.getElementById("tail-links"), totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
@@ -154,7 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const termList2 = document.getElementById("term-tabs2");
     const termList3 = document.getElementById("term-tabs3");
     const characterList = document.getElementById("character-tabs");
+    var listtext = document.getElementById("toggleTermList2");
     characterList.classList.add("hidden");
+    page += 1;
     if (!(page >= 0)) {
       page = 0;
     }
@@ -164,21 +170,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (page == 3 && termList3 == null) {
       page = 0;
     }
-    page += 1;
+    listtext.innerHTML = `Pg.${page}`;
+    if (page == 0) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
     if (page == 1) {
       termList.classList.remove("hidden");
       termList2.classList.add("hidden");
       termList3.classList.add("hidden");
+      const isHidden = False;
     }
     if (page == 2) {
       termList.classList.add("hidden");
       termList2.classList.remove("hidden");
       termList3.classList.add("hidden");
+      const isHidden2 = False;
     }
     if (page == 3) {
       termList.classList.add("hidden");
       termList2.classList.add("hidden");
       termList3.classList.remove("hidden");
+      const isHidden3 = False;
     }
   });
   document.getElementById("toggleWorldMap").addEventListener("click", function () {
