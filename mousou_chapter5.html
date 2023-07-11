@@ -25,7 +25,7 @@
     <img src="headerd.png" alt="Header Image" class="header-image-day">
     <img src="header.png" alt="Header Image" class="header-image header-image-night">
   </header>
-  <div class="web-version">v1.7.9.2156.1</div>
+  <div class="web-version">v1.7.11.1645.1</div>
   <main>
     <div class="list-and-summary">
       <div class="chapter-list">
@@ -49,6 +49,7 @@
       </div>
     </div>
     <div class="content-wrapper">
+      <div id="story"></div>
       <div class="chapter-content" id="chapter-content">
       </div>
       <div class="character-tabs hidden" id="character-tabs">
@@ -305,11 +306,14 @@
     <button id="fontSizer2" class="extra custom-button extra-fontsize" style="position: fixed; bottom: 39px; height: 20px; background-color: #788a83;">16</button>
     <img id="hideButton" src="button_stackicon.png" alt="Hide" onclick="hideButtons()">
     <button id="hideButtonMobile" onclick="hideButtons()" class="custom-button hide-on-pc" style="position: fixed; bottom: 280px; right: 20px; width: 40px; height: 40px; background-color: #363636;">隠蔵<br>按鍵</button>
-    <a href="#bottom" class="bottom-scroller">
+    <a href="#bottom" class="bottom-scroller scroller">
       <img src="button_bottom.png" id="bottomScroller" alt="Scroll to the bottom">
     </a>
-    <a href="#top" class="top-scroller">
+    <a href="#top" class="top-scroller scroller">
       <img src="button_bottom.png" id="topScroller" alt="Scroll to the top">
+    </a>
+    <a href="#story" class="story-scroller scroller">
+      <img src="button_storysection.png" id="storyScroller" alt="Scroll to the story section">
     </a>
     <div id="bottom"></div>
     <div class="disqus-container">

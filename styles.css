@@ -150,27 +150,44 @@ button:hover {
   color: rgb(237, 237, 237); 
   transition: color 0.5s;
 }
-.bottom-scroller {
-  position: fixed; 
-  top: 25px; 
+.bottom-scroller { 
+  top: 8px; 
+  right: 76px; 
+  z-index: 10;
+  transition: filter 0.6s;
+  transform: rotate(180deg)scale(120%);
+}
+.story-scroller {
+  top: 28px; 
   right: 55px; 
   z-index: 10;
   transition: filter 0.6s;
+  transform: rotate(340deg)scale(120%);
 }
 .top-scroller {
-  position: fixed; 
-  top: 20px; 
-  right: 18px; 
+  top: 44px; 
+  right: 22px; 
   z-index: 10;
-  transform: rotate(180deg);
   border-color:#000007;
   transition: filter 0.6s;
+  transform: rotate(0deg)scale(120%);
+}
+.scroller {
+  position: fixed; 
+  filter: opacity(20%);
+}
+.scroller:hover {
+  filter: opacity(100%);
 }
 .light-mode .bottom-scroller {
   filter: invert(1.0);
   transition: filter 0.6s;
 }
 .light-mode .top-scroller {
+  filter: invert(1.0);
+  transition: filter 0.6s;
+}
+.light-mode .story-scroller {
   filter: invert(1.0);
   transition: filter 0.6s;
 }
