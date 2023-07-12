@@ -123,6 +123,12 @@ button:hover {
   width: 50px; 
   box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
 }
+.custom-button-resourceSwitcher:hover ~ .extra-resourceSwitcher {
+  filter: opacity(100%);
+  left: 50px;
+  width: 50px; 
+  box-shadow: 0 0 3px #b6b6b6, 0 0 6px #b6b6b6, 0 0 9px #b6b6b6;
+}
 .custom-button {
   font-family: 'jingyue';
   border-radius: 50%; 
@@ -143,6 +149,17 @@ button:hover {
   padding-left: 0px;
   width: 30px; 
   transition: right 0.5s;
+  transition: width 0.25s;
+  overflow: hidden;
+}
+.extra-left {
+  filter: opacity(00%);
+  z-index: 48;
+  left: 25px;
+  border-radius: 15%; 
+  padding-right: 0px;
+  width: 30px; 
+  transition: left 0.5s;
   transition: width 0.25s;
   overflow: hidden;
 }
