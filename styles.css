@@ -194,18 +194,21 @@ button:hover {
   filter: opacity(20%);
 }
 .scroller:hover {
-  filter: opacity(100%);
+  filter: opacity(100%) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.74));
+}
+.light-mode .scroller:hover {
+  filter: opacity(100%) invert(0.0) drop-shadow(0px 0px 5px rgb(0, 0, 0));
 }
 .light-mode .bottom-scroller {
-  filter: invert(1.0);
+  filter: invert(0.5);
   transition: filter 0.6s;
 }
 .light-mode .top-scroller {
-  filter: invert(1.0);
+  filter: invert(0.5);
   transition: filter 0.6s;
 }
 .light-mode .story-scroller {
-  filter: invert(1.0);
+  filter: invert(0.5);
   transition: filter 0.6s;
 }
 #shareButton {
@@ -1188,4 +1191,31 @@ button:hover {
   width: 35%;
   margin-left: 56px;
   box-shadow: 0 0 6px #5a5a5a, 0 0 12px #818181, 0 0 18px #202020;
+}
+
+.input1 {
+  width: 3%;
+  box-shadow: 4px 4px 1.3px #5a5631;
+  background-color: #3f3f3f;
+  font-size: 20px;
+  font-family: jinyue;
+  color: rgb(255, 255, 255);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: rgba(241, 231, 189, 0.76);
+  border-width:2px;
+  text-align: right;
+}
+.input2 {
+  width: 3%;
+  box-shadow: 4px 4px 1.3px #345a31;
+  background-color: #3f3f3f;
+  font-size: 20px;
+  font-family: jinyue;
+  color: rgb(255, 255, 255);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: rgba(201, 241, 189, 0.76);
+  border-width:2px;
+  text-align: right;
 }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (page == 0) {
       page += 1;
       listtext.innerHTML = `算式`;
-      displayChapter("chapter2.txt");
+      displayChapter("chapter998.txt");
     }
     if (page == -1) {
       page = 0;
@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = await response.text();
     chapterContent.innerHTML = `<p>${content}</p>`;
   }
-});
+  var Level = document.getElementsByName("Level")[0].value;
+  alert(Level);
+  
 
+
+});
 

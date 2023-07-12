@@ -1,0 +1,46 @@
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        等级&nbsp：&nbsp&nbsp&nbsp&nbsp
+        <input class="input1" type="text" placeholder="0" id="Level" name="Level" maxlength="5" >
+    </label>
+</form>
+<br><br>
+<label style="font-family: rxt; font-size:18px;">
+    生命上限&nbsp：
+</label>
+<br>
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        基础力量&nbsp：
+        <input class="input2" type="text" placeholder="0" id="AttrATK" name="AttrATK" maxlength="5" >
+    </label>
+    <br>
+</form>
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        基础坚韧&nbsp：
+        <input class="input2" type="text" placeholder="0" id="AttrDEF" name="AttrDEF" maxlength="5" >
+    </label>
+    <br>
+</form>
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        基础智慧&nbsp：
+        <input class="input2" type="text" placeholder="0" id="AttrMAT" name="AttrMAT" maxlength="5" >
+    </label>
+    <br>
+</form>
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        基础敏捷&nbsp：
+        <input class="input2" type="text" placeholder="0" id="AttrAGI" name="AttrAGI" maxlength="5" >
+    </label>
+    <br>
+</form>
+<form action="/url" method="GET">
+    <label style="font-family: rxt; font-size:18px;">
+        基础凝神&nbsp：
+        <input class="input2" type="text" placeholder="0" id="AttrCCT" name="AttrCCT" maxlength="5" >
+    </label>
+    <br>
+</form>
