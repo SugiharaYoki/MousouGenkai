@@ -8,6 +8,13 @@ const chapters = [
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>已知：世界是虚假的。<br>我等要如何行动？<br><br>那么，我等应潜入虚假的虚假，以探寻真实之真实——<br>此乃虚妄与现实纠缠的梦境伊始。",
   },
+  //{
+  //  title: "虚壹之章：起始的视界",
+  //  shortTitle: "虚壹之章 故事",
+  //  filePath: "cside2_2.txt",
+  //  id: 2,
+  //  summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>已知：世界是虚假的。<br>我等要如何行动？<br><br>那么，我等应潜入虚假的虚假，以探寻真实之真实——<br>此乃虚妄与现实纠缠的梦境伊始。",
+  //},
 ];
 const characterAvailability = {
   1: [1],
