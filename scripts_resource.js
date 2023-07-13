@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (page == 0) {
       page += 1;
       listtext.innerHTML = `算式`;
-      displayChapter("chapter998.txt");
+      renderCalculator(chapterContent);
     }
     if (page == -1) {
       page = 0;
@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = await response.text();
     chapterContent.innerHTML = `<p>${content}</p>`;
   }
-  async function displayChapter2(filename) {
-    const response = await fetch(filename);
-    const content = await response.text();
-    chapterContent.appendChild(content);
-  }
-  
+  // async function displayChapter2(filename) {
+  //   const response = await fetch(filename);
+  //   const content = await response.text();
+  //   chapterContent.appendChild(content);
+  // }
+
   //document.getElementById("calculate").addEventListener("click", function () {
   //  alert();
   //  var Level = document.getElementById("Level").elements["Level"];
