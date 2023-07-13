@@ -30,6 +30,11 @@ body {
     0 -5px 12px -7px #69696971, 0 5px 12px -7px #69696971;
   padding: 3px;
 }
+.syslang-side2 {
+  font-family: 'rxt';
+  box-shadow: -2.5px 0px 0px 0px #838383,2.5px 0px 0px 0px #838383;
+  padding: 2px;
+}
 
 .leadingtext {
   font-family: 'ce';
@@ -162,6 +167,25 @@ button:hover {
   transition: color 0.5s;
   transition: box-shadow 0.12s;
   overflow: hidden;
+}
+.custom-button2 {
+  font-family: 'jingyue';
+  border-radius: 15%;
+  color: rgb(244, 235, 255);
+  font-weight: bold;
+  font-size: 16px;
+  border: 1.8px solid rgb(175, 175, 175);
+  z-index: 30;
+  transition: color 0.5s;
+  transition: box-shadow 0.12s;
+  overflow: hidden;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  width: 90px; 
+  height: 30px; 
 }
 
 .extra {
@@ -1353,7 +1377,7 @@ button:hover {
 }
 
 input.input1 {
-  width: 3%;
+  width: 60px;
   box-shadow: 4px 4px 1.3px #5a5631;
   background-color: #3f3f3f;
   font-size: 20px;
@@ -1367,7 +1391,7 @@ input.input1 {
 }
 
 input.input2 {
-  width: 3%;
+  width: 60px;
   box-shadow: 4px 4px 1.3px #345a31;
   background-color: #3f3f3f;
   font-size: 20px;
@@ -1378,6 +1402,20 @@ input.input2 {
   border-color: rgba(201, 241, 189, 0.76);
   border-width: 2px;
   text-align: right;
+}
+
+.light-mode input.input1 {
+  box-shadow: 4px 4px 1.3px #5d582d;
+  background-color: #afafaf;
+  color: rgb(21, 21, 21);
+  border-color: rgba(241, 231, 189, 0.76);
+}
+
+.light-mode input.input2 {
+  box-shadow: 4px 4px 1.3px #3a6a37;
+  background-color: #afafaf;
+  color: rgb(21, 21, 21);
+  border-color: rgba(201, 241, 189, 0.76);
 }
 
 label.calc {
