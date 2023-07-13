@@ -12,12 +12,12 @@ function getCurrentPageIndex() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  
+
   document.getElementById("fontSizer").addEventListener("click", function () {
     var content = document.getElementById("chapter-content");
     var fontsizetext = document.getElementById("fontSizer2");
     var currentFontSize = parseInt(window.getComputedStyle(content).fontSize);
-  
+
     var newSize;
     switch (currentFontSize) {
       case 8:
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newSize = "14px";
         fontsizetext.innerHTML = "14";
         break;
+      default:
       case 14:
         newSize = "15px";
         fontsizetext.innerHTML = "15";
@@ -50,17 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
           fontsizetext.innerHTML = "13";
         }
         break;
-      default:
-        newSize = "15px";
-        fontsizetext.innerHTML = "15";
-        break;
     }
-  
+
     content.style.fontSize = newSize;
     setCookie("userFontSize", newSize, 365);
   });
 
-  document.getElementById("toggleInvertColors").addEventListener("click", function() {
+  document.getElementById("toggleInvertColors").addEventListener("click", function () {
     document.body.classList.toggle("light-mode");
     var themetext = document.getElementById("toggleInvertColors2");
     if (document.body.classList.contains("light-mode")) {
@@ -81,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     document.cookie = name + '=' + (value || '') + expires + '; path=/';
   }
-  
+
   function getCookie(name) {
     const value = '; ' + document.cookie;
     const parts = value.split('; ' + name + '=');
@@ -102,10 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.getElementById("hideButton").addEventListener("click", function() {
+  document.getElementById("hideButton").addEventListener("click", function () {
     hideButtons();
   })
-  document.getElementById("hideButtonMobile").addEventListener("click", function() {
+  document.getElementById("hideButtonMobile").addEventListener("click", function () {
     hideButtons();
   })
 
@@ -199,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     case 16:
       fontsizetextx.innerHTML = "16";
       break;
-    }
+  }
 });
 
 
