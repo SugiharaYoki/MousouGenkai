@@ -118,7 +118,7 @@ function calculateStatus() {
     var attrLVL = document.getElementById("lvl").value;
     label_lvlreq.innerHTML = " - 升级所需经验\xa0：" + (1011+ 4* (Number(attrLVL) + 1) ** 2);
     var CharHP = attrLVL * 50 + 450;
-    var CharMP = Math.round(attrMAT / 5) * 10 + Math.round(attrCCT / 10) * 5 + Math.round(attrDEF / 10) * 10 + 200;
+    var CharMP = Math.round(attrMAT / 50) * 10 + Math.round(attrCCT / 100) * 5 + Math.round(attrDEF / 100) * 10 + 200;
     var CharATK = Math.round((attrATK * 2.75) ** 0.75) + Math.round(attrATK * 0.65) + Math.round((attrDEF * 0.55 + attrCCT * 0.45) ** 0.95 / 2.5) + 9;
     var CharDEF = Math.round((attrDEF * 1.8) ** 0.89) + Math.round(attrDEF * 0.55) + Math.round(((CharHP / 550 + attrMAT * 0.35 + attrCCT * 0.25) * 1.75) ** 0.8) + 3;
     var CharRAT = Math.round((attrATK * 1.4) ** 0.90) + Math.round(attrATK * 0.25) + Math.round((attrMAT * 1.15 + attrCCT * 1.75) ** 0.85 / 1.5) + 9;
