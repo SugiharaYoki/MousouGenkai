@@ -43,11 +43,11 @@ function initialiseCalculator() {
 
 
     // initialise calculate button
-    button_calc.id = "calculate";
-    button_calc.classList.add("custom-button2");
-    button_calc.style = "background-color: #1D5D49;";
-    button_calc.onclick = () => calculateStatus();
-    button_calc.innerText = "- 計算 -";
+    //button_calc.id = "calculate";
+    //button_calc.classList.add("custom-button2");
+    //button_calc.style = "background-color: #1D5D49;";
+    //button_calc.onclick = () => calculateStatus();
+    //button_calc.innerText = "- 計算 -";
 }
 
 // Render the calculator into the element.
@@ -75,8 +75,8 @@ function renderCalculator(element) {
     element.appendChild(document.createElement("br"));
     element.appendChild(label_cct);
     element.appendChild(document.createElement("br"));
-    element.appendChild(button_calc);
-    element.appendChild(document.createElement("br"));
+    //element.appendChild(button_calc);
+    //element.appendChild(document.createElement("br"));
     element.appendChild(document.createElement("br"));
     element.appendChild(label_CharATK);
     element.appendChild(label_CharRAT);
@@ -175,6 +175,7 @@ function initialiseCalcInput(input, classname, id, placeholder = "0", type = "te
     input.maxLength = max_length;
     input.id = id;
     input.classList.add(classname);
+    input.oninput = () => calculateStatus();
 }
 
 function initialiseCalcLabel(label, inner_text, input = undefined, inner_text2 = "") {
@@ -221,6 +222,6 @@ const label_CharRDGE = document.createElement("label");
 const label_CharMDGE = document.createElement("label");
 const label_CharMND = document.createElement("label");
 
-const button_calc = document.createElement("button");
+//const button_calc = document.createElement("button");
 
 initialiseCalculator();
