@@ -24,9 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = await response.text();
     chapterContent.innerHTML = `<p>${content}</p>`;
   }
-  var Level = document.getElementsByName("Level")[0].value;
-  alert(Level);
+  async function displayChapter2(filename) {
+    const response = await fetch(filename);
+    const content = await response.text();
+    chapterContent.appendChild(content);
+  }
   
+  //document.getElementById("calculate").addEventListener("click", function () {
+  //  alert();
+  //  var Level = document.getElementById("Level").elements["Level"];
+  //  alert(Level[0]);
+  //});
 
 
 });
