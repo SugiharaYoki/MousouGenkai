@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function getCurrentPageIndex() {
     const currentPath = window.location.pathname;
-    const chapterIndexRegex = /mousou_chapter(\d+)\.html/;
+    const chapterIndexRegex = /mousou_side1_(\d+)\.html/;
     const match = currentPath.match(chapterIndexRegex);
   
     if (match) {
