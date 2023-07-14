@@ -2,8 +2,8 @@ let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
-    title: "第壹章：雾锁孤城",
-    shortTitle: "第壹章 故事",
+    title: "梦蝶壹章：雾锁孤城",
+    shortTitle: "梦蝶壹章 故事",
     filePath: "cside1_1.txt",
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：月见花竹鸢&nbsp&nbsp</span><br><br>独行玩家月见花绫栾在外出狩猎魔物时，<br>于薙峯霞林区域浓雾地带的深处发现了一座从未被玩家攻略所记载的超巨型日式城堡。<br><br>她将在不久后意识到，这便是坐落于整个薙峯霞林尽头的“迷宫地带”。<br>在最后静待着绫栾到来的，会是何样的高危险度头目怪物？<br><br>《妄想限界：白夜今明》系列的第一篇衍生故事，就此开启……",
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     chapterList.appendChild(pagination);
+    resetPageDirect(pagination);
   }
   displayChapterList();
 

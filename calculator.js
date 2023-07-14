@@ -134,7 +134,7 @@ function calculateStatus() {
     var CharMCRIC = Math.round(((attrMAT) ** 0.32 * Math.max((attrCCT / 7) ** 0.25, 0.7)) ** 1.05);
     var CharMCRIA = Math.round(CharMCRIC * 0.75 * Math.max((CharMP / 70) ** 0.25, 0.55) + Math.max((attrMAT / 10) ** 0.3, 0.3));
     var CharADGE = Math.round((attrAGI) ** 0.5 * Math.max((attrMAT / 12) ** 0.15, 0.75) * Math.max((attrCCT / 25) ** 0.13, 0.5) * Math.max((attrATK / 30) ** 0.15, 0.5));
-    var CharRDGE = Math.round((attrAGI) ** 0.4 * Math.max((attrMAT / 8) ** 0.31, 0.65) * Math.max((attrCCT / 40) ** 0.18, 0.5));
+    var CharRDGE = Math.round((attrAGI) ** 0.4 * Math.max((attrMAT / 8) ** 0.3095, 0.65) * Math.max((attrCCT / 40) ** 0.18, 0.5));
     var CharMDGE = Math.round(((attrMAT) ** 0.3 * Math.max((attrCCT / 7) ** 0.2, 0.7)) ** 1.05);
     var CharMND = Math.round((attrMAT) ** 0.65 + (attrAGI) ** 0.25 + (attrATK) ** 0.3 + (attrDEF) ** 0.35 + (attrCCT) ** 0.6 + (CharHP) ** 0.1 + (CharMP) ** 0.1);
     label_hp.innerHTML = "生命\xa0：" + CharHP;

@@ -1422,3 +1422,17 @@ label.calc {
   font-family: rxt;
   font-size: 18px;
 }
+
+.directFormList {
+  overflow: hidden;
+  height: 23px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: SourceHansNormal;
+  text-align:left;
+  color: #ffffff;
+  background-color: #202020;
+}

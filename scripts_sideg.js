@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     chapterList.appendChild(pagination);
+    resetPageDirect(pagination);
   }
   displayChapterList();
 

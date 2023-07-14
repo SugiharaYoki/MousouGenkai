@@ -1,5 +1,6 @@
 let currentPage = 1, chaptersPerPage = 5;
 
+
 const chapters = [
   {
     title: "第零章：无法抗拒，因为这是命运",
@@ -96,8 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
   } 
 
   function displayPagination() {
-    const pagination = document.createElement("div");
+    var pagination = document.createElement("div");
     pagination.className = "pagination";
+    pagination.id = "pagination";
 
     for (let i = 1; i <= totalPages; i++) {
       const pageNumber = document.createElement("button");
@@ -117,7 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     chapterList.appendChild(pagination);
+    resetPageDirect(pagination);
   }
+
 
   async function displayChapter(index) {
     try {
