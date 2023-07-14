@@ -2,14 +2,14 @@ let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
-    title: "虚序之章：致新世界",
+    title: "虚序之章：潜入，以及虚实之虚 ~ 致新世界",
     shortTitle: "虚序之章 故事",
     filePath: "cside2_1.txt",
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>已知：世界是虚假的。<br>我等要如何行动？<br><br>那么，我等应潜入虚假的虚假，以探寻真实之真实——<br>此乃虚妄与现实纠缠的梦境伊始。",
   },
   {
-    title: "虚壹之章：生理毁灭系初始特训",
+    title: "虚壹之章：轮回，其为死生之生 ~ 生理毁灭系初始特训",
     shortTitle: "虚壹之章 故事",
     filePath: "cside2_2.txt",
     id: 2,
