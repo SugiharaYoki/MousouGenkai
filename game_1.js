@@ -116,6 +116,8 @@ document.querySelector("input").addEventListener("click", (e) => {
   if (userChara == "Ayamado") {
     lightWeaponDamage = 20;
     hisatsuwaza.innerHTML = `空格：施放 空泠断灭`;
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $600";
+    upgrade7m.innerHTML = "多重 600";
   }
 
   if (userValue == "Casual") {
@@ -401,7 +403,7 @@ const spawnEnemy3 = () => {
     let enemySize = 30;
     let enemyColor = `hsl(100,100%,50%)`;
     if (Math.random() < 0.2) {
-       enemySize = 40;
+       enemySize = 50;
        enemyColor = `hsl(80,100%,50%)`;
     }
     let random;
@@ -430,8 +432,16 @@ const spawnEnemy3 = () => {
 };
 const spawnEnemy4 = () => {
   if (document.hasFocus() && AZR_Timer >= 3.5) {
-    const enemySize = 120;
-    const enemyColor = `hsl(30,100%,50%)`;
+    let enemySize = 120;
+    let enemyColor = `hsl(30,100%,50%)`;
+    if (Math.random() < 0.2) {
+       enemySize = 240;
+       enemyColor = `hsl(20,100%,50%)`;
+       if (Math.random() < 0.2) {
+          enemySize = 480;
+          enemyColor = `hsl(10,100%,50%)`;
+       }
+    }
     let random;
     if (Math.random() < 0.5) {
       random = {
@@ -1312,6 +1322,7 @@ document.getElementById("hisatsuwaza").addEventListener("click", function(event)
 });
 
 function upgrade1pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 1000 && upg_bulletspeed == 9) {
     playerCoin -= 1000;
     upg_bulletspeed += 1;
@@ -1374,6 +1385,7 @@ function upgrade1pr() {
   }
 };
 function upgrade2pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 2000 && upg_randbullet == 7) {
     playerCoin -= 2000;
     upg_randbullet += 1;
@@ -1392,25 +1404,49 @@ function upgrade2pr() {
     upgrade2.innerHTML = "数字2：箭矢散射 现LV6&nbsp&nbsp $2000";
     upgrade2m.innerHTML = "散射 2000";
   }
-  if (playerCoin >= 1000 && upg_randbullet == 4) {
+  if (playerCoin >= 500 && upg_randbullet == 4 && userChara == "Ayamado") {
+    playerCoin -= 500;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV5&nbsp&nbsp $2000";
+    upgrade2m.innerHTML = "散射 2000";
+  }
+  if (playerCoin >= 1000 && upg_randbullet == 4 && userChara != "Ayamado") {
     playerCoin -= 1000;
     upg_randbullet += 1;
     upgrade2.innerHTML = "数字2：箭矢散射 现LV5&nbsp&nbsp $2000";
     upgrade2m.innerHTML = "散射 2000";
   }
-  if (playerCoin >= 600 && upg_randbullet == 3) {
+  if (playerCoin >= 200 && upg_randbullet == 3 && userChara == "Ayamado") {
+    playerCoin -= 200;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV4&nbsp&nbsp $500";
+    upgrade2m.innerHTML = "散射 1000";
+  }
+  if (playerCoin >= 600 && upg_randbullet == 3 && userChara != "Ayamado") {
     playerCoin -= 600;
     upg_randbullet += 1;
     upgrade2.innerHTML = "数字2：箭矢散射 现LV4&nbsp&nbsp $1000";
     upgrade2m.innerHTML = "散射 1000";
   }
-  if (playerCoin >= 300 && upg_randbullet == 2) {
+  if (playerCoin >= 100 && upg_randbullet == 2 && userChara == "Ayamado") {
+    playerCoin -= 100;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV3&nbsp&nbsp $200";
+    upgrade2m.innerHTML = "散射 200";
+  }
+  if (playerCoin >= 300 && upg_randbullet == 2 && userChara != "Ayamado") {
     playerCoin -= 300;
     upg_randbullet += 1;
     upgrade2.innerHTML = "数字2：箭矢散射 现LV3&nbsp&nbsp $600";
     upgrade2m.innerHTML = "散射 600";
   }
-  if (playerCoin >= 100 && upg_randbullet == 1) {
+  if (playerCoin >= 100 && upg_randbullet == 1 && userChara == "Ayamado") {
+    playerCoin -= 100;
+    upg_randbullet += 1;
+    upgrade2.innerHTML = "数字2：箭矢散射 现LV2&nbsp&nbsp $100";
+    upgrade2m.innerHTML = "散射 100";
+  }
+  if (playerCoin >= 100 && upg_randbullet == 1 && userChara != "Ayamado") {
     playerCoin -= 100;
     upg_randbullet += 1;
     upgrade2.innerHTML = "数字2：箭矢散射 现LV2&nbsp&nbsp $300";
@@ -1424,6 +1460,7 @@ function upgrade2pr() {
   }
 }
 function upgrade3pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 1500 && upg_randchance == 6) {
     playerCoin -= 1500;
     upg_randchance += 1;
@@ -1468,6 +1505,7 @@ function upgrade3pr() {
   }
 }
 function upgrade4pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 1800 && upg_charge == 6) {
     playerCoin -= 1800;
     upg_charge += 1;
@@ -1480,19 +1518,37 @@ function upgrade4pr() {
     upgrade4.innerHTML = "数字4：必杀充能 现LV6&nbsp&nbsp $1800";
     upgrade4m.innerHTML = "充能 1800";
   }
-  if (playerCoin >= 1000 && upg_charge == 4) {
+  if (playerCoin >= 1300 && upg_charge == 4 && userChara == "Taketori") {
+    playerCoin -= 1300;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $1300";
+    upgrade4m.innerHTML = "充能 1300";
+  }
+  if (playerCoin >= 1000 && upg_charge == 4 && userChara != "Taketori") {
     playerCoin -= 1000;
     upg_charge += 1;
     upgrade4.innerHTML = "数字4：必杀充能 现LV5&nbsp&nbsp $1300";
     upgrade4m.innerHTML = "充能 1300";
   }
-  if (playerCoin >= 800 && upg_charge == 3) {
+  if (playerCoin >= 1200 && upg_charge == 3 && userChara == "Taketori") {
+    playerCoin -= 1200;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV4&nbsp&nbsp $1300";
+    upgrade4m.innerHTML = "充能 1200";
+  }
+  if (playerCoin >= 800 && upg_charge == 3 && userChara != "Taketori") {
     playerCoin -= 800;
     upg_charge += 1;
     upgrade4.innerHTML = "数字4：必杀充能 现LV4&nbsp&nbsp $1000";
     upgrade4m.innerHTML = "充能 1000";
   }
-  if (playerCoin >= 600 && upg_charge == 2) {
+  if (playerCoin >= 600 && upg_charge == 2 && userChara == "Taketori") {
+    playerCoin -= 600;
+    upg_charge += 1;
+    upgrade4.innerHTML = "数字4：必杀充能 现LV3&nbsp&nbsp $1200";
+    upgrade4m.innerHTML = "充能 1200";
+  }
+  if (playerCoin >= 600 && upg_charge == 2 && userChara != "Taketori") {
     playerCoin -= 600;
     upg_charge += 1;
     upgrade4.innerHTML = "数字4：必杀充能 现LV3&nbsp&nbsp $800";
@@ -1512,6 +1568,7 @@ function upgrade4pr() {
   }
 }
 function upgrade5pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 5000 && upg_pierce == 3) {
     playerCoin -= 5000;
     upg_pierce += 1;
@@ -1524,13 +1581,25 @@ function upgrade5pr() {
     upgrade5.innerHTML = "数字5：穿透箭击 现LV3&nbsp&nbsp $5000";
     upgrade5m.innerHTML = "穿透 5000";
   }
-  if (playerCoin >= 1000 && upg_pierce == 1) {
+  if (playerCoin >= 500 && upg_pierce == 1 && userChara == "Hakuyo") {
+    playerCoin -= 500;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV2&nbsp&nbsp $2500";
+    upgrade5m.innerHTML = "穿透 2500";
+  }
+  if (playerCoin >= 1000 && upg_pierce == 1 && userChara != "Hakuyo") {
     playerCoin -= 1000;
     upg_pierce += 1;
     upgrade5.innerHTML = "数字5：穿透箭击 现LV2&nbsp&nbsp $2500";
     upgrade5m.innerHTML = "穿透 2500";
   }
-  if (playerCoin >= 300 && upg_pierce == 0) {
+  if (playerCoin >= 300 && upg_pierce == 0 && userChara == "Hakuyo") {
+    playerCoin -= 300;
+    upg_pierce += 1;
+    upgrade5.innerHTML = "数字5：穿透箭击 现LV1&nbsp&nbsp $500";
+    upgrade5m.innerHTML = "穿透 500";
+  }
+  if (playerCoin >= 300 && upg_pierce == 0 && userChara != "Hakuyo") {
     playerCoin -= 300;
     upg_pierce += 1;
     upgrade5.innerHTML = "数字5：穿透箭击 现LV1&nbsp&nbsp $1000";
@@ -1538,6 +1607,7 @@ function upgrade5pr() {
   }
 }
 function upgrade6pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 2000 && upg_health == 3) {
     playerCoin -= 2000;
     upg_health += 1;
@@ -1568,23 +1638,48 @@ function upgrade6pr() {
   }
 }
 function upgrade7pr() {
+  const userChara = document.getElementById("character").value;
   if (playerCoin >= 2000 && upg_multishoot == 2) {
     playerCoin -= 2000;
     upg_multishoot += 1;
     upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $？";
     upgrade7m.innerHTML = "多重 ？";
   }
-  if (playerCoin >= 1000 && upg_multishoot == 1) {
+  if (playerCoin >= 1000 && upg_multishoot == 1 && userChara == "Hakuyo") {
     playerCoin -= 1000;
     upg_multishoot += 1;
     upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $2000";
     upgrade7m.innerHTML = "多重 2000";
   }
-  if (playerCoin >= 800 && upg_multishoot == 0) {
+  if (playerCoin >= 800 && upg_multishoot == 1 && userChara == "Ayamado") {
+    playerCoin -= 800;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $2000";
+    upgrade7m.innerHTML = "多重 2000";
+  }
+  if (playerCoin >= 2000 && upg_multishoot == 1 && userChara == "Taketori") {
+    playerCoin -= 2000;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $2000";
+    upgrade7m.innerHTML = "多重 2000";
+  }
+  if (playerCoin >= 800 && upg_multishoot == 0 && userChara == "Hakuyo") {
     playerCoin -= 800;
     upg_multishoot += 1;
     upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $1000";
     upgrade7m.innerHTML = "多重 1000";
+  }
+  if (playerCoin >= 600 && upg_multishoot == 0 && userChara == "Ayamado") {
+    playerCoin -= 600;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $800";
+    upgrade7m.innerHTML = "多重 800";
+  }
+  if (playerCoin >= 800 && upg_multishoot == 0 && userChara == "Taketori") {
+    playerCoin -= 800;
+    upg_multishoot += 1;
+    upgrade7.innerHTML = "数字7：射击强化&nbsp&nbsp $2000";
+    upgrade7m.innerHTML = "多重 2000";
   }
 }
 function hisatsu() {
