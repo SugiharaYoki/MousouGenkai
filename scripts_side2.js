@@ -2,15 +2,15 @@ let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
-    title: "虚序之章：潜入，以及虚实之虚 ~ 致新世界",
-    shortTitle: "虚序之章 故事",
+    title: "虚壹之章：潜入，以及虚实之虚 ~ 致新世界",
+    shortTitle: "虚壹之章 故事",
     filePath: "cside2_1.txt",
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>已知：世界是虚假的。<br>我等要如何行动？<br><br>那么，我等应潜入虚假的虚假，以探寻真实之真实——<br>此乃虚妄与现实纠缠的梦境伊始。",
   },
   {
-    title: "虚壹之章：轮回，其为死生之生 ~ 生理毁灭",
-    shortTitle: "虚壹之章 故事",
+    title: "虚贰之章：轮回，其为死生之生 ~ 生理毁灭",
+    shortTitle: "虚贰之章 故事",
     filePath: "cside2_2.txt",
     id: 2,
     summary: "<span class='syslang'>&nbsp&nbsp作者：Richado Wonosas&nbsp&nbsp</span><br><br>布雷姆市南面不远处的森林之中，我开始了魔法特训。<br>只不过，此款游戏的技能学习机制一反传统，看来要花费不少功夫才能够习得真正有用的魔法。<br><br>实话说，换作传统的游戏的话，这样的特训恐怕没啥意义：毕竟在传统的游戏里，不打怪升级，就根本掌握不了新的技能。<br>但是，这里可是TBO的世界，一个就连开发了这款游戏的人都没法掌握它到底会做出什么的世界。<br>那么，作为可以与它交互的玩家，想必我的一举一动以及所思所想，也会辅助它成长、让它成为内容更加丰富的游戏吧。",
