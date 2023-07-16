@@ -1449,3 +1449,33 @@ label.calc {
   color: #ffffff;
   background-color: #202020;
 }
+
+.lyrics {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 350px;
+  width: 400px;
+  overflow-y: auto;
+  border: 3px solid rgb(65, 65, 65);
+  padding: 15px;
+  padding-left: 30px;
+  font-size: 17px;
+  color: rgb(255, 255, 255);
+  line-height: 2.2;
+  background-color: #2b2b2b;
+  animation: details-easein 0.6s ease-in-out;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  font-family: GenJyuuNormal;
+}
+.lyrics::-webkit-scrollbar {
+  width: 4.0px;
+  background-color: rgba(29, 29, 29, 0.678);
+}
+.lyrics::-webkit-scrollbar-thumb {
+  background-color: rgba(146, 146, 146, 0.562);
+  border-radius: 3px;
+}
+.lyrics::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(173, 173, 173, 0.8);
+}
