@@ -235,7 +235,7 @@ button:hover {
 
 .top-scroller {
   top: 44px;
-  right: 22px;
+  right: 22.3px;
   z-index: 10;
   border-color: #000007;
   transition: filter 0.6s;
