@@ -32,6 +32,10 @@ const linktails = [
   },
 ];
 
+var page = 0;
+var listtext = document.getElementById("toggleTermList2");
+listtext.innerHTML = `Pg.${page}`;
+
 document.addEventListener("DOMContentLoaded", () => {
   const chapterList = document.getElementById("chapter-list"), chapterContent = document.getElementById("chapter-content"), tailLinks = document.getElementById("tail-links"), totalPages = Math.ceil(chapters.length / chaptersPerPage);
 
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
         const characterCount = await getCharacterCount(chapters[i].filePath);
-        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 600);
+        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 500);
         if (i == 4) {
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
@@ -74,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
       pageNumber.addEventListener("click", () => {
         currentPage = i;
         displayChapterList();
-        setActiveChapterTitle();
       });
 
       if (i === currentPage) {
@@ -85,7 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     chapterList.appendChild(pagination);
+    resetPageDirect(pagination);
   }
+  displayChapterList();
 
   async function displayChapter(index) {
     try {
@@ -95,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCharacterAvailability(index + 1);
       displayChapterSummary(index);
     } catch (error) {
-      chapterContent.innerHTML = `<br><br><h3><span class="leadingtext">这无神体制下的信仰，<br>在我与你相遇后显得再无意义。<br><br>我将不再证伪万事。<br>我将证明万事。</span></h3><br><br>`;
+      chapterContent.innerHTML = `<br><br><h3>这无神体制下的信仰，<br>在我与你相遇后显得再无意义。<br><br>我将不再证伪万事。<br>我将证明万事。</h3><br><br>`;
       setCharacterAvailability(0);
       displayChapterSummary(0);
     }
@@ -130,12 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setActiveChapterTitle() {
     const chapterListItems = document.querySelectorAll("#chapter-list li");
-    const currentPageIndex = getCurrentPageIndex() % chaptersPerPage;
+    const currentPageIndex = getCurrentPageIndex();
     chapterListItems.forEach((item, i) => {
-      if (i === currentPageIndex && Math.ceil(chapters[getCurrentPageIndex()].id / (chaptersPerPage)) === currentPage) {
+      if (i === currentPageIndex) {
         item.classList.add("active");
+        item.classList.add("active-jiken");
       } else {
         item.classList.remove("active");
+        item.classList.remove("active-jiken");
       }
     });
   }
@@ -151,6 +158,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  document.getElementById("toggleCharacterList").addEventListener("click", function () {
+    const characterList = document.getElementById("character-tabs");
+    page = 0;
+    const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
+    characterList.classList.toggle("hidden");
+    termList.classList.add("hidden");
+    termList2.classList.add("hidden");
+    termList3.classList.add("hidden");
+  });
+  document.getElementById("toggleTermList").addEventListener("click", function () {
+    const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
+    const characterList = document.getElementById("character-tabs");
+    var listtext = document.getElementById("toggleTermList2");
+    characterList.classList.add("hidden");
+    page += 1;
+    if (!(page >= 0)) {
+      page = 0;
+    }
+    if (page == 2 && termList2 == null) {
+      page = 0;
+    }
+    if (page == 3 && termList3 == null) {
+      page = 0;
+    }
+    listtext.innerHTML = `Pg.${page}`;
+    if (page == 0) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 1) {
+      termList.classList.remove("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+      const isHidden = False;
+    }
+    if (page == 2) {
+      termList.classList.add("hidden");
+      termList2.classList.remove("hidden");
+      termList3.classList.add("hidden");
+      const isHidden2 = False;
+    }
+    if (page == 3) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.remove("hidden");
+      const isHidden3 = False;
+    }
+  });
+  document.getElementById("toggleWorldMap").addEventListener("click", function () {
+    const worldMap = document.getElementById("world-map");
+    worldMap.classList.toggle("hidden");
+  });
 
   async function getCharacterCount(filePath) {
     try {
@@ -172,7 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPage += 1;
     }
   }
-  displayChapterList();
   displayChapter(getCurrentPageIndex()); 
   setActiveChapterTitle();
   

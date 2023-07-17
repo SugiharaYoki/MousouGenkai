@@ -52,6 +52,15 @@ function redirectChapter(ii) {
                           case 10:
                             window.location.href = `mousou_side2_2.html`;
                             break;
+                            case 11:
+                              window.location.href = `jiken_chapter0.html`;
+                              break;
+                              case 12:
+                                window.location.href = `jiken_chapter1.html`;
+                                break;
+                                case 13:
+                                  window.location.href = `jiken_chapter2.html`;
+                                  break;
   }
 }
 function resetPageDirect(pagin) {
@@ -64,8 +73,8 @@ function resetPageDirect(pagin) {
       let pageDirectForm = document.createElement("select");
       pageDirectForm.id = "pageDirector";
       pageDirectForm.classList.add("directFormList");
-      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","致世界：虚序之章","致世界：虚壹之章","雾城：梦蝶壹章","落月星辉：光玥壹章","附加内容：资料章"];
-      var optionsDirectValue = [-1,0,1,2,3,4,5,7,10,8,9,6];
+      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","致世界：虚壹之章","致世界：虚贰之章","雾城：梦蝶壹章","落月星辉：光玥壹章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
+      var optionsDirectValue = [-1,0,1,2,3,4,5,7,10,8,9,6,11,12,13];
       pageDirectForm.oninput = () => redirectChapter(pageDirectForm.value);
       for (var i = 0; i < optionsDirect.length; i++) {
           var option = document.createElement("option");

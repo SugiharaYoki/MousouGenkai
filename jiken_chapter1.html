@@ -24,10 +24,10 @@
   <header>
     <img src="jiken_header.png" alt="Header Image" class="header-image">
   </header>
-  <div class="web-version">v1.7.14.1702.1</div>
+  <div class="web-version">v1.7.16.2139.1</div>
   <main>
     <div class="list-and-summary">
-      <div class="chapter-list">
+      <div class="chapter-list chapter-list-jiken">
         <h2>『八月朔日怜隐事件簿』  章节选择</h2>
         <ul id="chapter-list"></ul>
       </div>
@@ -51,11 +51,18 @@
       <img src="tail-link-02.png" alt="Tail Image 02" class="tail-linker-image">
     </a>
     <p><br></p>
+    <img src="world_map.png" alt="World Map Beta" class="world-map hidden" id="world-map">
   
-    <button id="toggleCharacterList" class="custom-button" style="display:none; position: fixed; bottom: 180px; right: 20px; width: 40px; height: 40px; background-color: #71688a;">角色<br>百科</button>
-    <button id="toggleTermList" class="custom-button" style="display:none; position: fixed; bottom: 130px; right: 20px; width: 40px; height: 40px; background-color: #8a7d68;">白夜<br>筆記</button>
-    <button id="toggleInvertColors" class="custom-button" style="position: fixed; bottom: 80px; right: 20px; width: 40px; height: 40px; background-color: #7089ab;">更替<br>昼夜</button>
-    <button id="fontSizer" class="custom-button" style="position: fixed; bottom: 30px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
+    
+    <button id="toggleCharacterList" class="custom-button hidden custom-button-chara" style="position: fixed; bottom: 180px; right: 20px; width: 40px; height: 40px; background-color: #71688a;">角色<br>百科</button>
+    <button id="toggleWorldMap" class="custom-button hidden" style="position: fixed; bottom: 230px; right: 20px; width: 40px; height: 40px; background-color: #bb6fa4;">世界<br>地図</button>
+    <button id="toggleTermList" class="custom-button hidden custom-button-term" style="position: fixed; bottom: 130px; right: 20px; width: 40px; height: 40px; background-color: #8a7d68;">白夜<br>筆記</button>
+    <button id="toggleInvertColors" class="custom-button custom-button-theme" style="position: fixed; bottom: 80px; right: 20px; width: 40px; height: 40px; background-color: #7089ab;">更替<br>昼夜</button>
+    <button id="fontSizer" class="custom-button custom-button-fontsize" style="position: fixed; bottom: 30px; right: 20px; width: 40px; height: 40px; background-color: #688a7d;">文字<br>尺寸</button>
+    <button id="toggleCharacterList2" class="extra custom-button extra-chara" style="position: fixed; bottom: 189px; height: 20px; background-color: #7a7588;">Pg.1</button>
+    <button id="toggleTermList2" class="extra custom-button extra-term" style="position: fixed; bottom: 139px; height: 20px; background-color: #8b8479;">Pg.1</button>
+    <button id="toggleInvertColors2" class="extra custom-button extra-theme" style="position: fixed; bottom: 89px; height: 20px; background-color: #8a98ac;">黒夜</button>
+    <button id="fontSizer2" class="extra custom-button extra-fontsize" style="position: fixed; bottom: 39px; height: 20px; background-color: #788a83;">16</button>
     <img id="hideButton" src="button_stackicon.png" alt="Hide" onclick="hideButtons()">
     <button id="hideButtonMobile" onclick="hideButtons()" class="custom-button hide-on-pc" style="position: fixed; bottom: 280px; right: 20px; width: 40px; height: 40px; background-color: #363636;">隠蔵<br>按鍵</button>
     <a href="#bottom" class="bottom-scroller scroller">

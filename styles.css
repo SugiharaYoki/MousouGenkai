@@ -235,7 +235,7 @@ button:hover {
 
 .top-scroller {
   top: 44px;
-  right: 22px;
+  right: 22.3px;
   z-index: 10;
   border-color: #000007;
   transition: filter 0.6s;
@@ -368,19 +368,15 @@ button:hover {
   transition: width 0.3s ease;
   animation: index-image-easein 1.5s ease-in-out;
 }
-
 .lhalf-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
-
 .lhalf-image:hover {
   width: 600px;
 }
-
-.lhalf-image img:hover {}
 
 .chapter-item {
   position: relative;
@@ -561,9 +557,17 @@ button:hover {
   background-color: #494e9e;
   transition: background-color 0.5s;
 }
+.chapter-list ul li.active-jiken {
+  background-color: #4d1b7c;
+  transition: background-color 0.5s;
+}
 
 .light-mode .chapter-list ul li.active {
   background-color: #a9dfff;
+  transition: background-color 0.5s;
+}
+.light-mode .chapter-list ul li.active-jiken {
+  background-color: #ddd26b;
   transition: background-color 0.5s;
 }
 
@@ -640,11 +644,20 @@ button:hover {
   border: 1px solid #aeb3b3;
   transition: border 0.5s;
 }
-
 .light-mode .chapter-list ul li:hover {
   filter: brightness(95%);
   border: 1px solid #a5dbff;
   transition: border 0.5s;
+}
+.chapter-list-jiken ul li:hover {
+  filter: brightness(120%);
+  border: 1px solid #927ea8;
+  transition: border 0.1s;
+}
+.light-mode .chapter-list-jiken ul li:hover {
+  filter: brightness(95%);
+  border: 1px solid #a08812;
+  transition: border 0.1s;
 }
 
 .chapter-character-count {
@@ -1435,4 +1448,34 @@ label.calc {
   text-align:left;
   color: #ffffff;
   background-color: #202020;
+}
+
+.lyrics {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 350px;
+  width: 400px;
+  overflow-y: auto;
+  border: 3px solid rgb(65, 65, 65);
+  padding: 15px;
+  padding-left: 30px;
+  font-size: 17px;
+  color: rgb(255, 255, 255);
+  line-height: 2.2;
+  background-color: #2b2b2b;
+  animation: details-easein 0.6s ease-in-out;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  font-family: GenJyuuNormal;
+}
+.lyrics::-webkit-scrollbar {
+  width: 4.0px;
+  background-color: rgba(29, 29, 29, 0.678);
+}
+.lyrics::-webkit-scrollbar-thumb {
+  background-color: rgba(146, 146, 146, 0.562);
+  border-radius: 3px;
+}
+.lyrics::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(173, 173, 173, 0.8);
 }
