@@ -1479,3 +1479,15 @@ label.calc {
 .lyrics::-webkit-scrollbar-thumb:hover {
   background-color: rgba(173, 173, 173, 0.8);
 }
+
+.conver-title {
+  margin-top: 50px;
+  font-family: 'rxt';
+  /*, 'PangMenZhengDaoXiXianTi-2'*/
+  font-style: normal;
+  font-size: x-large;
+  padding: 3px;
+}
+.conver-title-append {
+  font-size: medium;
+}
