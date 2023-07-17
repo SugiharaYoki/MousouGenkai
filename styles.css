@@ -1487,7 +1487,11 @@ label.calc {
   font-style: normal;
   font-size: x-large;
   padding: 3px;
+  text-shadow: 5px 4px 2px rgb(118, 59, 176);
 }
 .conver-title-append {
   font-size: medium;
+}
+.light-mode .conver-title {
+  text-shadow: 5px 4px 2px rgb(93, 209, 202);
 }
