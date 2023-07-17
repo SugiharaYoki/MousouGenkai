@@ -14,7 +14,7 @@ function initialiseCalculator() {
     initialiseCalcLabel(label_lvl, "等级\xa0：", input_lvl);
     initialiseCalcLabel(label_lvlreq, " - 升级所需经验\xa0：0",);
     initialiseCalcLabel(label_pnt, "（可分配点数\xa00/0）", );
-    label_pnt.style.color = "chartreuse";
+    label_pnt.style.color = "rgb(60,215,60)";
     initialiseCalcLabel(label_hp, "生命\xa0：500", );
     initialiseCalcLabel(label_mp, "魔法\xa0：200", );
     initialiseCalcLabel(label_atk, "力量\xa0：", input_atk);
@@ -165,7 +165,7 @@ function calculateStatus() {
         label_pnt.innerHTML = "（点数超限！ 可分配点数\xa0" + leftPNT + "/" + attrLVL * 10 + "）";
     } else {
         label_pnt.innerHTML = "（可分配点数\xa0" + leftPNT + "/" + attrLVL * 10 + "）";
-        label_pnt.style.color = "chartreuse";
+        label_pnt.style.color = "rgb(60,215,60)";
     }
 }
 
