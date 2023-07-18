@@ -8,9 +8,25 @@ const chapters = [
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：竹取月&nbsp&nbsp</span><br><br>此处为剑与魔法的世界。<br>但表象以外，现状远不止如此。<br><br>任何存在玩家间竞争手段的游戏内，都会存在无休止而缘由看似滑稽的斗争乃至厮杀。<br>而竹取月，便是始终存活于这一游戏大环境中的技术型玩家。<br>只不过……月的工作，可不止是“介入斗争”而已。<br><br>只要报酬到位，不管何种任务目标都将尽全力去达成。<br>不论委托者是NPC还是其他的玩家。哪怕是杀死同族的其他玩家，她也将完成使命。<br><br>这便是月身为雇佣兵的生存守则。",
   },
+  {
+    title: "曦蚀壹章：真知芳水与虚鱼花环（上）",
+    shortTitle: "曦蚀壹章 故事",
+    filePath: "csideg_2.txt",
+    id: 1,
+    summary: "<span class='syslang'>&nbsp&nbsp作者：方聆弦&nbsp&nbsp</span><br><br>此处为剑与魔法的世界。<br>同时，也是聆弦的新生之地。<br><br>自从聆弦开始在月星播种各处收集来的种子，不少植物陆续开花结果，偶现珍奇。<br>“郁潭岛的特产？从那回来一趟可不轻松。”<br>一个月前，为了获取赏金顺便收集珍奇植物的种子而接受图书商委托、在塞壬区域向海岸线持续行进的聆弦终于抵达海边。一座与陆地隔海相望的小岛，仅站在岸上就能看清轮廓。<br><br>如此一来，便将这座岛当做此行的终点站吧。",
+  },
+  {
+    title: "曦蚀贰章：真知芳水与虚鱼花环（下）",
+    shortTitle: "曦蚀贰章 故事",
+    filePath: "csideg_3.txt",
+    id: 1,
+    summary: "<span class='syslang'>&nbsp&nbsp作者：方聆弦&nbsp&nbsp</span><br><br>此处为剑与魔法的世界。<br>同时，也是聆弦的新生之地。<br><br>“当晨曦降临，乘着木舟从湖的中心朝着东北方向望去时我确信，相同的场景出现了。除了缺少那位少女之外，一切都与记忆完美地接合在一起……”<br>为什么，月星会做出这样的事？<br>这样的设计，只需要偶尔出现在那些出场角色其实没有心灵的游戏里才对吧？<br><br>踏上未知旅途的聆弦，终将在那湖水旁直面她埋藏于内心深处的阴霾……<br>以及，潭水旁那片无尽洁白的鲜花。",
+  },
 ];
 const characterAvailability = {
   1: [10],
+  2: [6],
+  3: [6],
 };
 const linktails = [
   {
@@ -35,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleElement = document.createElement("div");
         titleElement.textContent = chapters[i].title;
         const listLinker = document.createElement("a");
-        listLinker.href = `mousou_side1_${i + 1}.html`;
+        listLinker.href = `mousou_sideg_${i + 1}.html`;
         listItem.appendChild(listLinker);
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
