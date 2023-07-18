@@ -1,4 +1,5 @@
-我深知自己选择退出的理由：屡次多番的自我审视后，我知自身何处匮乏，我知自己不胜其任。
+我深知这一切都属于单纯的逃避现实。
+<br>而我同样深知自己选择逃避的理由：屡次多番的自我审视后，我知自身何处匮乏，我知自己不胜其任。
 <br>这与我手上所掌握的外科技术、神经学知识无关。我所深思自审的，是远比这一切世俗事物要更深层次的东西。在某些人，甚至大部分人的认知中……只是想一想谁都会，但人尽皆知并无任何实质价值的事物。
 <br>我开始产生抵触了。我开始厌恶我曾以为属于我的最终归宿。
 <br>正因如此，我不愿再踏入那片或许将会迎来奇迹的场所。
@@ -498,4 +499,35 @@
 <br>免费的保镖，这不就手到拈来了吗。
 <br>
 <br>
-<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：词音的调查·1&nbsp&nbsp<span class="conver-title conver-title-append">地点：竹内町-明园北古道</span></div>
+<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：词音的调查·1&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp竹内町-明园北古道&nbsp&nbsp翡翠新历1年5月37日</span></div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">（田中烘焙坊的店主确实有听说过NPC被杀害的新闻，<br>但似乎是有关昨日药水店老板娘莎娜的那场事件。）</span>
+</div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">抱歉，我确实是在竹内町住了很久，但主要都在南街区活动……</span>
+</div>
+<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<span class="conver-content">南街区我确实没有好好地逛过，我因为比较喜欢……吃喝玩乐，应该是可以这么说吧。<br>所以我主要是在这一带活动。<br>让你看笑话了，明明是在这附近居住的我，却对最近正在发生的连环杀人事件一无所知……</span>
+</div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">第一个撞见了命案现场，我完全可以理解琳然姐姐的。<br>毕竟……我们怎么可能想到会在一个游戏里目睹真正的命案。</span>
+</div>
+<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<span class="conver-content">昨天我是跟着和歌森桑提前离开了现场，之后我就回旅店了，<br>我……那时状态很差。</span>
+</div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">那也是完全可以理解的，琳然姐姐千万不要自责。<br>不过我也很在意，聆弦姐姐刚刚跟我说的在与町奉行交涉……是在尝试获取什么样的情报。</span>
+</div>
+<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<span class="conver-content">嗯……<br>是那位身材很高挑的女性玩家吗？我有注意到名字，好像和我一样是中国玩家。</span>
+</div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">我有听说布雷姆有一个公会专门猎杀试图伤害NPC的玩家，那个公会内部就全是中国玩家。<br>不知道聆弦姐姐对此有没有过了解，她好像也是从布雷姆来的……</span>
+</div>
+<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
+<span class="conver-content">（昨天我扫描药水店店主莎娜的背包时也顺便扫描了近在咫尺的方聆弦姐姐，<br>她背包里有许多塞壬地区的特产，基本都是植物相关的素材。<br>很在意聆弦姐姐为何既手持原型为农具的武器，又对植物类素材情有独钟。）</span>
+</div>
+
+
+
+
