@@ -164,6 +164,10 @@
 <div><img src="avatars/av-jlxy1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">我算看透你打的小算盘了。<br>你想让词音和我们同时展开调查，并且将她那里有关真凶特征的情报先传给谅璃，再通过谅璃传给和伊。<br>在她们将重心置于锁定真凶目标时，我们继续调查有关凶手作案动机与行凶规律的线索，两边平行推进搜查线索，让真凶能够完美脱身的机会大大减少。</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
+<span class="conver-content">没错，而且我们这里已经注意到了“武器”这一显著的线索，那小姑娘要反应过来这件事也不会花费多久。</span></div>
+<div><img src="avatars/av-jlxy1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
+<span class="conver-content">揣摩词音的想法并利用词音，利用词音去利用谅璃，再利用谅璃去利用茶屋……<br>哪个杀人犯摊上你去调查按键可真是倒够了霉。能想出这种可行性极其值得怀疑的办法，恐怕除你之外也没几人。</span></div>
+<div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">分析得确实不错，看来我找你来做搭档还是有点用处的。</span></div>
 <div><img src="avatars/av-jlxy1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">你是想干架吧。</span></div>
