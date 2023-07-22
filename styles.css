@@ -1455,6 +1455,20 @@ label.calc {
 .lyrics::-webkit-scrollbar-thumb:hover {
   background-color: rgba(173, 173, 173, 0.8);
 }
+.light-mode .lyrics {
+  border: 3px solid rgb(189, 189, 189);
+  color: rgb(0, 0, 0);
+  background-color: #e7e7e7;
+}
+.light-mode .lyrics::-webkit-scrollbar {
+  background-color: rgba(221, 221, 221, 0.678);
+}
+.light-mode .lyrics::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.562);
+}
+.light-mode .lyrics::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(95, 95, 95, 0.8);
+}
 
 .conver-title {
   margin-top: 50px;
