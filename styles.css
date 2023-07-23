@@ -1426,6 +1426,12 @@ label.calc {
   color: #ffffff;
   background-color: #202020;
 }
+.light-mode .directFormList {
+  color: #000000;
+  font-weight: bolder;
+  border: 1px solid #6b6b6b;
+  background-color: #d3d3d3;
+}
 
 .lyrics {
   margin-top: 50px;
