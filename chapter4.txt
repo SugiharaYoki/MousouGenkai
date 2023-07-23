@@ -506,19 +506,19 @@
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">抱歉，我确实是在竹内町住了很久，但主要都在南街区活动……</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">南街区我确实没有好好地逛过，我因为比较喜欢……吃喝玩乐，应该是可以这么说吧。<br>所以我主要是在这一带活动。<br>让你看笑话了，明明是在这附近居住的我，却对最近正在发生的连环杀人事件一无所知……</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">第一个撞见了命案现场，我完全可以理解琳然姐姐的。<br>毕竟……我们怎么可能想到会在一个游戏里目睹真正的命案。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">是这样……嗯、昨天我是跟着和歌森桑提前离开了现场，之后我就回旅店了，<br>我……那时状态很差。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">那也是完全可以理解的，琳然姐姐千万不要自责。<br>不过我也很在意，聆弦姐姐刚刚跟我说的在与町奉行交涉……是在尝试获取什么样的情报。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">嗯……<br>是那位身材很高挑的女性玩家吗？我有注意到名字，好像和我一样是中国玩家。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
@@ -527,13 +527,13 @@
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">（昨天我扫描药水店店主莎娜的背包时也顺便扫描了近在咫尺的方聆弦姐姐，<br>她背包里有许多塞壬地区的特产，基本都是植物相关的素材。<br>很在意聆弦姐姐为何既手持原型为农具的武器，又对植物类素材情有独钟。）</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">应该是叫“星悬业火”的公会，在中国的B站上大有名气，争议性也很……<br>但有关那些争议围绕的话题，我觉得我不太好做个人评价。<br>我是偏向走与世无争的玩法，玩家PVP什么的简直不敢相信在TBO这种游戏里也会频繁发生。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">既然怀疑连续杀害NPC的嫌疑犯是玩家，那么联系这家公会的话多少会有帮助吧。<br>……不过，既然是发生在竹内町的案件，让竹内町的玩家自己来解决才更理想。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">不过，嫌犯不挑在NPC囊中素材丰富的卡迩波什市下手，而是认准了竹内町——<br>会不会是因为卡迩波什的NPC等级太高，他还是她怕打不过呀。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
@@ -542,31 +542,31 @@
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">等等……<br>如果那个玩家真的是为了素材或道具才杀NPC，而且只杀北街区的人，<br>那他/她会不会心中其实早有了明确的目标，想要寻找指定的某样事物？<br>当然这只是个无稽猜想，我手上并没有任何旁证。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">你的意思是……他/她杀害NPC，是为了寻找明确位于某名NPC背包中的某样物品、？<br>但他/她并不清楚是哪位NPC正持有这件物品，所以只能分散性地杀死他/她所怀疑的目标。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">我不确定聆弦姐姐那里联系町奉行是否正是为了验证此事。<br>如果我刚刚的这一想法是正确的，那聆弦姐姐必定也想到了。<br>她拜托我来调查这家乐器店说不定就是为了让我询问受害的店主是否丢失了什么特殊的财物。<br>这样的话，我只要询问身为玩家的二店主有关稀有材料或者道具的事情，说不定能获取十分有价值的消息。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">那个，词音妹妹——现在除了我们与那位姓方的姐姐，还有什么其他人能够依靠吗？<br>我想到，如果是使用大型近战武器的嫌犯，只要观察到形迹可疑且手持这类武器的玩家，<br>不说八成，至少有两成值得怀疑的价值。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">是哦，可以从武器方面下手……可以一击斩断正常成年NPC腰部的武器，普通的长剑难以做到。<br>等级和近战攻击力足够高的玩家很难想出有什么理由会推动他们对NPC下毒手。<br>这样的话……实际上可以被怀疑的行凶武器范围其实比乍一想的要小非常多。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">我这里可以联系一下昨天的和歌森桑，她虽然不是正统近战输出职位，但……<br>既然是喜欢锻造近战武器的人，我觉得她说不定会对行凶武器持有一些我们外行人没有的技巧。<br>不过词音妹妹你用的是什么武器？我好像没见你……</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">嗯，出于某种原因，今早出门没带武器。应该是只能在安全区内活动了……<br>我用的是刺剑，但我的锻造技能研究范围都在防具上，武器方面我也只熟知西洋剑类了。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">原来如此。我主使的是法杖，你应该已经注意到了的。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">是的呢。可以的话你试着问一问你说的那位和歌森桑关于武器的事情，我先联系一下昨天跟我和聆弦姐姐留到最后的那个茶屋姐姐，她在北街区开店，肯定对周围的NPC受害新闻多少有耳闻。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
+<div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
 <span class="conver-content">嗯唔……你说的那家“琴音绕梁”的店铺，好像就是这家？<br></span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
