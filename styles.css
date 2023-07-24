@@ -1271,14 +1271,6 @@ button:hover {
     display: none;
   }
 
-  .top-scroller {
-    display: none;
-  }
-
-  .bottom-scroller {
-    display: none;
-  }
-
   #popmimicontainer {
     height: 90vh;
   }
