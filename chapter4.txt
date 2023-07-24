@@ -534,7 +534,7 @@
 <span class="conver-content">既然怀疑连续杀害NPC的嫌疑犯是玩家，那么联系这家公会的话多少会有帮助吧。<br>……不过，既然是发生在竹内町的案件，让竹内町的玩家自己来解决才更理想。</span>
 </div>
 <div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
-<span class="conver-content">不过，嫌犯不挑在NPC囊中素材丰富的卡迩波什市下手，而是认准了竹内町——<br>会不会是因为卡迩波什的NPC等级太高，他还是她怕打不过呀。</span>
+<span class="conver-content">不过，嫌犯不挑在NPC囊中素材丰富的卡迩玻什市下手，而是认准了竹内町——<br>会不会是因为卡迩玻什的NPC等级太高，他还是她怕打不过呀。</span>
 </div>
 <div><img src="avatars/av-slscy1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">嗯呃……其实，敢在同一个地区连续杀NPC商店店主而毫不在意惹人注目的玩家，可能根本就没考虑过换其他大型区域的主要城市下手吧。</span>
