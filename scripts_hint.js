@@ -148,7 +148,7 @@ const sentences = [
   "有超过100条不同的豆知识！",
   "你可以在右下角打开/关闭月星世界的地图！",
   "若你不确定本阅读器是否为最新版本，可确认一下页面最右下角的版本编号！",
-  "kimi no website not so good！",
+  "Kimi no website not so good！",
   "重生锚可以用于驱散直径10米内的魔物并防止魔物/野生动物在此生成！",
   "巨量重生锚出现在一片区域后即会使那里成为安全区，但这需要的重生锚数量真的很多！",
   "虚无山脉曾像仙境般美丽！",
@@ -169,9 +169,12 @@ const sentences = [
   "物理攻击只在攻击消耗弹药时归类为远程物理攻击！这意味着投掷长枪也会是远程攻击（消耗了长枪！）",
   "BYD游戏笔记！",
   "Build Your Dream 游戏笔记！",
+  "说脏话牛奶！",
   "玩原神玩的！",
   "玩怪猎玩的！",
   "玩黄油玩的！",
+  "502：Bad Gateway",
+  "豆知识很符合读者的平均精神状态！",
   "我乃从天而降的一道光，照亮混沌的令和网络世界，为漂泊在电子之海的宅宅们献上笑容！向大家保证世界会和平！虽然我躁郁，但尽管放心！当代互联网小天使，堂堂降临！！",
 ];
 
@@ -189,7 +192,7 @@ function showHint() {
   currentHintTimeout = setTimeout(() => {
     hintContainer.textContent = "";
     hintContainer.style.display = 'none';
-  }, randomSentence.length * 130);
+  }, randomSentence.length * 180);
 }
 
 hintButton.addEventListener("click", showHint);
