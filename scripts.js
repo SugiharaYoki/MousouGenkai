@@ -51,6 +51,13 @@ const chapters = [
     id: 7,
     summary: "词音与琳然在晓风的指引下来到了公会“咖喱乌冬面”，但却得知琴音绕梁的店主早已销声匿迹超过三周。<br>沿途询问一众玩家与NPC后无果，词音却撞见了最不想见的人而与琳然仓皇逃离。<br>精力渐失之时，二人遇见了正与白夜前来公会食堂用餐的竹取月。",
   },
+  {
+    title: "第陆章：萤火轮返，昏煌连锁之齿轮（试读）",
+    shortTitle: "第陆章 故事",
+    filePath: "chapter6.txt",
+    id: 8,
+    summary: "小岛八百奇货屋的店主由亚被神秘玩家残忍杀害，白夜一众首次意识到异维杀戮事件开始与她们所有人息息相关。<br>在这般紧要关头，案情却因线索中断而迟迟未能推进。<br>就在调查一筹莫展之际，聆弦与夏月想到了莎娜阿姨曾持有的连锁核心原本的买家：韵笺才浅公会的艾辰；两人认为调查的方向已经明确。<br><br>另一边，竹取月在由亚死去后离开了命案现场，此后便杳无音信。白夜、琳然、词音将在“咖喱乌冬面”公会头号站力成员小鸟游清紫的引领下前往竹取最后出现的场所。<br>在路途中，词音逐渐意识到小鸟游前去的方向正是薙峯霞林最危险的核心区域：飞鸟泉。",
+  },
 ];
 const characterAvailability = {
   0: [1,2],
@@ -61,6 +68,7 @@ const characterAvailability = {
   5: [1],
   6: [1,2,3,4,5,6,7,8,9],
   7: [1,2,3,4,5,6,7,8,9,10,11,12],
+  8: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
 };
 const linktails = [
   {
@@ -90,11 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
         const characterCount = await getCharacterCount(chapters[i].filePath);
-        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 600);
+        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 850);
         if (i == 4) {
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
-        characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
+        characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 120)/100} 万字 `;
         }
         characterCountElement.classList.add("chapter-character-count");
         listLinker.appendChild(characterCountElement);
