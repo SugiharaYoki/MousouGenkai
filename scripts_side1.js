@@ -18,6 +18,7 @@ const chapters = [
 ];
 const characterAvailability = {
   1: [5],
+  2: [5,9],
 };
 const linktails = [
   {
