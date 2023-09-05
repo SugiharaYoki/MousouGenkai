@@ -162,7 +162,7 @@
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">其实不止如此，我昨晚一直都留在药水店附近，亲眼见着这谅璃被竹取送回了和伊小妹的店铺。<br>她可是直到凌晨都没再出来，八成是在那过夜了。<br>今早，竹取还跟我说要带谅璃去咖喱乌冬面的食堂用餐，想必能够成功撞见某人吧。</span></div>
 <div><img src="avatars/av-jlxy1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">我算看透你打的小算盘了。<br>你想让词音和我们同时展开调查，并且将她那里有关真凶特征的情报先传给谅璃，再通过谅璃传给和伊。<br>在她们将重心置于锁定真凶目标时，我们继续调查有关凶手作案动机与行凶规律的线索，两边平行推进搜查线索，让真凶能够完美脱身的机会大大减少。</span></div>
+<span class="conver-content">我算看透你打的小算盘了。<br>你想让词音和我们同时展开调查，并且将她那里有关真凶特征的情报先传给谅璃，再通过谅璃传给和伊。<br>在她们将精力置于锁定真凶身份时，我们继续调查有关凶手作案动机与行凶规律的线索，两边平行推进搜查线索，让真凶能够完美脱身的机会大大减少。</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">没错，而且我们这里已经注意到了“武器”这一显著的线索，那小姑娘要反应过来这件事也不会花费多久。</span></div>
 <div><img src="avatars/av-jlxy1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
