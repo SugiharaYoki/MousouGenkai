@@ -79,6 +79,9 @@ function redirectChapter(ii) {
                                             case 19:
                                               window.location.href = `mousou_side1_3.html`;
                                               break;
+                                              case 20:
+                                                window.location.href = `mousou_sideg_4.html`;
+                                                break;
   }
 }
 function resetPageDirect(pagin) {
@@ -91,8 +94,8 @@ function resetPageDirect(pagin) {
       let pageDirectForm = document.createElement("select");
       pageDirectForm.id = "pageDirector";
       pageDirectForm.classList.add("directFormList");
-      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","主线：第5章","主线：第6章","致世界（理央）：虚壹之章","致世界（理央）：虚贰之章","雾城（绫栾）：梦蝶壹章","雾城（绫栾）：梦蝶贰章","雾城（绫栾）：梦蝶叁章","落月星辉（竹取）：光玥壹章","落月星辉（聆弦）：曦蚀壹章","落月星辉（聆弦）：曦蚀贰章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
-      var optionsDirectValue = [-1,0,1,2,3,4,5,16,17,7,10,8,18,19,9,14,15,6,11,12,13];
+      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","主线：第5章","主线：第6章","致世界（理央）：虚壹之章","致世界（理央）：虚贰之章","雾城（绫栾）：梦蝶壹章","雾城（绫栾）：梦蝶贰章","雾城（绫栾）：梦蝶叁章","落月星辉（竹取）：光玥壹章","落月星辉（聆弦）：曦蚀壹章","落月星辉（聆弦）：曦蚀贰章","落月星辉（黑泽）：玄芒壹章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
+      var optionsDirectValue = [-1,0,1,2,3,4,5,16,17,7,10,8,18,19,9,14,15,20,6,11,12,13];
       pageDirectForm.oninput = () => redirectChapter(pageDirectForm.value);
       for (var i = 0; i < optionsDirect.length; i++) {
           var option = document.createElement("option");
