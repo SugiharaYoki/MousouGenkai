@@ -4,8 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   var listtext = document.getElementById("resourcePageSwitcher2");
   listtext.innerHTML = `對話`;
   document.getElementById("resourcePageSwitcher").addEventListener("click", function () {
-    if (page == 1) {
+    if (page == 2) {
       page = -1;
+      listtext.innerHTML = `法典`;
+      displayChapter("chapter998.txt");
+    }
+    if (page == 1) {
+      page = 2;
       listtext.innerHTML = `對話`;
       displayChapter("chapter999.txt");
     }
