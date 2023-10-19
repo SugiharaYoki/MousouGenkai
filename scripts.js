@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const characterCount = await getCharacterCount(chapters[i].filePath);
         const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 850);
         if (i == 4) {
+          const characterCount = await getCharacterCount("chapter998.txt") + await getCharacterCount("chapter999.txt");
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
         characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 120)/100} 万字 `;
