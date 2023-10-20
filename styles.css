@@ -36,10 +36,75 @@ body {
   padding: 2px;
 }
 
+.wikidate {
+  font-size: 11px;
+  filter: opacity(50%);
+  font-family: 'rxt';
+}
+
 .leadingtext {
   font-family: 'ce';
   font-style: normal;
   padding: 1px;
+}
+.leadingtext-cracked1 {
+  font-family: 'ce';
+  font-style: normal;
+  padding: 1px;
+  animation: crack 3.5s linear forwards infinite;
+  &:hover {
+		opacity: 0.5;
+		z-index: 1;
+    text-shadow: 0px 0px 3px rgb(255, 0, 0);
+    color: red;
+    animation: distort1 1s linear infinite;
+    font-family: 'ce';
+	}
+  &:hover:before {
+		content: "ERROR CODE ";
+	}
+}
+.leadingtext-cracked2 {
+  font-family: 'ce';
+  font-style: normal;
+  padding: 1px;
+  animation: crack 3.5s linear forwards infinite;
+  opacity: 0.1;
+  &:hover {
+    display: absolute;
+		z-index: 1;
+    animation: distort1 1s linear infinite reverse;
+	}
+}
+@keyframes crack {
+  0%,
+  8% {filter: blur(0.01em)opacity(100%)}
+  10% {filter: blur(0.08em)opacity(10%); transform: translate(3.3em 3.3em) rotate(0deg)}
+  11% {filter: blur(0.02em)opacity(80%)}
+  15% {}
+  20% {}
+  25% {filter: blur(0.50em)}
+  25% {filter: blur(0.00em)}
+  30% {}
+  35% {filter: blur(0.015em); transform: translateY(0.015em) rotate(0deg)}
+  36% {filter: blur(0.10em)opacity(50%); transform: translateY(-0.03em) rotate(0deg)}
+  37% {filter: blur(0.00em); transform: translateY(0.00em) rotate(0deg)}
+  40% {filter: blur(0.03em)opacity(80%); transform: translateY(-0.015em) rotate(0deg)}
+  41% {filter: blur(0.00em); transform: translateY(-0.03em) rotate(0deg)}
+  65% {}
+  70% {}
+  75% {filter: blur(0.015em); transform: translateY(-0.015em) rotate(0deg)}
+  76% {filter: blur(0.15em); transform: translateY(0.03em) rotate(0deg)}
+  77% {filter: blur(0.00em); transform: translateY(0.00em) rotate(0deg)}
+  80% {}
+  85% {filter: blur(0.03em); transform: translateY(-0.03em) rotate(0deg)}
+  86% {filter: blur(0.00em); transform: translateY(0.045em) rotate(0deg)}
+  87% {filter: blur(0.06em); transform: translateY(-0.015em) rotate(0deg)}
+  88% {filter: blur(0.00em); transform: translateY(0em) rotate(0deg)}
+  90% {}
+  95% {}
+  100% {
+  }
 }
 
 .highlight {
