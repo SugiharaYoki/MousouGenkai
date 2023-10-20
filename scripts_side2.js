@@ -204,7 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const isHidden3 = False;
     }
   });
-  document.getElementById("toggleWorldMap").addEventListener("click", function () {
+  document.getElementById("toggleWorldMap").addEventListener("mouseover", function () {
+    const worldMap = document.getElementById("world-map");
+    worldMap.classList.toggle("hidden");
+  });
+  document.getElementById("toggleWorldMap").addEventListener("mouseout", function () {
     const worldMap = document.getElementById("world-map");
     worldMap.classList.toggle("hidden");
   });
