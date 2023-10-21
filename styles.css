@@ -623,13 +623,13 @@ button:hover {
 }
 
 .tab-container:hover>.character-tab {
-  background-color: #696eb0;
+  background-color: #818181;
   border-bottom-color: transparent;
   transition: background-color 0.1s ease;
 }
 
 .light-mode .tab-container:hover>.character-tab {
-  background-color: #b3ddf6;
+  background-color: #ffffff;
 }
 
 .character-tab.disabled {
@@ -639,7 +639,7 @@ button:hover {
 }
 
 .chapter-list ul li.active {
-  background-color: #36239e;
+  background-color: #23639e;
   transition: background-color 0.5s;
 }
 .chapter-list ul li.active-jiken {
@@ -660,7 +660,7 @@ button:hover {
 }
 
 .light-mode .chapter-list ul li.active {
-  background-color: #a9dfff;
+  background-color: #86cfff;
   transition: background-color 0.5s;
 }
 .light-mode .chapter-list ul li.active-jiken {
@@ -750,12 +750,12 @@ button:hover {
 .chapter-list ul li:hover {
   filter: brightness(120%);
   border: 1px solid #aeb3b3;
-  transition: border 0.5s;
+  transition: border 0.25s;
 }
 .light-mode .chapter-list ul li:hover {
   filter: brightness(95%);
-  border: 1px solid #a5dbff;
-  transition: border 0.5s;
+  border: 1px solid #dbdbdb;
+  transition: border 0.25s;
 }
 .chapter-list-jiken ul li:hover {
   filter: brightness(120%);
