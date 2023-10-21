@@ -150,8 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
     chapterListItems.forEach((item, i) => {
       if (i === currentPageIndex) {
         item.classList.add("active");
+        item.classList.add("active-sideg");
       } else {
         item.classList.remove("active");
+        item.classList.remove("active-sideg");
       }
     });
   }

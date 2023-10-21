@@ -134,8 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
     chapterListItems.forEach((item, i) => {
       if (i === currentPageIndex) {
         item.classList.add("active");
+        item.classList.add("active-side2");
       } else {
         item.classList.remove("active");
+        item.classList.remove("active-side2");
       }
     });
   }
