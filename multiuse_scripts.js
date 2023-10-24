@@ -44,10 +44,10 @@ function redirectChapter(ii) {
                       window.location.href = `mousou_side2_1.html`;
                       break;
                       case 8:
-                        window.location.href = `mousou_side1_1.html`;
+                        window.location.href = `mousou_sideg2_1.html`;
                         break;
                         case 9:
-                          window.location.href = `mousou_sideg_1.html`;
+                          window.location.href = `mousou_sideg2_4.html`;
                           break;
                           case 10:
                             window.location.href = `mousou_side2_2.html`;
@@ -62,10 +62,10 @@ function redirectChapter(ii) {
                                   window.location.href = `jiken_chapter2.html`;
                                   break;
                                   case 14:
-                                    window.location.href = `mousou_sideg_2.html`;
+                                    window.location.href = `mousou_sideg2_5.html`;
                                     break;
                                     case 15:
-                                      window.location.href = `mousou_sideg_3.html`;
+                                      window.location.href = `mousou_sideg2_6.html`;
                                       break;
                                       case 16:
                                         window.location.href = `mousou_chapter7.html`;
@@ -74,13 +74,13 @@ function redirectChapter(ii) {
                                           window.location.href = `mousou_chapter8.html`;
                                           break;
                                           case 18:
-                                            window.location.href = `mousou_side1_2.html`;
+                                            window.location.href = `mousou_sideg2_2.html`;
                                             break;
                                             case 19:
-                                              window.location.href = `mousou_side1_3.html`;
+                                              window.location.href = `mousou_sideg2_3.html`;
                                               break;
                                               case 20:
-                                                window.location.href = `mousou_sideg_4.html`;
+                                                window.location.href = `mousou_sideg_1.html`;
                                                 break;
   }
 }
@@ -94,7 +94,7 @@ function resetPageDirect(pagin) {
       let pageDirectForm = document.createElement("select");
       pageDirectForm.id = "pageDirector";
       pageDirectForm.classList.add("directFormList");
-      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","主线：第5章","主线：第6章","致世界（理央）：虚壹之章","致世界（理央）：虚贰之章","雾城（绫栾）：梦蝶壹章","雾城（绫栾）：梦蝶贰章","雾城（绫栾）：梦蝶叁章","落月星辉（竹取）：光玥壹章","落月星辉（聆弦）：曦蚀壹章","落月星辉（聆弦）：曦蚀贰章","落月星辉（黑泽）：玄芒壹章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
+      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","主线：第5章","主线：第6章","致世界（理央）：虚壹之章","致世界（理央）：虚贰之章","千泉乡（绫栾）：梦蝶壹章","千泉乡（绫栾）：梦蝶贰章","千泉乡（绫栾）：梦蝶叁章","千泉乡（竹取）：光玥壹章","千泉乡（聆弦）：曦蚀壹章","千泉乡（聆弦）：曦蚀贰章","落月星辉（黑泽）：玄芒壹章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
       var optionsDirectValue = [-1,0,1,2,3,4,5,16,17,7,10,8,18,19,9,14,15,20,6,11,12,13];
       pageDirectForm.oninput = () => redirectChapter(pageDirectForm.value);
       for (var i = 0; i < optionsDirect.length; i++) {
