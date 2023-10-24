@@ -43,6 +43,13 @@ const chapters = [
     id: 6,
     summary: "<span class='syslang'>&nbsp&nbsp作者：方聆弦&nbsp&nbsp</span><br><br>此处为剑与魔法的世界。<br>同时，也是聆弦的新生之地。<br><br>“当晨曦降临，乘着木舟从湖的中心朝着东北方向望去时我确信，相同的场景出现了。除了缺少那位少女之外，一切都与记忆完美地接合在一起……”<br>为什么，月星会做出这样的事？<br>这样的设计，只需要偶尔出现在那些出场角色其实没有心灵的游戏里才对吧？<br><br>踏上未知旅途的聆弦，终将在那湖水旁直面她埋藏于内心深处的阴霾……<br>以及，潭水旁那片无尽洁白的鲜花。",
   },
+  {
+    title: "焚晓间章：天明忆雨水中莲",
+    shortTitle: "焚晓间章 故事",
+    filePath: "csideg_5.txt",
+    id: 7,
+    summary: "<span class='syslang'>&nbsp&nbsp作者：常雪莲音&nbsp&nbsp</span><br><br>天然大型水库琉科希娅瀑布群区域，二人在此相遇。<br>这会是一场美妙的邂逅，一段旅程的开始，同时也将是“AzazeL”的诞生。",
+  },
 ];
 const characterAvailability = {
   0: [],
@@ -52,6 +59,7 @@ const characterAvailability = {
   4: [10],
   5: [6],
   6: [6],
+  7: [1,2],
 };
 const linktails = [
   {
