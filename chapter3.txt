@@ -420,7 +420,7 @@
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">就虽然说之前竹内町也出过类似性质的犯罪事件，但这回彻彻底底出现在了自己的眼前，而且就在和伊碳的店铺对面，会觉得有些不真实。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">自己家门口发生命案，而且还是自己邻居店铺的老板娘……<br>我的游戏体验负一百分。</span></div>
+<span class="conver-content">自己家门口发生命案，而且还是自己邻居店铺的老板娘受害唉……<br>真有没搞错，我这几天的游戏体验要直接掉到负一百分。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">明明不管是玩家还是精英怪都能保留记忆无限复活，为什么游戏不干脆就设置成NPC也能无限复活的模式？<br>这样是制作组看着觉得很好玩吗？</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
