@@ -468,7 +468,7 @@
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">我先去陪琳然吃个晚饭，今晚回你那儿睡。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">你不回我这儿睡我可就将此默认为出了大问题咯，少年。<br>多注意身体，保护保护其他的女生。</span></div>
+<span class="conver-content">你不回我这儿睡我可就将此默认为出了大问题咯，少年。<br>多注意身体，多保护保护其他的女生。</span></div>
 <br>
 <br>
 <br>
