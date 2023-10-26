@@ -414,7 +414,7 @@
 <br>这样看来……自己今天得在竹内町过夜了呀。
 <br>
 <br>
-<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与和伊的私信·1&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月34日</span></div>
+<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与和伊的私信·1&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月36日</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">今天下午发生的事情……<br>稍稍有些没回过神来。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
