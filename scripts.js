@@ -1,6 +1,5 @@
 let currentPage = 1, chaptersPerPage = 5;
 
-
 const chapters = [
   {
     title: "第零章：无法抗拒，因为这是命运",
