@@ -200,7 +200,7 @@
 <br>
 <br>
 <br>
-<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与和伊的私信·2&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月36日</span></div>
+<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与和伊的私信·2&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月38日</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">我的妈，我的关东煮又被人偷了。一天天的真的让人根本没法省心，搞得我现在茶都不想喝了。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
@@ -234,7 +234,7 @@
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">虽然我听得不知道为什么感觉很搞笑……但、我这么提议你别生气。<br>你觉得，会不会那时候这位折桥吹雪在你的店铺附近，目击了真凶？</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">啊？就算她可能见到真凶了我也不可能去问她的。<br>往最差了说吗，她看到我就跑了，你觉得我怎么从她嘴里撬出情报来？拷问吗？</span></div>
+<span class="conver-content">啊？就算她可能见到真凶了我也不可能去问她的。<br>往最差了说嘛，她看到我就跑了，你觉得我怎么从她嘴里撬出情报来？拷问吗？</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">没事，你先去着重于问周围商铺的店主，看看他们能不能提供信息……当然我觉得町奉行也做完类似的调查工作了。<br>你得做好这样的程序并不会带来任何有用的线索。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
