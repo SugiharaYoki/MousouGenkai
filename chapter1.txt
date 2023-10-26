@@ -586,6 +586,88 @@
 <br>
 <br>- inFinIte -</div>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>优尼什的生产工业街，白夜将背包中的荒原弑人兔素材取出大半，置于面前防具店的窗口柜台。身为NPC的老板简单检查了一下白夜呈上的素材，点头予以肯定。
+<br>“这些材料……果然正好够做一套我能用的装备。”白夜自言自语道。她方才同这家店的老板询问了各种魔物素材的用途。简单来说，不同的魔物会掉落不同的特殊素材，而使用这些素材锻造装备时则会输出随机范围的结果，但有很大概率会与素材本身的特性相符。
+<br>比如说，将大量荒原弑人兔的素材用于锻造装备，输出的多半是可以预见的普通弑人兔系列防具，可能是上衣，也可能是下装……但只要锻造者在脑海中构思出了成品的大致型态，锻造结果就会与此八九不离十。真的是但凡离开了月星世界都无法进行的特殊锻造系统，光是设计起来就会耗费设计者巨大的精力吧。
+<br>月星的神明……那个高智能AI，究竟为创造这一切机制耗费了多少心血呢。但既然是人工智能的话……果然也是不可能拥有人类的感情的吧。
+<br>能够理解人类的……人工智能……
+<br>……这样的事物，真的会存在吗？真的会存在的吧。
+<br>毕竟自己，正是身于此处。毕竟月星所创建的NPC，就在自己面前，活生生地与自己进行着本是人类才能进行的对话。
+<br>“好嘞、看样子是没什么问题了。那么黑羽小姐，明早九点你就可以来俺这儿取货。”老板关照说，一边拾起一片皮革端详，“小姑娘为什么对增加移动速度与闪避率如此执着？我们人类通过神之视野所能瞧见的那所谓‘闪避率’可并不是自行发挥作用的。”
+<br>老板的意思也就是，角色数据里的那个“闪避率”并不是由程序自动计算躲避成功率，而是会在角色本人尝试闪避时易化闪避动作，包括增加对闪避成功方式的直感、那一刻自身的反应速度、对身体的紧急控制协调程度之类的辅助能力。
+<br>若是自己不打算进行躲闪，纵使是100%的闪避率，也会百分百被命中。
+<br>——所以最后，还是得白夜自己来做出闪避的动作。
+<br>她对此并无怨言，仅仅是需要担心的事情多了一件而已。但现在的白夜除此之外几乎无事可操心，这样也只会给予她一项明确的目标：练习自己的闪避能力。
+<br>刷成就永久增加闪避率、打造装备叠出额外闪避率、尝试学习被动技能触发闪避率增加的效果……虽然根据老板所说，荒原弑人兔系列装备无法直接增加闪避率，但这是自己如今能打造的最为理想的物理防御起手装备。谅璃背包里现存的其他素材多少会对移动速度或闪避率产生负面影响，那样就会本末倒置。
+<br>老板方才推荐自己去隔壁一家专门生产饰品的商铺定制能够增加闪避率与移速的挂件。这些饰品只要额外装备在防具上便可发挥功效，类似于给予其额外的数据。
+<br>这样的话，这两天在这附近收集的红树叶与谅璃所拥有的荒原迁徙陆行鸟的素材便可有用武之地。
+<br>接下来的短期之内，白夜就要朝着不断收集相关魔物素材，尝试先用装备数值叠高闪避率的方向前行了。
+<br>“没事，只不过是我的执念。”白夜最后简单地回答了老板的疑问。
+<br>“俺也只是好奇，黑羽小姐当俺没问便是，抱歉啦！”老板一抬手，豪爽道，“俺要开工了。”
+<br>白夜愣了愣神，在老板转过身后才声如蚊吟般嘟哝道：“谢谢老板……”
+<br>追求移动速度与闪避率。执念。难不成是什么难以启齿的怪异的缘由？
+<br>她当然了解自己究竟在追求什么。并不单纯是对移动速度和闪避率抱有莫大的兴趣或喜好。
+<br>白夜所做的这一切，只是为了……守护住自己最后的心念罢了。
+<br>于是，在这异世界祥和的午后，白夜慢行于优尼什的街道，打造了自己的第一套远程武具。艳阳之下，她握紧手中反射着光辉的精良铁弓，陷入了过于长久的沉默。
+<br>她已经永远都看不到了吧……我身处这里、活在这里的模样。
+<br>
+<br>没事，谅璃。
+<br>我会守护你曾存在于此的，最后的证明。
+<br>
+<br>
+<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与何人的私信&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月34日</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">今天带那位向濑白夜去逛了优尼什的生产街，她把装备什么的都定下来了。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">花了不少现有的素材。<br>不过听她说她这个账号的原主似乎完全没打算走远程或纯物理，所以系统背包内的很多素材都派不上用处。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">我们打算在36号就动身前往竹内町！</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">真的吗，太好了！我等你们等得激动死了，空房间我也已经整理好了，你们拎包入住就可以。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">和伊碳是我的神！感激零涕了。</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">是感激涕零，快好好回去学国语。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">你今天鼓捣竹光石的结果如何？<br>不过听你没有主动汇报进展，我猜多半就是……</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">是啊，毫无进展。感觉浪费了一天。<br>不过我的时间还算充足呢。</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">我今天的课要在下午才开始，算是我一周比较闲的一天。我估计可以玩到5月底才下线。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">哈哈，我请了病假在家玩的。</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">你都请了快一周病假了吧，不怕被老师抄家吗？<br>不知道的还以为活泼可爱的和歌森同学彻底病卧在床高烧41度快病危了呢。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">别批评我啦，我本来就不是什么优等生，那种谁爱当谁去当啦。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">和伊碳的话……这次回到现世，打算去劝说你爸妈吗？</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">懒得管，就算我这次下线发现他们二位死了，我也只会叫好。<br>家人是什么？我没有家人。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">别这样啦，我知道你对自己父母抱有非常巨大的不满，但他们毕竟还是给你提供了一些优良的生活条件……<br>至少在以前是这样。</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">你知道和牛肉吗？给牛放养喂最好的草，甚至让牛听歌陶冶下情操，几年后牛被杀了端上餐桌，你想要牛感激之前所受到的一切待遇吗？</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">当然我也知道自己给出的比喻根本上就有问题，但你理解我的意思即可。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">有时候还是必须得做出些个人信念上的牺牲的呢。</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">我不想再谈论这些事情了。至少今天不要。<br>这破石头除了发光和对冲火元素以外估计就是什么作用都没，我不想研究了。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">至少别把现实世界来的情绪带到TBO里来啦！不然就彻底完蛋了！</span></div>
+<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
+<span class="conver-content">晚点再讨论吧，来客人了。</span></div>
+<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<span class="conver-content">呜呜，好。</span></div>
+<br>
+<br>
+<br>
 <br><h1><span class="leadingtext">·&nbsp&nbsp·&nbsp&nbsp·&nbsp&nbsp·&nbsp&nbsp·&nbsp&nbsp·&nbsp&nbsp·</span></h1>
 <br>
 <br>

@@ -1699,3 +1699,15 @@ label.calc {
 .light-mode .conver-chara-004 {
   text-shadow: 0px 0px 0.2px black, 2px 2px 2.5px rgb(115, 8, 173);
 }
+.conver-chara-005 {
+  text-shadow: 0px 0px 0.2px rgb(0, 0, 0), 2px 2px 2.5px rgb(214, 106, 39);
+}
+.light-mode .conver-chara-005 {
+  text-shadow: 0px 0px 0.2px black, 2px 2px 2.5px rgb(85, 37, 7);
+}
+.conver-chara-006 {
+  text-shadow: 0px 0px 0.2px rgb(0, 0, 0), 2px 2px 2.5px rgb(42, 195, 75);
+}
+.light-mode .conver-chara-006 {
+  text-shadow: 0px 0px 0.2px black, 2px 2px 2.5px rgb(2, 80, 20);
+}
