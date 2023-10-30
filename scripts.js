@@ -1,4 +1,4 @@
-let currentPage = 1, chaptersPerPage = 5;
+let currentPage = 1, chaptersPerPage = 6;
 
 const chapters = [
   {
@@ -30,18 +30,18 @@ const chapters = [
     summary: "竹内町北部街区，月见花绫栾与方聆弦因白夜不知情的恩怨而大打出手。<br>混乱之中，某处药水店内传来了一声尖叫。众人闻声停止争斗，立即赶去，却见药水店的NPC老板娘已被屠杀，一旁则是惊恐万分的玖琳然。<br><br>“有人正在凭借屠杀NPC而赚取经验值与稀有道具”。在聆弦如此点破后，数人意识到发生在他们眼前的恐怕是一起极为恶性的玩家犯罪事件。<br>若不加以制裁，类似的犯罪事件将会愈渐频繁，直至与所有玩家息息相关。",
   },
   {
-    title: "资料章：妄想限界世界观 衍生资料",
-    shortTitle: "资料章 内容",
-    filePath: "chapter999.txt",
-    id: 5,
-    summary: "若你也想要创作『妄想限界』世界观的故事，请仔细阅读这里的内容哦！<br>此页面会包含许多正常章节不曾明细阐述的设定与背景故事。<br><br>月星世界的某一部分，或将诞生于你的笔尖……",
-  },
-  {
     title: "第肆章：星离月会，复返世事之公理",
     shortTitle: "第肆章 故事",
     filePath: "chapter4.txt",
-    id: 6,
+    id: 5,
     summary: "阴云笼罩的竹内町，聆弦与绫栾兵分两路，各自着手调查杀害NPC莎娜阿姨的凶手玩家身份。<br>当天深夜，因心中某种难言之隐而执意找寻幕后凶手的夏月为调查更多的线索而回到案件的现场，却撞见了早已在此等候多时的聆弦。<br>面对同为心中怀有不可告人之思想的夏月，聆弦向他提出了……<br><br>另一边，独立查案追猎凶手的绫栾整夜未眠却毫无成果。清晨回归公会之时，她在门口遇见了一位熟悉而陌生的拜访者。<br>她一眼便识得，这女孩就是一日前与她共同见证了那场杀人凶案的词音。",
+  },
+  {
+    title: "资料章：妄想限界世界观 衍生资料",
+    shortTitle: "资料章 内容",
+    filePath: "chapter999.txt",
+    id: 6,
+    summary: "若你也想要创作『妄想限界』世界观的故事，请仔细阅读这里的内容哦！<br>此页面会包含许多正常章节不曾明细阐述的设定与背景故事。<br><br>月星世界的某一部分，或将诞生于你的笔尖……",
   },
   {
     title: "第伍章：星牖微明，奠基轮转之端末",
@@ -64,8 +64,8 @@ const characterAvailability = {
   2: [1,2,3,4,5],
   3: [1,2,3,4,5,6],
   4: [1,2,3,4,5,6,7,8],
-  5: [1],
-  6: [1,2,3,4,5,6,7,8,9,10],
+  5: [1,2,3,4,5,6,7,8,9,10],
+  6: [1],
   7: [1,2,3,4,5,6,7,8,9,10,11,12,13],
   8: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
 };
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function displayChapterList() {
     chapterList.innerHTML = "";
     for (let i = (currentPage - 1) * chaptersPerPage; i < currentPage * chaptersPerPage && i < chapters.length; i++) {
-      if (i != 4 || getCurrentPageIndex() == 4) {
+      if (i != 5 || getCurrentPageIndex() == 5) {
         const listItem = document.createElement("li");
         listItem.classList.add("chapter-item");
         const titleElement = document.createElement("div");
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listLinker.classList.add("chapter-link");
         const characterCount = await getCharacterCount(chapters[i].filePath);
         const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 850);
-        if (i == 4) {
+        if (i == 5) {
           const characterCount = await getCharacterCount("chapter998.txt") + await getCharacterCount("chapter999.txt");
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   currentPage = 1;
   for (let i = 1; i <= getCurrentPageIndex(); i++) {
-    if (i / 5 === 1) {
+    if (i / 6 === 1) {
       currentPage += 1;
     }
   }
