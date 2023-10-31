@@ -1061,7 +1061,14 @@ button:hover {
   width: 100%;
   line-height: 1.5;
   max-width: 580px;
-  max-height: 2205px;
+  max-height: 355px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.side-stories::-webkit-scrollbar {
+  height: 5px;
+  background-color: rgba(64, 64, 64, 0);
+  transform: translateY(-10%);
 }
 
 .side-stories-image-title {
