@@ -1136,6 +1136,17 @@ button:hover {
     transform: translateX(0%);
   }
 }
+@keyframes credits-easein {
+  0% {
+    filter: opacity(0%);
+    transform: translateX(0%) translateY(100%);
+  }
+
+  100% {
+    filter: opacity(80%);
+    transform: translateX(0%) translateY(0%);
+  }
+}
 
 @keyframes general-easein {
   0% {
@@ -1222,6 +1233,7 @@ button:hover {
   padding-right: 20px;
   filter: opacity(80%);
   overflow-y: auto;
+  animation: credits-easein 2.7s ease-out;
 }
 .web-version2::-webkit-scrollbar {
   width: 2.4px;
@@ -1239,7 +1251,7 @@ button:hover {
   transform: translate(-50%, 0);
   color: rgb(255, 255, 255);
   z-index: 550;
-  font-family: 'baiyu';
+  font-family: 'rxt';
   font-size: 48px;
   animation: web-intro-glow 1.3s ease-in-out infinite alternate, general-easein 1.3s ease-in-out;
   animation-delay: 1.3s;
@@ -1255,7 +1267,7 @@ button:hover {
   transform: translate(-50%, 0);
   color: rgb(255, 255, 255);
   z-index: 550;
-  font-family: 'baiyu';
+  font-family: 'rxt';
   font-size: 48px;
   animation: web-intro-glow 1.3s ease-in-out infinite alternate, general-easein 1.3s ease-in-out;
   animation-delay: 1.3s;
