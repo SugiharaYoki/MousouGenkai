@@ -12,6 +12,18 @@ function getCurrentPageIndex() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  var container = document.getElementById("side-stories");
+  container.addEventListener("wheel", function(event) {
+    event.preventDefault();
+    container.scrollBy({
+      top: 0,
+      left: event.deltaY,
+      behavior: 'smooth'
+    });
+  });
+});
+
 function alerting(value) {
   alert(value);
 }
