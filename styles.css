@@ -1210,6 +1210,27 @@ button:hover {
   font-size: 14px;
   filter: opacity(80%);
 }
+.web-version2 {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  color: rgb(221, 221, 221);
+  z-index: 500;
+  font-family: 'rxt';
+  font-size: 14px;
+  height: 100vh;
+  padding-right: 20px;
+  filter: opacity(80%);
+  overflow-y: auto;
+}
+.web-version2::-webkit-scrollbar {
+  width: 2.4px;
+  background-color: rgba(64, 64, 64, 1.0);
+}
+
+.web-version2::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144, 144, 144, 0.8);
+}
 
 .web-intro-text {
   position: fixed;
@@ -1521,7 +1542,7 @@ input.input1 {
   box-shadow: 4px 4px 1.3px #5a5631;
   background-color: #3f3f3f;
   font-size: 20px;
-  font-family: jinyue;
+  font-family: jingyue;
   color: rgb(255, 255, 255);
   padding-left: 10px;
   padding-right: 10px;
@@ -1535,7 +1556,7 @@ input.input2 {
   box-shadow: 4px 4px 1.3px #345a31;
   background-color: #3f3f3f;
   font-size: 20px;
-  font-family: jinyue;
+  font-family: jingyue;
   color: rgb(255, 255, 255);
   padding-left: 10px;
   padding-right: 10px;
