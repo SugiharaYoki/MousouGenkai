@@ -1,5 +1,32 @@
 "use-strict";
 
+const pageNames = [
+  `mousou_chapter0.html`,
+  `mousou_chapter1.html`,
+  `mousou_chapter2.html`,
+  `mousou_chapter3.html`,
+  `mousou_chapter4.html`,
+  `mousou_chapter6.html`,
+  `mousou_chapter5.html`,
+  `mousou_side2_1.html`,
+  `mousou_sideg2_1.html`,
+  `mousou_sideg2_4.html`,
+  `mousou_side2_2.html`,
+  `jiken_chapter0.html`,
+  `jiken_chapter1.html`,
+  `jiken_chapter2.html`,
+  `mousou_sideg2_5.html`,
+  `mousou_sideg2_6.html`,
+  `mousou_chapter7.html`,
+  `mousou_chapter8.html`,
+  `mousou_sideg2_2.html`,
+  `mousou_sideg2_3.html`,
+  `mousou_sideg_1.html`,
+  `mousou_sideg2_7.html`
+];
+
+const totalPages = pageNames.length;
+
 function getCurrentPageIndex() {
   const currentPath = window.location.pathname;
   const chapterIndexRegex = /mousou_chapter(\d+)\.html/;
@@ -12,9 +39,9 @@ function getCurrentPageIndex() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var container = document.getElementById("side-stories");
-  container.addEventListener("wheel", function(event) {
+  container.addEventListener("wheel", function (event) {
     event.preventDefault();
     container.scrollBy({
       top: 0,
@@ -27,78 +54,14 @@ document.addEventListener("DOMContentLoaded", function() {
 function alerting(value) {
   alert(value);
 }
+
 function redirectChapter(ii) {
-  switch (Number(ii)) {
-    case 0:
-      window.location.href = `mousou_chapter0.html`;
-      break;
-      case 1:
-        window.location.href = `mousou_chapter1.html`;
-        break;
-        case 2:
-          window.location.href = `mousou_chapter2.html`;
-          break;
-          case 3:
-            window.location.href = `mousou_chapter3.html`;
-            break;
-            case 4:
-              window.location.href = `mousou_chapter4.html`;
-              break;
-              case 5:
-                window.location.href = `mousou_chapter6.html`;
-                break;
-                case -1:
-                  break;
-                  case 6:
-                    window.location.href = `mousou_chapter5.html`;
-                    break;
-                    case 7:
-                      window.location.href = `mousou_side2_1.html`;
-                      break;
-                      case 8:
-                        window.location.href = `mousou_sideg2_1.html`;
-                        break;
-                        case 9:
-                          window.location.href = `mousou_sideg2_4.html`;
-                          break;
-                          case 10:
-                            window.location.href = `mousou_side2_2.html`;
-                            break;
-                            case 11:
-                              window.location.href = `jiken_chapter0.html`;
-                              break;
-                              case 12:
-                                window.location.href = `jiken_chapter1.html`;
-                                break;
-                                case 13:
-                                  window.location.href = `jiken_chapter2.html`;
-                                  break;
-                                  case 14:
-                                    window.location.href = `mousou_sideg2_5.html`;
-                                    break;
-                                    case 15:
-                                      window.location.href = `mousou_sideg2_6.html`;
-                                      break;
-                                      case 16:
-                                        window.location.href = `mousou_chapter7.html`;
-                                        break;
-                                        case 17:
-                                          window.location.href = `mousou_chapter8.html`;
-                                          break;
-                                          case 18:
-                                            window.location.href = `mousou_sideg2_2.html`;
-                                            break;
-                                            case 19:
-                                              window.location.href = `mousou_sideg2_3.html`;
-                                              break;
-                                              case 20:
-                                                window.location.href = `mousou_sideg_1.html`;
-                                                break;
-                                                case 21:
-                                                  window.location.href = `mousou_sideg2_7.html`;
-                                                  break;
+  ii = Number(ii);
+  if (ii >= 0 && ii < totalPages) {
+    window.location.href = pageNames[ii];
   }
 }
+
 function resetPageDirect(pagin) {
   let pageDirect = document.createElement("button");
   var renew = false;
@@ -109,15 +72,15 @@ function resetPageDirect(pagin) {
       let pageDirectForm = document.createElement("select");
       pageDirectForm.id = "pageDirector";
       pageDirectForm.classList.add("directFormList");
-      var optionsDirect = ["- 选择命运的分支 -","主线：初始微光","主线：第0章","主线：第1章","主线：第2章","主线：第3章","主线：第4章","主线：第5章","主线：第6章","致世界（理央）：虚壹之章","致世界（理央）：虚贰之章","千泉乡（绫栾）：梦蝶壹章","千泉乡（绫栾）：梦蝶贰章","千泉乡（绫栾）：梦蝶叁章","千泉乡（竹取）：光玥壹章","千泉乡（聆弦）：曦蚀壹章","千泉乡（聆弦）：曦蚀贰章","千泉乡（莲音）：焚晓间章","落月星辉（黑泽）：玄芒壹章","附加内容：资料章","事件簿：第1卷 引言","事件簿：第1卷 第1章","事件簿：第1卷 第2章"];
-      var optionsDirectValue = [-1,0,1,2,3,4,6,16,17,7,10,8,18,19,9,14,15,21,20,5,11,12,13];
+      var optionsDirect = ["- 选择命运的分支 -", "主线：初始微光", "主线：第0章", "主线：第1章", "主线：第2章", "主线：第3章", "主线：第4章", "主线：第5章", "主线：第6章", "致世界（理央）：虚壹之章", "致世界（理央）：虚贰之章", "千泉乡（绫栾）：梦蝶壹章", "千泉乡（绫栾）：梦蝶贰章", "千泉乡（绫栾）：梦蝶叁章", "千泉乡（竹取）：光玥壹章", "千泉乡（聆弦）：曦蚀壹章", "千泉乡（聆弦）：曦蚀贰章", "千泉乡（莲音）：焚晓间章", "落月星辉（黑泽）：玄芒壹章", "附加内容：资料章", "事件簿：第1卷 引言", "事件簿：第1卷 第1章", "事件簿：第1卷 第2章"];
+      var optionsDirectValue = [-1, 0, 1, 2, 3, 4, 6, 16, 17, 7, 10, 8, 18, 19, 9, 14, 15, 21, 20, 5, 11, 12, 13];
       pageDirectForm.oninput = () => redirectChapter(pageDirectForm.value);
       for (var i = 0; i < optionsDirect.length; i++) {
-          var option = document.createElement("option");
-          option.value = optionsDirectValue[i];
-          option.text = optionsDirect[i];
-          pageDirectForm.appendChild(option);
-      } 
+        var option = document.createElement("option");
+        option.value = optionsDirectValue[i];
+        option.text = optionsDirect[i];
+        pageDirectForm.appendChild(option);
+      }
       pagin.appendChild(pageDirectForm);
       pageDirect.textContent = "◆";
       renew = true;
