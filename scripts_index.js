@@ -1,20 +1,21 @@
 const webLoader = document.getElementById('webloader');
 const imageContainer = document.getElementById('imagecontainerx');
 const webIntroTextAll = document.getElementById('webintrotextall');
+var sentences = [
+  "纯粹的微光 终将诞生于凄美的长夜",
+  "寄托希冀于幻想之人 愿你得享美梦",
+  "而今 继续朝着前方的微光加速吧",
+  "这是与「虚假」无缘的世事",
+  "这是与「真实」无关的命运",
+  "此乃虚妄与现实纠缠的梦境伊始"
+];
+var randomIndex = Math.floor(Math.random() * sentences.length);
+document.querySelector('.webloader-text').innerText = sentences[randomIndex];
 window.addEventListener('load', () => {
   webLoader.classList.add("webloader-finished");
   imageContainer.style.display = "flex";
   webIntroTextAll.style.display = "flex";
-  var sentences = [
-    "纯粹的微光 终将诞生于凄美的长夜",
-    "寄托希冀于幻想之人 愿你得享美梦",
-    "而今 继续朝着前方的微光加速吧",
-    "这是与「虚假」无缘的世事",
-    "这是与「真实」无关的命运",
-    "此乃虚妄与现实纠缠的梦境伊始"
-  ];
-  var randomIndex = Math.floor(Math.random() * sentences.length);
-  document.querySelector('.webloader-text').innerText = sentences[randomIndex];
+  
 });
 
 
