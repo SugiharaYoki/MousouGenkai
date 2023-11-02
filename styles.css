@@ -1136,12 +1136,21 @@ button:hover {
     transform: translateX(0%);
   }
 }
-@keyframes credits-easein {
+@keyframes credits-easein1 {
   0% {
     filter: opacity(0%);
-    transform: translateX(0%) translateY(100%);
+    transform: translateX(40%) translateY(0%);
   }
-
+  100% {
+    filter: opacity(80%);
+    transform: translateX(0%) translateY(0%);
+  }
+}
+@keyframes credits-easein2 {
+  0% {
+    filter: opacity(0%);
+    transform: translateX(-40%) translateY(0%);
+  }
   100% {
     filter: opacity(80%);
     transform: translateX(0%) translateY(0%);
@@ -1233,7 +1242,28 @@ button:hover {
   padding-right: 20px;
   filter: opacity(80%);
   overflow-y: auto;
-  animation: credits-easein 2.7s ease-out;
+  animation: credits-easein1 2.7s ease-out;
+}
+.web-update {
+  position: fixed;
+  left: 10px;
+  bottom: 5px;
+  color: rgb(221, 221, 221);
+  z-index: 499;
+  height: 100vh;
+  filter: opacity(80%);
+  overflow-y: auto;
+  animation: credits-easein2 2.7s ease-out;
+  direction: rtl;
+}
+.web-update2 {
+  color: rgb(221, 221, 221);
+  z-index: 500;
+  font-family: 'rxt';
+  font-size: 14px;
+  height: 100vh;
+  padding-left: 20px;
+  direction: ltr;
 }
 .web-version2::-webkit-scrollbar {
   width: 2.4px;
@@ -1241,6 +1271,14 @@ button:hover {
 }
 
 .web-version2::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144, 144, 144, 0.8);
+}
+.web-update::-webkit-scrollbar {
+  width: 2.4px;
+  background-color: rgba(64, 64, 64, 1.0);
+}
+
+.web-update::-webkit-scrollbar-thumb:hover {
   background-color: rgba(144, 144, 144, 0.8);
 }
 
@@ -1526,6 +1564,12 @@ button:hover {
     top: 100px;
     left: 10%;
     width: 80%;
+  }
+  .web-version2 {
+    display:none;
+  }
+  .web-update {
+    display:none;
   }
 }
 
