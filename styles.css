@@ -658,6 +658,10 @@ button:hover {
   background-color: #81232b;
   transition: background-color 0.5s;
 }
+.chapter-list ul li.active-sideg3 {
+  background-color: rgb(82, 121, 9);
+  transition: background-color 0.5s;
+}
 
 .light-mode .chapter-list ul li.active {
   background-color: #86cfff;
@@ -677,6 +681,10 @@ button:hover {
 }
 .light-mode .chapter-list ul li.active-sideg {
   background-color: #abffa0;
+  transition: background-color 0.5s;
+}
+.light-mode .chapter-list ul li.active-sideg3 {
+  background-color: rgb(174, 230, 102);
   transition: background-color 0.5s;
 }
 
