@@ -1285,7 +1285,7 @@ button:hover {
 .web-intro-text {
   position: fixed;
   left: 50%;
-  bottom: 10%;
+  bottom: 20%;
   transform: translate(-50%, 0);
   color: rgb(255, 255, 255);
   z-index: 550;
