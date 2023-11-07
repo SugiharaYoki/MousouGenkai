@@ -538,5 +538,158 @@
 <br>
 <br>茶楼，迈着大步风风火火踏入店内的绫栾让不少客人都惊得赶紧放下茶杯，一瞧这总是穿弓道服的女生这回目标并不是自己，这才安下心来继续品茶。可为什么是此处？难道她这回需要猎杀的目标正在这里饮茶吗？就算这女生的行动再正义，这儿可是被韵笺才浅公会罩着的地盘。那月见花绫栾，再怎么说也是津风礼社的人……
 <br>所幸在绫栾快步上楼数十秒后，大家的正上方也未传来任何掀桌或枪击声。众人心知不该多管闲事，方才霎时安静下来的茶楼终于再度响起茶碗碰撞声与倒茶声。
+<br>但当那位正欲用黑茶过下嘴中点心的丰满女子察觉到这位杀人不眨眼的竹内町处刑者居然是冲着自己而来时，直接吓得茶杯都落在桌上，若不是软木制成的桌面，小杯险些直接就被摔碎。
+<br>一楼的气氛归于祥和，二楼的客人可就随之不淡定了。这位身体曲线迷人的女性玩家与并未手持火绳枪的绫栾对视数秒——她随即意识到自己（暂时还）不会有生命危险。
+<div class="conver-title syslang-side2">&nbsp&nbsp端末行动：绫栾的调查·1&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp竹内町-北坂灯街-天街茶楼&nbsp&nbsp翡翠新历1年5月38日</span></div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">？？？</span>
+<span class="conver-content">这样火急火燎地跑来找我，我还以为自己摊上事了呢……呵呵。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">？？？</span>
+<span class="conver-content">那么您好啊、月见花绫栾小姐，请问为什么这回是我？<br>您知晓我是韵笺才浅的管理层成员吧。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">无需恐惧，我并非来此同任何人算账。<br>艾辰小姐，你是否认识莎娜·克蕾伊尔文？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">还真是毫无寒暄的开门见山啊……<br>我也很高兴认识你，月见花小姐。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">请回答我的问题。莎娜被人所害，我在追查杀害莎娜的凶手。<br>“连锁核心”，我知道你就是这枚零件的原买家。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">等、哇你……你胆子也真的太大了吧，居然真的敢在这里高声说出这个零件的名称……<br>怎么，你难道是怀疑我杀了莎娜阿姨？我何必那么做？<br>唉、……我真的是。在那之前，先换个地方说话吧。</span>
+</div>
+<br>艾辰端起茶壶，对准壶嘴两口饮完了壶中剩余的黑茶，接着手势示意绫栾跟着自己。
+<br>二人来到了茶楼三层的天台。艾辰手中施放了一个机械状的自飞行装置，绫栾见那小小的装置悬浮了几秒，便回到了艾辰的手心，被她收纳而起。<br>
+<br>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">现在没有问题了，针对此事我们就敞开直言吧。<br>月见花小姐真的认为是我杀了莎娜阿姨？</span>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">我从未如此怀疑过，但也请谨言慎行，我现在会开始考虑这层可能。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">你可真的是名副其实地完全不会开玩笑呢……<br>没错，我知道莎娜阿姨被人杀害的事情。<br>我也知道真凶似乎是玩家。<br>我们公会长有在刻意压下这则新闻的热度，但你跑到我公会的地盘，在众目睽睽之下说出这几句信息量满满的话语，该说真的是毫不畏惧周围人可能对此做出的任何反应啊。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">连锁核心果然是炙手可热的稀有零件。<br>你也并不是唯一的索求者。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">我可是花费重金才打听到这连锁核心的下落，泽斐雅公房说是只会生产三枚核心。<br>其中一枚被公房自己储藏，一枚据说由一位德高望重的全NPC公会会长买走，这最后一枚大多数人只知道是在薙峯霞林区域被原买主转卖，最后据说是被一位险些死在魔物手下，却依靠从莎娜阿姨那儿买来的药剂侥幸活命的机械武器使用者作为礼物赠予了莎娜阿姨。<br>我虽然是极少数有能力打听到这层情报的玩家，却绝不会是唯一的人。<br>我这么说，你能够懂我的意思吧？</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">你是否清楚有谁可能在追寻连锁核心的下落？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">这你就算直接问我，我也想回答呢。<br>毕竟莎娜阿姨受害，连锁核心被抢走后，我可是直接受害者。<br>但很遗憾，我并不清楚连锁核心可能的下落。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">有关你找到连锁核心一事，你也没有告诉过其他人？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">我告知了几个绝对信得过的公会管理层人物。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">他们的身份是？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">抱歉。有关这一问题，我无可奉告。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">37号，你为何没有前往莎娜的店铺赴约？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">那当然是我已经知道莎娜阿姨死了，我怎么找死人赴约？</span>
+</div>
+<br>绫栾听到这里，猛然间意识到艾辰的话有问题。<br>
+<br>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">提前知晓……<br>等等、你说什么？<br>莎娜在36号傍晚受害，你却在次日就已经了解到此事。但你却从未前往现场，你如何知晓的此事？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">哎呀……说漏嘴了吗。<br>其实我感觉你也被瞒在鼓里了，月见花小姐。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">此言何意？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">我知道你还是有最基本的好奇心，所以我也藏不住什么信息。<br>你也知晓你们的公会长二阶堂才新一直有意无意地想来抹黑我们韵笺才浅吧？<br>先前祭典上的暗杀我们还算闭了只眼，前些日子闹市上的明面杀人可就不是我们能容忍的范围了。<br>虽然我很怀疑自己有没有必要问出类似的问题，但你真的不清楚二阶堂在如何利用你吗？</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">我早已知晓她接触我是为了其他的目的，但我不想去关心那种事。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">那也真是没办法了呢……但、月见花小姐，你见的世面果真太少了啊。<br>我提前知晓莎娜阿姨被杀害是真，可你忘了？我也提前清楚了真凶是玩家这桩事实。<br>很显然，是有知情者将此事刻意于大众玩家群体间传播了吧？<br>思诗会长的旨意是尽可能让此事风声被控制在最小范围，所以既然不是韵笺才浅的手笔，为何我等又会如此迅速地知晓此事呢？<br>是不是因为，有人清楚这场针对NPC的连环杀人案对韵笺才浅不利，想要趁机扳倒韵笺才浅对竹内的绝对控制权？<br>那么由我来反问你，月见花小姐：你应该知道你的公会长都在策划什么吧。<br>你就没有怀疑过吗？为什么津风礼社是全日本玩家的公会？为什么二阶堂会专挑与韵笺才浅相关活动展开的当日命你来杀人？<br>为什么你将莎娜阿姨受害的事汇报给了二阶堂后，我们就有那么多人知晓了这桩杀人案的内幕？</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">你在刻意针对我的公会长发言。<br>试图推翻慕容思诗统治竹内计划的公会不止津风礼社一家，可你却一口咬定是才新会长主导了这次的传播。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">没办法，我与你本就是敌对势力，有些话我不好说，另外有些话我说了你也不可能会轻信。<br>但月见花小姐，不要再被多方势力来回利用了。<br>至少，看清谁利用你是为了真正出于善良的目的吧——若你还是想做个一心追求舍己为人的小孩子。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">我承认，我并不认为我的公会长毫无嫌疑。你的话语我会纳入思考范围。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">哇，这还真的令我非常吃惊。没想到二阶堂苦心培养的帮她处理脏活的人，到头来却也完全没能信任她呀。<br>这或许便是我们韵笺才浅与一般小公会之间的区别吧。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">艾辰小姐，你还知晓其他的关键情报吗？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">很遗憾，我能帮到你的范围至此为止。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">我会在日后再度找到你确认线索。在那之前，我得找我的公会长谈谈。</span>
+</div>
+<br>绫栾说罢，便准备直接从三楼阳台跃下街道离去。
+<br>但就在她抬腿之际，艾辰叫住了她。<br>
+<br>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">我觉得你也是可以信赖的对象。<br>虽然我这么干了思诗会长应该会把我活活打死，但我再告诉你一条我所掌握的信息吧。<br>也算不上情报，但我认为能帮得上忙。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">感谢你的信任。你要告诉我何事？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">别感谢我的信任了，还是请先感谢我提供情报啊。<br>其实，除我之外也有一位玩家百分之百清楚连锁核心曾在莎娜阿姨手中。</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">那位玩家是韵笺才浅或津风礼社的成员吗？</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">很遗憾，却也很幸运：他都不是。<br>那人名为雾雨红，凶染Rhyme公会的会长。<br>想必你也并不认识此人吧？</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">似乎有所耳闻。应该是我前往布雷姆游玩之际……布雷姆城？<br>你是指此人并非薙峯霞林区域的住民。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">没错。另外，我并不清楚此人是否就是真凶，也无法确定他与这次连环杀人案有什么联系。<br>但我可以明白地告诉你一件事：他与你的公会长，也就是二阶堂才新相识。</span>
+</div>
+<br>
+<br>
+<br>
+<br>雾中的松林，被雾隐狼群包围的白夜四人正奋起战斗。
+<br>凶恶的狼群已经快被全数击退。手持长弓远程射击的白夜与使刺剑突击的词音各守一侧，在负责治疗的玖琳然支援下撑过了一波又一波的攻势，现在战局的优势已经倾向三人之侧。
+<br>而小鸟游也正在与王狼全神贯注地决斗。一反白夜在咖喱乌冬面公会墙后瞧见的，每挥一次锤都会气喘吁吁几秒，动作笨重的攻击方式，此刻的小鸟游将那把巨型重锤挥舞得残影破风，每次脚尖点地时，她都会随着锤头又一次火焰爆燃而再度腾空而起，锤锤直中王狼防备最弱的部位。沉闷呼啸与震耳点火声间，等级高达35的王狼血量已被削减过半，一度低于魔力储存就像无穷的小鸟游。
+<br>甚至每当白夜成功速射一箭，小鸟游都至少再度平A了两回。并且，每当小鸟游施放重击战技砸向王狼脚下的地面时，总会掀起令数十米外的白夜衣沿都随之晃颤的强风冲击波。
+<br>这个小鸟游清紫的实力……相当恐怖。白夜无法想象她在进攻弓长夏椰时到底放了多少水，但那时的小鸟游恐怕连20%的实力都未曾用上。若是TBO存在战斗BGM的话，她已经能想象出小鸟游的周身能播放多么激烈劲爆的热血战斗曲。这女生根本就是一个端着重锤，靠风元素魔法减轻武器挥动难度的狂战士……
+<br>远处那柄破风的重锤狂暴的轨迹长久停留在白夜眼中，使她几次都失误射偏眼前那群白狼。
+<br>不过自己面前的这些狼似乎也拥有着些许的智慧。每当它们之中有个体的血量被削减到低于50%，就会有更高血量的个体拦在受伤的白狼身前，当个体血量落至20%以下时甚至还会直接逃跑。战斗持续了至少十分钟之久，白夜等人虽然防守严密、逐渐占据起优势，但真论输出却连一只白狼都没成功杀死。
+<br>这些白狼似乎也并不是存心要来杀了她们。白夜并不清楚它们到底为何要进攻四人，但它们绝对不如自己凶狠的样貌那般残暴。
+<br>难道，这群狼只是在享受战斗的过程，却并未尝试拼个你死我活吗？
+<br>想到这里……白夜拉满弓弦，箭头瞄准了那只血量仅剩5%，仍旧在地上翻滚的白狼个体，却并未松指射出箭矢。
+<br>她，放弃了这个唯一一次能杀死某匹狼的机会。
+<br>“神来社桑，我觉得……我们是不是不该尝试杀了它们。”下一刻，她后退几步，向词音提议道。
+<br>“你也发现这一点了吗，谅璃姐姐。”词音背对着自己，手中刺剑闪出锥形粉光，“它们似乎也不会将我们置于死地。我不觉得这群等级不低于25的狼有这么弱。”
+<br>白夜沉默数秒，击退了一只仍在尝试朝自己扑来的白狼：“它们到底是……难道真的只是在享受战斗的过程吗？”
+<br>余下几匹白狼的进攻欲望也逐渐消退，至少有三分之二的个体都已经撤退至雾中消失无影。与雾隐狼群的战斗似乎要告一段落了。
+<br>“那这便是最后一击了，王狼。……SPITFIRE，随我一同降下震天撼地的全力冲击吧！！”
+<br>周围的层层大雾仿佛都为此震撼而散。三道使得三人无法站稳脚跟的冲击波自小鸟游所在的方向爆裂传开，卷着无数松针与落叶，伴着碎石一同狂舞飞翔。白夜并不知道自己那时有没有被这全力的猛冲而波及受伤，她只记得那一瞬间的风声使得自己一阵耳鸣。
+<br>待雾气再度平稳，周遭隐入狼群到来前那般的寂静后，白夜、词音、琳然三人随即清楚，雾隐狼群离去了。
+<br>于是在这片遮天蔽日的昏暗浓雾之中，她们四人得以深入飞鸟泉的核心地带。
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
