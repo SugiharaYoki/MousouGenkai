@@ -236,7 +236,7 @@
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">啊？就算她可能见到真凶了我也不可能去问她的。<br>往最差了说嘛，她看到我就跑了，你觉得我怎么从她嘴里撬出情报来？拷问吗？</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
-<span class="conver-content">没事，你先去着重于问周围商铺的店主，看看他们能不能提供信息……当然我觉得町奉行也做完类似的调查工作了。<br>你得做好这样的程序并不会带来任何有用的线索。</span></div>
+<span class="conver-content">没事，你先去着重于问周围商铺的店主，看看他们能不能提供信息……当然我觉得町奉行也做完类似的调查工作了。<br>你得做好通过这样的程序也无法获得任何有用线索的准备。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">而我呢？你去询问周围店铺店主有关这次案件的线索就会不可避免地人要离店对吧，对，所以我负责在那段时间里逮人。<br>她一直有见到你，你一注意到她她就会逃跑——但她并不一定记得我是谁，我只要叫上泽子和池原一起埋伏着，三边同时夹击，我不信那位靠偷东西吃饭的吹雪女能跑得掉。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
@@ -589,7 +589,7 @@
 <span class="conver-content">我告知了几个绝对信得过的公会管理层人物。</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
-<span class="conver-content">他们的身份是？</span>
+<span class="conver-content">那，他们的身份是？</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
 <span class="conver-content">抱歉。有关这一问题，我无可奉告。</span>
@@ -600,25 +600,25 @@
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
 <span class="conver-content">那当然是我已经知道莎娜阿姨死了，我怎么找死人赴约？</span>
 </div>
-<br>绫栾听到这里，猛然间意识到艾辰的话有问题。<br>
+<br>绫栾听到这里，猛然间意识到艾辰的话有问题。她眉头紧锁，紧盯着艾辰的双眼。<br>
 <br>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
 <span class="conver-content">提前知晓……<br>等等、你说什么？<br>莎娜在36号傍晚受害，你却在次日就已经了解到此事。但你却从未前往现场，你如何知晓的此事？</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
-<span class="conver-content">哎呀……说漏嘴了吗。<br>其实我感觉你也被瞒在鼓里了，月见花小姐。</span>
+<span class="conver-content">哎呀……难不成是我说漏嘴了吗。<br>其实我感觉你也被蒙在鼓里了，月见花小姐。</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
 <span class="conver-content">此言何意？</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
-<span class="conver-content">我知道你还是有最基本的好奇心，所以我也藏不住什么信息。<br>你也知晓你们的公会长二阶堂才新一直有意无意地想来抹黑我们韵笺才浅吧？<br>先前祭典上的暗杀我们还算闭了只眼，前些日子闹市上的明面杀人可就不是我们能容忍的范围了。<br>虽然我很怀疑自己有没有必要问出类似的问题，但你真的不清楚二阶堂在如何利用你吗？</span>
+<span class="conver-content">我知道你还是有最基本的好奇心，所以我也藏不住什么信息。<br>你也知晓你们的公会长二阶堂才新一直有意无意地想来抹黑我们韵笺才浅吧？<br>先前祭典上的暗杀……我们还算闭了只眼，前些日子闹市上的明面杀人可就不是我们能容忍的范围了。<br>虽然我很怀疑自己有没有必要问出类似的问题，但你真的不清楚二阶堂在如何利用你吗？</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
 <span class="conver-content">我早已知晓她接触我是为了其他的目的，但我不想去关心那种事。</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
-<span class="conver-content">那也真是没办法了呢……但、月见花小姐，你见的世面果真太少了啊。<br>我提前知晓莎娜阿姨被杀害是真，可你忘了？我也提前清楚了真凶是玩家这桩事实。<br>很显然，是有知情者将此事刻意于大众玩家群体间传播了吧？<br>思诗会长的旨意是尽可能让此事风声被控制在最小范围，所以既然不是韵笺才浅的手笔，为何我等又会如此迅速地知晓此事呢？<br>是不是因为，有人清楚这场针对NPC的连环杀人案对韵笺才浅不利，想要趁机扳倒韵笺才浅对竹内的绝对控制权？<br>那么由我来反问你，月见花小姐：你应该知道你的公会长都在策划什么吧。<br>你就没有怀疑过吗？为什么津风礼社是全日本玩家的公会？为什么二阶堂会专挑与韵笺才浅相关活动展开的当日命你来杀人？<br>为什么你将莎娜阿姨受害的事汇报给了二阶堂后，我们就有那么多人知晓了这桩杀人案的内幕？</span>
+<span class="conver-content">那也真是没办法了呢……但、月见花小姐，你见的世面果真太少了啊。<br>我提前知晓莎娜阿姨被杀害是真，可你忘了？我也提前清楚了真凶是玩家这桩事实。<br>很显然，是有知情者将此事刻意于大众玩家群体间传播了吧？<br>思诗会长的旨意是尽可能让此事风声被控制在最小范围，所以既然不是韵笺才浅的手笔，为何我等又会如此迅速地知晓此事呢？<br>是不是因为，有人清楚这场针对NPC的连环杀人案对韵笺才浅不利，想要趁机扳倒韵笺才浅对竹内的绝对控制权？<br>那么由我来反问你，月见花小姐：你应该知道你的公会长都在策划什么吧。<br>你就没有怀疑过吗？为什么津风礼社是只限日本玩家加入的公会？为什么二阶堂会专挑与韵笺才浅相关活动展开的当日命你来杀人？<br>为什么你将莎娜阿姨受害的事汇报给了二阶堂后，我们就有那么多人知晓了这桩杀人案的内幕？</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
 <span class="conver-content">你在刻意针对我的公会长发言。<br>试图推翻慕容思诗统治竹内计划的公会不止津风礼社一家，可你却一口咬定是才新会长主导了这次的传播。</span>
@@ -749,7 +749,7 @@
 <br>
 <br>但……同样就是在那一瞬间，琳然与词音的目光相撞。
 <br>
-<br>词音的眼神，极其地古怪。
+<br>词音的眼神，极其古怪。
 <br>
 <br>——抱歉，如果是我留在这里的话，我绝对没有勇气去面对二阶堂才新。
 <br>琳然未闻词音开口，但她的眼神中，那丝恐惧、那丝敬畏……那充斥其内的坚毅与决然，清楚地向琳然阐述了这样的讯息。
