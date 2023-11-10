@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
         const characterCount = await getCharacterCount(chapters[i].filePath);
-        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 600);
+        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 1000);
         if (i == 4) {
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
