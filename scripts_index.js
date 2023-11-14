@@ -15,7 +15,6 @@ window.addEventListener('load', () => {
   webLoader.classList.add("webloader-finished");
   imageContainer.style.display = "flex";
   webIntroTextAll.style.display = "flex";
-  
 });
 
 
