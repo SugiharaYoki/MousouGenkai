@@ -438,7 +438,7 @@
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">那这可就完蛋了呀……<br>我现在要怎么安慰我身边这位大小姐呢。<br>如果不找到什么非常完美的借口的话，跟她不停聊些有关人工智能与NPC与游戏的哲学大道理，感觉除了转移注意力之外也没法治本。虽然这就是我现在想要达到的效果没错啦。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">你不会还陪在那位玖什么的玩家身边吧。</span></div>
+<span class="conver-content">勿栖你不会还陪在那位玖什么的玩家身边吧。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">其实她也基本回过神来了，我不知道为什么她好像心里装着些什么别的事情，并不只是因为目睹命案现场而恐惧。<br>我讲不出这是种什么情绪，但我也不方便问，人家刚刚从这件事情上转移掉一点注意力，结果又去提醒她这件事什么的……。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>

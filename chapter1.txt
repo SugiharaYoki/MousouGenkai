@@ -642,7 +642,7 @@
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">哈哈，我请了病假在家玩的。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
-<span class="conver-content">你都请了快一周病假了吧，不怕被老师抄家吗？<br>不知道的还以为活泼可爱的和歌森同学彻底病卧在床高烧41度快病危了呢。</span></div>
+<span class="conver-content">勿栖君……你都请了快一周病假了吧，不怕被老师抄家吗？<br>不知道的还以为活泼可爱的和歌森同学彻底病卧在床高烧41度快病危了呢。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">别批评我啦，我本来就不是什么优等生，那种谁爱当谁去当啦。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
