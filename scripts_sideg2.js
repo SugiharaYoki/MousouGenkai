@@ -50,6 +50,13 @@ const chapters = [
     id: 7,
     summary: "<span class='syslang'>&nbsp&nbsp作者：常雪莲音&nbsp&nbsp</span><br><br>天然大型水库琉科希娅瀑布群区域，二人在此相遇。<br>这会是一场美妙的邂逅，一段旅程的开始，同时也将是“AzazeL”的诞生。",
   },
+  {
+    title: "落阑壹章：苍茂深林的微风",
+    shortTitle: "落阑壹章 故事",
+    filePath: "csideg_7.txt",
+    id: 8,
+    summary: "<span class='syslang'>&nbsp&nbsp作者：司空晓风&nbsp&nbsp</span><br><br>自己早已习惯被这无情大雨淋湿的日子。<br>只是这次，雨点将不再有机会打在任何人身上。<br><br>司空晓风如今在水上都市布雷姆城附近活动。<br>为完成高额赏金报酬，他决定踏上前往雨林深处的路途。<br>而那里，恰巧是塞壬最终迷宫“图莱诺尖塔”的近郊地带……",
+  },
 ];
 const characterAvailability = {
   0: [],
@@ -60,6 +67,7 @@ const characterAvailability = {
   5: [6],
   6: [6],
   7: [1,2],
+  8: [1],
 };
 const linktails = [
   {
