@@ -273,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const termList = document.getElementById("term-tabs");
     const termList2 = document.getElementById("term-tabs2");
     const termList3 = document.getElementById("term-tabs3");
+    const termList4 = document.getElementById("term-tabs4");
     const characterList = document.getElementById("character-tabs");
     const characterList2 = document.getElementById("character-tabs2");
     const characterList3 = document.getElementById("character-tabs3");
@@ -292,6 +293,9 @@ document.addEventListener("DOMContentLoaded", () => {
       page = 0;
     }
     if (page == 3 && termList3 == null) {
+      page = 0;
+    }
+    if (page == 4 && termList4 == null) {
       page = 0;
     }
     listtext.innerHTML = `Pg.${page}`;

@@ -15,11 +15,19 @@ const chapters = [
     id: 1,
     summary: "<span class='syslang'>&nbsp&nbsp作者：南泽桃望&nbsp&nbsp</span><br><br>此处为剑与魔法的世界。<br>谢廖平坚信，唯独在这月星世界内，自己才有机会寻得那“99%的真实”。<br>只不过，并非所有做梦都想进入TBO的人都能如愿以偿。<br>他便是通过特殊方式才得以获取月星的测试名额。<br><br>幸运地进入这完全沉浸式的游戏后，他决定先为自己锻造一把趁手的武器。<br>但存在于传统JRPG类游戏中的武器类型，似乎已经无法满足他的内心需求了。",
   },
+  {
+    title: "相魍壹章：非霎非解的若共若存",
+    shortTitle: "相魍壹章 故事",
+    filePath: "csideg_8.txt",
+    id: 1,
+    summary: "<span class='syslang'>&nbsp&nbsp作者：张怀民&nbsp&nbsp</span><br><br>沙尘肆虐之地，漫天黄土席卷荒漠的时刻，仍有旅者艰难前行。<br>苏启蛰的面前时常共存着两条截然相悖的道路，而他必须对此做出抉择。<br>尽管他明白，旅途的终点从来都不是唯一；飞舞的粗砂与尘霾尽头或是虚影轮廓，或是蜃楼幻景，一切还尚未存在定数。<br><br>风元素的象征色从来都是苍翠之绿。<br>而他的手心，时常浮动着赤色的炽芒。",
+  },
 ];
 const characterAvailability = {
   0: [],
   1: [1,2,3],
   2: [1],
+  3: [1],
 };
 const linktails = [
   {
