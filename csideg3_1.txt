@@ -73,6 +73,7 @@
 <br>
 <br>
 <br>
+<br><h2><span class="leadingtext">『妄想限界：异世界环境调研所』</h2></span>
 <br>
 <br>
 <br>
@@ -82,6 +83,47 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="conver-title syslang-side2">&nbsp&nbsp悉世研调：第1幕&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp竹内町-车站前街&nbsp&nbsp距离翡翠新历1年1月1日剩余327天</span></div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
+<span class="conver-content">哇啊、……！终于又给我回到这里来了。</span>
+</div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
+<span class="conver-content">怎么不是中心广场，咦？我上次也不是在车站下线的呀。<br>里歌？喂、里歌你在哪——</span>
+</div>
+<div><img src="avatars/av-hzlg1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<span class="conver-content">你的嗓门怎么一到游戏里就这么大了。我在车站里头，别喊了。</span>
+</div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<span class="conver-content">唉嘿嘿。但为什么我们跑到竹内町的车站来了？我明明设置的是……<br>哎呀我这装备是什么东西，怎么变成一根铁棍了。<br>能帮我开一下管理员权限吗？我造个初始武器出来。</span>
+</div>
+<div><img src="avatars/av-hzlg1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<span class="conver-content">刚刚已经给你开过权限了，还跟我说你要选套好看的衣服。这下好了，你看看你才3级，穿的比人家8级玩家都好。<br>小心被人一眼看出你是开挂的，说都说不清楚。不可以再给你权限了，老实地自己去锻造。<br>而且说到降落地点这桩事……知久，你记下的那个坐标是不知道多少周前的了吧。月星大陆可也是存在板块移动的。</span>
+</div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<span class="conver-content">呜呜、拟真到这种程度其实就有些过头了呀……<br>那我看我之前打到的那些素材也还在背包里。我们TBO什么时候才能更新角色经验值获取机制来着？我记得是公测结束立刻实装。</span>
+</div>
+<div><img src="avatars/av-hzlg1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<span class="conver-content">你记得没错。但具体改成什么样你还是得去问一问桥本，他们小组码的新系统。</span>
+</div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<span class="conver-content">唉但他们三个人都去哪里了？早了我们十分钟进游戏，估计就……</span>
+</div>
+<div><img src="avatars/av-hzlg1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<span class="conver-content">嗯，游戏里已经过去一整天了。</span>
+</div>
+<div><img src="avatars/av-cyzj1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<span class="conver-content">哇我的天，这时间太难算了。<br>还有筱鸢，她进来好像是今天凌晨的事了吧，都不知道她现在还在不在薙峯霞林区域。</span>
+</div>
+<div><img src="avatars/av-hzlg1.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<span class="conver-content">林的话你让她爱怎么玩就怎么玩。她本来就不是和我们五个进来视察系统情况的，估计现在都玩出花来了吧。</span>
+</div>
 <br>
 <br>
 <br>

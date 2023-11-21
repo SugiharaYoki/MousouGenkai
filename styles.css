@@ -30,6 +30,15 @@ body {
     0 -5px 12px -7px #69696971, 0 5px 12px -7px #69696971;
   padding: 3px;
 }
+.syslang-2 {
+  font-family: 'rxt';
+  /*, 'PangMenZhengDaoXiXianTi-2'*/
+  font-style: normal;
+  box-shadow: 0 -4px 8px -7px #ff0000, 0 4px 8px -7px #ff0000,
+    0 -5px 12px -7px #ff0000aa, 0 5px 12px -7px #ff0000aa;
+  color: rgb(255, 0, 0);
+  padding: 3px;
+}
 .syslang-side2 {
   font-family: 'rxt';
   box-shadow: -2.5px 0px 0px 0px #838383,2.5px 0px 0px 0px #838383;
