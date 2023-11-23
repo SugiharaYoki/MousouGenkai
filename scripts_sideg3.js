@@ -2,7 +2,7 @@ let currentPage = 1, chaptersPerPage = 5;
 
 const chapters = [
   {
-    title: "觑宇壹章：月星内界",
+    title: "觑宇壹章：薄暗晨星的银幕",
     shortTitle: "觑宇壹章 故事",
     filePath: "csideg3_1.txt",
     id: 1,

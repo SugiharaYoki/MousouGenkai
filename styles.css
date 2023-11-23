@@ -1114,6 +1114,9 @@ button:hover {
   border: 1.1px solid #ffffff;
   animation: side-stories-easein 0.7s ease-in-out;
 }
+.light-mode .side-stories-image-title {
+  filter: invert(1.0);
+}
 
 .light-mode .side-stories-image {
   border: 1.1px solid #000000;

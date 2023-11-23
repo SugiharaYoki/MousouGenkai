@@ -104,13 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
         listItem.appendChild(listLinker);
         listLinker.appendChild(titleElement);
         listLinker.classList.add("chapter-link");
-        const characterCount = await getCharacterCount(chapters[i].filePath);
-        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 1000);
+        const characterCountElement = document.createElement("div")
         if (i == 5) {
           const characterCount = await getCharacterCount("chapter998.txt") + await getCharacterCount("chapter999.txt");
           characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
         } else {
-        characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 120)/100} 万字 `;
+          const characterCount = await getCharacterCount(chapters[i].filePath);
+          characterCountElement.textContent = `${Math.round(characterCount / 1000)} 分钟 | ${Math.round(characterCount / 120)/100} 万字 `;
         }
         characterCountElement.classList.add("chapter-character-count");
         listLinker.appendChild(characterCountElement);
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = await response.text();
       return content.length;
     } catch (error) {
-      console.error("Error fetching chapter content for character count:", error);
+      console.error("错误：无法读取章节字数", error);
       return 0;
     }
   }
