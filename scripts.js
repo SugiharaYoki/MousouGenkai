@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterList = document.getElementById("term-tabs");
     const characterList2 = document.getElementById("term-tabs2");
     const characterList3 = document.getElementById("term-tabs3");
-    var listtext = document.getElementById("toggleTermList2");
+    var listtext = document.getElementById("toggleCharacterList2");
     characterList.classList.add("hidden");
     if (characterList2 != null) {
       characterList2.classList.add("hidden");

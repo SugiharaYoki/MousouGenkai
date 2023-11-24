@@ -162,23 +162,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("toggleCharacterList").addEventListener("click", function () {
-    const characterList = document.getElementById("character-tabs");
-    page = 0;
-    const termList = document.getElementById("term-tabs");
-    const termList2 = document.getElementById("term-tabs2");
-    const termList3 = document.getElementById("term-tabs3");
-    characterList.classList.toggle("hidden");
-    termList.classList.add("hidden");
-    termList2.classList.add("hidden");
-    termList3.classList.add("hidden");
-  });
-  document.getElementById("toggleTermList").addEventListener("click", function () {
-    const termList = document.getElementById("term-tabs");
-    const termList2 = document.getElementById("term-tabs2");
-    const termList3 = document.getElementById("term-tabs3");
-    const characterList = document.getElementById("character-tabs");
-    var listtext = document.getElementById("toggleTermList2");
+    const termList = document.getElementById("character-tabs");
+    const termList2 = document.getElementById("character-tabs2");
+    const termList3 = document.getElementById("character-tabs3");
+    const characterList = document.getElementById("term-tabs");
+    const characterList2 = document.getElementById("term-tabs2");
+    const characterList3 = document.getElementById("term-tabs3");
+    var listtext = document.getElementById("toggleCharacterList2");
     characterList.classList.add("hidden");
+    if (characterList2 != null) {
+      characterList2.classList.add("hidden");
+    }
+    if (characterList3 != null) {
+      characterList3.classList.add("hidden");
+    }
     page += 1;
     if (!(page >= 0)) {
       page = 0;
@@ -199,19 +196,67 @@ document.addEventListener("DOMContentLoaded", () => {
       termList.classList.remove("hidden");
       termList2.classList.add("hidden");
       termList3.classList.add("hidden");
-      const isHidden = False;
     }
     if (page == 2) {
       termList.classList.add("hidden");
       termList2.classList.remove("hidden");
       termList3.classList.add("hidden");
-      const isHidden2 = False;
     }
     if (page == 3) {
       termList.classList.add("hidden");
       termList2.classList.add("hidden");
       termList3.classList.remove("hidden");
-      const isHidden3 = False;
+    }
+  });
+  document.getElementById("toggleTermList").addEventListener("click", function () {
+    const termList = document.getElementById("term-tabs");
+    const termList2 = document.getElementById("term-tabs2");
+    const termList3 = document.getElementById("term-tabs3");
+    const termList4 = document.getElementById("term-tabs4");
+    const characterList = document.getElementById("character-tabs");
+    const characterList2 = document.getElementById("character-tabs2");
+    const characterList3 = document.getElementById("character-tabs3");
+    var listtext = document.getElementById("toggleTermList2");
+    characterList.classList.add("hidden");
+    if (characterList2 != null) {
+      characterList2.classList.add("hidden");
+    }
+    if (characterList3 != null) {
+      characterList3.classList.add("hidden");
+    }
+    page += 1;
+    if (!(page >= 0)) {
+      page = 0;
+    }
+    if (page == 2 && termList2 == null) {
+      page = 0;
+    }
+    if (page == 3 && termList3 == null) {
+      page = 0;
+    }
+    if (page == 4 && termList4 == null) {
+      page = 0;
+    }
+    listtext.innerHTML = `Pg.${page}`;
+    if (page == 0) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 1) {
+      termList.classList.remove("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 2) {
+      termList.classList.add("hidden");
+      termList2.classList.remove("hidden");
+      termList3.classList.add("hidden");
+    }
+    if (page == 3) {
+      termList.classList.add("hidden");
+      termList2.classList.add("hidden");
+      termList3.classList.remove("hidden");
     }
   });
   document.getElementById("toggleWorldMap").addEventListener("mouseover", function () {
