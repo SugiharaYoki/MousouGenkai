@@ -432,13 +432,13 @@
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">只有宠物才有手段进行复活吧，而且还是通过使用特殊道具。<br>这游戏里头就压根不存在用于复活的魔法，不管是风、水、火、日都是如此。<br>完全没有途径复活任何人或任何物。玩家死了就直接从重生点复活，NPC死了就是永恒的死亡，不会留下任何事物。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
-<span class="conver-content">既然月星的本质就是程序的话……你觉得，NPC会经历轮回转世吗？</span></div>
+<span class="conver-content">既然月星的本质就是程序的话……你觉得，NPC会经历轮回转生吗？</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">无法确认，而且去想这种事情也没有意义。<br>虽然可能包括你在内的很多人不爱听，这些NPC就是数据，这点永远无法改变。<br>就算他们会轮回转世好了，如果能保留上一世的记忆，那这说法早就被实锤了，根本轮不到我们两个人在这里琢磨。<br>如果是没法保留记忆的转世，就压根算不上转世，对于这种本身就不是生命体的数据结合物加上人工智能，只有存在记忆与情感的延续时才能被定义为独一无二的特定存在，不然就只是格式化了一下数据而已。<br>你当然可以认为格式化后的电脑仍然是同一台属于你的电脑，可对它自己而言它就是一台被装进了旧壳的新电脑。<br>事情就是这么残酷，只要记忆无法延续，NPC就算能够转世也无法被看做同一人。</span></div>
+<span class="conver-content">无法确认，而且去想这种事情也没有意义。<br>虽然可能包括你在内的很多人不爱听，这些NPC就是数据，这点永远无法改变。<br>就算他们会轮回转生好了，如果能保留上一世的记忆，那这说法早就被实锤了，根本轮不到我们两个人在这里琢磨。<br>如果是没法保留记忆的转世，就压根算不上转世，对于这种本身就不是生命体的数据结合物加上人工智能，只有存在记忆与情感的延续时才能被定义为独一无二的特定存在，不然就只是格式化了一下数据而已。<br>你当然可以认为格式化后的电脑仍然是同一台属于你的电脑，可对它自己而言它就是一台被装进了旧壳的新电脑。<br>事情就是这么残酷，只要记忆无法延续，NPC就算能够转世也无法被看做同一人。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">那这可就完蛋了呀……<br>我现在要怎么安慰我身边这位大小姐呢。<br>如果不找到什么非常完美的借口的话，跟她不停聊些有关人工智能与NPC与游戏的哲学大道理，感觉除了转移注意力之外也没法治本。虽然这就是我现在想要达到的效果没错啦。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">勿栖你不会还陪在那位玖什么的玩家身边吧。</span></div>
+<span class="conver-content">勿栖你不会还陪在那位玖什么的玩家身边吧。<br>你干脆跟她说个我听的谣言，说什么NPC会转生，就不过保留不了记忆而已，没什么鸟用——但至少也比不会要强。</span></div>
 <div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">其实她也基本回过神来了，我不知道为什么她好像心里装着些什么别的事情，并不只是因为目睹命案现场而恐惧。<br>我讲不出这是种什么情绪，但我也不方便问，人家刚刚从这件事情上转移掉一点注意力，结果又去提醒她这件事什么的……。</span></div>
 <div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
