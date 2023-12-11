@@ -91,95 +91,95 @@
 <br>
 <br>
 <div class="conver-title syslang-side2">&nbsp&nbsp悉世研调：第1幕&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp竹内町-车站前街&nbsp&nbsp距离翡翠新历1年1月1日剩余327天</span></div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
 <span class="conver-content">哇啊、……！终于又给我回到这里来了。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">？？？</span>
 <span class="conver-content">怎么不是中心广场，咦？我上次也不是在车站下线的呀。<br>里歌？喂、里歌你在哪——</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">你的嗓门怎么一到游戏里就这么大了。我在车站里头，别喊了。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">唉嘿嘿。但为什么我们跑到竹内町的车站来了？我明明设置的是……<br>哎呀我这装备是什么东西，怎么变成一根铁棍了。<br>能帮我开一下管理员权限吗？我造个初始武器出来。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">刚刚已经给你开过权限了，还跟我说你要选套好看的衣服。这下好了，你看看你才3级，穿的比人家8级玩家都好。<br>小心被人一眼看出你是开挂的，说都说不清楚。不可以再给你权限了，老实地自己去锻造。<br>而且说到降落地点这桩事……知久，你记下的那个坐标是不知道多少周前的了吧。月星大陆可也是存在板块移动的。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">呜呜、拟真到这种程度其实就有些过头了呀……<br>那我看我之前打到的那些素材也还在背包里。我们TBO什么时候才能更新角色经验值获取机制来着？我记得是公测结束立刻实装。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">你记得没错。但具体改成什么样你还是得去问一问桥本，他们小组码的新系统。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">唉但他们三个人都去哪里了？早了我们十分钟进游戏，估计就……</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">嗯，游戏里已经过去一整天了。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">哇我的天，这时间太难算了。<br>还有筱鸢，她进来好像是今天凌晨的事了吧，都不知道她现在还在不在薙峯霞林区域。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">林的话你让她爱怎么玩就怎么玩。她本来就不是和我们五个进来视察系统情况的，估计现在都玩出花来了吧。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">（筱鸢的话确实在玩游戏的时候很有自己的想法。不知道她会选择以什么方式游玩TBO……<br>先前封闭内测的时候她一直在忙着处理摄动混淆器那个巨大的烂摊子，没什么机会跟我们一起进入游戏。）<br>我感觉自己有五年没来过这里了，不过街道的变化倒是不大。<br>比起远山和桥本他们，我更想先去找一下赤城桑。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">我会去茶楼里坐一会儿，适应一下游戏里的氛围。<br>比起先前封闭内测期，现在竹内町涌入了这么多玩家，变化必然巨大。<br>目前布雷姆城居住了将近900名玩家，竹内则是有800多。位列第三的是有600人的优尼什镇。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">哎呀斯卢霍维明明也很漂亮呀，不知道为什么大家都不愿意往大陆的西北方住。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">山区的环境要算不上恶劣也能称其险峻了。<br>就算只有四分之一的痛感，被夹着暴雪的寒风正面吹脸可不是什么舒服的感受。<br>很多人进入了TBO后就想尽一切可能回避日常现实生活中的不适感了，这也是为何塞壬区域的另一个安全区没有多少玩家住户。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">你是指被雨林三面包围的纳芙斯？<br>那里好像空气湿度和温度都偏高，虽然衣服不会受潮，但多少也是会感到略微的不适没错呢。</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">芙纳丝。<br>空气过于潮湿，甚至超越了周期性被遮天蔽日的浓雾侵袭的这里，也就是竹内。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">稍等、好像筱鸢给我发消息了。估计是看到我在线。<br>怎么说？我们先分头行动？</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">你见着林之后也可以问问她要不要一起练级。这一回我们尽量就不要开挂了。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">知道啦知道啦，我会尝试认真玩这个游戏的。<br>（反正……我也可以找桥本偷偷地开权限嘛。）</span>
 </div>
-<div><img src="avatars/av-nxmn2.png" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
+<div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
 <span class="conver-content">别讲什么尝试，是真的要求你认真玩。<br>晚点见，亲爱的。</span>
 </div>
 <br>
 <br>
 <br>
 <br><div class="conver-title syslang-side2">&nbsp&nbsp悉世研调：第1幕&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp竹内町-车站前街&nbsp&nbsp距离翡翠新历1年1月1日剩余327天</span></div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">（距离我们上次进入游戏，对这个世界来说已经过去那么久了啊。<br>我、里歌、远山辽、桥本海渡君、小山贵爱良桑都有参与封闭内测，当时榛也有和我们同行，但这次她缺席了。<br>内测期我们也拉来了几个非制作组成员参与内测，其中自然也包括重度残疾失去自主行动能力的赤城咲桑——但救回她的若林桑却因为魔法少女协会的事务抽不开身，没能同我们一起测试。<br>不知道这次若林桑有没有成功地享受到这款游戏……）</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">（除此之外，不知道加贺美之前拉拢来的那位住在名古屋的月见花绫栾还有没有在玩TBO。<br>啊、前面那个女生，绝对是筱鸢没跑了。）</span>
 </div>
-<div><img src="avatars/av-nxmn3.png" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
+<div><img src="avatars/av-lxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
 <span class="conver-content">啊，你来了知久。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">筱鸢！嘿嘿，感觉这里变化大吗？<br>我一路走过来，比起之前路上多了一大堆奇装异服的人，我都不知道这里还能造出那些装备。<br>你这把像尺子一样的是什么武器？斩刀吗？</span>
 </div>
-<div><img src="avatars/av-nxmn3.png" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
+<div><img src="avatars/av-lxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
 <span class="conver-content">我怎么可能用近战武器啊。这个是我集想象力大成所精心锻造的……<br>呃、其实是在尝试造它的时候被辽打了岔，我本来是想要造法杖的，结果出来的这玩意法杖的基础功能是具备了，就……外型有些过分。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">唉？那你和远山他们已经见过了？</span>
 </div>
-<div><img src="avatars/av-nxmn3.png" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
+<div><img src="avatars/av-lxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">林筱鸢</span>
 <span class="conver-content">辽和海渡在一起行动。我没见到贵爱良。</span>
 </div>
-<div><img src="avatars/av-nxmn1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
+<div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">她又单独行动了啊……和之前也是一样。<br>（希望封测期间发生的事情没有继续困扰她……）</span>
 </div>
 <br>
