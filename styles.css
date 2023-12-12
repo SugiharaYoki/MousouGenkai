@@ -412,8 +412,39 @@ button:hover {
   transform: scale(110%);
   transition: filter 0.6s;
 }
+#restrictButton {
+  cursor: pointer;
+  margin-top: -84px;
+  margin-left: 160px;
+  margin-bottom: 3.5rem;
+  display: block;
+  transform: scale(120%);
+  transition: filter 0.6s;
+}
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(52, 52, 52, 0.077);
+  padding: 20px;
+  box-shadow: 0px 0px 50px #0000004c, 0px 0px 150px #0000004c, 0px 0px 300px #0000004c;
+  z-index: 1000;
+  border-radius: 100px;
+  color: rgb(209, 209, 209);
+  font-weight: bolder;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.433);
+  font-family: 'PangMenZhengDaoXiXianTi-2';
+}
+.light-mode #modal {
+  color: rgb(43, 43, 43);
+  text-shadow: 3px 3px 1px rgba(170, 170, 170, 0.433);
+}
 
 .light-mode #hintButton {
+  filter: invert(1.0);
+}
+.light-mode #restrictButton {
   filter: invert(1.0);
 }
 
@@ -427,11 +458,9 @@ button:hover {
   position: absolute;
   transition: color 0.5s;
 }
-
 .light-mode #shareMessage {
   color: rgb(17, 18, 17);
 }
-
 #hideButton {
   cursor: pointer;
   position: fixed;
@@ -440,15 +469,12 @@ button:hover {
   transform: scaleX(30%) scaleY(40%);
   transition: filter 0.6s;
 }
-
 .light-mode #hideButton {
   filter: invert(1.0);
 }
-
 #hideButton:hover {
   filter: brightness(200%);
 }
-
 .light-mode #hideButton:hover {
   filter: brightness(0%);
 }
@@ -499,7 +525,6 @@ button:hover {
   line-height: 1.9;
   transition: color 0.6s, background-color 0.6s;
 }
-
 .light-mode .main-content {
   border: 3px solid #1b1b1b;
   background-color: #e2d3c4;
@@ -527,7 +552,6 @@ button:hover {
   font-family: 'PangMenZhengDaoXiXianTi-2';
   transition: color 0.5s, background-color 0.5s, border 0.5s;
 }
-
 .light-mode .character-list-title {
   background-color: #c7c7c7;
   border: 1px solid #979797;
@@ -1232,7 +1256,6 @@ button:hover {
   transform-origin: top right;
   z-index: 50;
 }
-
 #popmimi {
   position: absolute;
   bottom: 0;
@@ -1289,7 +1312,6 @@ button:hover {
   width: 2.4px;
   background-color: rgba(64, 64, 64, 1.0);
 }
-
 .web-version2::-webkit-scrollbar-thumb:hover {
   background-color: rgba(144, 144, 144, 0.8);
 }
@@ -1297,11 +1319,9 @@ button:hover {
   width: 2.4px;
   background-color: rgba(64, 64, 64, 1.0);
 }
-
 .web-update::-webkit-scrollbar-thumb:hover {
   background-color: rgba(144, 144, 144, 0.8);
 }
-
 .web-intro-text {
   position: fixed;
   left: 50%;
@@ -1317,7 +1337,6 @@ button:hover {
   text-shadow: 0 0 5px #ffffff;
   pointer-events: none;
 }
-
 .web-intro-text-mobile {
   position: fixed;
   left: 50%;
@@ -1346,7 +1365,6 @@ button:hover {
     filter: opacity(100%);
   }
 }
-
 @keyframes web-intro-glow-strong {
   from {
     text-shadow: 0 0 10px #000000;
@@ -1431,7 +1449,6 @@ button:hover {
     font-family: 'SourceHansNormal';
     border: 1.6px solid #34343431;
   }
-
   .chapter-content {
     max-height: 650px;
     overflow-y: auto;
@@ -1459,7 +1476,6 @@ button:hover {
     font-family: 'PangMenZhengDaoXiXianTi-2';
     display: none;
   }
-
   .tail-linker-image {
     width: 50%;
     height: auto;
@@ -1519,11 +1535,9 @@ button:hover {
   #hideButton {
     display: none;
   }
-
   #popmimicontainer {
     height: 90vh;
   }
-
   .lhalf-image {
     width: 100%;
     height: 40vh;
@@ -1531,7 +1545,6 @@ button:hover {
     justify-content: center;
     margin: 5px;
   }
-
   .lhalf-image:hover {
     filter: brightness(150%);
   }

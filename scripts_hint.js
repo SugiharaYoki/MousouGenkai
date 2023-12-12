@@ -213,6 +213,7 @@ const sentences = [
 const hintButton = document.getElementById("hintButton");
 const hintContainer = document.getElementById("hintContainer");
 let currentHintTimeout;
+let restrictToggle = false;
 
 function showHint() {
   hintContainer.style.display = 'flex';
@@ -228,3 +229,33 @@ function showHint() {
 }
 
 hintButton.addEventListener("click", showHint);
+
+document.getElementById('restrictButton').onclick = function() {
+  if (restrictToggle) {
+    document.getElementById('modal').style.display = 'none';
+    restrictToggle = false;
+  } else {
+    document.getElementById('modal').style.display = 'block';
+    restrictToggle = true;
+  }
+};
+function checkCode() {
+  var inputCode = document.getElementById('codeInput').value;
+  if (inputCode === "Moonlight") {
+      setCookie('hiddenText', 'true', 365);
+      document.getElementById('modal').style.display = 'none';
+      alert("通往真实的晨星 正散发着柔和的微光");
+  } else {
+      alert("通往真实的晨星 尚未点亮");
+  }
+  document.getElementById('modal').style.display = 'none';
+}
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}

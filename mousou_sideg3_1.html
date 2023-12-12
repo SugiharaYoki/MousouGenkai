@@ -51,6 +51,9 @@
         <a href="mousou_sideg_1.html">
           <img src="side-story-g.png" alt="Sidestory Image G" class="side-stories-image-content">
         </a>
+        <a href="mousou_sideg3_1.html">
+          <img src="side-story-g3.png" alt="Sidestory Image G" class="side-stories-image-content">
+        </a>
       </div>
     </div>
     <div class="content-wrapper">
@@ -350,8 +353,16 @@
     </div>
     <img id="shareButton" src="button_share.png" alt="Share" onclick="copyLink()">
     <img id="hintButton" src="button_hint.png" alt="Hint" onclick="showHint()">
+    <img id="restrictButton" src="button_restrict.png" alt="Restricted" onclick="showRestrict()">
     <div id="shareMessage" style="display:none">故事链接复制成功</div>
     <div id="hintContainer" style="display:none"></div>
+    <div id="modal" style="display:none;">
+      <div>
+          <label for="codeInput">端末公理 - </label>
+          <input type="text" id="codeInput" name="codeInput">
+          <button onclick="checkCode()"></button>
+      </div>
+  </div>
     <div class="tail-linker" id="tail-links">
     </div>
     <!--<a href="https://srs.c8h11no2.xyz/" target="_blank">
