@@ -329,6 +329,11 @@
 <br>谅璃再度好奇：“唔嗯？”
 <br>清紫咽下嘴中面汤：“噢，就、她以前是星悬业火的，后来退了逃到竹内来当了个自由雇佣兵。有次被布雷姆的仇家追上这里来想要给她干废，一打六被按在墙上暴揍。然后路见不平拔刀相助的大姐头抄着把三米巨剑从公会里飞了出来，三下五除二大概十秒内直接猫了其中四个，跑了俩被我飞过去一锤子直接也干翻了，完事这堆人再也没敢来竹内町。总之大姐头一人包围六人的壮举在附近街道出了名，所以不熟悉竹取的也都能知道公会里有个叫竹取月的家伙是前星悬业火公会的成员，甚至还被人追到自己家门口揍。不过嘛，跨区域本该互不干涉，不知道那六个人是不是脑子抽了敢跑来薙峯霞搞人。就算大姐头不出来帮忙，自家门口发生围殴惨案，那个杀人魔绫栾应该也不会坐视不管。”
 <br>“是这样啊……”
+<br>“包括一直不回竹内的事情，看来她是用重生锚把自己留在了野外。”
+<br>重生锚在设定于某处后，能够在短时间内于锚点旁复活将重生点注册在此锚的玩家三回。若是复活完成，锚的充能便会减少一格。设定完重生锚的注册者也可以指定其他的玩家临时登记在自己的重生锚上，届时多人将会共享同一份充能。
+<br>在此之后，若是该玩家再次死亡，重生锚将会自动取消该玩家的绑定状态，将他或她送至最近的传送广场。而恢复一格充能的所需时间，是月星内的一个小时。
+<br>但作为能够登记玩家复活点，且设定后无法被其他玩家破坏的特殊道具，重生锚的价格相当昂贵，普通人一般不会随身携带数枚。正因如此，客房自带了重生锚的旅店性价比才会高过于风餐露宿。
+<br>所以若不是那个竹取月到现在都没有短时间死亡连续超过三次的话……她或许是倾家荡产买了数枚重生锚也说不定。
 <br>“不过谅璃，你不叫你的朋友过来吗？”
 <br>“啊、你叫我？啊……我、我的朋友好像……”谅璃满脸不知道清紫在代指谁的表情。太悲哀了啊，活成这样真的太悲哀了啊。
 <br>“昨天跟你们一起吃饭的。不是那个玖琳然？还有个叫神来社词音的。”
@@ -647,16 +652,22 @@
 <br>但就在她抬腿之际，艾辰叫住了她。<br>
 <br>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
-<span class="conver-content">我觉得你也是可以信赖的对象。<br>虽然我这么干了思诗会长应该会把我活活打死，但我再告诉你一条我所掌握的信息吧。<br>也算不上情报，但我认为能帮得上忙。</span>
+<span class="conver-content">和你一起行动过的那个女生，叫黑羽谅璃的。她有参与这次调查吗？</span>
+</div>
+<div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
+<span class="conver-content">是。具体情况我不清楚，问我无用。</span>
+</div>
+<div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
+<span class="conver-content">唉……话说回来，我觉得你也是可以信赖的对象。<br>虽然我这么干了思诗会长应该会把我活活打死，但我再告诉你一条我所掌握的信息吧。<br>也算不上情报，不过我认为能帮得上忙。</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
 <span class="conver-content">感谢你的信任。你要告诉我何事？</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
-<span class="conver-content">别感谢我的信任了，还是请先感谢我提供情报啊。<br>其实，除我之外也有一位玩家百分之百清楚连锁核心曾在莎娜阿姨手中。</span>
+<span class="conver-content">别感谢我的信任了，还是请先感谢我提供情报啊，然后再顺个便感谢一下那位……不，没什么。<br>其实，除我之外也有一位玩家百分之百清楚连锁核心曾在莎娜阿姨手中。</span>
 </div>
 <div><img src="avatars/av-yjhll1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">月见花绫栾</span>
-<span class="conver-content">那位玩家是韵笺才浅或津风礼社的成员吗？</span>
+<span class="conver-content">……那位玩家是韵笺才浅或津风礼社的成员吗？</span>
 </div>
 <div><img src="avatars/av-ac1.png" class="conver-avatar"><span class="conver-chara conver-chara-001">艾辰</span>
 <span class="conver-content">很遗憾，却也很幸运：他都不是。<br>那人名为雾雨红，凶染Rhyme公会的会长。<br>想必你也并不认识此人吧？</span>
