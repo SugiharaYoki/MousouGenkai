@@ -51,10 +51,35 @@ body {
   font-family: 'rxt';
 }
 
+.episodetext {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 600px;
+}
+.episodetext::-webkit-scrollbar {
+  width: 3.4px;
+  background-color: rgba(64, 64, 64, 0.1);
+  animation: general-easein 0.6s ease-in-out;
+}
+.episodetext::-webkit-scrollbar-thumb {
+  background-color: rgba(108, 108, 108, 0.2);
+  border-radius: 5px;
+  animation: general-easein 0.6s ease-in-out;
+}
+
 .leadingtext {
   font-family: 'ce';
   font-style: normal;
   padding: 1px;
+}
+.leadingtextlarge {
+  font-family: 'ce';
+  font-style: normal;
+  font-size: 32px;
+  padding: 1px;
+  font-weight: 500;
 }
 .leadingtext-cracked1 {
   font-family: 'ce';
@@ -832,6 +857,22 @@ button:hover {
   background-color: #2b2927;
   color: rgb(255, 255, 255);
   margin-bottom: 3rem;
+  line-height: 1.9;
+  animation: details-easein 0.6s ease-in-out;
+  transition: color 0.5s, background-color 0.5s;
+}
+.chapter-content-episode {
+  max-height: 100%;
+  min-height: 550px;
+  width: 100%;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  font-size: 15px;
+  border: 3px solid #1b1b1b;
+  background-color: #2b2927;
+  color: rgb(255, 255, 255);
+  margin-bottom: 3.5rem;
+  margin-top: 3rem;
   line-height: 1.9;
   animation: details-easein 0.6s ease-in-out;
   transition: color 0.5s, background-color 0.5s;
@@ -1767,6 +1808,12 @@ label.calc {
   text-shadow: 5px 4px 2px rgb(118, 59, 176);
   margin-bottom: 25px;
 }
+.conver-episode {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+
 .conver-title-append {
   font-size: medium;
 }
