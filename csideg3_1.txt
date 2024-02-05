@@ -116,7 +116,7 @@
 <div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">（筱鸢的话确实在玩游戏的时候很有自己的想法。不知道她会选择以什么方式游玩TBO……<br>先前封闭内测的时候她一直在忙着处理摄动混淆器那个巨大的烂摊子，没什么机会跟我们一起进入游戏。）<br>我感觉自己有五年没来过这里了，不过街道的变化倒是不大。<br>比起远山和桥本他们，我更想先去找一下赤城桑。</span></div>
 <div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
-<span class="conver-content">我会去茶楼里坐一会儿，适应一下游戏里的氛围。<br>比起先前封闭内测期，现在竹内町涌入了这么多玩家，变化必然巨大。<br>目前布雷姆城居住了将近900名玩家，竹内则是有800多。位列第三的是有600人的优尼什镇。</span></div>
+<span class="conver-content">我会去茶楼里坐一会儿，适应一下游戏里的氛围。<br>比起先前封闭内测期，现在竹内町涌入了这么多玩家，变化必然巨大。<br>目前布雷姆城居住了将近900名玩家，竹内则是有800多。位列第三的是有600人的优妮瑟镇。</span></div>
 <div><img src="avatars/av-cyzj1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-002">出原知久</span>
 <span class="conver-content">哎呀斯卢霍维明明也很漂亮呀，不知道为什么大家都不愿意往大陆的西北方住。</span></div>
 <div><img src="avatars/av-hzlg1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">桦泽里歌</span>
