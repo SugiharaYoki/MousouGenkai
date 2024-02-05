@@ -39,6 +39,28 @@ body {
   color: rgb(255, 0, 0);
   padding: 3px;
 }
+.syslang-3 {
+  font-size: x-large;
+  font-weight: bold;
+}
+.syslang-3-2 {
+  box-shadow: 0 11px 4px -9px #ffffff80, 0 10px 0px -8px #c2c2c2;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: "ce";
+  font-size: larger;
+}
+.syslang-3-3 {
+  font-size: normal;
+  font-family: "ce";
+}
+.syslang-4 {
+  font-family: 'rxt';
+  box-shadow: -2.5px 0px 0px 0px #ac47d7,2.5px 0px 0px 0px #ac47d7;
+  padding: 2px;
+  color:rgb(218, 178, 244);
+  font-size: large;
+}
 .syslang-side2 {
   font-family: 'rxt';
   box-shadow: -2.5px 0px 0px 0px #838383,2.5px 0px 0px 0px #838383;
