@@ -856,6 +856,14 @@ button:hover {
   transition: border 0.1s;
 }
 
+.episode-illust {
+  width: 500px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  margin-left: 60px;
+  border: 3.2px solid #1b1b1b;
+}
+
 .chapter-character-count {
   font-size: 0.8rem;
   position: absolute;
