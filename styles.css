@@ -1458,6 +1458,13 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  .episode-illust {
+    width: 20rem;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    border: 3.2px solid #1b1b1b;
+  }
   .chapter-list {
     width: 50%;
     margin-left: 1.55rem;
