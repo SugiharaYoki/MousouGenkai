@@ -263,67 +263,67 @@
 <br>
 <br>
 <div class="conver-title syslang-side2">&nbsp&nbsp端末行动：勿栖与和伊的私信·2&nbsp&nbsp<span class="conver-title conver-title-append">&nbsp&nbsp月星-私信邮件&nbsp&nbsp翡翠新历1年5月38日</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">我的妈，我的关东煮又被人偷了。一天天的真的让人根本没法省心，搞得我现在茶都不想喝了。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">这可是好事，说明你做的小吃是真的美味，受到大家的热烈赞赏！<br>……不过这次商品损失严重吗？</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">严不严重是另一回事，这个月已经是第十七八次了，虽然关东煮没什么成本但也不能一整格一整格抓大把地薅啊，直接趁我回头拿一根就跑我都压根不会发现。<br>现在如此猖狂这算什么，这算公然挑衅。岂有此理。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">你应该装监控了，有患无备。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">是有备无患啊弟弟，而且装监控，你在文艺复兴科技树下装监控是想玩什么穿越者超现代科技龙傲天流剧情吗。<br>再者，说得好像我不知道这事儿都谁干的一样。其实我跟你提过好几遍的，一大半就是那个ID叫折桥吹雪的垃圾女偷的，从我开店以来已经被我逮现行至少七次了，每次都给她逃掉。<br>她那叫什么花鸟鱼虫批发的公会就是一野生无秩序无组织的存在，我连人都捞不到。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">TBO是这样的呢，但凡一个玩家想要躲起来，多神通广大都基本是找不到对方的。<br>再不济往隔壁姆歇戎一藏，直接销声匿迹，还能独行快乐玩好久。<br>你也小心点，你PVP的本事不高，当心被她给偷袭受伤，虽然实际不会怎样，但还是多少会痛的。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">那个，白夜桑她好些了吗？<br>我到现在也啥信息都没问出来。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">我还以为她跟你在一起，那我只能给提供一则情报就是她又去咖喱乌冬面公会了。<br>她没明说，但我在她身后跟了一会儿，那方向基本没跑，除非她是要去传送广场。<br>她现在也没理由离开薙峯霞林。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">我是真的不知道她昨晚到底经历了什么，早上也跟你说了她是全身湿透回来的，一句话都不说。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">而且……很奇怪的就是，她昨天下午跟我发私信邮件提了有关那位红头发小女生提供的情报，说是真凶在你店铺这条街道作案，光天化日一定有人目击……虽说这点我们倒是一开始就想到了，不知道她为什么要特意提这种事情。<br>现在好了，她又一言不发了，从头到尾也就透露了这一点有意义的信息。<br>难不成是她昨晚撞见真凶了？或者接收到什么很受打击的新情报？可白夜桑不是压根不关心这场杀人案吗？我还是不太理解这些事情背后的联系。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">词音的意思就是我在这附近开店肯定有见到真凶，可恶我要真的有见着我还至于在这里emo吗，我早就把所有嫌疑人都给拎出来了。<br>你们来之前我去南区采购炼金器具了，压根没有在看店，要说也必须得是这附近其他的人有目击真凶。<br>当天早上莎娜阿姨可是活的。大活人。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">我们是不是该问一下附近的其他商户？他们或许会提供什么关键信息。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">看情况吧，我得先想办法搞个魔法监控之类的。我得先治治那个什么吹雪。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">对了，她一般都是在什么时候偷你的商品？会不会就是在你没看店的时候？</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">那时确实是良机啊，我每次锁上店铺前窗也会被撬开。<br>而且不止如此啊，我现在就在店里呢上楼端杯茶，又你妈被偷了。<br>她是不是光盯着我这一家店偷啊，怎么不明抢啊。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">虽然我听得不知道为什么感觉很搞笑……但、我这么提议你别生气。<br>你觉得，会不会那时候这位折桥吹雪在你的店铺附近，目击了真凶？</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">啊？就算她可能见到真凶了我也不可能去问她的。<br>往最差了说嘛，她看到我就跑了，你觉得我怎么从她嘴里撬出情报来？拷问吗？</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">没事，你先去着重于问周围商铺的店主，看看他们能不能提供信息……当然我觉得町奉行也做完类似的调查工作了。<br>你得做好通过这样的程序也无法获得任何有用线索的准备。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">而我呢？你去询问周围店铺店主有关这次案件的线索就会不可避免地人要离店对吧，对，所以我负责在那段时间里逮人。<br>她一直有见到你，你一注意到她她就会逃跑——但她并不一定记得我是谁，我只要叫上泽子和池原一起埋伏着，三边同时夹击，我不信那位靠偷东西吃饭的吹雪女能跑得掉。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">你们小心不要扑个空，那吹雪有什么备用手段我完全不清楚。<br>我每次抓她都是被她正面挣脱逃掉的。<br>天哪，我怎么这么丢人啊。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">目前也只有先这么走看看了。那么……你觉得白夜桑那里我们该怎么办？咱们好像也手束无策？</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">……束手无策。既然你怀疑是与这桩杀人案有关，那显然我们这里有了进展之后，白夜那里也会好受很多吧。<br>现在我们并不清楚她是因为什么才沉默寡言起来，但依我看来不可能与这杀人事件无关。<br>不然的话，我们没法解释她为什么会突然对杀人案有关的事情产生兴趣。<br>总不可能是闲着没事干吧，她每天都和那个雇佣兵约了出去玩，应该能做的事很多。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">那位你说的雇佣兵是之前在早上等着白夜桑出门的玩家吧，我记得你说她也是咖喱乌冬面的成员。<br>对了，今早你有见到那个玩家吗？</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">今早啊……确实没有。没来接人，我看白夜似乎也是急匆匆的，会不会是那个玩家发现关键情报了啊。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">只要不是当场抓住真凶然后打起来了就好。但如果是那样的话，白夜桑也肯定会叫上我的，所以应该不是。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">可恶可恶，亏我以为自己已经获取白夜桑的信任了，最后出了这种事情之后，我都没办法挖出她心中的任何秘密……又帮不上忙又安慰不了她。我这朋友做的，太失败了、太失败了。<br>这次白夜桑变这样，必定有一份我的责任。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">有你个屁的责任啦，我之前跟你说白夜有很严重的心理疾病，现在多半也只是因为什么事给激发出来了。具体是什么事，既然白夜她自己没说，我们就不该去多管，只能希望她先姑且冷静下来一些。<br>这回最多也只是你把白夜看得太愿意向别人表述出自己内心的思绪了。她本来就是个极其内向的人。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">我还是陪白夜桑陪得太少，光顾着和倒悬巴别的那堆人鬼混了。<br>既然白夜多少关心这次杀人案的真相的话，我们就只能用行动来获取情报，再用情报去安抚她了。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">事不宜迟……今天既然那吹雪已经光顾过了，显然就不会再次接近这条街道了。若是要执行计划的话，估计也得等到明天。</span></div>
-<div><img src="avatars/av-cwhy1.png" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
+<div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
 <span class="conver-content">在那之前，你去试试找白夜吧。虽说她现在在经历什么我们也不好过问，但既然我们把她当成朋友，就肯定也是会担心的。<br>我计划一下明天的具体行动方针，你去街道附近转转，问问有没有人见过白夜。</span></div>
-<div><img src="avatars/av-hgswq1.png" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
+<div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">嗯……那我先出发了。计划有拟定初稿的话记得给我看一眼！</span></div>
 <br>
 <br>
