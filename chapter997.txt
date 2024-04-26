@@ -2849,25 +2849,25 @@
 <span class="conver-content">我不确定聆弦姐姐那里联系町奉行是否正是为了验证此事。<br>如果我刚刚的这一想法是正确的，那聆弦姐姐必定也想到了。<br>她拜托我来调查这家乐器店说不定就是为了让我询问受害的店主是否丢失了什么特殊的财物。<br>这样的话，我只要询问身为玩家的二店主有关稀有材料或者道具的事情，说不定能获取十分有价值的消息。</span>
 </div>
 <div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
-<span class="conver-content">那个，词音妹妹——现在除了我们与那位姓方的姐姐，还有什么其他人能够依靠吗？<br>我想到，如果是使用大型近战武器的嫌犯，只要观察到形迹可疑且手持这类武器的玩家，<br>不说八成，至少有两成值得怀疑的价值。</span>
+<span class="conver-content">那个，词音妹妹——现在除了我们与那位姓方的姐姐，还有什么其他人能够依靠吗？<br>我想到，如果是使用大型近战武器的嫌犯，只要观察到形迹可疑且手持这类武器的玩家，<br>不说八成，至少有两成可能是个重要嫌疑犯。</span>
 </div>
 <div><img src="avatars/av-slscy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">是哦，可以从武器方面下手……可以一击斩断正常成年NPC腰部的武器，普通的长剑难以做到。<br>等级和近战攻击力足够高的玩家很难想出有什么理由会推动他们对NPC下毒手。<br>这样的话……实际上可以被怀疑的行凶武器范围其实比乍一想的要小非常多。</span>
 </div>
 <div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
-<span class="conver-content">我这里可以联系一下昨天的和歌森小姐，她虽然不是正统近战输出职位，但……<br>既然是喜欢锻造近战武器的人，我觉得她说不定会对行凶武器持有一些我们外行人没有的技巧。<br>不过词音妹妹你用的是什么武器？我好像没见你……</span>
+<span class="conver-content">我这里可以联系一下昨天的和歌森小姐，她虽然不是正统近战输出职位，但……<br>既然是喜欢锻造近战武器的人，我觉得她说不定会对行凶武器持有一些我们外行人想不到的观点。<br>不过词音妹妹你用的是什么武器？我好像没见你……</span>
 </div>
 <div><img src="avatars/av-slscy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
-<span class="conver-content">嗯，出于某种原因，今早出门没带武器。应该是只能在安全区内活动了……<br>我用的是刺剑，但我的锻造技能研究范围都在防具上，武器方面我也只熟知西洋剑类了。</span>
+<span class="conver-content">嗯，出于某个私人原因，今早出门没带武器。应该是只能在安全区内活动了……<br>我用的是刺剑，但我的锻造技能研究范围都在防具上，武器方面我也只熟知西洋剑类了。</span>
 </div>
 <div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
-<span class="conver-content">原来如此。我主使的是法杖，你应该已经注意到了的。</span>
+<span class="conver-content">原来如此。我这里主使的是法杖，你应该已经注意到了的。</span>
 </div>
 <div><img src="avatars/av-slscy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
-<span class="conver-content">是的呢。可以的话你试着问一问你说的那位和歌森桑关于武器的事情，我先联系一下昨天跟我和聆弦姐姐留到最后的那个茶屋姐姐，她在北街区开店，肯定对周围的NPC受害新闻多少有耳闻。</span>
+<span class="conver-content">是的。可以的话你试着问一问你说的那位和歌森桑关于武器的事情，我先联系一下昨天跟我和聆弦姐姐留到最后的那个茶屋姐姐，她在北街区开店，肯定对周围的NPC受害新闻多少有耳闻。</span>
 </div>
 <div><img src="avatars/av-jlr1.png" class="conver-avatar"><span class="conver-chara conver-chara-002">玖 琳然</span>
-<span class="conver-content">嗯唔……你说的那家“琴音绕梁”的店铺，好像就是这家？<br></span>
+<span class="conver-content">嗯唔……你说的那家叫“琴音绕梁”的店铺，好像就是这家？<br></span>
 </div>
 <div><img src="avatars/av-slscy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-001">神来社 词音</span>
 <span class="conver-content">已经到了？不应该啊，那块牌子应该在……<br>呃，怎么、……</span>
@@ -2891,7 +2891,7 @@
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">联系完了。在我看来，那个小姑娘调查起来不会太久。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">我记得你说过，你昨日在临走时拿了两个人的联系方式。<br>开小吃店的茶屋那边，不打算拜托那个人协助调查吗？</span></div>
+<span class="conver-content">我记得你说过，你昨日在临走时拿了两个人的联系方式。<br>开小吃店的茶屋那边情况如何，不打算拜托那个人协助调查吗？</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">和伊小妹啊，她在NPC云集的街区开店，熟悉周边的风土人情、比普通玩家认识更多NPC……<br>是因为考虑到这些，你才困惑为什么我不去寻求她的帮助，对吧。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
@@ -2905,7 +2905,7 @@
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">确实如此。她店铺就在药水店的斜对面。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">……我大概能猜到你要说什么了，你是指距离这么近，她与这药水店老板娘的关系一定尤其亲近？</span></div>
+<span class="conver-content">……我大概能猜到你要说什么了，你是指距离这么近，她与这药水店老板娘的关系说不准也会亲近？</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">这只是第一层表象。<br>既然是玩家亲自下场开了店铺，还卖的都是些现实流行的日本小吃……你不觉得，这种性质的铺子定会有常客吗？</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
@@ -2919,9 +2919,9 @@
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">所以现在我们已经有了一条新的调查途径：寻找带着能够一斩之内杀人灭口的大范围近战武器。<br>长剑、阔剑、长斧、镰刀，以及那些攻击方式近似的自定义武器类型。</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
-<span class="conver-content">真凶既敢大摇大摆地背着此类武器走进现场，我无法揣摩他/她到底在想些什么，简直像根本不怕被路人怀疑。<br>那样的人，除非嗜杀成性自身数值极高，町奉行来了也能保身逃离之人……就是已经提前踩过点、光顾过店面的常客或回头客，知晓店主并不会戒备自己。</span></div>
+<span class="conver-content">真凶既敢大摇大摆地背着此类武器走进现场，我无法揣摩他/她到底在想些什么，简直像根本不怕被路人怀疑。<br>那样的人，除非嗜杀成性自身数值极高，町奉行来了也能保身逃离之人……之外就是已经提前踩过点、光顾过店面的常客或回头客，知晓店主并不会戒备自己。<br>再然后，则是压根就不会再回到这附近行动的其他区域的玩家。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">但这一点还无法肯定。</span></div>
+<span class="conver-content">但我们还无法肯定。</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">没错。而店铺就在斜对面的和伊小妹，一天基本都站在柜台后，总能瞧见对面几间店铺常有谁来拜访。<br>正因如此，我们过早地请求和伊提供相关情报……只会使得我们的信息源走偏，过早地将目标锁定在个体而不是范围群体上。<br>在这间隙，或许便会错失找到真正的凶手的良机。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
@@ -2929,13 +2929,13 @@
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">别小看那小姑娘的行动能力，昨日你同月见花绫栾在街上大肆作战之时，她也会有胆量在完全破甲的情形之下追赶你俩索赔装备。<br>况且，她那身铠甲可不是随随便便就能损坏的。我不觉得被她视作如此珍物的自定制铠甲不会被她定期维护。<br>依我看，她昨日根本不是去普通的野区刷怪。<br>她去的，指不定正是飞鸟泉，薙峯霞林最危险的区域。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">雾霾山的最终迷宫就是在飞鸟泉的东南尽头。不过方小姐从塞壬来，对我们这边区域的难度划分还挺清楚？</span></div>
+<span class="conver-content">雾霾山的最终迷宫就是在飞鸟泉的东南尽头。不过你这人从塞壬来，对我们这边区域的难度划分知道得还挺清楚？</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">那些并不重要。<br>我将词音引去那家琴音绕梁，是因为她随后便一定会顺藤摸瓜跑去咖喱乌冬面这所公会进行调查。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">是因为昨天我告诉你的，有关琴音绕梁店主是咖喱乌冬面公会成员这件事？</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
-<span class="conver-content">没错，而这样的话……信息网络就能成功连结了。</span></div>
+<span class="conver-content">正是如此，而这样的话……借她之手，信息网络就能成功连结了。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
 <span class="conver-content">在那之后，你还指望那个词音能获得什么我们二人都未掌握的情报？<br>单纯是缩小真凶的特征范围吗？</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
@@ -2949,7 +2949,7 @@
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">没错，而且我们这里已经注意到了“武器”这一显著的线索，那小姑娘要反应过来这件事也不会花费多久。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">揣摩词音的想法并利用词音，利用词音去利用谅璃，再利用谅璃去利用茶屋……<br>哪个杀人犯摊上你去调查案件可真是倒够了霉。能想出这种可行性极其值得怀疑的办法，恐怕除你之外也没几人。</span></div>
+<span class="conver-content">为了不被人看出你一个塞壬的玩家插手薙峯霞林事务，你可真是煞费苦心。<br>揣摩词音的想法并利用词音，利用词音去利用谅璃，再利用谅璃去利用茶屋……<br>哪个杀人犯摊上你去调查案件可真是倒够了霉。能想出这种可行性极其值得怀疑的办法，还得是你。</span></div>
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">分析得确实不错，看来我找你来做搭档还是有点用处的。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
@@ -2957,12 +2957,12 @@
 <div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
 <span class="conver-content">算啦，不扯这些有的没的。今天中午打算吃点什么？我请你好了。</span></div>
 <div><img src="avatars/av-jlxy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-004">久礼 夏月</span>
-<span class="conver-content">不了，AA吧。我还没有穷到需要其他区域来的人请我吃饭的地步。<br>那我是不是该尽一下地主之谊？竹内町有家饭店卖的菜品很古怪，但我想你或许会感兴趣。</span></div>
+<span class="conver-content">不了，AA吧。我还没有穷到需要其他区域来的人请我吃饭的地步。<br>那我是不是该尽一下地主之谊？竹内町有家饭店卖的菜品很古怪，但我想你或许会对那种玩意感兴趣。</span></div>
 <br>要托付给町奉行的任务已经交代完毕。现在的任务就是锁定凶手的身份，并等他自行上钩了。
 <br>在这玩家无法封禁玩家、被杀的玩家可以无限复活的世界……如何将凶手绳之以法，将会是最大的难题。
-<br>但这对归属杀手公会的方聆弦而言，从来都不是需要担心的程序。聆弦与夏月都清楚，此次行动的最大不确定性——已经仅剩下凶手的身份。<br>
-<br><div><img src="avatars/av-flx1.png" class="conver-avatar"><span class="conver-chara conver-chara-003">方 聆弦</span>
-<span class="conver-content">（那么……神来社词音，你可不要让我失望呢。）</span></div>
+<br>但这对归属杀手公会的方聆弦而言，从来都不是需要担心的程序。聆弦与夏月都清楚，此次行动的最大不确定性——已经仅剩下凶手的身份。
+<br>聆弦浅浅一笑，计划目前为止都在如期推进。
+<br>那么，作为最关键的一步棋……神来社词音，你可不要让我失望呢。
 <br>
 <br>
 <br>
