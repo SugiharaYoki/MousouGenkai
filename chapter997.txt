@@ -1077,7 +1077,7 @@
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
 <span class="conver-content">懒得管，他们是死是活都不关我事。哦，如果是前者的话说不定我会下趟馆子庆祝下。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
-<span class="conver-content">别这样啦，我知道你对自己父母抱有非常巨大的不满，但他们毕竟还是给你提供了一些优良的生活条件……<br>至少在以前是这样。</span></div>
+<span class="conver-content">别这样啦，我知道你对自己父母抱有非常巨大的不满，但他们毕竟还是给你提供了一些优良的生活条件……<br>至少在以前是这样，对不对。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">？？？</span>
 <span class="conver-content">给牛放养喂最好的草，甚至让牛听歌陶冶下情操，几年后牛被杀了端上餐桌，你想要牛感激之前所受到的一切待遇吗？<br>当然我也知道自己给出的比喻根本上就有问题，但你理解我的意思即可。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
@@ -2464,7 +2464,7 @@
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">毕竟所谓“重生锚”，在NPC的认知里也只是用来驱赶魔物的啊。<br>你还记得我们之前讨论过的那个都市传说吗……<br>听讲《月星-Online-》的本质就是一个NPC发展的观察模拟器，我们玩家也只是通过另一种方式进一步观察NPC行为的细节与历史的轨迹，并对他们做出一些系统范围内的干预而已。<br>所以实质上，这个游戏最根本的“玩家”其实是“观测者”，而“NPC”才是“玩家”。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">魔物本身是系统的工具，而玩家也只是套了魔物的底层框架，再安上了人形。<br>这种说话本身就过于离谱了，但联想到TBO本身的性质，又多少有了可信度。</span></div>
+<span class="conver-content">魔物本身是系统的工具，而玩家也只是套了魔物的底层框架，再安上了人形——是指这则传说吧。<br>这种说法本身就过于离谱了，但联想到TBO本身的性质，又多少有了可信度。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">你认为……有任何办法使得NPC能够复活吗？</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
@@ -2472,11 +2472,11 @@
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">既然月星的本质就是程序的话……你觉得，NPC会经历轮回转生吗？</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">无法确认，而且去想这种事情也没有意义。<br>虽然可能包括你在内的很多人不爱听，这些NPC就是数据，这点永远无法改变。<br>就算他们会轮回转生好了，如果能保留上一世的记忆，那这说法早就被实锤了，根本轮不到我们两个人在这里琢磨。<br>如果是没法保留记忆的转世，就压根算不上转世，对于这种本身就不是生命体的数据结合物加上人工智能，只有存在记忆与情感的延续时才能被定义为独一无二的特定存在，不然就只是格式化了一下数据而已。<br>你当然可以认为格式化后的电脑仍然是同一台属于你的电脑，可对它自己而言它就是一台被装进了旧壳的新电脑。<br>事情就是这么残酷，只要记忆无法延续，NPC就算能够转世也无法被看做同一人。</span></div>
+<span class="conver-content">无法确认，而且去想这种事情也没有意义。<br>虽然可能包括你在内的很多人不爱听，这些NPC就是数据，这点永远无法改变。<br>就算他们会轮回转生好了，如果能保留上一世的记忆，那这说法早就被实锤了，根本轮不到我们两个人在这里琢磨。<br>如果是没法保留记忆的转世，就压根算不上转世，对于这种本身就不是生命体的数据结合物加上人工智能，只有存在记忆与情感的延续时才能被定义为独一无二的特定存在，不然就只是格式化了一下数据而已。<br>你当然可以认为格式化后的电脑仍然是同一台属于你的电脑，可对它自己而言它就是一台被装进了旧壳的新电脑。<br>事情就是这么残酷，只要记忆无法延续，NPC就算能够转世也无法被看做与原先是同一人。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">那这可就完蛋了呀……<br>我现在要怎么安慰我身边这位大小姐呢。<br>如果不找到什么非常完美的借口的话，跟她不停聊些有关人工智能与NPC与游戏的哲学大道理，感觉除了转移注意力之外也没法治本。虽然这就是我现在想要达到的效果没错啦。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">勿栖你不会还陪在那位玖什么的玩家身边吧。<br>你干脆跟她说个我听的谣言，说什么NPC会转生，就不过保留不了记忆而已，而且不一定会成为人类，魔物或者野生动物之类的都可能。没什么鸟用——但至少也比不会要强。</span></div>
+<span class="conver-content">勿栖你不会还陪在那位玖什么的玩家身边吧。<br>你干脆跟她说个我听的谣言，说什么NPC会转生，就不过保留不了记忆而已，而且不一定会成为人类：魔物或者野生动物之类的都可能。没什么鸟用——但至少也比完全不会转生要强。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">我感觉这位大小姐应该不会相信这类谣言。其实她也基本回过神来了，我不知道为什么她好像心里装着些什么别的事情，并不只是因为目睹命案现场而恐惧。<br>我讲不出这是种什么情绪，但我也不方便问，人家刚刚从这件事情上转移掉一点注意力，结果又去提醒她这件事什么的……。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
@@ -2496,11 +2496,11 @@
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">要在游戏里……做这些啊。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">不然我们没有途径了解折磨她的心魔究竟是什么。她这样的人，要是放任不管，回到现实世界后绝对会寻死。<br>你可以先想办法问到她居住在哪个城市，我听她说话口音应该是关东人。</span></div>
+<span class="conver-content">不然我们没有途径了解折磨她的心魔究竟是什么。她这样的人，要是放任不管，回到现实世界后绝对会寻死。<br>你可以先想办法问到她居住在哪个城市，我听她说话口音应该是关东人，有点像我们神奈川的。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">嗯嗯，到时候我睡前跟她扯皮的时候试试看能不能套出信息来。她不像是很有防备的样子。</span></div>
 <div><img src="avatars/av-cwhy1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-006">茶屋 和伊</span>
-<span class="conver-content">没错……更像是单纯对什么都不感兴趣的样子，我认为她完全不会在意自己的个人信息泄露。这一点太明显了。</span></div>
+<span class="conver-content">没错……更像是单纯对什么都懒得在乎的样子，我认为她完全不会在意自己的个人信息泄露。这一点太明显了。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
 <span class="conver-content">某种程度上……也算是好事了吧。</span></div>
 <div><img src="avatars/av-hgswq1.jpg" class="conver-avatar"><span class="conver-chara conver-chara-005">和歌森 勿栖</span>
