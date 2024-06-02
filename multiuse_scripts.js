@@ -29,6 +29,7 @@ const pageNames = [
   `mousou_chapter9.html`,
   `mousou_chapter10.html`,
   `mousou_chapter11.html`,
+  `mousou_chapter12.html`,
 ];
 
 const totalPages = pageNames.length;
@@ -78,8 +79,8 @@ function resetPageDirect(pagin) {
       let pageDirectForm = document.createElement("select");
       pageDirectForm.id = "pageDirector";
       pageDirectForm.classList.add("directFormList");
-      var optionsDirect = ["- 选择命运的分支 -", "主线：初始微光", "主线：第0章", "主线：第1章", "主线：第2章", "主线：第3章", "主线：第4章", "主线：第5章", "主线：第6章", "主线：第7章", "主线：第8章", "主线：第9章", "致世界（理央）：虚壹之章", "致世界（理央）：虚贰之章", "千泉乡（绫栾）：梦蝶壹章", "千泉乡（绫栾）：梦蝶贰章", "千泉乡（绫栾）：梦蝶叁章", "千泉乡（竹取）：光玥壹章", "千泉乡（聆弦）：曦蚀壹章", "千泉乡（聆弦）：曦蚀贰章", "千泉乡（莲音）：焚晓间章", "千泉乡（晓风）：落阑壹章", "落月星辉（黑泽）：玄芒壹章", "落月星辉（廖平）：虚融壹章", "落月星辉（启蛰）：相魍壹章", "附加内容：资料章", "事件簿：第1卷 引言", "事件簿：第1卷 第1章", "事件簿：第1卷 第2章"];
-      var optionsDirectValue = [-1, 0, 1, 2, 3, 4, 6, 16, 17, 25, 26, 27, 7, 10, 8, 18, 19, 9, 14, 15, 21, 23, 20, 22, 24, 5, 11, 12, 13];
+      var optionsDirect = ["- 选择命运的分支 -", "主线：初始微光", "主线：第0章", "主线：第1章", "主线：第2章", "主线：第3章", "主线：第4章", "主线：第5章", "主线：第6章", "主线：第7章", "主线：第8章", "主线：第9章", "主线：第10章", "致世界（理央）：虚壹之章", "致世界（理央）：虚贰之章", "千泉乡（绫栾）：梦蝶壹章", "千泉乡（绫栾）：梦蝶贰章", "千泉乡（绫栾）：梦蝶叁章", "千泉乡（竹取）：光玥壹章", "千泉乡（聆弦）：曦蚀壹章", "千泉乡（聆弦）：曦蚀贰章", "千泉乡（莲音）：焚晓间章", "千泉乡（晓风）：落阑壹章", "落月星辉（黑泽）：玄芒壹章", "落月星辉（廖平）：虚融壹章", "落月星辉（启蛰）：相魍壹章", "附加内容：资料章", "事件簿：第1卷 引言", "事件簿：第1卷 第1章", "事件簿：第1卷 第2章"];
+      var optionsDirectValue = [-1, 0, 1, 2, 3, 4, 6, 16, 17, 25, 26, 27, 28, 7, 10, 8, 18, 19, 9, 14, 15, 21, 23, 20, 22, 24, 5, 11, 12, 13];
       pageDirectForm.oninput = () => redirectChapter(pageDirectForm.value);
       for (var i = 0; i < optionsDirect.length; i++) {
         var option = document.createElement("option");
