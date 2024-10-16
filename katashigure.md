@@ -273,6 +273,12 @@ PVP层面，我们制作了传统类的空岛战争、狙击射箭等小型游�
 
 <br>
 
+**本服务器的数据包Katashigure.于GitHub开源**：https://github.com/SugiharaYoki/Katashigure-20240617-
+
+GitHub贡献者包括杉原夜季、轩宇、xiyihan、sdgedghdg四人。
+
+<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;目前已投入使用的数据包功能包括且并不限于如下项目：
 
 - 花园1（亚兹列尔的中庭花园）
