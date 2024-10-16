@@ -1,31 +1,21 @@
-# 方时雨城 カタシグレ
 
-*愿这场仅在此地降下的薄雨，见证你的一切过去……*
+<h1 class="katashigure-title">大型MC服务器 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方时雨城（カタシグレ）</h1>
 
-  <br>
-
-我们是一款基于Minecraft Java 1.21.1原版的大型正版服务器。
-
-  <br>
-
-服务器中拥有多款风格与玩法不同的游戏。PVP层面，我们制作了传统类的空岛战争、狙击射箭等小型游戏。
-
-而在PVE层面，我们正在开发两款仍在不断更新的中型游戏：
+<h4 class="katashigure-quote">“愿这场仅在此地降下的薄雨，见证你的一切过去……”</h4>
 
 <br>
+
+我们是一款基于Minecraft Java 1.21.1原版的大型正版服务器。服务器中拥有多款风格与玩法不同的游戏，辅以游戏原版的数据包&资源包制作而成。
+
+PVP层面，我们制作了传统类的空岛战争、狙击射箭等小型游戏。而在PVE层面，我们正在开发两款仍在不断更新的中型游戏：
 
 1. **解谜闯关箱庭战斗RPG『亚兹列尔的中庭花园』**
 
 &nbsp;&nbsp;&nbsp;&nbsp;*“注定一死的你，将如何违抗命运？”*
 
-<br>
-
 2. **惊悚恐怖战斗解谜RPG『厄珀娅的悲歌』**
 
 &nbsp;&nbsp;&nbsp;&nbsp;*“唯有在最黑暗的阴霾中，生命才能绽放出微薄却仍然耀眼的光辉。”*
-
-<br>    
-  
 
 <br>
 
@@ -35,7 +25,8 @@
 
 <br>
 
-**服务器策划组成员：**
+<h4 class="katashigure-subtitle3">服务器策划组成员：</h4>
+
 - 杉原夜季
     - 服务器主策划
     - 花园2『厄珀娅的悲歌』主策、制作者
@@ -54,7 +45,8 @@
 
 <br>
 
-**服务器管理人员：**
+<h4 class="katashigure-subtitle3">服务器管理人员：</h4>
+
 - xiyihan
     - 前周目修复工程副负责
     - 服务器资源主题包云存档管理者
@@ -74,13 +66,21 @@
 
 <br>
 
-## 游戏简介
+<br>
+
+<br>
+
+<h1 class="katashigure-title">___________________________________________</h1>
+
+<br>
+
+<h2 class="katashigure-subtitle">游戏简介</h2>
 
 ![Katashigure Image](katashigure/katashigure-website-garden1-banner.png)
 
-### 『亚兹列尔的中庭花园』
+<h3 class="katashigure-subtitle">『亚兹列尔的中庭花园』</h3>
 
-#### ★ &nbsp;&nbsp;游戏背景故事
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;游戏背景故事</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;死亡。
 
@@ -114,7 +114,7 @@
 
 ![Katashigure Image](katashigure/katashigure-website-garden1-pic1.png)
 
-#### ★ &nbsp;&nbsp;游戏玩法介绍
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;游戏玩法介绍</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;探索沙利叶的生命树庭园并与守卫此地的神界军与怪物展开战斗，收集掉落物素材并使用背包中的“生命手册”兑换武器、防具、物品，甚至是其他的素材。
 
@@ -132,11 +132,15 @@
 
 <br>
 
+<h1 class="katashigure-title">___________________________________________</h1>
+
+<br>
+
 ![Katashigure Image](katashigure/katashigure-website-garden2-banner.png)
 
-### 『厄珀娅的悲歌』
+<h3 class="katashigure-subtitle">『厄珀娅的悲歌』</h3>
 
-#### ★ &nbsp;&nbsp;游戏背景故事
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;游戏背景故事</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;唯有在最黑暗的阴霾中，生命才能绽放出微薄却仍然耀眼的光辉。
 
@@ -160,7 +164,7 @@
 
 ![Katashigure Image](katashigure/katashigure-website-garden2-pic2.png)
 
-#### ★ &nbsp;&nbsp;游戏玩法介绍
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;游戏玩法介绍</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;本游戏为类死亡空间风格游戏，在渲染恐怖气氛与创造线性体验的同时，增加了可供自由探索与完成的支线部分，并着重描写了同怪物的战斗与能够自由搭配的作战方式。
 
@@ -170,7 +174,7 @@
 
 <br>
 
-#### ★ &nbsp;&nbsp;章节预览
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;章节预览</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;随着你在忒尔克西钻井平台的推进，你将会接触到许多意料之外的超自然现象。
 
@@ -187,7 +191,11 @@
 
 <br>
 
-#### ★ &nbsp;&nbsp;系统机制
+![Katashigure Image](katashigure/katashigure-website-garden2-large1.png)
+
+<br>
+
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;系统机制</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;**◇ &nbsp;&nbsp;多功能工作站**
 
@@ -222,7 +230,7 @@
 
 <br>
 
-#### ★ &nbsp;&nbsp;登场角色
+<h4 class="katashigure-subtitle3">★ &nbsp;&nbsp;登场角色</h4>
 
 |角色 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 简介|
 | :------- | :------------|
@@ -241,3 +249,53 @@
 | 麦迪逊| 机械研发部门阿尔法小组的开发员。<br>作为阿尔法小组的主力设计师，在热兵器失效后亲手打造了许多种高科技武器。<br>投掷式可暂停定时炸弹、静滞光棱、粘液保护墙、喷火器爆燃膛针的制作者。在灾难爆发后针对多种特殊尸变体进行了调查，并写下记录。<br>没有任何幸存者见过他，至今生死不明。|
 
 <br>
+
+<br>
+
+<br>
+
+<br>
+
+<h1 class="katashigure-title">___________________________________________</h1>
+
+<br>
+
+![Katashigure Image](katashigure/katashigure-website-datapackdesc-banner.png)
+
+<h2 class="katashigure-subtitle">数据包实现</h2>
+
+&nbsp;&nbsp;&nbsp;&nbsp;服务器的主要数据包作者为杉原夜季（SugiharaYoki）与轩宇（XuanYu1725_XYU）
+
+&nbsp;&nbsp;&nbsp;&nbsp;截至2024年10月17日，服务器使用Minecraft 1.21.1数据包版本。
+
+- 已实装.mcfunction文件超过 2,000 份
+- 有效command超过 100,000 行
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;目前已投入使用的数据包功能包括且并不限于如下项目：
+
+- 花园1（亚兹列尔的中庭花园）
+    - 聊天区菜单，消耗绿宝石随机刷新商品并进行商品交易，无法通过历史记录购买刷新前的商品。
+    - 玩家背包合成区储存剧情物品。
+    - 基于距离计算与数值计算的怪物互相伤害与特定怪物帮助玩家的行为逻辑。
+    - 特定NPC范围内获得特殊效果、可进行特殊的聊天区交易。
+    - 基于玩家最高关卡进度与当前是否存在新玩家作为判断的跳过剧情系统。
+    - 自定义怪物掉落物。偶尔会出现极稀有掉落物，包括能够优先代替绿宝石作为刷新商店素材的*闪烁的瓜片*。
+- 花园2（厄珀娅的悲歌）
+    - *花园1的全部特性*。
+    - 站点商店购买与传送，且指定商店分组，无法传送至其他组别。
+    - 视线追踪触发事件。
+    - 基于玩家通关速度的隐藏事件或章节分支。
+    - 指定掉落物转换为定时炸弹，在丢弃并经过指定时长后引发爆炸，可用于破坏特殊方块。
+    - 点灯系统：通过*曲谱*获得的铜板记入玩家数据后，同行显示已解锁和未解锁的指定铜板类型全部等级。不利用宏、不利用穷举。
+    - 可考虑OP类玩家旁观、老玩家带领新玩家游玩时不触发特定一次性剧情的OP专用特殊设置。
+    - OP可使用的背包备份机制，输入function后自动读取玩家本局游戏内上一次自动备份的背包内容，并自动替换至玩家此刻的背包。最多同时支持8人的备份。
+    - 武器特殊功能，包括盾反机制、战斧劈箭机制、战斧蹲跳横扫攻击机制、工程弩自动读取装填特定物品机制等。
+    - 基于Interaction Entity的自定义武器，包括通过自动恢复的经验值条作为燃料的喷火器右键普通攻击，与获得特定升级部件后消耗特定弹药进行高火力集中范围轰击的喷火器左键特殊攻击。
+    - 怪物弱点，包括*静滞光棱*攻击无效的*呻吟者*与被*静滞光棱*秒杀的*静滞者*，以及在着火时阻止断末魔触发的*不死骑士*等。
+    - 基于Block Display与Marker Entity的自定义陷阱机关，包括检测到附近有玩家会腾空升起旋转多方向射箭的无人机，以及正上方有玩家经过时两秒后猛烈爆炸并造成范围伤害的延时地雷。
+    - 基于玩家当局游戏纳入背包并记入数据的档案箱系统：玩家可在指定地点查看已收集的所有档案，并获得未收集档案的提示。
+    - 基于或不基于item replace，借助或不借助指定隐藏容器进行怪物满足特定条件后的实时替换装备。
+    - 可交互的背包合成区剧情物品。
+

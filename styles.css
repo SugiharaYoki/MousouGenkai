@@ -810,6 +810,26 @@ button:hover {
   font-family: 'SourceHansRegular';
   animation: general-easein 0.6s ease-in-out;
 }
+.katashigure-title {
+  font-family: 'PangMenZhengDaoXiXianTi-2';
+}
+.katashigure-subtitle {
+  font-family: 'rxt';
+  font-size: xx-large;
+}
+.katashigure-subtitle2 {
+  font-family: 'rxt';
+  font-size: x-large;
+}
+.katashigure-subtitle3 {
+  font-family: 'rxt';
+  font-size: larger;
+}
+.katashigure-quote {
+  font-family: 'GenJyuuRegular';
+  font-size: larger;
+  font-style: italic;
+}
 .katashigure-body img {
   max-width: 450px;
   height: auto;
