@@ -84,7 +84,7 @@
 <br>
 <br>
 <br>
-<br><h1><span class="leadingtext">心羽舞末 篇</h1></span>
+<br><h1><span class="leadingtext">辞惟予陌 篇</h1></span>
 <br><h2><span class="leadingtext">OP：最終宣告</span></h2></span><div id="music_player" class=""><audio controls><source src="mousouop1.mp3" type="audio/mpeg"></audio></div> 
 <br>by まふまふ
 <br><a href="https://www.youtube.com/watch?v=FMPeKoUmBAs" target="_blank" rel="noopener noreferrer">Youtube</a>
