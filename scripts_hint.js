@@ -217,6 +217,9 @@ const sentences = [
   "第12章与第13章的创作间隔极长，因为杉原夜季在这之前大幅度扩写了第0至12章，并重写了诸多内容！",
   "Pixiv上的旧版异维杀戮篇将会作为“WEB版本”予以保留！",
   "在实体版中，倒悬巴别的成员们将会成为实体版独占小剧场的主要人物！",
+  "天冬茗在现实中的身份很不简单，她来到游戏中似乎带有特殊目的性！",
+  "试着游玩一下音乐节奏游戏《梦见霖音：Milthm》！",
+  "第三卷中的强制刷新现象对白夜的影响高于其余任何玩家！",
 ];
 
 const hintButton = document.getElementById("hintButton");
@@ -234,7 +237,7 @@ function showHint() {
   currentHintTimeout = setTimeout(() => {
     hintContainer.textContent = "";
     hintContainer.style.display = 'none';
-  }, randomSentence.length * 180);
+  }, randomSentence.length * 180 + 540);
 }
 
 hintButton.addEventListener("click", showHint);
