@@ -259,7 +259,7 @@ function showHint() {
   currentHintTimeout = setTimeout(() => {
     hintContainer.textContent = "";
     hintContainer.style.display = 'none';
-  }, randomSentence.length * 180 + 540);
+  }, randomSentence.length * 280 + 740);
 }
 
 hintButton.addEventListener("click", showHint);
