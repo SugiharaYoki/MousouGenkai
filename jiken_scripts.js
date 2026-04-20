@@ -63,27 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
   async function displayChapterList() {
     chapterList.innerHTML = "";
     for (let i = (currentPage - 1) * chaptersPerPage; i < currentPage * chaptersPerPage && i < chapters.length; i++) {
-      if (i != 4 || getCurrentPageIndex() == 4) {
-        const listItem = document.createElement("li");
-        listItem.classList.add("chapter-item");
-        const titleElement = document.createElement("div");
-        titleElement.textContent = chapters[i].title;
-        const listLinker = document.createElement("a");
-        listLinker.href = `jiken_chapter${i + 1}.html`;
-        listItem.appendChild(listLinker);
-        listLinker.appendChild(titleElement);
-        listLinker.classList.add("chapter-link");
-        const characterCount = await getCharacterCount(chapters[i].filePath);
-        const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 500);
-        if (i == 4) {
-          characterCountElement.textContent = `无规范时长 | ${Math.round(characterCount / 100)/100} 万字 `;
-        } else {
-        characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
-        }
-        characterCountElement.classList.add("chapter-character-count");
-        listLinker.appendChild(characterCountElement);
-        chapterList.appendChild(listItem);
-      }
+      const listItem = document.createElement("li");
+      listItem.classList.add("chapter-item");
+      const titleElement = document.createElement("div");
+      titleElement.textContent = chapters[i].title;
+      const listLinker = document.createElement("a");
+      listLinker.href = `jiken_chapter${i + 1}.html`;
+      listItem.appendChild(listLinker);
+      listLinker.appendChild(titleElement);
+      listLinker.classList.add("chapter-link");
+      const characterCount = await getCharacterCount(chapters[i].filePath);
+      const characterCountElement = document.createElement("div"), readingTime = Math.round(characterCount / 500);
+      characterCountElement.textContent = `${readingTime} 分钟 | ${Math.round(characterCount / 100)/100} 万字 `;
+      characterCountElement.classList.add("chapter-character-count");
+      listLinker.appendChild(characterCountElement);
+      chapterList.appendChild(listItem);
     }
     displayPagination(); setActiveChapterTitle();
   } 
