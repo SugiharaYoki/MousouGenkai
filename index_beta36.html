@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
-<title>非商业音乐游戏运营模拟器 Beta35</title>
+<title>非商业音乐游戏运营模拟器 Beta36</title>
 <style>
 :root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
@@ -543,7 +543,7 @@ html.manual-pc .main{
   </div>
   <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
 </section>
-<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 35</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 36</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
 <div class="layout"><div class="col">
 <section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
 <button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
@@ -591,7 +591,7 @@ html.manual-pc .main{
 <div class="list" id="members"></div></section>
 <section class="panel mobile-economy"><h2>经济状态</h2><div id="economyText"></div>
 <div class="sub" style="margin-top:12px;text-align:right;line-height:1.6;opacity:.72;font-size:10px">
-  最后更新日期：2026年08月24日 02:45:00<br>
+  最后更新日期：2026年08月24日 03:00:00<br>
   反馈与提议：邮箱 yukidare2766@gmail.com
 </div></section>
 </div><div class="col">
@@ -3038,7 +3038,7 @@ function refreshSaveStatus(){
 
 function buildSavePayload(){
   return {
-    version:"Beta35",
+    version:"Beta36",
     savedAt:Date.now(),
     uid:uid,
     state:JSON.parse(JSON.stringify(state)),
@@ -3227,7 +3227,7 @@ function applyDeviceMode(){
 }
 function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
 let simulatorTitle=document.getElementById("gameSimulatorTitle");
-if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 35`:"非商业音乐游戏运营模拟器 · Beta 35";
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 36`:"非商业音乐游戏运营模拟器 · Beta 36";
 state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
 eventActionPoints.textContent=state.ap.toFixed(0);
 eventSpirit.textContent=Math.round(spirit);
@@ -3388,11 +3388,12 @@ async function loadExternalComposerData(){
     });
     COMPOSER_MASTER.forEach(c=>{
       c.portfolio=portfolios
-        .filter(p=>Number(p.ownerComposerId)===Number(c.id))
+        .filter(p=>{
+          const owners=Array.isArray(p.ownerComposerName)?p.ownerComposerName:[p.ownerComposerName];
+          return owners.includes(c.name);
+        })
         .map(p=>{
           const copy={...p};
-          delete copy.ownerComposerId;
-          delete copy.ownerComposerName;
           return copy;
         });
     });
