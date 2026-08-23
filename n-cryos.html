@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
-<title>非商业音乐游戏运营模拟器 Beta10</title>
+<title>非商业音乐游戏运营模拟器 Beta12</title>
 <style>
 :root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
@@ -478,7 +478,7 @@ button.big{width:100%;font-weight:700;font-size:22px;padding:17px;margin-top:10p
   </div>
   <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
 </section>
-<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 10</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 12</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
 <div class="layout"><div class="col">
 <section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
 <button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
@@ -526,7 +526,7 @@ button.big{width:100%;font-weight:700;font-size:22px;padding:17px;margin-top:10p
 <div class="list" id="members"></div></section>
 <section class="panel mobile-economy"><h2>经济状态</h2><div id="economyText"></div>
 <div class="sub" style="margin-top:12px;text-align:right;line-height:1.6;opacity:.72;font-size:10px">
-  最后更新日期：2026年08月23日 20:14:10<br>
+  最后更新日期：2026年08月23日 21:02:00<br>
   反馈与提议：邮箱 yukidare2766@gmail.com
 </div></section>
 </div><div class="col">
@@ -598,7 +598,7 @@ services:{vpn:false,translation:false,takeout:false,workspace:false,sponsor:fals
 formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
 exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
 collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
-freeMemberEventsToday:0,feedbackEmailEventDone:false,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
+freeMemberEventsToday:0,feedbackEmailEventDone:false,playerMilestone1000Done:false,recommendCommissionCooldown:0,mysteryDonationCooldown:0,mysteryDonationFollowups:[],playerMilestone10000Done:false,playerMilestone100000Done:false,
 milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
 computerBrokenUntil:0,computerRepairCooldownUntil:0,members:[],composers:[],library:[],commissions:[],packages:[],collabs:[],
 currentCollabOffer:null,jobLockedUntil:1,firstShcadCommissionDone:false,rumorActiveUntil:0,rumorBaseFansLoss:0,rumorLastTriggerDay:-9999,rumorMinGapDays:90,rumorTriggersThisYear:0,collabFailStack:0,collabsThisYear:0,collabPenaltyDays:0,
@@ -1414,6 +1414,25 @@ function memberNamePoolFor(role,rarity){
   if(role==="art"&&rarity===5)return [...GENERAL_MEMBER_NAME_POOL,...LEVEL5_ART_NAME_POOL];
   return GENERAL_MEMBER_NAME_POOL;
 }
+function usedMemberNames(){
+  return new Set((state.members||[]).map(m=>m.name).filter(Boolean)
+    .concat((state.applications||[]).map(a=>a.name).filter(Boolean))
+    .concat(state.candidate&&state.candidate.name?[state.candidate.name]:[]))
+}
+function pickUniqueMemberName(role,rarity,excludeName=null){
+  let used=usedMemberNames();
+  if(excludeName)used.delete(excludeName);
+  let tries=0;
+  while(tries<100){
+    let name=pickMemberName(role,rarity,excludeName);
+    if(!used.has(name))return name;
+    tries++
+  }
+  let base=role==="chart"?"谱师":"美术";
+  let i=1;
+  while(used.has(`${base}${i}`))i++;
+  return `${base}${i}`
+}
 function pickMemberName(role,rarity,preferred=null){
   if(preferred&&memberNameAllowed(preferred,role,rarity))return preferred;
   let used=new Set(state.usedMemberNames||[]);
@@ -1435,7 +1454,7 @@ function markFiveStarRecruit(rarity){
 }
 function createMemberApplication(role,rarity,message=null){
   if(!state.applications)state.applications=[];
-  let app={id:nextId(),role,rarity,name:pickMemberName(role,rarity)};
+  let app={id:nextId(),role,rarity,name:pickUniqueMemberName(role,rarity)};
   state.applications.push(app);
   if(message)log(message,"blue");
   render()
@@ -1453,6 +1472,46 @@ function rejectApplication(id){
   state.applications=(state.applications||[]).filter(a=>a.id!==id);
   render()
 }
+
+function recommendationCommissionDaily(){
+  if(state.recommendCommissionCooldown>state.day) {
+    state.recommendCommissionCooldown--;
+    return
+  }
+  if(state.day<366)return;
+  let members=state.members.filter(m=>[2,3,5].includes(m.rarity));
+  if(!members.length||!chance(.0001))return;
+  let m=members[Math.floor(Math.random()*members.length)];
+  let composers=state.composers||[];
+  let c=composers.filter(c=>!composerHasActiveCommission(c.id)&&composerReachable(c));
+  if(!c.length)return;
+  let target=c[Math.floor(Math.random()*c.length)];
+  state.recommendCommissionCooldown=45;
+  m.recommendComposerId=target.id;
+  m.recommendComposerDeadline=state.day+30;
+  let more=state.library.some(s=>s.composerId===target.id||s.composerIds?.includes(target.id))?"更多":"";
+  let style=target.name;
+  log(`制作组成员${m.name}提到，如果我们的游戏能收录${more}${style}的歌曲就好了……`,"blue")
+}
+function mysteryDonationDaily(){
+  if(state.mysteryDonationCooldown>0){
+    state.mysteryDonationCooldown--;
+    return
+  }
+  if(state.sponsorIncome<=500||!chance(.005))return;
+  let composers=(state.composers||[]).filter(c=>composerReachable(c));
+  if(!composers.length)return;
+  let c=composers[Math.floor(Math.random()*composers.length)];
+  let ratio=.1+(Math.min(100,state.rating)/100)*1.9*Math.random();
+  let money=Math.max(state.sponsorIncome*.1,state.sponsorIncome*ratio);
+  money=Math.min(money,state.sponsorIncome*2);
+  state.money+=money;
+  state.mysteryDonationCooldown=90;
+  state.mysteryDonationTarget=c.id;
+  state.mysteryDonationUntil=state.day+180;
+  log(`《${gameName()}》收到了一笔神秘的捐款。对方留言说，如果未来能在游戏里看到${c.name}的曲子就好了。`,"blue")
+}
+
 function specialRecruitmentEvents(){
   if(state.day>=16&&!state.hasSearchedMember&&!state.sideSleepSearchHintDone){
     state.sideSleepSearchHintDone=true;
@@ -1484,7 +1543,7 @@ function searchMember(role){
   if(chance(recruitProbability(role))){
     state.recruitFail[role]=0;
     let rarity=rollRecruitRarity();
-    state.candidate={role,rarity,name:pickMemberName(role,rarity)}
+    state.candidate={role,rarity,name:pickUniqueMemberName(role,rarity)}
   }else{
     state.recruitFail[role]++;
     log("寻找失败。")
@@ -1494,7 +1553,7 @@ function searchMember(role){
 function acceptCandidate(){
   let c=state.candidate;if(!c)return;
   if(state.members.length>=teamCap())return log("人数已达上限，暂时无法录用。");
-  state.members.push({id:nextId(),name:c.name||pickMemberName(c.role,c.rarity),role:c.role,rarity:c.rarity,joinDay:memberJoinDayForDesign(c.role,c.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&c.role==="chart"&&c.rarity>=3});
+  state.members.push({id:nextId(),name:c.name||pickUniqueMemberName(c.role,c.rarity),role:c.role,rarity:c.rarity,joinDay:memberJoinDayForDesign(c.role,c.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&c.role==="chart"&&c.rarity>=3});
   markFiveStarRecruit(c.rarity);
   state.candidate=null;
   log(`已录用${c.rarity}级${c.role==="chart"?"谱师":"美术"} ${c.name||""}。`);
@@ -1516,7 +1575,7 @@ function fireMember(id){
   else if([2,3,5].includes(m.rarity))registerFormerMemberOpinion(m,.0005*opinionMul);
   state.library.forEach(s=>{s.chartMemberIds=s.chartMemberIds.filter(x=>x!==id);if(s.artMemberId===id)s.artMemberId=null});
   state.members.splice(i,1);
-  if(chance(.05))state.candidate={role:m.role,rarity:Math.min(5,m.rarity+1),name:pickMemberName(m.role,Math.min(5,m.rarity+1),m.name)};
+  if(chance(.05))state.candidate={role:m.role,rarity:Math.min(5,m.rarity+1),name:pickUniqueMemberName(m.role,Math.min(5,m.rarity+1),m.name)};
   render()
 }
 function coordCap(){let b=0;for(const m of state.members){let y=Math.floor(Math.max(0,state.day-m.joinDay-180)/365);b+=Math.min(8,y*2)}return 100+b}
@@ -2632,7 +2691,10 @@ function hiatusCheck(){
   if(year()<3){
     if(gap>=90&&gap%30===0&&state.members.length){
       let eligible=state.members.filter(m=>!memberOccupied(m));
-      if(eligible.length)removeMember(eligible[Math.floor(Math.random()*eligible.length)].id,"前3年连续3个月未更新，失去成员")
+      if(eligible.length){
+        let leave=eligible[Math.floor(Math.random()*eligible.length)];
+        removeMember(leave.id,`由于连续3个月都没进行有意义的更新，${leave.name}决定离开制作组。`,"red")
+      }
     }
     if(gap>=180&&!state.hiatusTriggered)triggerHiatus()
   }else{
@@ -2674,7 +2736,7 @@ function rumorDaily(){
     }
     return;
   }
-  if(state.fans<=3000)return;
+  if(state.fans<=3000||state.rating<30||state.rating>90)return;
   if(state.rumorTriggersThisYear>=2)return;
   if(state.day-state.rumorLastTriggerDay<state.rumorMinGapDays)return;
   if(chance(.01)){
@@ -2758,7 +2820,7 @@ function feedbackEmailMilestoneDaily(){
   state.feedbackEmailEventDone=true;
   log('反馈与提议：邮箱 <a href="mailto:yukidare2766@gmail.com" style="color:inherit;text-decoration:underline">yukidare2766@gmail.com</a><br>记得在信中留下你的ID，说不定你会被写进通关Credits里！',"purple")
 }
-function endDay(){state.day++;cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();naturalPlayerGrowth();rumorDaily();
+function endDay(){state.day++;cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();recommendationCommissionDaily();mysteryDonationDaily();naturalPlayerGrowth();rumorDaily();
 recalcPublic();
 if(state.players>0&&state.fans>state.players*2)state.expectation+=.01*(state.fans/state.players-2);
 if(state.players>0&&state.discussion/state.players*100>state.rating*1.5)state.metaRating-=.01;
@@ -2789,7 +2851,7 @@ function refreshSaveStatus(){
 
 function buildSavePayload(){
   return {
-    version:"Beta10",
+    version:"Beta12",
     savedAt:Date.now(),
     uid:uid,
     state:JSON.parse(JSON.stringify(state)),
@@ -2949,7 +3011,7 @@ function renderDevelopmentBars(){
 function showTab(b){document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active")}function toggleDebug(){debugPanel.classList.toggle("open")}
 function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
 let simulatorTitle=document.getElementById("gameSimulatorTitle");
-if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 10`:"非商业音乐游戏运营模拟器 · Beta 10";
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 12`:"非商业音乐游戏运营模拟器 · Beta 12";
 state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
 eventActionPoints.textContent=state.ap.toFixed(0);
 eventSpirit.textContent=Math.round(spirit);
