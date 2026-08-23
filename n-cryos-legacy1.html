@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
-<title>非商业音乐游戏运营模拟器 Beta33</title>
+<title>非商业音乐游戏运营模拟器 Beta18</title>
 <style>
 :root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
@@ -508,6 +508,22 @@ html.manual-pc .main{
 </style></head>
 
 <script>
+function applyBeta18ReputationSystem(){
+  // Beta18：好评度保护机制
+  // 每月保存口碑基准；跌破前两个月平均后，负面下降效果降低到33%
+  if(!state.ratingHistory)state.ratingHistory=[];
+  if(state.day%30===1){
+    state.ratingHistory.push(state.metaRating||0);
+    if(state.ratingHistory.length>24)state.ratingHistory.shift();
+  }
+}
+function beta18ArtSoftFloor(value,change){
+  // 艺术追求软下限：越接近50以下，下降越困难
+  if(change>=0)return change;
+  let factor=Math.min(1,Math.max(0,value/50));
+  return change*factor;
+}
+
 (function(){
   try{
     var mode=localStorage.getItem("manualDeviceMode")||"auto";
@@ -543,7 +559,7 @@ html.manual-pc .main{
   </div>
   <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
 </section>
-<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 33</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 17</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
 <div class="layout"><div class="col">
 <section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
 <button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
@@ -591,7 +607,7 @@ html.manual-pc .main{
 <div class="list" id="members"></div></section>
 <section class="panel mobile-economy"><h2>经济状态</h2><div id="economyText"></div>
 <div class="sub" style="margin-top:12px;text-align:right;line-height:1.6;opacity:.72;font-size:10px">
-  最后更新日期：2026年08月24日 02:15:00<br>
+  最后更新日期：2026年08月23日 22:00:00<br>
   反馈与提议：邮箱 yukidare2766@gmail.com
 </div></section>
 </div><div class="col">
@@ -652,23 +668,7 @@ html.manual-pc .main{
     buildMobileLayout();
   }
 })();;
-let COMPOSER_MASTER=[];
-
-(function(){
-  const addExtraPortfolio=(composerName,item)=>{
-    const c=COMPOSER_MASTER.find(x=>x.name===composerName);
-    if(c&&!c.portfolio.some(p=>p.name===item.name))c.portfolio.push(item);
-  };
-
-  addExtraPortfolio("PICKUPNEAR",{"id":51006,"name":"温室花房第7作：flashback","price":5000,"quality":4,"abstract":3,"style":"抒情","attention":60,"discussion":60,"good":80,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 夜枭大叔","collabComposerIds":[],"sharedPortfolioKey":"PICKUPNEAR vs. 夜枭大叔|温室花房第7作：flashback"});
-  addExtraPortfolio("夜枭大叔",{"id":51006,"name":"温室花房第7作：flashback","price":5000,"quality":4,"abstract":3,"style":"抒情","attention":60,"discussion":60,"good":80,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 夜枭大叔","collabComposerIds":[],"sharedPortfolioKey":"PICKUPNEAR vs. 夜枭大叔|温室花房第7作：flashback"});
-
-  addExtraPortfolio("PICKUPNEAR",{"id":51007,"name":"温室花房第8作：magic","price":5000,"quality":4,"abstract":2,"style":"抒情","attention":70,"discussion":70,"good":80,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. USAGI","collabComposerIds":[1003],"sharedPortfolioKey":"PICKUPNEAR vs. USAGI|温室花房第8作：magic"});
-
-  addExtraPortfolio("PICKUPNEAR",{"id":51008,"name":"温室花房第9作：recitation","price":5000,"quality":4,"abstract":3,"style":"灼热","attention":60,"discussion":60,"good":80,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 纵连大师","collabComposerIds":[1005],"sharedPortfolioKey":"PICKUPNEAR vs. 纵连大师|温室花房第9作：recitation"});
-  addExtraPortfolio("纵连大师",{"id":51008,"name":"温室花房第9作：recitation","price":5000,"quality":4,"abstract":3,"style":"灼热","attention":60,"discussion":60,"good":80,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 纵连大师","collabComposerIds":[1005],"sharedPortfolioKey":"PICKUPNEAR vs. 纵连大师|温室花房第9作：recitation"});
-})();
-
+const COMPOSER_MASTER=[{"id":1,"name":"cYsisolate","country":"挪威","popularity":50,"abstract":1,"avgQuality":5,"efficiency":3,"mental":70,"affection":0,"affDifficulty":70,"prices":{"非商":6000,"商业":15000,"正式邀请":30000},"styles":{"灼热":90,"抒情":80,"冷冽":30},"qualityProbs":{"非商":[0.0,0.3,0.4,0.25,0.05],"商业":[0.0,0.3,0.3,0.35,0.05],"正式邀请":[0.0,0.0,0.5,0.45,0.05]},"bond":[7],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":2,"name":"Half","country":"日本","popularity":50,"abstract":3,"avgQuality":3,"efficiency":4,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":60,"抒情":60,"冷冽":50},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":3,"name":"大二","country":"日本","popularity":90,"abstract":4,"avgQuality":4,"efficiency":4,"mental":100,"affection":0,"affDifficulty":90,"prices":{"非商":15000,"商业":25000,"正式邀请":50000},"styles":{"灼热":60,"抒情":70,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.5,0.3,0.1],"商业":[0.0,0.1,0.3,0.5,0.1],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[18,20,25],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50003,"name":"猫的咖啡厅","price":5000,"quality":3,"abstract":5,"style":"抒情","attention":90,"discussion":90,"good":20,"bought":false,"note":"","composerLabel":"大二","collabComposerIds":[3],"sharedPortfolioKey":"大二|猫的咖啡厅"}],"note":null},{"id":4,"name":"留存","country":"日本","popularity":100,"abstract":2,"avgQuality":6,"efficiency":1,"mental":70,"affection":0,"affDifficulty":60,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":40,"抒情":100,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.7,0.2,0.1],"商业":[0.0,0.0,0.3,0.5,0.2],"正式邀请":[0.0,0.0,0.0,0.5,0.5]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50001,"name":"梦工厂","price":3000,"quality":5,"abstract":1,"style":"抒情","attention":80,"discussion":50,"good":100,"bought":false,"note":"","composerLabel":"留存","collabComposerIds":[4],"sharedPortfolioKey":"留存|梦工厂"}],"note":null},{"id":5,"name":"鱿羽鱼","country":"中国","popularity":20,"abstract":3,"avgQuality":2,"efficiency":5,"mental":80,"affection":0,"affDifficulty":30,"prices":{"非商":2000,"商业":4000,"正式邀请":8000},"styles":{"灼热":50,"抒情":40,"冷冽":50},"qualityProbs":{"非商":[0.3,0.3,0.4,0.0,0.0],"商业":[0.15,0.35,0.5,0.0,0.0],"正式邀请":[0.0,0.0,0.9,0.1,0.0]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":6,"name":"可燃冰","country":"中国","popularity":70,"abstract":2,"avgQuality":4,"efficiency":4,"mental":30,"affection":0,"affDifficulty":80,"prices":{"非商":3500,"商业":8000,"正式邀请":16000},"styles":{"灼热":30,"抒情":30,"冷冽":80},"qualityProbs":{"非商":[0.0,0.3,0.6,0.1,0.0],"商业":[0.0,0.2,0.6,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[11],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50023,"name":"温室花房第6作：blizzard","price":2400,"quality":3,"abstract":2,"style":"冷冽","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 可燃冰","collabComposerIds":[11,6],"sharedPortfolioKey":"PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard"}],"note":null},{"id":7,"name":"natto","country":"日本","popularity":80,"abstract":1,"avgQuality":4,"efficiency":3,"mental":80,"affection":0,"affDifficulty":80,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":70,"抒情":50,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[1],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":8,"name":"ryuko","country":"日本","popularity":30,"abstract":5,"avgQuality":4,"efficiency":4,"mental":100,"affection":0,"affDifficulty":20,"prices":{"非商":3000,"商业":6000,"正式邀请":8000},"styles":{"灼热":100,"抒情":20,"冷冽":50},"qualityProbs":{"非商":[0.0,0.7,0.2,0.1,0.0],"商业":[0.0,0.5,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.8,0.15,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":9,"name":"白女皇","country":"法国","popularity":70,"abstract":1,"avgQuality":3,"efficiency":3,"mental":60,"affection":0,"affDifficulty":50,"prices":{"非商":3000,"商业":10000,"正式邀请":20000},"styles":{"灼热":50,"抒情":70,"冷冽":70},"qualityProbs":{"非商":[0.0,0.4,0.5,0.1,0.0],"商业":[0.0,0.3,0.5,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50007,"name":"时间长流","price":2000,"quality":4,"abstract":1,"style":"抒情","attention":70,"discussion":40,"good":60,"bought":false,"note":"","composerLabel":"白女皇","collabComposerIds":[9],"sharedPortfolioKey":"白女皇|时间长流"}],"note":null},{"id":10,"name":"舞茸","country":"日本","popularity":10,"abstract":2,"avgQuality":5,"efficiency":2,"mental":60,"affection":0,"affDifficulty":20,"prices":{"非商":3000,"商业":8000,"正式邀请":16000},"styles":{"灼热":20,"抒情":40,"冷冽":100},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.8,0.1,0.1],"正式邀请":[0.0,0.0,0.6,0.2,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":11,"name":"PICKUPNEAR","country":"中国","popularity":50,"abstract":1,"avgQuality":3,"efficiency":6,"mental":60,"affection":0,"affDifficulty":30,"prices":{"非商":3500,"商业":8000,"正式邀请":12000},"styles":{"灼热":0,"抒情":90,"冷冽":70},"qualityProbs":{"非商":[0.0,0.3,0.4,0.3,0.0],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[6],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50002,"name":"最华丽的独奏","price":500,"quality":3,"abstract":2,"style":"抒情","attention":30,"discussion":10,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|最华丽的独奏"},{"id":50011,"name":"温室花房第1作：afternoon","price":1200,"quality":2,"abstract":1,"style":"抒情","attention":30,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第1作：afternoon"},{"id":50012,"name":"温室花房第2作：sunlight","price":1200,"quality":2,"abstract":2,"style":"灼热","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第2作：sunlight"},{"id":50013,"name":"温室花房第3作：flower","price":1200,"quality":2,"abstract":3,"style":"抒情","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第3作：flower"},{"id":50014,"name":"温室花房第4作：rain","price":1200,"quality":2,"abstract":2,"style":"冷冽","attention":40,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第4作：rain"},{"id":50015,"name":"温室花房第5作：dandelion","price":1200,"quality":2,"abstract":1,"style":"灼热","attention":30,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第5作：dandelion"},{"id":50023,"name":"温室花房第6作：blizzard","price":2400,"quality":3,"abstract":2,"style":"冷冽","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 可燃冰","collabComposerIds":[11,6],"sharedPortfolioKey":"PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard"}],"note":null},{"id":12,"name":"remesa","country":"日本","popularity":60,"abstract":2,"avgQuality":4,"efficiency":3,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":30,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.2,0.5,0.3,0.0],"商业":[0.0,0.2,0.3,0.5,0.0],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":13,"name":"W5N","country":"韩国","popularity":90,"abstract":0,"avgQuality":5,"efficiency":4,"mental":100,"affection":0,"affDifficulty":50,"prices":{"非商":15000,"商业":30000,"正式邀请":60000},"styles":{"灼热":80,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.8,0.2,0.0],"商业":[0.0,0.0,0.5,0.5,0.0],"正式邀请":[0.0,0.0,0.3,0.5,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":14,"name":"Flower","country":"日本","popularity":90,"abstract":4,"avgQuality":3,"efficiency":1,"mental":30,"affection":0,"affDifficulty":60,"prices":{"非商":1500,"商业":12000,"正式邀请":24000},"styles":{"灼热":50,"抒情":50,"冷冽":50},"qualityProbs":{"非商":[0.0,0.9,0.1,0.0,0.0],"商业":[0.0,0.3,0.5,0.2,0.0],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50004,"name":"infinite-cardinal","price":0,"quality":3,"abstract":3,"style":"冷冽","attention":70,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"Flower","collabComposerIds":[14],"sharedPortfolioKey":"Flower|infinite-cardinal"},{"id":50006,"name":"返校日","price":0,"quality":2,"abstract":4,"style":"灼热","attention":60,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"Flower","collabComposerIds":[14],"sharedPortfolioKey":"Flower|返校日"}],"note":null},{"id":15,"name":"atsusamushi","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":3,"mental":90,"affection":0,"affDifficulty":70,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":80,"抒情":30,"冷冽":70},"qualityProbs":{"非商":[0.0,0.3,0.5,0.18,0.02],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50005,"name":"School Violence","price":5000,"quality":4,"abstract":2,"style":"灼热","attention":80,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"atsusamushi","collabComposerIds":[15],"sharedPortfolioKey":"atsusamushi|School Violence"}],"note":null},{"id":16,"name":"shcad","country":"日本","popularity":10,"abstract":2,"avgQuality":3,"efficiency":3,"mental":10,"affection":0,"affDifficulty":60,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":60,"冷冽":30},"qualityProbs":{"非商":[0.2,0.7,0.1,0.0,0.0],"商业":[0.2,0.4,0.3,0.1,0.0],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50018,"name":"花海的贤者","price":12000,"quality":5,"abstract":1,"style":"抒情","attention":60,"discussion":30,"good":90,"bought":false,"note":"","composerLabel":"shcad","collabComposerIds":[16],"sharedPortfolioKey":"shcad|花海的贤者"}],"note":"应该放在所有曲师最上面，这位是给新手的首选曲师"},{"id":17,"name":"侧睡","country":"中国","popularity":10,"abstract":2,"avgQuality":2,"efficiency":4,"mental":90,"affection":0,"affDifficulty":60,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":30,"冷冽":60},"qualityProbs":{"非商":[0.2,0.7,0.1,0.0,0.0],"商业":[0.2,0.4,0.3,0.1,0.0],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50017,"name":"薪火","price":500,"quality":3,"abstract":3,"style":"灼热","attention":30,"discussion":10,"good":50,"bought":false,"note":"","composerLabel":"侧睡","collabComposerIds":[17],"sharedPortfolioKey":"侧睡|薪火"}],"note":"应该放在所有曲师最上面，这位是给新手的首选曲师"},{"id":18,"name":"magic theory","country":"中国","popularity":70,"abstract":2,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":90,"prices":{"非商":3500,"商业":8000,"正式邀请":16000},"styles":{"灼热":80,"抒情":30,"冷冽":30},"qualityProbs":{"非商":[0.0,0.3,0.6,0.1,0.0],"商业":[0.0,0.2,0.6,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[3],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":19,"name":"Lemon","country":"日本","popularity":50,"abstract":2,"avgQuality":4,"efficiency":2,"mental":90,"affection":0,"affDifficulty":60,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":30,"抒情":50,"冷冽":70},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50010,"name":"水晶指针","price":2000,"quality":4,"abstract":3,"style":"抒情","attention":50,"discussion":20,"good":80,"bought":false,"note":"","composerLabel":"Lemon","collabComposerIds":[19],"sharedPortfolioKey":"Lemon|水晶指针"}],"note":null},{"id":20,"name":"HitnexX","country":"日本","popularity":80,"abstract":3,"avgQuality":4,"efficiency":3,"mental":60,"affection":0,"affDifficulty":60,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":80,"抒情":40,"冷冽":20},"qualityProbs":{"非商":[0.0,0.0,0.8,0.15,0.05],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.4,0.5,0.1]},"bond":[3,25],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":21,"name":"贪吃蛇","country":"日本","popularity":60,"abstract":3,"avgQuality":4,"efficiency":2,"mental":70,"affection":0,"affDifficulty":70,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":70,"抒情":60,"冷冽":60},"qualityProbs":{"非商":[0.0,0.2,0.5,0.3,0.0],"商业":[0.0,0.2,0.3,0.5,0.0],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[22,37],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50009,"name":"恐龙时代","price":2000,"quality":4,"abstract":3,"style":"灼热","attention":60,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"贪吃蛇","collabComposerIds":[21],"sharedPortfolioKey":"贪吃蛇|恐龙时代"},{"id":50029,"name":"点火器","price":10000,"quality":4,"abstract":2,"style":"灼热","attention":50,"discussion":40,"good":80,"bought":false,"note":"","composerLabel":"贪吃蛇 vs. heaven_cube","collabComposerIds":[21,37],"sharedPortfolioKey":"贪吃蛇 vs. heaven_cube|点火器"}],"note":null},{"id":22,"name":"美食街","country":"日本","popularity":30,"abstract":2,"avgQuality":4,"efficiency":4,"mental":20,"affection":0,"affDifficulty":90,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":20,"抒情":70,"冷冽":90},"qualityProbs":{"非商":[0.0,0.3,0.5,0.18,0.02],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[21],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50008,"name":"春日吹雪","price":10000,"quality":4,"abstract":2,"style":"冷冽","attention":60,"discussion":30,"good":80,"bought":false,"note":"","composerLabel":"美食街","collabComposerIds":[22],"sharedPortfolioKey":"美食街|春日吹雪"}],"note":null},{"id":23,"name":"stardust","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":40,"affection":0,"affDifficulty":80,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":60,"抒情":80,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.6,0.3,0.1],"商业":[0.0,0.0,0.3,0.5,0.2],"正式邀请":[0.0,0.0,0.0,0.4,0.6]},"bond":[27],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50016,"name":"Before Light","price":5000,"quality":4,"abstract":2,"style":"灼热","attention":40,"discussion":20,"good":100,"bought":false,"note":"","composerLabel":"stardust","collabComposerIds":[23],"sharedPortfolioKey":"stardust|Before Light"}],"note":null},{"id":24,"name":"boTanicaMin","country":"中国","popularity":40,"abstract":2,"avgQuality":4,"efficiency":2,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":60,"冷冽":80},"qualityProbs":{"非商":[0.0,0.0,1.0,0.0,0.0],"商业":[0.0,0.0,0.8,0.2,0.0],"正式邀请":[0.0,0.0,0.4,0.55,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50019,"name":"碎裂的心","price":500,"quality":4,"abstract":2,"style":"冷冽","attention":30,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"boTanicaMin","collabComposerIds":[24],"sharedPortfolioKey":"boTanicaMin|碎裂的心"},{"id":50025,"name":"乌托邦","price":500,"quality":4,"abstract":2,"style":"抒情","attention":30,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"boTanicaMin","collabComposerIds":[24],"sharedPortfolioKey":"boTanicaMin|乌托邦"}],"note":null},{"id":25,"name":"topaz","country":"日本","popularity":70,"abstract":4,"avgQuality":3,"efficiency":3,"mental":80,"affection":0,"affDifficulty":80,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":80,"抒情":20,"冷冽":50},"qualityProbs":{"非商":[0.0,0.1,0.6,0.3,0.0],"商业":[0.0,0.2,0.4,0.35,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[3,20],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50020,"name":"九龙城寨","price":3000,"quality":5,"abstract":4,"style":"灼热","attention":80,"discussion":50,"good":80,"bought":false,"note":"","composerLabel":"topaz","collabComposerIds":[25],"sharedPortfolioKey":"topaz|九龙城寨"},{"id":50021,"name":"熊猫骑士","price":0,"quality":3,"abstract":3,"style":"灼热","attention":40,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"topaz","collabComposerIds":[25],"sharedPortfolioKey":"topaz|熊猫骑士"}],"note":null},{"id":26,"name":"whiteball","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":3,"mental":60,"affection":0,"affDifficulty":50,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":90,"抒情":20,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50022,"name":"ruthless war","price":5000,"quality":5,"abstract":1,"style":"灼热","attention":20,"discussion":50,"good":80,"bought":false,"note":"","composerLabel":"whiteball","collabComposerIds":[26],"sharedPortfolioKey":"whiteball|ruthless war"}],"note":null},{"id":27,"name":"ξ","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":40,"affection":0,"affDifficulty":80,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":60,"抒情":80,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.6,0.4,0.0],"商业":[0.0,0.0,0.3,0.65,0.05],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[23],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":28,"name":"dice r-r-roller","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":4,"mental":90,"affection":0,"affDifficulty":50,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":80,"抒情":20,"冷冽":80},"qualityProbs":{"非商":[0.0,0.2,0.65,0.1,0.05],"商业":[0.0,0.15,0.3,0.5,0.05],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":29,"name":"sentinel","country":"日本","popularity":70,"abstract":2,"avgQuality":4,"efficiency":2,"mental":40,"affection":0,"affDifficulty":60,"prices":{"非商":8000,"商业":12000,"正式邀请":32000},"styles":{"灼热":40,"抒情":90,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.6,0.4,0.0],"商业":[0.0,0.0,0.55,0.3,0.15],"正式邀请":[0.0,0.0,0.0,0.7,0.3]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50024,"name":"when the sun","price":2000,"quality":5,"abstract":2,"style":"冷冽","attention":80,"discussion":50,"good":100,"bought":false,"note":"","composerLabel":"sentinel","collabComposerIds":[29],"sharedPortfolioKey":"sentinel|when the sun"},{"id":50030,"name":"lapis","price":5000,"quality":3,"abstract":2,"style":"抒情","attention":80,"discussion":80,"good":70,"bought":false,"note":"","composerLabel":"sentinel","collabComposerIds":[29],"sharedPortfolioKey":"sentinel|lapis"}],"note":null},{"id":30,"name":"盾神","country":"日本","popularity":80,"abstract":3,"avgQuality":3,"efficiency":3,"mental":80,"affection":0,"affDifficulty":60,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":70,"抒情":40,"冷冽":80},"qualityProbs":{"非商":[0.0,0.1,0.65,0.25,0.0],"商业":[0.0,0.15,0.4,0.4,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":31,"name":"夜枭大叔","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":90,"affection":0,"affDifficulty":50,"prices":{"非商":15000,"商业":30000,"正式邀请":80000},"styles":{"灼热":80,"抒情":100,"冷冽":80},"qualityProbs":{"非商":[0.0,0.0,0.3,0.6,0.1],"商业":[0.0,0.0,0.0,0.8,0.2],"正式邀请":[0.0,0.0,0.0,0.2,0.8]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50026,"name":"artcore","price":2000,"quality":5,"abstract":2,"style":"冷冽","attention":20,"discussion":10,"good":100,"bought":false,"note":"","composerLabel":"夜枭大叔","collabComposerIds":[31],"sharedPortfolioKey":"夜枭大叔|artcore"}],"note":null},{"id":32,"name":"British.Bull","country":"日本","popularity":90,"abstract":4,"avgQuality":5,"efficiency":3,"mental":70,"affection":0,"affDifficulty":100,"prices":{"非商":15000,"商业":30000,"正式邀请":80000},"styles":{"灼热":0,"抒情":0,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.3,0.6,0.1],"商业":[0.0,0.0,0.0,0.7,0.3],"正式邀请":[0.0,0.0,0.0,0.3,0.7]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":33,"name":"野猪野","country":"日本","popularity":50,"abstract":3,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":30,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":60,"抒情":10,"冷冽":80},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50027,"name":"空气循环","price":500,"quality":4,"abstract":2,"style":"冷冽","attention":20,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"野猪野","collabComposerIds":[33],"sharedPortfolioKey":"野猪野|空气循环"}],"note":null},{"id":34,"name":"电钻侠","country":"日本","popularity":70,"abstract":4,"avgQuality":4,"efficiency":3,"mental":80,"affection":0,"affDifficulty":40,"prices":{"非商":8000,"商业":12000,"正式邀请":24000},"styles":{"灼热":90,"抒情":30,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.6,0.3,0.0],"商业":[0.0,0.0,0.55,0.4,0.05],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50028,"name":"与电钻共舞","price":5000,"quality":4,"abstract":4,"style":"灼热","attention":50,"discussion":70,"good":50,"bought":false,"note":"","composerLabel":"电钻侠","collabComposerIds":[34],"sharedPortfolioKey":"电钻侠|与电钻共舞"}],"note":null},{"id":35,"name":"Hyper7onic","country":"中国","popularity":60,"abstract":3,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":50,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":70,"抒情":60,"冷冽":80},"qualityProbs":{"非商":[0.1,0.4,0.4,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.55,0.3,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":36,"name":"CRAFTimber","country":"韩国","popularity":70,"abstract":2,"avgQuality":4,"efficiency":3,"mental":70,"affection":0,"affDifficulty":60,"prices":{"非商":12000,"商业":24000,"正式邀请":42000},"styles":{"灼热":10,"抒情":90,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.8,0.2,0.0],"商业":[0.0,0.0,0.5,0.5,0.0],"正式邀请":[0.0,0.0,0.3,0.5,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":37,"name":"heaven_cube","country":"日本","popularity":50,"abstract":2,"avgQuality":4,"efficiency":3,"mental":70,"affection":0,"affDifficulty":90,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":70,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.7,0.3,0.0],"商业":[0.0,0.0,0.5,0.4,0.1],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[21],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50029,"name":"点火器","price":10000,"quality":4,"abstract":2,"style":"灼热","attention":50,"discussion":40,"good":80,"bought":false,"note":"","composerLabel":"贪吃蛇 vs. heaven_cube","collabComposerIds":[21,37],"sharedPortfolioKey":"贪吃蛇 vs. heaven_cube|点火器"}],"note":null},{"id":38,"name":"牛肉屋","country":"日本","popularity":80,"abstract":3,"avgQuality":4,"efficiency":2,"mental":30,"affection":0,"affDifficulty":70,"prices":{"非商":8000,"商业":12000,"正式邀请":24000},"styles":{"灼热":60,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.1,0.7,0.2,0.0],"商业":[0.0,0.0,0.55,0.4,0.05],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50031,"name":"狂风的裂隙","price":5000,"quality":5,"abstract":3,"style":"冷冽","attention":70,"discussion":90,"good":100,"bought":false,"note":"","composerLabel":"牛肉屋","collabComposerIds":[38],"sharedPortfolioKey":"牛肉屋|狂风的裂隙"}],"note":null}];
 const MEMBER_NAME_POOL=["AsterLynx","qorii","Nulphase","Re:Vane","Krynt","Mizuel","sylq","Noctbyte","Cervin_","Limefault","Ruvia","K4NDE","morroway","Axelune","TesseraQ","halcyx","VeiNox","Rinquel","nagi//zero","CobaltRift","Seryth","Quenel","Frailix","xenovale","TohkaN","MELT_17","Yurase","pluvion","N4RROW","Seiruka","bitcradle","Arqel","Hakurow","Lunetica","ciel_r","NoiKaze","frame//skip","Orphic8","VantaRay_","shirobit","Eclairex","TsuruneQ","Velqis","mono.kei","Crystfall","Urahane","zenith_404","Rakuzen","FrostIndex","NemuKiri","Iontrace","Kurovia","latency0","AmeRift","Solenq","voidpetal","Taktless","Hibikuro","Myrkline","Refrain_β","meltflora","Aoitsuki","LueurMare","NemuCanvas","SumiRêve","iris//milk","Kohakune","PaleMoth","yuraame","FuyuLace","CottonVoid","Mizuhana_","SereinPico","haneiro","LucidPoppy","ruriiro","KageMallow","NoirMikan","petal.exe","Aonagi","LumiSumi","Tsukishade","MofuGlass","YoruFleur","milkgrave","Sakuroom","CielMori","ameiro_7","PicoLune","NagiPastel","MallowInk","HoshikuzuQ","veilberry","SumiNuit","RakuMelt","fuwari_00","KiriPetal","Lunacot","AmeSketch","NemuRin","白榆","折光","栖迟","雨切","迟川","眠野","空白格","灰阶","逆光层","碎星","旧灯","雾岛以北","栖木","潮汐线","余响","青昼","落纸","沸点","薄明","无色差","雨隙","弦外","深蓝偏移","零号纸箱","冬眠电台","晚潮","微光残片","北纬失真","不稳定像素","昨日信号","纸上噪声","沉默频段","折返线","白噪点","晚星误差","空房间","二十三号接口","不存在的雨","玻璃海","旧城区回声","小馒头","爬爬","Magazet","赤澪","Ariayaka","TCSTWTBHY","超级练习册","Kiyotsuki","母鸡","维生素b","树穴猪","Iblcya","Icier","Laugger","Lei motife","LogicM","NintyKeven","xzadudu179","姜片","Felicks_FoX","RANKB","nanakaria","阿白","永恒指南针","豆乳","神居冰绘","水沐汐","澈子","诡异童话","雨生種","Ether-0","鱼圆","香香鸡","纸巾","注射","域核","LING","MYOB!","QIER"];
 const LEVEL5_CHART_NAME_POOL=["爬爬","Magazet","赤澪","Ariayaka","TCSTWTBHY","超级练习册","Kiyotsuki","母鸡","维生素b","树穴猪","Iblcya","Icier","Laugger","Lei motife","LogicM","NintyKeven","xzadudu179","姜片","Felicks_FoX","RANKB"];
 const LEVEL5_ART_NAME_POOL=["nanakaria","阿白","永恒指南针","豆乳","神居冰绘","水沐汐","澈子","诡异童话","雨生種","Ether-0","鱼圆","香香鸡","纸巾","注射","域核","LING","MYOB!","QIER"];
@@ -677,32 +677,6 @@ const GENERAL_MEMBER_NAME_POOL=MEMBER_NAME_POOL.filter(n=>!RESERVED_MEMBER_NAMES
 const COMMISSION_TITLE_POOL=["Afterglow Protocol","Frozen Pulse","Silent Overdrive","Neon Burial","Glass Horizon","Zero Gravity Bloom","Midnight Fracture","Last Signal","Velvet Collapse","Synthetic Rain","Crimson Static","Broken Parallax","Lunar Afterimage","Distant Frequency","Terminal Blossom","White Noise Heaven","Beyond the Pale Sky","Dead Orbit","Echoes of Tomorrow","Astral Burnout","Nocturnal Error","Parallel Silence","Cold Mirage","Vanishing Point","Infinite Refrain","Faultline Heart","Blue Distortion","Endless Interference","Lucid Collapse","Radiant Ruin","Static Eden","Last Light Syndrome","Beyond Zero","失温海岸","第七码头","白昼坠落","雨后失真","逆光协议","玻璃潮汐","无声焚烧","凌晨航线","偏振星群","旧城回响","零度花园","未完成的晴天","深蓝断层","永夜回路","空白频率","潮汐失控","坠入薄明","赤色噪点","折返宇宙","雨幕之外","燃尽之前","冬眠信号","终点之前","第九次日落","灰烬开花","不存在的车站","云层以下","星海误差","碎光定理","逆流脉冲","远日点","沉默临界","失控边界","风暴以北","蒼い残響","雨の境界線","夜明けのノイズ","透明な終末","星屑メモリー","凍える花","逆さまの空","月蝕パラドックス","灰色の夏","遠雷シグナル","白昼夢エラー","零時の楽園","君のいない軌道","雨音リフレイン","境界の彼方へ","青に沈む","壊れた天球","夜空オーバーフロー","薄明カタストロフィ","世界が眠る前に","未明の残像","断線した未来","光速モラトリアム","永遠未満","静寂コンプレックス","雨粒レゾナンス","空白のアルゴリズム","星を忘れた夜","終末ブルーム","透明境界","無限回廊","君と世界の誤差","凍結都市","月亮坏在凌晨四点","请勿折叠这场暴雨","第十三种蓝","你所看见的并非天空","非法入侵春天","失眠者观测协议","玻璃胃里的星星","灰色星期八","请在终点前醒来","温度计拒绝下降","空气正在删除我们","低电量宇宙","昨日已被撤回","不存在于地图上的海","反向生长的雨","这是最后一次日出","错误编号：夏天","未命名的第六感","世界末日前五分钟","把云层调成静音","折断一束光","无法验证的心跳","你比噪声更安静","第0号晴天","把夜晚压缩成ZIP","记忆读取失败","请勿向星空投掷异物","海平面以上的梦","周三不存在","风正在学习如何燃烧","未经许可的黄昏","黑箱中的候鸟","如果雨拥有管理员权限","我们在错误的宇宙见过","さよなら.exe","月曜日はまだ来ない","雨が壊れる音","存在しない青","世界終了まであと3秒","君を削除できません","午前四時の透明人間","逆再生の春","404号室の月","星屑はログアウトしました","未完成パラノイア","透明人間の心拍数","雨天決行エラー","君だけがバグっている","夢.exeは応答していません","冷蔵庫の中の宇宙","青色過剰摂取","月が二度死ぬ夜","不完全な天気予報","無音の非常ベル","終電のない惑星","さよならを圧縮して","真夜中インストール","空白依存症","透明度100%","夏季限定エラー","君の心臓は非対応です","世界はただいま更新中","雨粒アンインストール","青春バックアップ失敗","星を右クリック","午前三時の例外処理","夢の賞味期限","ERROR: Heaven Not Found","please reboot the moon","God.exe Has Stopped Working","Tuesday Is a Simulation","Eat the Static","Blue Screen Summer","Unauthorized Sunrise","DO NOT FEED THE VOID","0% Angel","Memory Leak in Paradise","The Sky Forgot My Password","ctrl+alt+goodbye","Sleep Is Currently Unavailable","Soft Error, Hard Heart","This Song Will Self-Destruct","Rain.dll","Temporary Human","Heaven Has No Wi-Fi","Moonlight Overflow","Delete Me After Midnight","Your Heart Is Out of Range","Unstable Flower Protocol","404 Days of Summer","Please Insert Another Universe","Offline Angel Syndrome","THE SUN IS BUFFERING","Invalid Emotion Type","Automatic Goodbye Machine","Do Not Refresh the Ocean","Last Login: Yesterday","System32\\Love","Crying in 16:9","This Is Not the Final Boss","Heaven.zip","PLEASE DO NOT RESUSCITATE","The Moon Is Experiencing Technical Difficulties","Error Bloom","I Left My Body in Airplane Mode","17% Human","Cathedral of Broken Notifications","Softlock Paradise","Your Dreams Have Been Archived","Milk.exe","Angel With No User Manual","The Sun Has Entered Safe Mode","Memory Corruption Waltz","Invalid Sky Parameter","God Forgot to Save","Crybaby Protocol","Please Reinstall Morning","Unlicensed Emotion","DEADPIXEL HEART","This Is Probably Fine","Borrowed Gravity","Heaven Is Read-Only","Fatal Error in Blue","Do Not Turn Off the Rain","The Ocean Has No Undo Button","Null Flower","Temporary Soul Container","Saturday Has Been Deprecated","System Message From Nowhere","Burn After Listening","You Are Not Authorized to Feel This","Cosmic Packet Loss","Offline Forever","Floral Segmentation Fault","Love in Compatibility Mode","Unknown Weather Event","Too Many Moons","Subroutine for Crying","Restart Required","No Signal Beyond This Point","Dream Cache Overflow","angel.tmp","Please Accept the Terms of Existence","Unstable Heaven Build","The Stars Are Out of Warranty","Night Mode Malfunction","My Heart Has No Recovery Partition","Unsupported Lifeform","Pink Noise Funeral","Your Soul Is Currently Syncing","Cathedral.exe","Incorrect Universe Selected","The Sky Is Not Responding","Low Battery Messiah","Ctrl+Z the Apocalypse","Broken Sunlight Driver","Rain Permission Denied","Artificial Afterlife","Reality Has Left the Chat","I Think the Moon Is Lying","Zero-Day Angel","Unscheduled Extinction Event","Sleep Mode Is for Cowards","Please Hold While the World Ends","Incorrect Emotional Syntax","Ghost Process","Synthetic Nostalgia Disorder","Heaven Timeout","Romantic Buffer Overflow","Nocturnal Firmware","Manual Override: Summer","You Cannot Delete This Feeling","Fragile Data Structure","The Last Known Good Sky","Blue Screen Theology","The Universe Is Busy","Rain Has No Return Value","Unauthorized Blooming","End User License to Exist","Soft Failure","Caffeine-Based Resurrection","Please Disconnect From Reality","Moon.exe Is Not a Valid Win32 Application","Dead Letter Paradise","Flower With Administrator Privileges","Your Childhood Is No Longer Supported","Panic at Address 0x0000","Static Communion","Emergency Sunlight Patch","Recycle Bin Heaven","I Accidentally Forked the Universe","Beautifully Invalid","Cold Boot Angel","The Horizon Has Crashed","Do Not Rename the Moon","Exception Thrown: LOVE","Temporary God Complex","Paradise in Debug Mode","Please Confirm You Are Alive","End of File, End of World","Δfterglow.exe","NΞON//FRACTURE","ΛNGEL_404","Ωverclocked Heaven","ΣILENT//BURST","CRYØGENIC","ΦANTOM SIGNAL","HYPER//ΛXIS","DΞAD★ORBIT","λost in Static","VØID≠NULL","∆DRENALINE","BŁUE//ERROR","CATHΞDRAL.exe","ΨCHO//FRAME","NØ SIGNAL//","αfter//zero","RE:ΛNIMATE","MΞMORY†LEAK","GL1TCH∴BLOOM","ΗEAVEN//OFFLINE","CRØSS†FADE","NΞRV.exe","ΞCHO//NULL","LUNΛR≠ERROR","ΣLEEP//MODE","VANTA†CORE","PRØTOCOL_β","HΞART//PANIC","SΛTURATED","ØRBITAL†NOISE","ΔRCHIVE://SOUL","NΞURAL★RAIN","KΛTASTROPHΞ","SHUTDØWN_Ω","MΞLT//POINT","SØFT†FAILURE","ΛSTRAL//FAULT","RΞBOOT≠LIFE","HYPER†LIMINAL","NØCTURNE_λ","ΨSTORM","DΞLTA//HEART","ECHØ†VOID","ΣYNTHETIC//SUN","BLΛCK★SIGNAL","CØRE://HEAVEN","NΞGATIVE∞SPACE","FAULT//Σ","ΩMEGA†BLOOM","NULΛ.exe","FRΛGMENT_01","CRY//βETA","ΞXIT≠FOUND","LØST†FUNCTION","ASTRΛL//PANIC","VOID_ΔRIVE","ΣTATIC★FEVER","MØON†BUFFER","HΞLL0//WORLD","ΨNCHRONIZE","GLΛSS≠SKY","FΛTAL//SIGNAL","NØISE_∞","ECHØ//RΞTURN","REQUIΞM†404","SØLAR_βURN","ΔNGEL//KERNEL","VΞCTOR†ZERO","COLD//ΛRCHIVE","ΞRRØR†PARADISE","ΛCID★RAIN","NØVA//CRASH","STATIC_Ψ","ΦRAGMENTED","ΣOUL≠SYNC","LØOP://FOREVER","ΞCLIPSE†MODE","HΞART_0x00","BLØOM//NULL","ΛNTI★GRAVITY","DΞAD//CHANNEL","CRASH†ΨNDROME","GL1TCH_Ω","NØCT//BURN","VØID†SIGNATURE","ΣTAR//FAILURE","MΞTA≠HUMAN","LΛST†PACKET","BLUE_ΔEATH","ΦINAL//BUFFER","ΞNDLESS†CACHE","RΛIN≠VALID","NULΛ★HEAVEN","DΞCAY_λ","ΩFFLINE†ANGEL","SØFT//COLLAPSE","ΨIGNAL_LOST","ΔEBUG†EDEN","ΣYSTEM//ASCENSION"];
 const STYLE=["灼热","抒情","冷冽"], RARITY_COORD={1:5,2:3,3:2,4:10,5:5}, BASE_MEMBER_DAYS={1:30,2:27,3:23,4:18,5:14}, COMMISSION_BASE_DAYS=60, BASE_BUG=20;
 let uid=100;const nextId=()=>++uid,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),rnd=(a,b)=>a+Math.random()*(b-a),chance=p=>Math.random()<p;
-
-// Excel作品集数据同步修正：以作品集Excel为准覆盖价格/质量/抽象/风格/关注/讨论/好评。
-(function(){
- const excelPortfolioData=[{"owner": "留存", "name": "梦工厂", "price": 3000, "quality": 5, "abstract": 1, "style": "抒情", "attention": 80, "discussion": 50, "good": 100}, {"owner": "PICKUPNEAR", "name": "最华丽的独奏", "price": 500, "quality": 3, "abstract": 2, "style": "抒情", "attention": 30, "discussion": 10, "good": 50}, {"owner": "大二", "name": "猫的咖啡厅", "price": 5000, "quality": 3, "abstract": 5, "style": "抒情", "attention": 90, "discussion": 90, "good": 20}, {"owner": "Flower", "name": "infinite-cardinal", "price": 0, "quality": 3, "abstract": 3, "style": "冷冽", "attention": 70, "discussion": 10, "good": 70}, {"owner": "atsusamushi", "name": "School Violence", "price": 5000, "quality": 4, "abstract": 2, "style": "灼热", "attention": 80, "discussion": 20, "good": 70}, {"owner": "Flower", "name": "返校日", "price": 0, "quality": 2, "abstract": 4, "style": "灼热", "attention": 60, "discussion": 20, "good": 50}, {"owner": "白女皇", "name": "时间长流", "price": 2000, "quality": 4, "abstract": 1, "style": "抒情", "attention": 70, "discussion": 40, "good": 60}, {"owner": "美食街", "name": "春日吹雪", "price": 10000, "quality": 4, "abstract": 2, "style": "冷冽", "attention": 60, "discussion": 30, "good": 80}, {"owner": "贪吃蛇", "name": "恐龙时代", "price": 2000, "quality": 4, "abstract": 3, "style": "灼热", "attention": 60, "discussion": 20, "good": 70}, {"owner": "Lemon", "name": "水晶指针", "price": 2000, "quality": 4, "abstract": 3, "style": "抒情", "attention": 50, "discussion": 20, "good": 80}, {"owner": "PICKUPNEAR", "name": "温室花房第1作：afternoon", "price": 1200, "quality": 2, "abstract": 1, "style": "抒情", "attention": 30, "discussion": 10, "good": 60}, {"owner": "PICKUPNEAR", "name": "温室花房第2作：sunlight", "price": 1200, "quality": 2, "abstract": 2, "style": "灼热", "attention": 40, "discussion": 10, "good": 60}, {"owner": "PICKUPNEAR", "name": "温室花房第3作：flower", "price": 1200, "quality": 2, "abstract": 3, "style": "抒情", "attention": 40, "discussion": 10, "good": 60}, {"owner": "PICKUPNEAR", "name": "温室花房第4作：rain", "price": 1200, "quality": 2, "abstract": 2, "style": "冷冽", "attention": 40, "discussion": 20, "good": 50}, {"owner": "PICKUPNEAR", "name": "温室花房第5作：dandelion", "price": 1200, "quality": 2, "abstract": 1, "style": "灼热", "attention": 30, "discussion": 20, "good": 50}, {"owner": "PICKUPNEAR vs. 可燃冰", "name": "温室花房第6作：blizzard", "price": 2400, "quality": 3, "abstract": 2, "style": "冷冽", "attention": 40, "discussion": 10, "good": 60}, {"owner": "stardust", "name": "Before Light", "price": 5000, "quality": 4, "abstract": 2, "style": "灼热", "attention": 40, "discussion": 20, "good": 100}, {"owner": "侧睡", "name": "薪火", "price": 500, "quality": 3, "abstract": 3, "style": "灼热", "attention": 30, "discussion": 10, "good": 50}, {"owner": "shcad", "name": "花海的贤者", "price": 12000, "quality": 5, "abstract": 1, "style": "抒情", "attention": 60, "discussion": 30, "good": 90}, {"owner": "boTanicaMin", "name": "碎裂的心", "price": 500, "quality": 4, "abstract": 2, "style": "冷冽", "attention": 30, "discussion": 10, "good": 70}, {"owner": "topaz", "name": "九龙城寨", "price": 3000, "quality": 5, "abstract": 4, "style": "灼热", "attention": 80, "discussion": 50, "good": 80}, {"owner": "topaz", "name": "熊猫骑士", "price": 0, "quality": 3, "abstract": 3, "style": "灼热", "attention": 40, "discussion": 20, "good": 70}, {"owner": "whiteball", "name": "ruthless war", "price": 5000, "quality": 5, "abstract": 1, "style": "灼热", "attention": 20, "discussion": 50, "good": 80}, {"owner": "sentinel", "name": "when the sun", "price": 2000, "quality": 5, "abstract": 2, "style": "冷冽", "attention": 80, "discussion": 50, "good": 100}, {"owner": "boTanicaMin", "name": "乌托邦", "price": 500, "quality": 4, "abstract": 2, "style": "抒情", "attention": 30, "discussion": 10, "good": 70}, {"owner": "夜枭大叔", "name": "artcore", "price": 2000, "quality": 5, "abstract": 2, "style": "冷冽", "attention": 20, "discussion": 10, "good": 100}, {"owner": "野猪野", "name": "空气循环", "price": 500, "quality": 4, "abstract": 2, "style": "冷冽", "attention": 20, "discussion": 10, "good": 60}, {"owner": "电钻侠", "name": "与电钻共舞", "price": 5000, "quality": 4, "abstract": 4, "style": "灼热", "attention": 50, "discussion": 70, "good": 50}, {"owner": "贪吃蛇 vs. heaven_cube", "name": "点火器", "price": 10000, "quality": 4, "abstract": 2, "style": "灼热", "attention": 50, "discussion": 40, "good": 80}, {"owner": "sentinel", "name": "lapis", "price": 5000, "quality": 3, "abstract": 2, "style": "抒情", "attention": 80, "discussion": 80, "good": 70}, {"owner": "焦耳", "name": "NightGUST", "price": 1200, "quality": 3, "abstract": 2, "style": "冷冽", "attention": 20, "discussion": 10, "good": 70}, {"owner": "KuROWhite", "name": "Feel the Nostalgia", "price": 5000, "quality": 4, "abstract": 1, "style": "抒情", "attention": 40, "discussion": 30, "good": 80}, {"owner": "USAGI", "name": "Small Mommy", "price": 5000, "quality": 4, "abstract": 5, "style": "灼热", "attention": 80, "discussion": 80, "good": 40}, {"owner": "ふるかぶ", "name": "LightTheater", "price": 2000, "quality": 4, "abstract": 1, "style": "抒情", "attention": 40, "discussion": 20, "good": 70}, {"owner": "PICKUPNEAR vs. 夜枭大叔", "name": "温室花房第7作：flashback", "price": 4800, "quality": 5, "abstract": 3, "style": "冷冽", "attention": 40, "discussion": 50, "good": 80}, {"owner": "PICKUPNEAR vs. USAGI", "name": "温室花房第8作：magic", "price": 4800, "quality": 4, "abstract": 4, "style": "灼热", "attention": 60, "discussion": 50, "good": 70}, {"owner": "PICKUPNEAR vs. 纵连大师", "name": "温室花房第9作：recitation", "price": 2400, "quality": 3, "abstract": 4, "style": "灼热", "attention": 40, "discussion": 40, "good": 60}];
- const targets = new Map();
- excelPortfolioData.forEach(p=>{
-   if(!targets.has(p.name))targets.set(p.name,[]);
-   targets.get(p.name).push(p);
- });
- COMPOSER_MASTER.forEach(c=>{
-   (c.portfolio||[]).forEach(p=>{
-     let matches=targets.get(p.name);
-     if(!matches)return;
-     let m=matches.find(x=>x.owner===c.name)||matches[0];
-     if(!m)return;
-     if(m.price!=null)p.price=m.price;
-     if(m.quality!=null)p.quality=m.quality;
-     if(m.abstract!=null)p.abstract=m.abstract;
-     if(m.style!=null)p.style=m.style;
-     if(m.attention!=null)p.attention=m.attention;
-     if(m.discussion!=null)p.discussion=m.discussion;
-     if(m.good!=null)p.good=m.good;
-   });
- });
-})();
-
 const state={day:1,money:10000,job:"home",ap:18,dailySpent:0,fatigue:0,tech:0,fans:0,discussion:0,players:0,rating:80,artPursuit:100,expectation:30,stickiness:10,bugChance:BASE_BUG,
 playerFloor:0,ratingFloor:0,playerFloorShield:true,ratingFloorShield:true,artEventBonus:0,programQualityBoost:0,inspiration:false,playedRhythmToday:false,takeoutProgramDiscount:false,takeoutRecruitBuff:false,bankrupt:false,bailoutLastDay:-9999,hasReleasedUpdate:false,
 lastUpdateDay:null,updateClockStarted:false,hiatusTriggered:false,lastMainlineDay:null,consecutiveSupplement:0,consecutiveSingles:0,
@@ -710,7 +684,7 @@ services:{vpn:false,translation:false,takeout:false,workspace:false,sponsor:fals
 formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
 exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
 collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
-freeMemberEventsToday:0,feedbackEmailEventDone:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,recommendCommissionCooldown:0,mysteryDonationCooldown:0,mysteryDonationFollowups:[],playerMilestone10000Done:false,playerMilestone100000Done:false,
+freeMemberEventsToday:0,feedbackEmailEventDone:false,playerMilestone1000Done:false,recommendCommissionCooldown:0,mysteryDonationCooldown:0,mysteryDonationFollowups:[],playerMilestone10000Done:false,playerMilestone100000Done:false,
 milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
 computerBrokenUntil:0,computerRepairCooldownUntil:0,members:[],composers:[],library:[],commissions:[],packages:[],collabs:[],
 currentCollabOffer:null,jobLockedUntil:1,firstShcadCommissionDone:false,rumorActiveUntil:0,rumorBaseFansLoss:0,rumorLastTriggerDay:-9999,rumorMinGapDays:90,rumorTriggersThisYear:0,collabFailStack:0,collabsThisYear:0,collabPenaltyDays:0,
@@ -772,7 +746,7 @@ firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDa
     formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
     exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
     collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
-    freeMemberEventsToday:0,feedbackEmailEventDone:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
+    freeMemberEventsToday:0,feedbackEmailEventDone:false,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
     milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
     computerBrokenUntil:0,computerRepairCooldownUntil:0,
     firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
@@ -1232,7 +1206,7 @@ function spendAllowed(amount){
 }
 function canSpendMoney(amount){
   if(!spendAllowed(amount)){
-    if(state.bankrupt)log("破产状态（将存款积累到20000解除破产状态）下无法进行这项支出。");
+    if(state.bankrupt)log("破产状态下无法进行这项支出。");
     else log("存款≤0时无法进行花费超过1500的行动。");
     return false
   }
@@ -1295,7 +1269,7 @@ function toggleService(k){
   render()
 }
 function sponsorship(){if(!isMonthStart())return;state.sponsorIncome=0;if(!state.services.sponsor||state.artPursuit<10)return;if(state.stickiness>=40){let pp=Math.min(.2,.01*(1+state.stickiness/25));state.sponsorIncome=state.players*pp*artMods().sponsor*designSponsorMultiplier();state.money+=state.sponsorIncome;if(state.sponsorIncome>2000){let e=state.sponsorIncome-2000;state.expectation+=(e>6000?6000/300+(e-6000)/600:e/300)}}}
-function bankruptcyCheck(){if(state.money<=-20000&&!state.bankrupt){if(state.sponsorIncome>3000&&state.day-state.bailoutLastDay>=1095){state.money=0;state.bailoutLastDay=state.day;log("救命保底：赞助收入满足条件，存款恢复为0。")}else{state.bankrupt=true;log("进入破产状态（将存款积累到20000解除破产状态）。")}}if(state.bankrupt&&state.money>=20000){state.bankrupt=false;log("解除破产状态（将存款积累到20000解除破产状态）。")}}
+function bankruptcyCheck(){if(state.money<=-20000&&!state.bankrupt){if(state.sponsorIncome>3000&&state.day-state.bailoutLastDay>=1095){state.money=0;state.bailoutLastDay=state.day;log("救命保底：赞助收入满足条件，存款恢复为0。")}else{state.bankrupt=true;log("进入破产状态。")}}if(state.bankrupt&&state.money>=20000){state.bankrupt=false;log("解除破产状态。")}}
 function computerBroken(){
   return state.day<(state.computerBrokenUntil||0)
 }
@@ -1647,7 +1621,7 @@ function specialRecruitmentEvents(){
 }
 function searchMember(role){
   if(!state.designConceptConfirmed)return log("必须先完成“游戏设计理念”后才能找谱师或找美术。");
-  if(state.bankrupt)return log("破产状态（将存款积累到20000解除破产状态）下无法找谱师/美术。");
+  if(state.bankrupt)return log("破产状态下无法找谱师/美术。");
   if(state.members.length>=teamCap())return log("人数已达上限。");
   if(!spendAP(1))return;
   state.hasSearchedMember=true;
@@ -2095,7 +2069,7 @@ function remindDoubtingMembers(){
   }
 }
 function assignMember(mid,sid){
-  if(state.bankrupt)return log("破产状态（将存款积累到20000解除破产状态）下无法分配任务。");
+  if(state.bankrupt)return log("破产状态下无法分配任务。");
   let m=getMember(mid),s=getSong(sid);
   if(!m||!s||s.installed)return log("任务分配失败：成员或歌曲不可用。");
   if(memberOccupied(m))return log(`${m.name}目前正被事务占用，无法分配工作。`);
@@ -2475,40 +2449,6 @@ function commissionDaily(){
     }
   }
 }
-
-function createSongFromPortfolio(p,c){
-  let composerIds=(p.collabComposerIds&&p.collabComposerIds.length)?[...p.collabComposerIds]:[c.id];
-  let s={
-    id:nextId(),
-    name:p.name,
-    source:"portfolio",
-    composer:composerIds[0],
-    composerIds,
-    composerLabel:p.composerLabel||c.name,
-    style:p.style,
-    quality:p.quality,
-    abstract:p.abstract,
-    attention:p.attention*4,
-    originalAttention:p.attention*4,
-    discussion:p.discussion*4,
-    originalDiscussion:p.discussion*4,
-    good:p.good,
-    chartProgress:0,
-    artProgress:100,
-    alpha:false,
-    installed:false,
-    chartMemberIds:[],
-    artMemberId:null,
-    position:"普通曲",
-    alphaStatus:"idle",
-    playableQuality:null,
-    artPercent:100,
-    play:0,
-    packageId:null
-  };
-  return s;
-}
-
 function buyPortfolio(cid,pid){
   let c=getComposer(cid),p=c?.portfolio.find(x=>x.id===pid);if(!p||p.bought)return;
   if(c.country!=="中国"&&!state.services.vpn){log("需要 VPN 才能主动联系该曲师购买作品。");return}
@@ -2531,21 +2471,11 @@ function buyPortfolio(cid,pid){
 
   let y=year()+dayOfYear()/365,scale=y>=7?1:y>=3?.5+(y-3)/4*.5:.1+(y/3)*.4;
   let primaryComposerId=(p.collabComposerIds&&p.collabComposerIds.length?p.collabComposerIds[0]:c.id);
-  // 作品集歌曲必须继承作品集所属曲师，不能重新生成普通约稿歌曲的曲师信息。
-  // 联合作品若没有保存ID，则根据合作标签解析，避免显示错误曲师。
-  if(p.composerLabel&&!p.collabComposerIds?.length){
-    let owner=state.composers.find(x=>p.composerLabel.includes(x.name));
-    if(owner)primaryComposerId=owner.id;
-  }
-  let s=createSongFromPortfolio(p,c);
+  let s=makeSong(p.name,p.quality,p.style,p.abstract,primaryComposerId,"portfolio");
   s.composerLabel=p.composerLabel||c.name;
-  s.composerIds=(p.collabComposerIds&&p.collabComposerIds.length)?[...p.collabComposerIds]:[primaryComposerId];
-  s.composer=primaryComposerId;
-  // 作品集歌曲实际数据：关注与讨论使用作品集填写值的4倍。
-  // 进入曲库后保持与购买前一致，不受运营年份缩放影响。
-  s.attention=p.attention*4;s.originalAttention=s.attention;
-  s.discussion=p.discussion*4;s.originalDiscussion=s.discussion;
-  s.good=p.good;
+  s.composerIds=(p.collabComposerIds&&p.collabComposerIds.length)?[...p.collabComposerIds]:[c.id];
+  s.attention=p.attention*scale;s.originalAttention=s.attention;
+  s.discussion=p.discussion;s.originalDiscussion=s.discussion;s.good=p.good;
   s.chartProgress=0;
   s.artProgress=100;
   s.alpha=false;
@@ -2976,28 +2906,7 @@ function feedbackEmailMilestoneDaily(){
   state.feedbackEmailEventDone=true;
   log('反馈与提议：邮箱 <a href="mailto:yukidare2766@gmail.com" style="color:inherit;text-decoration:underline">yukidare2766@gmail.com</a><br>记得在信中留下你的ID，说不定你会被写进通关Credits里！',"purple")
 }
-
-function praiseMonthlyLockDaily(){
-  if(!state.monthlyPraiseLocks)state.monthlyPraiseLocks=[];
-  if(state.day%30===0){
-    state.monthlyPraiseLocks.push(state.praise||0);
-    if(state.monthlyPraiseLocks.length>12)state.monthlyPraiseLocks.shift();
-  }
-}
-function applyDocumentExplosionDecay(){
-  if(state.documentExplosionPenalty>0){
-    state.documentExplosionPenalty*=0.98;
-    if(state.documentExplosionPenalty<0.1)state.documentExplosionPenalty=0;
-  }
-}
-function protectedArtScore(value){
-  if(value<50){
-    return 50-(50-value)*0.35;
-  }
-  return Math.min(100,value);
-}
-
-function endDay(){state.day++;praiseMonthlyLockDaily();applyDocumentExplosionDecay();cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();recommendationCommissionDaily();mysteryDonationDaily();naturalPlayerGrowth();rumorDaily();
+function endDay(){state.day++;cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();recommendationCommissionDaily();mysteryDonationDaily();naturalPlayerGrowth();rumorDaily();
 recalcPublic();
 if(state.players>0&&state.fans>state.players*2)state.expectation+=.01*(state.fans/state.players-2);
 if(state.players>0&&state.discussion/state.players*100>state.rating*1.5)state.metaRating-=.01;
@@ -3028,7 +2937,7 @@ function refreshSaveStatus(){
 
 function buildSavePayload(){
   return {
-    version:"Beta33",
+    version:"Beta18",
     savedAt:Date.now(),
     uid:uid,
     state:JSON.parse(JSON.stringify(state)),
@@ -3217,7 +3126,7 @@ function applyDeviceMode(){
 }
 function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
 let simulatorTitle=document.getElementById("gameSimulatorTitle");
-if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 33`:"非商业音乐游戏运营模拟器 · Beta 33";
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 17`:"非商业音乐游戏运营模拟器 · Beta 17";
 state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
 eventActionPoints.textContent=state.ap.toFixed(0);
 eventSpirit.textContent=Math.round(spirit);
@@ -3294,7 +3203,7 @@ function renderComposers(){
   let offers=state.incomingOffers.map(o=>{let c=getComposer(o.composerId);return `<div class="candidate"><b>${c?.name||"曲师"}主动来稿《${o.title||"未命名"}》</b>｜${o.style}｜质量${o.q}｜${o.free?"免费":`¥${Math.round(o.price)}`} <button class="good" onclick="acceptIncomingOffer(${o.id})">接受</button><button onclick="declineIncomingOffer(${o.id})">拒绝</button></div>`}).join("");
   composers.innerHTML=offers+composerDisplayOrder().map(c=>{
     let st=state.day<c.depressedUntil?"抑郁":state.day<c.sickUntil?"感冒":"可联系";
-    let pf=c.portfolio.map(p=>`<div class="sub">${p.bought?`<span class="tag">已购买</span>`:`<button onclick="buyPortfolio(${c.id},${p.id})">购买</button>`} ¥${p.price}｜${p.name}${p.composerLabel&&p.composerLabel!==c.name?`｜合作：${p.composerLabel}`:""}｜${p.style}｜关注${p.attention}｜讨论${p.discussion}｜好评${p.good}</div>`).join("");
+    let pf=c.portfolio.map(p=>`<div class="sub">${p.bought?`<span class="tag">已购买</span>`:`<button onclick="buyPortfolio(${c.id},${p.id})">购买</button>`} ${p.name}${p.composerLabel&&p.composerLabel!==c.name?`｜合作：${p.composerLabel}`:""}｜${p.style}｜质量${p.quality}｜关注${p.attention}｜讨论${p.discussion}｜好评${p.good}｜¥${p.price}</div>`).join("");
     let comfort=state.day<c.depressedUntil&&c.affection>=80?`<button onclick="comfortComposer(${c.id})">陪伴创作者</button>`:"";
     let sel=composerSelection(c.id);
     let busy=composerHasActiveCommission(c.id),reachable=composerReachable(c);
@@ -3352,51 +3261,8 @@ function renderPackages(){
   }).join(""):`<div class="muted">暂无曲包。</div>`
 }
 function renderCollabs(){let o=state.currentCollabOffer?`<div class="candidate">收到联动邀请 <button class="good" onclick="acceptCollab()">同意（${effectiveActionCost(6)}行动点）</button><button onclick="declineCollab()">拒绝</button></div>`:"";collabs.innerHTML=o+(state.collabs.length?state.collabs.map(c=>{let p=getPackage(c.packageId);return `<div class="item">联动 #${c.id}｜${c.active?"进行中":"结束"}｜曲包：${p?.name||"无"}｜取消截止第${c.cancelDeadline}天｜强制截止第${c.forcedDeadline}天 ${c.active&&state.day<=c.cancelDeadline?`<button onclick="cancelCollab(${c.id})">取消联动（${effectiveActionCost(6)}行动点）</button>`:""}</div>`}).join(""):`<div class="item muted">暂无联动。</div>`)}
-function renderEconomy(){
-  let status=state.bankrupt?"破产":(state.money<0?"紧缺":"正常");
-  let cls=state.bankrupt||state.money<0?"badtext":"ok";
-  economyText.innerHTML=`状态：<b class="${cls}">${status}</b><br><span class="sub">${state.bankrupt?"将存款积累到20000解除破产状态。":""}</span>`
-}
-
-async function loadExternalComposerData(){
-  try{
-    const composerResponse=await fetch("./composers.json");
-    const portfolioResponse=await fetch("./portfolios.json");
-    if(!composerResponse.ok||!portfolioResponse.ok)throw new Error("外部数据读取失败");
-    COMPOSER_MASTER=await composerResponse.json();
-    const portfolios=await portfolioResponse.json();
-
-    // 外置数据兼容旧逻辑：补齐原内置对象一定存在的字段。
-    COMPOSER_MASTER.forEach(c=>{
-      c.bond=c.bond||[];
-      c.prices=c.prices||{"非商":0,"商业":0,"正式邀请":0};
-      c.styles=c.styles||{};
-      c.collabs=Number(c.collabs)||0;
-      c.affection=Number(c.affection)||0;
-      c.mental=Number.isFinite(c.mental)?c.mental:100;
-      c.portfolio=c.portfolio||[];
-    });
-    COMPOSER_MASTER.forEach(c=>{
-      c.portfolio=portfolios
-        .filter(p=>Number(p.ownerComposerId)===Number(c.id))
-        .map(p=>{
-          const copy={...p};
-          delete copy.ownerComposerId;
-          delete copy.ownerComposerName;
-          return copy;
-        });
-    });
-  }catch(e){
-    console.error("曲师/作品集数据加载失败，使用内置备份数据。",e);
-    // 保证 GitHub Pages 或临时离线打开失败时不会导致空曲库。
-    if(!COMPOSER_MASTER.length&&typeof BUILTIN_COMPOSER_MASTER!=="undefined"){
-      COMPOSER_MASTER=BUILTIN_COMPOSER_MASTER;
-    }
-  }
-}
-
-async function startGame(){await loadExternalComposerData();seed();ensureNewStateDefaults();render();}
-startGame();
+function renderEconomy(){economyText.innerHTML=`状态：<b class="${state.bankrupt?"badtext":"ok"}">${state.bankrupt?"破产":"正常"}</b><br><span class="sub">${state.money<=0?"存款≤0：疲劳超过80即进入疲劳判定，且无法进行花费超过1500的行动。":""}</span>`}
+seed();ensureNewStateDefaults();render();
 
 setTimeout(()=>{
   let b=document.getElementById("deviceSwitchButton");
@@ -3404,3 +3270,4 @@ setTimeout(()=>{
   applyDeviceMode();
 },0);
 </script></body></html>
+<!-- Beta18 severe text crash message: 连续的文案爆雷对游戏的口碑产生了不小的影响，看来负面收益在短时间内都将挥之不去了…… -->
