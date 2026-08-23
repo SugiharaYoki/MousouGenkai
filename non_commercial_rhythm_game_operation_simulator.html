@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
+<title>非商业音乐游戏运营模拟器 Beta4</title>
+<style>
+:root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
+.app{max-width:1900px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;gap:14px;margin-bottom:14px}h1{margin:0;font-size:27px}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:12px 0 8px}
+.sub,.muted{font-size:12px;color:var(--m);line-height:1.55}.time{min-width:230px;text-align:right;background:var(--p);border:1px solid var(--l);border-radius:16px;padding:13px 16px}.time b{font-size:25px}
+.layout{display:grid;grid-template-columns:500px minmax(620px,1fr) 330px;gap:16px;align-items:start}.col{display:flex;flex-direction:column;gap:14px}.panel{background:rgba(23,29,40,.96);border:1px solid var(--l);border-radius:16px;padding:15px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.card{background:var(--p2);border:1px solid var(--l);border-radius:12px;padding:11px}.card .k{color:var(--m);font-size:11px}.card .v{font-size:23px;font-weight:700;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}button,select,input{font:inherit;color:var(--t);background:#273147;border:1px solid #41516e;border-radius:9px;padding:8px 10px}
+button{cursor:pointer}button:hover{background:#31405e}button.primary{background:#4e70dc}button.good{background:#28784b}button.warn{background:#775c25}button.bad{background:#7d343b}
+button.big{width:100%;font-weight:700;font-size:22px;padding:17px;margin-top:10px;background:linear-gradient(135deg,#5e83ff,#405fd0);border-radius:15px}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.action{min-height:60px;text-align:left}.action b{display:block}.action span{font-size:11px;color:var(--m)}
+.action.stress-up{background:linear-gradient(180deg,#4a2b34,#352129);border-color:#75404d}
+.action.stress-up:hover{background:linear-gradient(180deg,#5a3440,#422831);border-color:#9a5261}
+.action.stress-down{background:linear-gradient(180deg,#244353,#1c3441);border-color:#3e6e84}
+.action.work-orange{background:linear-gradient(180deg,#5a3923,#3f291b);border-color:#8a5934}
+.action.work-orange:hover{background:linear-gradient(180deg,#6b452a,#4b301f);border-color:#b87543}
+.action.learn-purple{background:linear-gradient(180deg,#49325f,#342445);border-color:#72508d}
+.action.learn-purple:hover{background:linear-gradient(180deg,#5a3d73,#402b54);border-color:#9269b1}
+.money-card{position:relative}
+.money-sidegig{display:block;margin:8px 0 0 auto;width:68%;padding:7px 9px;border-radius:9px;background:linear-gradient(180deg,#384354,#293344);border:1px solid #526178;text-align:left}
+.money-sidegig b{display:block;font-size:12px}.money-sidegig span{display:block;font-size:10px;color:var(--m);margin-top:2px}
+#composerView .list{max-height:610px}
+.composer-card{padding:10px 12px!important}
+.composer-card h3{margin:8px 0 5px}
+.composer-card .sub{line-height:1.35}
+.composer-card .tag{padding:2px 6px}
+.composer-mini-stats{margin-top:2px!important;gap:8px!important;font-size:10.5px!important}
+.commission-controls{margin:7px 0!important;gap:6px!important}
+.commission-controls select{min-height:34px!important;padding:5px 7px!important}
+.commission-btn{padding:6px 9px!important}
+.style-mastery{padding-top:7px!important;margin-top:0!important}
+.style-mastery-title{margin-bottom:4px!important}
+.style-mastery-grid{gap:5px!important}
+.style-mastery-grid span{padding:5px 6px!important}
+.composer-card .between{align-items:center}
+
+.composer-price-row{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 11px}
+.price-chip{border:1px solid #39465f;background:#151d2b;border-radius:9px;padding:7px 9px;min-width:88px}
+.price-chip.active{border-color:#6d83ad;background:#1b2740}
+.price-chip .label{display:block;font-size:10px;color:var(--m);margin-bottom:2px}
+.price-chip .amount{font-size:13px;font-weight:800}
+.composer-stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:10px}
+.composer-stat{border:1px solid #303a4c;background:#141b27;border-radius:9px;padding:8px}
+.composer-stat .label{font-size:10px;color:var(--m);display:block}.composer-stat .value{font-size:14px;font-weight:800;margin-top:2px;display:block}
+.style-mastery{border-top:1px solid #2c3647;padding-top:9px;margin-top:2px}
+.style-mastery-title{font-size:11px;color:var(--m);margin-bottom:6px}
+.style-mastery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.style-mastery-grid span{background:#151d2b;border:1px solid #303b50;border-radius:8px;padding:6px 7px;font-size:11px;text-align:center}
+.commission-btn{min-width:132px;padding:8px 10px;text-align:left}
+.commission-btn .main{display:block;font-size:13px;font-weight:800}
+.commission-btn .meta{display:block;font-size:10px;color:var(--m);margin-top:2px;font-weight:400}
+.commission-btn:disabled .meta{color:#78808f}
+.composer-title-block{min-width:0}
+.composer-mini-stats{margin-top:3px;font-size:11px;color:var(--m);display:flex;gap:10px;flex-wrap:wrap}
+.composer-mini-stats b{color:#cbd5e7;font-weight:700}
+.commission-controls{display:grid;grid-template-columns:minmax(120px,1.2fr) minmax(105px,1fr) 145px;gap:7px;align-items:stretch;margin:10px 0}
+.commission-controls select{width:100%;min-height:38px;background:#151d2b;border:1px solid #39465f;border-radius:9px;padding:6px 8px}
+.commission-controls .commission-btn{width:100%;min-width:0}
+@media(max-width:850px){.commission-controls{grid-template-columns:1fr 1fr}.commission-controls .commission-btn{grid-column:1/-1}}
+
+
+.action.stress-down:hover{background:linear-gradient(180deg,#2c5366,#21404f);border-color:#5690aa}
+
+.barbox{margin:8px 0}.barhead{display:flex;justify-content:space-between;font-size:12px}.bar{height:10px;background:#0d121b;border:1px solid var(--l);border-radius:99px;overflow:hidden;margin-top:5px}.fill{height:100%;background:linear-gradient(90deg,#6ed38b,#e6bd68,#e87580)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tab.active{background:#4b67bd}.view{display:none}.view.active{display:block}.list{border:1px solid var(--l);background:#111721;border-radius:12px;max-height:420px;overflow:auto}
+.item{padding:9px 11px;border-bottom:1px solid #2b364a}.item:last-child{border-bottom:0}.row{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.between{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.tag{display:inline-block;font-size:11px;padding:3px 7px;border:1px solid #425270;border-radius:99px;background:#263147;margin:2px}.ok{color:var(--g)}.badtext{color:var(--b)}.warntext{color:var(--w)}
+.mobile-debug{display:none!important}
+.hidden-test{display:none;margin-top:10px}.hidden-test.open{display:block}.log{max-height:280px;overflow:auto;background:#101621;border-radius:12px;border:1px solid var(--l);padding:8px}.event-col{position:sticky;top:18px;height:calc(100vh - 36px)}.event-col .panel{height:100%;display:flex;flex-direction:column}.event-col .log{max-height:none;flex:1;overflow:auto}.event-col h2{flex:0 0 auto}.log div{padding:5px 3px;border-bottom:1px solid #263044;font-size:12px}
+.log div.event-green{color:#63e68b;border-left:3px solid #49c96f;padding-left:8px;background:rgba(73,201,111,.06)}
+.log div.event-green-strong{color:#74f39a;border-left:4px solid #55df7d;padding-left:8px;background:rgba(85,223,125,.10);font-weight:800}
+.log div.event-gold{color:#ffd866;border-left:4px solid #e2b938;padding-left:8px;background:rgba(226,185,56,.12);font-weight:900;text-shadow:0 0 8px rgba(255,216,102,.28)}
+.log div.event-red{color:#ff9b9b;border-left:4px solid #d85a5a;padding-left:8px;background:rgba(216,90,90,.11);font-weight:800}
+.log div.event-blue{color:#8fc7ff;border-left:4px solid #5e9fe0;padding-left:8px;background:rgba(94,159,224,.10);font-weight:700}
+.log div.event-purple{color:#c7a7ff;border-left:4px solid #8d67d5;padding-left:8px;background:rgba(141,103,213,.10);font-weight:800}
+.log div.event-gray{color:#8f98a8;border-left:4px solid #697386;padding-left:8px;background:rgba(105,115,134,.08);font-weight:700}
+.event-resource{flex:0 0 auto;margin:0 0 10px;padding:9px 10px;border:1px solid #343f55;border-radius:10px;background:#121a28;font-size:13px;line-height:1.7}
+.event-resource b{color:#dbe7ff}
+
+.fatigue-danger{color:#ff3344!important;font-weight:900!important;text-shadow:0 0 8px rgba(255,51,68,.65)}
+.fatigue-danger .fill{background:#ff3344!important}
+#fatigueBar.fatigue-danger{background:#ff3344!important}
+.recruit-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
+.recruit-btn{position:relative;display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:center;padding:12px 13px;border-radius:13px;border:1px solid #40506d;background:linear-gradient(145deg,#222d42,#182235);text-align:left;overflow:hidden}
+.recruit-btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(111,145,255,.10),transparent 55%);pointer-events:none}
+.recruit-btn:hover{border-color:#7892c0;background:linear-gradient(145deg,#2a3852,#1d2940);transform:translateY(-1px)}
+.recruit-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;background:#314264;border:1px solid #536b98}
+.recruit-copy b{display:block;font-size:13px;margin-bottom:3px}.recruit-copy span{font-size:11px;color:var(--m)}
+
+#fatigueWarning{display:none;margin-top:7px;font-size:14px;font-weight:900;color:#ff3344;text-shadow:0 0 8px rgba(255,51,68,.55)}
+#fatigueWarning.show{display:block}
+
+.candidate{border:1px dashed #7083aa;padding:10px;border-radius:10px;margin-top:8px}.service.on{outline:1px solid var(--g)}.statusline{font-size:12px;color:var(--m);margin-top:6px}
+@media(max-width:1500px){.layout{grid-template-columns:450px minmax(560px,1fr) 300px}}@media(max-width:1150px){.layout{grid-template-columns:1fr}.event-col{position:static;height:auto}.event-col .log{max-height:360px}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.two,.action-grid,.cards{grid-template-columns:1fr}.top{flex-direction:column}.time{text-align:left}}
+
+.design-concept-panel{margin-bottom:14px;border-color:#5f78bb;background:linear-gradient(135deg,rgba(42,53,78,.98),rgba(25,32,47,.98))}
+.design-concept-panel h2{margin-bottom:3px}
+.design-question-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.design-question{display:flex;flex-direction:column;gap:7px;padding:10px;background:#171f2d;border:1px solid #35435d;border-radius:10px}
+.design-question select{width:100%}
+.design-confirm-row{display:flex;justify-content:flex-end;margin-top:10px}
+@media (max-width:760px){.design-question-grid{grid-template-columns:1fr}.design-concept-panel{margin-bottom:6px}.design-question{padding:6px;gap:4px}}
+
+/* ===== Mobile-only dedicated layout v3 ===== */
+@media (hover:none) and (pointer:coarse), (max-width:900px){
+  html.mobile-ui{
+    --mobile-event-w:clamp(165px,30vw,225px);
+    --mobile-gap:5px;
+  }
+
+  html.mobile-ui,
+  html.mobile-ui body{
+    margin:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-height:100%!important;
+    overflow-x:hidden!important;
+    background:linear-gradient(#0b0f16,#111723)!important;
+  }
+
+  html.mobile-ui body{
+    font-size:10px;
+    min-height:100dvh!important;
+  }
+
+  /* No fake CSS rotation. Use the browser's real viewport so blank half-screen cannot occur. */
+  html.mobile-ui .mobile-rotate-shell{
+    position:static!important;
+    transform:none!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:100dvh!important;
+    max-width:100%!important;
+    overflow:visible!important;
+    background:transparent!important;
+  }
+
+  html.mobile-ui .app{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:5px!important;
+    padding-right:calc(var(--mobile-event-w) + var(--mobile-gap) + 5px)!important;
+    overflow-x:hidden!important;
+  }
+
+  /* Header stays entirely inside the left/main area. */
+  html.mobile-ui .top{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    gap:5px!important;
+    margin-bottom:5px!important;
+    align-items:center!important;
+  }
+  html.mobile-ui h1{
+    min-width:0!important;
+    font-size:13px!important;
+    line-height:1.1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html.mobile-ui h2{font-size:12px!important;margin:0 0 5px!important}
+  html.mobile-ui h3{font-size:10px!important;margin:5px 0 3px!important}
+  html.mobile-ui .time{
+    min-width:112px!important;
+    flex:0 0 112px!important;
+    border-radius:7px!important;
+    padding:4px 6px!important;
+  }
+  html.mobile-ui .time b{font-size:13px!important}
+  html.mobile-ui .sub,
+  html.mobile-ui .muted{font-size:8px!important;line-height:1.22!important}
+
+  /*
+   * Mobile main content is a single real column.
+   * Right event rail is fixed independently and therefore can never "reserve empty space".
+   */
+  html.mobile-ui .layout{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+  html.mobile-ui .layout>.col{
+    display:none!important;
+  }
+  html.mobile-ui .mobile-main{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:5px!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  html.mobile-ui .mobile-main>.panel{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  html.mobile-ui .design-concept-panel{
+    width:100%!important;
+    margin-bottom:5px!important;
+    padding:6px!important;
+  }
+  html.mobile-ui .design-question-grid{grid-template-columns:1fr 1fr!important;gap:4px!important;margin-top:5px!important}
+  html.mobile-ui .design-question{padding:4px!important;gap:3px!important}
+  html.mobile-ui .design-confirm-row{margin-top:5px!important}
+  html.mobile-ui .panel{
+    border-radius:8px!important;
+    padding:6px!important;
+    margin:0!important;
+    min-width:0!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+  }
+
+  /* Daily actions first on mobile. */
+  html.mobile-ui .mobile-operation{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+  html.mobile-ui .mobile-operation>h2{order:0}
+  html.mobile-ui .mobile-operation>.action-grid{order:1}
+  html.mobile-ui .mobile-operation>button.big{order:2}
+  html.mobile-ui .mobile-operation>.two{order:3}
+  html.mobile-ui .mobile-operation>.row{order:4}
+  html.mobile-ui .mobile-operation>.barbox{order:5}
+  html.mobile-ui .mobile-operation>#fatigueWarning{order:6}
+  html.mobile-ui .mobile-operation>#developmentBars{order:7}
+  html.mobile-ui .mobile-operation>#doubleCostText{order:8}
+  html.mobile-ui .mobile-operation>div:last-child{order:9}
+
+  html.mobile-ui .action-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:3px!important;
+  }
+  html.mobile-ui .action{
+    min-height:36px!important;
+    padding:4px 5px!important;
+    border-radius:5px!important;
+  }
+  html.mobile-ui .action b{font-size:9.5px!important}
+  html.mobile-ui .action span{font-size:7px!important;line-height:1.05!important}
+  html.mobile-ui button.big{
+    font-size:12px!important;
+    padding:7px!important;
+    margin:4px 0 5px!important;
+    border-radius:7px!important;
+  }
+
+  html.mobile-ui .two{gap:4px!important}
+  html.mobile-ui .cards{gap:3px!important}
+  html.mobile-ui .card{border-radius:6px!important;padding:4px!important}
+  html.mobile-ui .card .k{font-size:7px!important}
+  html.mobile-ui .card .v{font-size:13px!important;margin-top:1px!important}
+  html.mobile-ui .mobile-info .cards{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  html.mobile-ui .mobile-info>.two{margin-top:4px!important}
+  html.mobile-ui .mobile-operation>.two .card .v{font-size:13px!important}
+
+  html.mobile-ui button,
+  html.mobile-ui select,
+  html.mobile-ui input{
+    max-width:100%!important;
+    border-radius:5px!important;
+    padding:4px 5px!important;
+    font-size:8.5px!important;
+  }
+  html.mobile-ui .row{
+    gap:3px!important;
+    flex-wrap:wrap!important;
+  }
+  html.mobile-ui .barbox{margin:3px 0!important}
+  html.mobile-ui .bar{height:5px!important}
+  html.mobile-ui .barhead{font-size:8px!important}
+  html.mobile-ui #fatigueWarning,
+  html.mobile-ui .statusline{
+    font-size:7px!important;
+    padding:2px 4px!important;
+    margin-top:2px!important;
+  }
+
+  html.mobile-ui .money-sidegig{
+    width:55%!important;
+    padding:3px 4px!important;
+    margin-top:3px!important;
+  }
+  html.mobile-ui .money-sidegig b{font-size:8px!important}
+  html.mobile-ui .money-sidegig span{font-size:6.5px!important}
+
+  html.mobile-ui .recruit-tools{gap:3px!important}
+  html.mobile-ui .recruit-btn{min-height:32px!important;padding:3px 4px!important}
+  html.mobile-ui .recruit-icon{width:21px!important;height:21px!important;font-size:9px!important}
+  html.mobile-ui .recruit-copy b{font-size:8.5px!important}
+  html.mobile-ui .recruit-copy span{font-size:6.5px!important}
+  html.mobile-ui .candidate{padding:4px!important;margin:3px 0!important;font-size:8px!important}
+  html.mobile-ui .list{
+    max-height:210px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+  html.mobile-ui .mobile-team .list{max-height:170px!important}
+  html.mobile-ui .item{padding:4px 5px!important}
+  html.mobile-ui .tag{font-size:7px!important;padding:1px 3px!important}
+
+  /* Content management remains below day-to-day operations. */
+  html.mobile-ui .mobile-content .tabs{
+    gap:2px!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  html.mobile-ui .mobile-content .tabs button{
+    padding:4px 2px!important;
+    font-size:7.5px!important;
+    min-width:0!important;
+  }
+  html.mobile-ui #composerView .list{max-height:330px!important}
+  html.mobile-ui .composer-card{padding:5px 6px!important}
+  html.mobile-ui .composer-card h3{margin:4px 0 2px!important}
+  html.mobile-ui .composer-mini-stats{font-size:7px!important;gap:4px!important}
+  html.mobile-ui .commission-controls{
+    margin:3px 0!important;
+    gap:2px!important;
+    grid-template-columns:minmax(0,.9fr) minmax(0,.7fr) minmax(0,1fr)!important;
+  }
+  html.mobile-ui .commission-controls select{
+    min-height:23px!important;
+    padding:2px 3px!important;
+    font-size:7px!important;
+  }
+  html.mobile-ui .commission-btn{
+    padding:3px!important;
+    min-height:23px!important;
+  }
+  html.mobile-ui .commission-btn .main{font-size:8px!important}
+  html.mobile-ui .commission-btn .meta{font-size:6px!important}
+  html.mobile-ui .style-mastery{padding-top:3px!important}
+  html.mobile-ui .style-mastery-title{font-size:7px!important;margin-bottom:2px!important}
+  html.mobile-ui .style-mastery-grid{gap:2px!important}
+  html.mobile-ui .style-mastery-grid span{padding:2px 3px!important;font-size:6.5px!important}
+
+  html.mobile-ui .panel button:not(.action):not(.big):not(.recruit-btn):not(.commission-btn){
+    padding:3px 4px!important;
+    font-size:7.5px!important;
+  }
+
+  /* Fixed event rail: physically pinned to the right edge of the real viewport. */
+  html.mobile-ui .event-col{
+    display:block!important;
+    position:fixed!important;
+    right:0!important;
+    top:0!important;
+    bottom:0!important;
+    left:auto!important;
+    width:var(--mobile-event-w)!important;
+    min-width:var(--mobile-event-w)!important;
+    max-width:var(--mobile-event-w)!important;
+    height:100dvh!important;
+    max-height:100dvh!important;
+    z-index:999!important;
+    overflow:hidden!important;
+    background:#0b0f16!important;
+    border-left:1px solid var(--l)!important;
+  }
+  html.mobile-ui .event-col>.panel{
+    height:100%!important;
+    max-height:100%!important;
+    border-radius:0!important;
+    border-top:0!important;
+    border-right:0!important;
+    border-bottom:0!important;
+    margin:0!important;
+    padding:5px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+    background:rgba(23,29,40,.99)!important;
+  }
+  html.mobile-ui .event-col h2{
+    flex:0 0 auto!important;
+    font-size:10px!important;
+    margin-bottom:3px!important;
+  }
+  html.mobile-ui .event-resource{
+    flex:0 0 auto!important;
+    padding:3px 4px!important;
+    margin-bottom:3px!important;
+    font-size:8px!important;
+  }
+  html.mobile-ui .event-col .log{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    font-size:7.2px!important;
+    line-height:1.2!important;
+    word-break:break-word!important;
+  }
+  html.mobile-ui .event-col .log>div{
+    padding-top:3px!important;
+    padding-bottom:3px!important;
+  }
+
+  html.mobile-ui .app,
+  html.mobile-ui .layout,
+  html.mobile-ui .mobile-main,
+  html.mobile-ui .panel,
+  html.mobile-ui .view,
+  html.mobile-ui .list,
+  html.mobile-ui .item{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+}
+
+/* Extra compression for narrow portrait phones; no fake rotation is used. */
+@media (hover:none) and (pointer:coarse) and (orientation:portrait),
+       (max-width:600px) and (orientation:portrait){
+  html.mobile-ui{
+    --mobile-event-w:clamp(125px,34vw,155px);
+  }
+  html.mobile-ui .app{
+    padding:4px!important;
+    padding-right:calc(var(--mobile-event-w) + 8px)!important;
+  }
+  html.mobile-ui .action-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html.mobile-ui h1{font-size:11px!important}
+  html.mobile-ui .time{
+    min-width:92px!important;
+    flex-basis:92px!important;
+  }
+  html.mobile-ui .mobile-info .cards{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+</style></head>
+<body><div class="mobile-rotate-shell"><div class="app">
+<section class="panel design-concept-panel" id="designConceptPanel">
+  <div class="between"><div><h2>游戏设计理念</h2><div class="sub">完成全部问题后才能开始核心制作、招募成员或主动约曲。确定后不可修改。</div></div></div>
+  <div class="design-question-grid">
+    <label class="design-question">
+      <b>一、你打算做什么样的音乐游戏？</b>
+      <select id="designStyleSelect">
+        <option value="传统" selected>传统</option>
+        <option value="创新">创新</option>
+        <option value="缝合">缝合</option>
+      </select>
+    </label>
+    <label class="design-question">
+      <b>二、你打算上线电脑端吗？</b>
+      <select id="designPCSelect">
+        <option value="否" selected>否</option>
+        <option value="是">是</option>
+      </select>
+    </label>
+    <label class="design-question">
+      <b>三、你将为游戏起什么名字？</b>
+      <input id="designGameNameInput" type="text" maxlength="40" placeholder="请输入游戏名称">
+    </label>
+  </div>
+  <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
+</section>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 4</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="layout"><div class="col">
+<section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
+<button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
+<div class="row" style="margin:8px 0"><select id="jobSelect" onchange="setJob(this.value)"><option value="home">家里蹲</option><option value="easy">简单</option><option value="normal">普通</option><option value="hard">困难</option></select><span class="sub" id="jobLockText"></span></div>
+<div class="barbox"><div class="barhead"><b>行动点</b><span id="apText"></span></div><div class="bar"><div id="apBar" class="fill"></div></div></div>
+<div class="barbox"><div class="barhead"><b>精神</b><span id="fatigueText"></span></div><div class="bar"><div id="fatigueBar" class="fill"></div></div></div><div id="fatigueWarning">⚠ 精神过低：当前精神低于100，部分行动可能触发疲劳效果。</div><div id="developmentBars"></div><div class="statusline" id="doubleCostText"></div>
+<div class="action-grid">
+<button class="action work-orange" id="writeCopyBtn" onclick="writeCopy()"><b id="writeCopyLabel">写文案</b><span id="writeCopyCostHint">2行动点 / +5疲劳</span></button>
+<button class="action work-orange" id="writeProgramBtn" onclick="writeProgram()"><b>写程序</b><span id="programCostHint"></span></button>
+
+<button class="action learn-purple" id="studyProgramBtn" onclick="studyProgram()"><b>学程序</b><span id="studyProgramCostHint">5行动点 / +30疲劳</span></button><button class="action learn-purple" id="studyArtBtn" onclick="studyArt()"><b>学美术</b><span id="studyArtCostHint">10行动点 / +50疲劳</span></button>
+<button class="action stress-down" onclick="playRhythm()"><b>打音游</b><span id="rhythmCostHint">2行动点 / -40疲劳</span></button>
+<button class="action stress-down" id="takeoutBtn" onclick="takeout()"><b>点外卖</b><span id="takeoutCostHint">1行动点 / -25疲劳</span></button>
+
+
+</div><button class="big" onclick="endDay()">结束今天</button>
+<div style="margin-top:10px;padding:10px;background:#121925;border:1px solid var(--line);border-radius:12px">
+  <div class="between"><b>存档</b><span class="sub" id="saveStatus">未检测到存档</span></div>
+  <div class="row" style="margin-top:7px">
+    <button class="good" onclick="saveGame()">保存存档</button>
+    <button onclick="loadGame()">读取存档</button>
+    <button class="bad" onclick="deleteSave()">删除存档</button>
+  </div>
+  <div class="sub">存档保存于本地浏览器</div>
+</div>
+</section>
+<section class="panel mobile-services"><h2>会员服务</h2><div class="sub">购买/取消不消耗行动点；购买当天立即扣费，之后按月扣费。</div><div id="services"></div></section>
+<section class="panel mobile-team"><h2>制作组</h2>
+<div class="between"><span>协调阈值：<b id="coord"></b> / <b id="coordCapDisplay"></b></span><span class="sub" id="teamCapText"></span></div>
+<div class="row" style="margin:5px 0">
+  <span class="sub">成员排序</span>
+  <select id="memberSortSelect" onchange="setMemberSortMode(this.value)">
+    <option value="acquired" selected>获取顺序</option>
+    <option value="level">等级</option>
+  </select>
+</div>
+<div class="recruit-tools">
+  <button class="recruit-btn" id="recruitChartBtn" onclick="searchMember('chart')"><span class="recruit-icon">谱</span><span class="recruit-copy"><b>寻找谱师</b><span id="recruitChartCostHint">1 行动点 · +10疲劳</span></span></button>
+  <button class="recruit-btn" id="recruitArtBtn" onclick="searchMember('art')"><span class="recruit-icon">画</span><span class="recruit-copy"><b>寻找美术</b><span id="recruitArtCostHint">1 行动点 · +10疲劳</span></span></button>
+</div>
+<div id="candidateBox"></div>
+<div class="list" id="members"></div></section>
+<section class="panel mobile-economy"><h2>经济状态</h2><div id="economyText"></div></section>
+</div><div class="col">
+<section class="panel mobile-info"><h2>信息视窗</h2><div class="cards"><div class="card"><div class="k">关注人数</div><div class="v" id="fans"></div></div><div class="card"><div class="k">社区讨论度</div><div class="v" id="discussion"></div></div><div class="card"><div class="k">游玩人数</div><div class="v" id="players"></div></div><div class="card"><div class="k">游戏好评度</div><div class="v" id="rating"></div></div></div>
+<div class="two" style="margin-top:9px"><div class="card"><div class="k">艺术追求</div><div class="v" id="artPursuit"></div><div class="sub" id="styleBuff"></div></div><div class="card"><div class="k">本月赞助</div><div class="v" id="sponsor"></div><div class="sub" id="sponsorInfo"></div></div></div></section>
+<section class="panel mobile-content"><div class="tabs"><button class="tab active" data-view="composerView" onclick="showTab(this)">联系曲师</button><button class="tab" data-view="libraryView" onclick="showTab(this)">管理曲库</button><button class="tab" data-view="packageView" onclick="showTab(this)">规划与更新</button><button class="tab" data-view="collabView" onclick="showTab(this)">联动</button></div>
+<div id="composerView" class="view active"><h2>曲师</h2><div class="list" id="composers"></div></div>
+<div id="libraryView" class="view"><h2>曲库</h2><div class="sub">谱面与美术都完成后可选择 Alpha；Alpha 非发布前置。Beta 要求本次曲包所有曲子拥有谱面与封面。</div><div class="list" id="library"></div></div>
+<div id="packageView" class="view"><h2>曲包与更新</h2><div class="row"><select id="packageType"><option>主线包</option><option>支线包</option><option>补充包</option><option>单曲</option></select><button onclick="createPackage()">新建曲包</button></div><div id="packages"></div></div>
+<div id="collabView" class="view"><h2>联动</h2><div id="collabs"></div></div></section>
+<section class="panel mobile-debug"><div class="between"><h2>测试数值（隐藏信息）</h2><button onclick="toggleDebug()">展开 / 收起</button></div><div class="hidden-test" id="debugPanel"><div class="cards"><div class="card"><div class="k">期待值</div><div class="v" id="expectation"></div></div><div class="card"><div class="k">玩家粘性</div><div class="v" id="stickiness"></div></div><div class="card"><div class="k">下次更新 Bug 概率</div><div class="v" id="bugChance"></div></div><div class="card"><div class="k">程序水平（隐藏）</div><div class="v" id="tech"></div></div></div><div class="sub" id="debugMore"></div><div id="composerDebug" style="margin-top:10px"></div></div></section>
+
+</div><aside class="event-col"><section class="panel"><h2>事件记录</h2>
+<div class="event-resource"><div>行动点：<b id="eventActionPoints">18</b></div><div>精神：<b id="eventSpirit">200</b></div><div>余额：<b id="eventBalance">10,000</b></div></div>
+<div class="log" id="log"></div></section></aside></div></div></div>
+<script>
+(function(){
+  const coarse=window.matchMedia&&window.matchMedia("(pointer:coarse)").matches;
+  const ua=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||"");
+  const mobile=coarse||ua||Math.min(screen.width||9999,screen.height||9999)<=900;
+  if(!mobile)return;
+
+  const root=document.documentElement;
+  root.classList.add("mobile-ui");
+
+  const buildMobileLayout=()=>{
+    const layout=document.querySelector(".layout");
+    if(!layout||layout.querySelector(".mobile-main"))return;
+
+    const main=document.createElement("div");
+    main.className="mobile-main";
+
+    for(const selector of [
+      ".mobile-operation",
+      ".mobile-info",
+      ".mobile-team",
+      ".mobile-services",
+      ".mobile-economy",
+      ".mobile-content",
+      ".mobile-debug"
+    ]){
+      const node=document.querySelector(selector);
+      if(node)main.appendChild(node);
+    }
+
+    const eventCol=layout.querySelector(".event-col");
+    layout.insertBefore(main,eventCol||null);
+  };
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",buildMobileLayout,{once:true});
+  }else{
+    buildMobileLayout();
+  }
+})();
+const COMPOSER_MASTER=[{"id":1,"name":"cYsisolate","country":"挪威","popularity":50,"abstract":1,"avgQuality":5,"efficiency":3,"mental":70,"affection":0,"affDifficulty":70,"prices":{"非商":6000,"商业":15000,"正式邀请":30000},"styles":{"灼热":90,"抒情":80,"冷冽":30},"qualityProbs":{"非商":[0.0,0.3,0.4,0.25,0.05],"商业":[0.0,0.3,0.3,0.35,0.05],"正式邀请":[0.0,0.0,0.5,0.45,0.05]},"bond":[7],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":2,"name":"Half","country":"日本","popularity":50,"abstract":3,"avgQuality":3,"efficiency":4,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":60,"抒情":60,"冷冽":50},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":3,"name":"大二","country":"日本","popularity":90,"abstract":4,"avgQuality":4,"efficiency":4,"mental":100,"affection":0,"affDifficulty":90,"prices":{"非商":15000,"商业":25000,"正式邀请":50000},"styles":{"灼热":60,"抒情":70,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.5,0.3,0.1],"商业":[0.0,0.1,0.3,0.5,0.1],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[18,20,25],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50003,"name":"猫的咖啡厅","price":5000,"quality":3,"abstract":5,"style":"抒情","attention":90,"discussion":90,"good":20,"bought":false,"note":"","composerLabel":"大二","collabComposerIds":[3],"sharedPortfolioKey":"大二|猫的咖啡厅"}],"note":null},{"id":4,"name":"留存","country":"日本","popularity":100,"abstract":2,"avgQuality":6,"efficiency":1,"mental":70,"affection":0,"affDifficulty":60,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":40,"抒情":100,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.7,0.2,0.1],"商业":[0.0,0.0,0.3,0.5,0.2],"正式邀请":[0.0,0.0,0.0,0.5,0.5]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50001,"name":"梦工厂","price":3000,"quality":5,"abstract":1,"style":"抒情","attention":80,"discussion":50,"good":100,"bought":false,"note":"","composerLabel":"留存","collabComposerIds":[4],"sharedPortfolioKey":"留存|梦工厂"}],"note":null},{"id":5,"name":"鱿羽鱼","country":"中国","popularity":20,"abstract":3,"avgQuality":2,"efficiency":5,"mental":80,"affection":0,"affDifficulty":30,"prices":{"非商":2000,"商业":4000,"正式邀请":8000},"styles":{"灼热":50,"抒情":40,"冷冽":50},"qualityProbs":{"非商":[0.3,0.3,0.4,0.0,0.0],"商业":[0.15,0.35,0.5,0.0,0.0],"正式邀请":[0.0,0.0,0.9,0.1,0.0]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":6,"name":"可燃冰","country":"中国","popularity":70,"abstract":2,"avgQuality":4,"efficiency":4,"mental":30,"affection":0,"affDifficulty":80,"prices":{"非商":3500,"商业":8000,"正式邀请":16000},"styles":{"灼热":30,"抒情":30,"冷冽":80},"qualityProbs":{"非商":[0.0,0.3,0.6,0.1,0.0],"商业":[0.0,0.2,0.6,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[11],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50023,"name":"温室花房第6作：blizzard","price":2400,"quality":3,"abstract":2,"style":"冷冽","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 可燃冰","collabComposerIds":[11,6],"sharedPortfolioKey":"PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard"}],"note":null},{"id":7,"name":"natto","country":"日本","popularity":80,"abstract":1,"avgQuality":4,"efficiency":3,"mental":80,"affection":0,"affDifficulty":80,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":70,"抒情":50,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[1],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":8,"name":"ryuko","country":"日本","popularity":30,"abstract":5,"avgQuality":4,"efficiency":4,"mental":100,"affection":0,"affDifficulty":20,"prices":{"非商":3000,"商业":6000,"正式邀请":8000},"styles":{"灼热":100,"抒情":20,"冷冽":50},"qualityProbs":{"非商":[0.0,0.7,0.2,0.1,0.0],"商业":[0.0,0.5,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.8,0.15,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":9,"name":"白女皇","country":"法国","popularity":70,"abstract":1,"avgQuality":3,"efficiency":3,"mental":60,"affection":0,"affDifficulty":50,"prices":{"非商":3000,"商业":10000,"正式邀请":20000},"styles":{"灼热":50,"抒情":70,"冷冽":70},"qualityProbs":{"非商":[0.0,0.4,0.5,0.1,0.0],"商业":[0.0,0.3,0.5,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50007,"name":"时间长流","price":2000,"quality":4,"abstract":1,"style":"抒情","attention":70,"discussion":40,"good":60,"bought":false,"note":"","composerLabel":"白女皇","collabComposerIds":[9],"sharedPortfolioKey":"白女皇|时间长流"}],"note":null},{"id":10,"name":"舞茸","country":"日本","popularity":10,"abstract":2,"avgQuality":5,"efficiency":2,"mental":60,"affection":0,"affDifficulty":20,"prices":{"非商":3000,"商业":8000,"正式邀请":16000},"styles":{"灼热":20,"抒情":40,"冷冽":100},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.8,0.1,0.1],"正式邀请":[0.0,0.0,0.6,0.2,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":11,"name":"PICKUPNEAR","country":"中国","popularity":50,"abstract":1,"avgQuality":3,"efficiency":6,"mental":60,"affection":0,"affDifficulty":30,"prices":{"非商":3500,"商业":8000,"正式邀请":12000},"styles":{"灼热":0,"抒情":90,"冷冽":70},"qualityProbs":{"非商":[0.0,0.3,0.4,0.3,0.0],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[6],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50002,"name":"最华丽的独奏","price":500,"quality":3,"abstract":2,"style":"抒情","attention":30,"discussion":10,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|最华丽的独奏"},{"id":50011,"name":"温室花房第1作：afternoon","price":1200,"quality":2,"abstract":1,"style":"抒情","attention":30,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第1作：afternoon"},{"id":50012,"name":"温室花房第2作：sunlight","price":1200,"quality":2,"abstract":2,"style":"灼热","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第2作：sunlight"},{"id":50013,"name":"温室花房第3作：flower","price":1200,"quality":2,"abstract":3,"style":"抒情","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第3作：flower"},{"id":50014,"name":"温室花房第4作：rain","price":1200,"quality":2,"abstract":2,"style":"冷冽","attention":40,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第4作：rain"},{"id":50015,"name":"温室花房第5作：dandelion","price":1200,"quality":2,"abstract":1,"style":"灼热","attention":30,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"PICKUPNEAR","collabComposerIds":[11],"sharedPortfolioKey":"PICKUPNEAR|温室花房第5作：dandelion"},{"id":50023,"name":"温室花房第6作：blizzard","price":2400,"quality":3,"abstract":2,"style":"冷冽","attention":40,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"PICKUPNEAR vs. 可燃冰","collabComposerIds":[11,6],"sharedPortfolioKey":"PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard"}],"note":null},{"id":12,"name":"remesa","country":"日本","popularity":60,"abstract":2,"avgQuality":4,"efficiency":3,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":30,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.2,0.5,0.3,0.0],"商业":[0.0,0.2,0.3,0.5,0.0],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":13,"name":"W5N","country":"韩国","popularity":90,"abstract":0,"avgQuality":5,"efficiency":4,"mental":100,"affection":0,"affDifficulty":50,"prices":{"非商":15000,"商业":30000,"正式邀请":60000},"styles":{"灼热":80,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.8,0.2,0.0],"商业":[0.0,0.0,0.5,0.5,0.0],"正式邀请":[0.0,0.0,0.3,0.5,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":14,"name":"Flower","country":"日本","popularity":90,"abstract":4,"avgQuality":3,"efficiency":1,"mental":30,"affection":0,"affDifficulty":60,"prices":{"非商":1500,"商业":12000,"正式邀请":24000},"styles":{"灼热":50,"抒情":50,"冷冽":50},"qualityProbs":{"非商":[0.0,0.9,0.1,0.0,0.0],"商业":[0.0,0.3,0.5,0.2,0.0],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50004,"name":"infinite-cardinal","price":0,"quality":3,"abstract":3,"style":"冷冽","attention":70,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"Flower","collabComposerIds":[14],"sharedPortfolioKey":"Flower|infinite-cardinal"},{"id":50006,"name":"返校日","price":0,"quality":2,"abstract":4,"style":"灼热","attention":60,"discussion":20,"good":50,"bought":false,"note":"","composerLabel":"Flower","collabComposerIds":[14],"sharedPortfolioKey":"Flower|返校日"}],"note":null},{"id":15,"name":"atsusamushi","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":3,"mental":90,"affection":0,"affDifficulty":70,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":80,"抒情":30,"冷冽":70},"qualityProbs":{"非商":[0.0,0.3,0.5,0.18,0.02],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50005,"name":"School Violence","price":5000,"quality":4,"abstract":2,"style":"灼热","attention":80,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"atsusamushi","collabComposerIds":[15],"sharedPortfolioKey":"atsusamushi|School Violence"}],"note":null},{"id":16,"name":"shcad","country":"日本","popularity":10,"abstract":2,"avgQuality":3,"efficiency":3,"mental":10,"affection":0,"affDifficulty":60,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":60,"冷冽":30},"qualityProbs":{"非商":[0.2,0.7,0.1,0.0,0.0],"商业":[0.2,0.4,0.3,0.1,0.0],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50018,"name":"花海的贤者","price":12000,"quality":5,"abstract":1,"style":"抒情","attention":60,"discussion":30,"good":90,"bought":false,"note":"","composerLabel":"shcad","collabComposerIds":[16],"sharedPortfolioKey":"shcad|花海的贤者"}],"note":"应该放在所有曲师最上面，这位是给新手的首选曲师"},{"id":17,"name":"侧睡","country":"中国","popularity":10,"abstract":2,"avgQuality":2,"efficiency":4,"mental":90,"affection":0,"affDifficulty":60,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":30,"冷冽":60},"qualityProbs":{"非商":[0.2,0.7,0.1,0.0,0.0],"商业":[0.2,0.4,0.3,0.1,0.0],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50017,"name":"薪火","price":500,"quality":3,"abstract":3,"style":"灼热","attention":30,"discussion":10,"good":50,"bought":false,"note":"","composerLabel":"侧睡","collabComposerIds":[17],"sharedPortfolioKey":"侧睡|薪火"}],"note":"应该放在所有曲师最上面，这位是给新手的首选曲师"},{"id":18,"name":"magic theory","country":"中国","popularity":70,"abstract":2,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":90,"prices":{"非商":3500,"商业":8000,"正式邀请":16000},"styles":{"灼热":80,"抒情":30,"冷冽":30},"qualityProbs":{"非商":[0.0,0.3,0.6,0.1,0.0],"商业":[0.0,0.2,0.6,0.15,0.05],"正式邀请":[0.0,0.0,0.7,0.2,0.1]},"bond":[3],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":19,"name":"Lemon","country":"日本","popularity":50,"abstract":2,"avgQuality":4,"efficiency":2,"mental":90,"affection":0,"affDifficulty":60,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":30,"抒情":50,"冷冽":70},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50010,"name":"水晶指针","price":2000,"quality":4,"abstract":3,"style":"抒情","attention":50,"discussion":20,"good":80,"bought":false,"note":"","composerLabel":"Lemon","collabComposerIds":[19],"sharedPortfolioKey":"Lemon|水晶指针"}],"note":null},{"id":20,"name":"HitnexX","country":"日本","popularity":80,"abstract":3,"avgQuality":4,"efficiency":3,"mental":60,"affection":0,"affDifficulty":60,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":80,"抒情":40,"冷冽":20},"qualityProbs":{"非商":[0.0,0.0,0.8,0.15,0.05],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.4,0.5,0.1]},"bond":[3,25],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":21,"name":"贪吃蛇","country":"日本","popularity":60,"abstract":3,"avgQuality":4,"efficiency":2,"mental":70,"affection":0,"affDifficulty":70,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":70,"抒情":60,"冷冽":60},"qualityProbs":{"非商":[0.0,0.2,0.5,0.3,0.0],"商业":[0.0,0.2,0.3,0.5,0.0],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[22,37],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50009,"name":"恐龙时代","price":2000,"quality":4,"abstract":3,"style":"灼热","attention":60,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"贪吃蛇","collabComposerIds":[21],"sharedPortfolioKey":"贪吃蛇|恐龙时代"},{"id":50029,"name":"点火器","price":10000,"quality":4,"abstract":2,"style":"灼热","attention":50,"discussion":40,"good":80,"bought":false,"note":"","composerLabel":"贪吃蛇 vs. heaven_cube","collabComposerIds":[21,37],"sharedPortfolioKey":"贪吃蛇 vs. heaven_cube|点火器"}],"note":null},{"id":22,"name":"美食街","country":"日本","popularity":30,"abstract":2,"avgQuality":4,"efficiency":4,"mental":20,"affection":0,"affDifficulty":90,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":20,"抒情":70,"冷冽":90},"qualityProbs":{"非商":[0.0,0.3,0.5,0.18,0.02],"商业":[0.0,0.2,0.5,0.25,0.05],"正式邀请":[0.0,0.0,0.6,0.3,0.1]},"bond":[21],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50008,"name":"春日吹雪","price":10000,"quality":4,"abstract":2,"style":"冷冽","attention":60,"discussion":30,"good":80,"bought":false,"note":"","composerLabel":"美食街","collabComposerIds":[22],"sharedPortfolioKey":"美食街|春日吹雪"}],"note":null},{"id":23,"name":"stardust","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":40,"affection":0,"affDifficulty":80,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":60,"抒情":80,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.6,0.3,0.1],"商业":[0.0,0.0,0.3,0.5,0.2],"正式邀请":[0.0,0.0,0.0,0.4,0.6]},"bond":[27],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50016,"name":"Before Light","price":5000,"quality":4,"abstract":2,"style":"灼热","attention":40,"discussion":20,"good":100,"bought":false,"note":"","composerLabel":"stardust","collabComposerIds":[23],"sharedPortfolioKey":"stardust|Before Light"}],"note":null},{"id":24,"name":"boTanicaMin","country":"中国","popularity":40,"abstract":2,"avgQuality":4,"efficiency":2,"mental":90,"affection":0,"affDifficulty":40,"prices":{"非商":800,"商业":1600,"正式邀请":80000},"styles":{"灼热":30,"抒情":60,"冷冽":80},"qualityProbs":{"非商":[0.0,0.0,1.0,0.0,0.0],"商业":[0.0,0.0,0.8,0.2,0.0],"正式邀请":[0.0,0.0,0.4,0.55,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50019,"name":"碎裂的心","price":500,"quality":4,"abstract":2,"style":"冷冽","attention":30,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"boTanicaMin","collabComposerIds":[24],"sharedPortfolioKey":"boTanicaMin|碎裂的心"},{"id":50025,"name":"乌托邦","price":500,"quality":4,"abstract":2,"style":"抒情","attention":30,"discussion":10,"good":70,"bought":false,"note":"","composerLabel":"boTanicaMin","collabComposerIds":[24],"sharedPortfolioKey":"boTanicaMin|乌托邦"}],"note":null},{"id":25,"name":"topaz","country":"日本","popularity":70,"abstract":4,"avgQuality":3,"efficiency":3,"mental":80,"affection":0,"affDifficulty":80,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":80,"抒情":20,"冷冽":50},"qualityProbs":{"非商":[0.0,0.1,0.6,0.3,0.0],"商业":[0.0,0.2,0.4,0.35,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[3,20],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50020,"name":"九龙城寨","price":3000,"quality":5,"abstract":4,"style":"灼热","attention":80,"discussion":50,"good":80,"bought":false,"note":"","composerLabel":"topaz","collabComposerIds":[25],"sharedPortfolioKey":"topaz|九龙城寨"},{"id":50021,"name":"熊猫骑士","price":0,"quality":3,"abstract":3,"style":"灼热","attention":40,"discussion":20,"good":70,"bought":false,"note":"","composerLabel":"topaz","collabComposerIds":[25],"sharedPortfolioKey":"topaz|熊猫骑士"}],"note":null},{"id":26,"name":"whiteball","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":3,"mental":60,"affection":0,"affDifficulty":50,"prices":{"非商":6000,"商业":12000,"正式邀请":30000},"styles":{"灼热":90,"抒情":20,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.8,0.1,0.0],"商业":[0.0,0.0,0.7,0.25,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50022,"name":"ruthless war","price":5000,"quality":5,"abstract":1,"style":"灼热","attention":20,"discussion":50,"good":80,"bought":false,"note":"","composerLabel":"whiteball","collabComposerIds":[26],"sharedPortfolioKey":"whiteball|ruthless war"}],"note":null},{"id":27,"name":"ξ","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":40,"affection":0,"affDifficulty":80,"prices":{"非商":12000,"商业":24000,"正式邀请":80000},"styles":{"灼热":60,"抒情":80,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.6,0.4,0.0],"商业":[0.0,0.0,0.3,0.65,0.05],"正式邀请":[0.0,0.0,0.0,0.8,0.2]},"bond":[23],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":28,"name":"dice r-r-roller","country":"日本","popularity":80,"abstract":2,"avgQuality":4,"efficiency":4,"mental":90,"affection":0,"affDifficulty":50,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":80,"抒情":20,"冷冽":80},"qualityProbs":{"非商":[0.0,0.2,0.65,0.1,0.05],"商业":[0.0,0.15,0.3,0.5,0.05],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":29,"name":"sentinel","country":"日本","popularity":70,"abstract":2,"avgQuality":4,"efficiency":2,"mental":40,"affection":0,"affDifficulty":60,"prices":{"非商":8000,"商业":12000,"正式邀请":32000},"styles":{"灼热":40,"抒情":90,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.6,0.4,0.0],"商业":[0.0,0.0,0.55,0.3,0.15],"正式邀请":[0.0,0.0,0.0,0.7,0.3]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50024,"name":"when the sun","price":2000,"quality":5,"abstract":2,"style":"冷冽","attention":80,"discussion":50,"good":100,"bought":false,"note":"","composerLabel":"sentinel","collabComposerIds":[29],"sharedPortfolioKey":"sentinel|when the sun"},{"id":50030,"name":"lapis","price":5000,"quality":3,"abstract":2,"style":"抒情","attention":80,"discussion":80,"good":70,"bought":false,"note":"","composerLabel":"sentinel","collabComposerIds":[29],"sharedPortfolioKey":"sentinel|lapis"}],"note":null},{"id":30,"name":"盾神","country":"日本","popularity":80,"abstract":3,"avgQuality":3,"efficiency":3,"mental":80,"affection":0,"affDifficulty":60,"prices":{"非商":6000,"商业":15000,"正式邀请":25000},"styles":{"灼热":70,"抒情":40,"冷冽":80},"qualityProbs":{"非商":[0.0,0.1,0.65,0.25,0.0],"商业":[0.0,0.15,0.4,0.4,0.05],"正式邀请":[0.0,0.0,0.5,0.4,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":31,"name":"夜枭大叔","country":"日本","popularity":100,"abstract":3,"avgQuality":6,"efficiency":3,"mental":90,"affection":0,"affDifficulty":50,"prices":{"非商":15000,"商业":30000,"正式邀请":80000},"styles":{"灼热":80,"抒情":100,"冷冽":80},"qualityProbs":{"非商":[0.0,0.0,0.3,0.6,0.1],"商业":[0.0,0.0,0.0,0.8,0.2],"正式邀请":[0.0,0.0,0.0,0.2,0.8]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50026,"name":"artcore","price":2000,"quality":5,"abstract":2,"style":"冷冽","attention":20,"discussion":10,"good":100,"bought":false,"note":"","composerLabel":"夜枭大叔","collabComposerIds":[31],"sharedPortfolioKey":"夜枭大叔|artcore"}],"note":null},{"id":32,"name":"British.Bull","country":"日本","popularity":90,"abstract":4,"avgQuality":5,"efficiency":3,"mental":70,"affection":0,"affDifficulty":100,"prices":{"非商":15000,"商业":30000,"正式邀请":80000},"styles":{"灼热":0,"抒情":0,"冷冽":100},"qualityProbs":{"非商":[0.0,0.0,0.3,0.6,0.1],"商业":[0.0,0.0,0.0,0.7,0.3],"正式邀请":[0.0,0.0,0.0,0.3,0.7]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":33,"name":"野猪野","country":"日本","popularity":50,"abstract":3,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":30,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":60,"抒情":10,"冷冽":80},"qualityProbs":{"非商":[0.2,0.4,0.3,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.6,0.25,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50027,"name":"空气循环","price":500,"quality":4,"abstract":2,"style":"冷冽","attention":20,"discussion":10,"good":60,"bought":false,"note":"","composerLabel":"野猪野","collabComposerIds":[33],"sharedPortfolioKey":"野猪野|空气循环"}],"note":null},{"id":34,"name":"电钻侠","country":"日本","popularity":70,"abstract":4,"avgQuality":4,"efficiency":3,"mental":80,"affection":0,"affDifficulty":40,"prices":{"非商":8000,"商业":12000,"正式邀请":24000},"styles":{"灼热":90,"抒情":30,"冷冽":70},"qualityProbs":{"非商":[0.0,0.1,0.6,0.3,0.0],"商业":[0.0,0.0,0.55,0.4,0.05],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50028,"name":"与电钻共舞","price":5000,"quality":4,"abstract":4,"style":"灼热","attention":50,"discussion":70,"good":50,"bought":false,"note":"","composerLabel":"电钻侠","collabComposerIds":[34],"sharedPortfolioKey":"电钻侠|与电钻共舞"}],"note":null},{"id":35,"name":"Hyper7onic","country":"中国","popularity":60,"abstract":3,"avgQuality":3,"efficiency":4,"mental":80,"affection":0,"affDifficulty":50,"prices":{"非商":4000,"商业":8000,"正式邀请":16000},"styles":{"灼热":70,"抒情":60,"冷冽":80},"qualityProbs":{"非商":[0.1,0.4,0.4,0.1,0.0],"商业":[0.1,0.4,0.4,0.1,0.0],"正式邀请":[0.0,0.0,0.55,0.3,0.05]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":36,"name":"CRAFTimber","country":"韩国","popularity":70,"abstract":2,"avgQuality":4,"efficiency":3,"mental":70,"affection":0,"affDifficulty":60,"prices":{"非商":12000,"商业":24000,"正式邀请":42000},"styles":{"灼热":10,"抒情":90,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.8,0.2,0.0],"商业":[0.0,0.0,0.5,0.5,0.0],"正式邀请":[0.0,0.0,0.3,0.5,0.2]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[],"note":null},{"id":37,"name":"heaven_cube","country":"日本","popularity":50,"abstract":2,"avgQuality":4,"efficiency":3,"mental":70,"affection":0,"affDifficulty":90,"prices":{"非商":8000,"商业":16000,"正式邀请":32000},"styles":{"灼热":70,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.0,0.7,0.3,0.0],"商业":[0.0,0.0,0.5,0.4,0.1],"正式邀请":[0.0,0.0,0.5,0.3,0.2]},"bond":[21],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50029,"name":"点火器","price":10000,"quality":4,"abstract":2,"style":"灼热","attention":50,"discussion":40,"good":80,"bought":false,"note":"","composerLabel":"贪吃蛇 vs. heaven_cube","collabComposerIds":[21,37],"sharedPortfolioKey":"贪吃蛇 vs. heaven_cube|点火器"}],"note":null},{"id":38,"name":"牛肉屋","country":"日本","popularity":80,"abstract":3,"avgQuality":4,"efficiency":2,"mental":30,"affection":0,"affDifficulty":70,"prices":{"非商":8000,"商业":12000,"正式邀请":24000},"styles":{"灼热":60,"抒情":80,"冷冽":90},"qualityProbs":{"非商":[0.0,0.1,0.7,0.2,0.0],"商业":[0.0,0.0,0.55,0.4,0.05],"正式邀请":[0.0,0.0,0.3,0.6,0.1]},"bond":[],"sickUntil":0,"depressedUntil":0,"depressionCooldownUntil":0,"collabs":0,"portfolio":[{"id":50031,"name":"狂风的裂隙","price":5000,"quality":5,"abstract":3,"style":"冷冽","attention":70,"discussion":90,"good":100,"bought":false,"note":"","composerLabel":"牛肉屋","collabComposerIds":[38],"sharedPortfolioKey":"牛肉屋|狂风的裂隙"}],"note":null}];
+const MEMBER_NAME_POOL=["AsterLynx","qorii","Nulphase","Re:Vane","Krynt","Mizuel","sylq","Noctbyte","Cervin_","Limefault","Ruvia","K4NDE","morroway","Axelune","TesseraQ","halcyx","VeiNox","Rinquel","nagi//zero","CobaltRift","Seryth","Quenel","Frailix","xenovale","TohkaN","MELT_17","Yurase","pluvion","N4RROW","Seiruka","bitcradle","Arqel","Hakurow","Lunetica","ciel_r","NoiKaze","frame//skip","Orphic8","VantaRay_","shirobit","Eclairex","TsuruneQ","Velqis","mono.kei","Crystfall","Urahane","zenith_404","Rakuzen","FrostIndex","NemuKiri","Iontrace","Kurovia","latency0","AmeRift","Solenq","voidpetal","Taktless","Hibikuro","Myrkline","Refrain_β","meltflora","Aoitsuki","LueurMare","NemuCanvas","SumiRêve","iris//milk","Kohakune","PaleMoth","yuraame","FuyuLace","CottonVoid","Mizuhana_","SereinPico","haneiro","LucidPoppy","ruriiro","KageMallow","NoirMikan","petal.exe","Aonagi","LumiSumi","Tsukishade","MofuGlass","YoruFleur","milkgrave","Sakuroom","CielMori","ameiro_7","PicoLune","NagiPastel","MallowInk","HoshikuzuQ","veilberry","SumiNuit","RakuMelt","fuwari_00","KiriPetal","Lunacot","AmeSketch","NemuRin","白榆","折光","栖迟","雨切","迟川","眠野","空白格","灰阶","逆光层","碎星","旧灯","雾岛以北","栖木","潮汐线","余响","青昼","落纸","沸点","薄明","无色差","雨隙","弦外","深蓝偏移","零号纸箱","冬眠电台","晚潮","微光残片","北纬失真","不稳定像素","昨日信号","纸上噪声","沉默频段","折返线","白噪点","晚星误差","空房间","二十三号接口","不存在的雨","玻璃海","旧城区回声","小馒头","爬爬","Magazet","赤澪","Ariayaka","TCSTWTBHY","超级练习册","Kiyotsuki","母鸡","维生素b","树穴猪","Iblcya","Icier","Laugger","Lei motife","LogicM","NintyKeven","xzadudu179","姜片","Felicks_FoX","RANKB","nanakaria","阿白","永恒指南针","豆乳","神居冰绘","水沐汐","澈子","诡异童话","雨生種","Ether-0","鱼圆","香香鸡","纸巾","注射","域核","LING","MYOB!","QIER"];
+const LEVEL5_CHART_NAME_POOL=["爬爬","Magazet","赤澪","Ariayaka","TCSTWTBHY","超级练习册","Kiyotsuki","母鸡","维生素b","树穴猪","Iblcya","Icier","Laugger","Lei motife","LogicM","NintyKeven","xzadudu179","姜片","Felicks_FoX","RANKB"];
+const LEVEL5_ART_NAME_POOL=["nanakaria","阿白","永恒指南针","豆乳","神居冰绘","水沐汐","澈子","诡异童话","雨生種","Ether-0","鱼圆","香香鸡","纸巾","注射","域核","LING","MYOB!","QIER"];
+const RESERVED_MEMBER_NAMES=new Set([...LEVEL5_CHART_NAME_POOL,...LEVEL5_ART_NAME_POOL]);
+const GENERAL_MEMBER_NAME_POOL=MEMBER_NAME_POOL.filter(n=>!RESERVED_MEMBER_NAMES.has(n));
+const COMMISSION_TITLE_POOL=["Afterglow Protocol","Frozen Pulse","Silent Overdrive","Neon Burial","Glass Horizon","Zero Gravity Bloom","Midnight Fracture","Last Signal","Velvet Collapse","Synthetic Rain","Crimson Static","Broken Parallax","Lunar Afterimage","Distant Frequency","Terminal Blossom","White Noise Heaven","Beyond the Pale Sky","Dead Orbit","Echoes of Tomorrow","Astral Burnout","Nocturnal Error","Parallel Silence","Cold Mirage","Vanishing Point","Infinite Refrain","Faultline Heart","Blue Distortion","Endless Interference","Lucid Collapse","Radiant Ruin","Static Eden","Last Light Syndrome","Beyond Zero","失温海岸","第七码头","白昼坠落","雨后失真","逆光协议","玻璃潮汐","无声焚烧","凌晨航线","偏振星群","旧城回响","零度花园","未完成的晴天","深蓝断层","永夜回路","空白频率","潮汐失控","坠入薄明","赤色噪点","折返宇宙","雨幕之外","燃尽之前","冬眠信号","终点之前","第九次日落","灰烬开花","不存在的车站","云层以下","星海误差","碎光定理","逆流脉冲","远日点","沉默临界","失控边界","风暴以北","蒼い残響","雨の境界線","夜明けのノイズ","透明な終末","星屑メモリー","凍える花","逆さまの空","月蝕パラドックス","灰色の夏","遠雷シグナル","白昼夢エラー","零時の楽園","君のいない軌道","雨音リフレイン","境界の彼方へ","青に沈む","壊れた天球","夜空オーバーフロー","薄明カタストロフィ","世界が眠る前に","未明の残像","断線した未来","光速モラトリアム","永遠未満","静寂コンプレックス","雨粒レゾナンス","空白のアルゴリズム","星を忘れた夜","終末ブルーム","透明境界","無限回廊","君と世界の誤差","凍結都市","月亮坏在凌晨四点","请勿折叠这场暴雨","第十三种蓝","你所看见的并非天空","非法入侵春天","失眠者观测协议","玻璃胃里的星星","灰色星期八","请在终点前醒来","温度计拒绝下降","空气正在删除我们","低电量宇宙","昨日已被撤回","不存在于地图上的海","反向生长的雨","这是最后一次日出","错误编号：夏天","未命名的第六感","世界末日前五分钟","把云层调成静音","折断一束光","无法验证的心跳","你比噪声更安静","第0号晴天","把夜晚压缩成ZIP","记忆读取失败","请勿向星空投掷异物","海平面以上的梦","周三不存在","风正在学习如何燃烧","未经许可的黄昏","黑箱中的候鸟","如果雨拥有管理员权限","我们在错误的宇宙见过","さよなら.exe","月曜日はまだ来ない","雨が壊れる音","存在しない青","世界終了まであと3秒","君を削除できません","午前四時の透明人間","逆再生の春","404号室の月","星屑はログアウトしました","未完成パラノイア","透明人間の心拍数","雨天決行エラー","君だけがバグっている","夢.exeは応答していません","冷蔵庫の中の宇宙","青色過剰摂取","月が二度死ぬ夜","不完全な天気予報","無音の非常ベル","終電のない惑星","さよならを圧縮して","真夜中インストール","空白依存症","透明度100%","夏季限定エラー","君の心臓は非対応です","世界はただいま更新中","雨粒アンインストール","青春バックアップ失敗","星を右クリック","午前三時の例外処理","夢の賞味期限","ERROR: Heaven Not Found","please reboot the moon","God.exe Has Stopped Working","Tuesday Is a Simulation","Eat the Static","Blue Screen Summer","Unauthorized Sunrise","DO NOT FEED THE VOID","0% Angel","Memory Leak in Paradise","The Sky Forgot My Password","ctrl+alt+goodbye","Sleep Is Currently Unavailable","Soft Error, Hard Heart","This Song Will Self-Destruct","Rain.dll","Temporary Human","Heaven Has No Wi-Fi","Moonlight Overflow","Delete Me After Midnight","Your Heart Is Out of Range","Unstable Flower Protocol","404 Days of Summer","Please Insert Another Universe","Offline Angel Syndrome","THE SUN IS BUFFERING","Invalid Emotion Type","Automatic Goodbye Machine","Do Not Refresh the Ocean","Last Login: Yesterday","System32\\Love","Crying in 16:9","This Is Not the Final Boss","Heaven.zip","PLEASE DO NOT RESUSCITATE","The Moon Is Experiencing Technical Difficulties","Error Bloom","I Left My Body in Airplane Mode","17% Human","Cathedral of Broken Notifications","Softlock Paradise","Your Dreams Have Been Archived","Milk.exe","Angel With No User Manual","The Sun Has Entered Safe Mode","Memory Corruption Waltz","Invalid Sky Parameter","God Forgot to Save","Crybaby Protocol","Please Reinstall Morning","Unlicensed Emotion","DEADPIXEL HEART","This Is Probably Fine","Borrowed Gravity","Heaven Is Read-Only","Fatal Error in Blue","Do Not Turn Off the Rain","The Ocean Has No Undo Button","Null Flower","Temporary Soul Container","Saturday Has Been Deprecated","System Message From Nowhere","Burn After Listening","You Are Not Authorized to Feel This","Cosmic Packet Loss","Offline Forever","Floral Segmentation Fault","Love in Compatibility Mode","Unknown Weather Event","Too Many Moons","Subroutine for Crying","Restart Required","No Signal Beyond This Point","Dream Cache Overflow","angel.tmp","Please Accept the Terms of Existence","Unstable Heaven Build","The Stars Are Out of Warranty","Night Mode Malfunction","My Heart Has No Recovery Partition","Unsupported Lifeform","Pink Noise Funeral","Your Soul Is Currently Syncing","Cathedral.exe","Incorrect Universe Selected","The Sky Is Not Responding","Low Battery Messiah","Ctrl+Z the Apocalypse","Broken Sunlight Driver","Rain Permission Denied","Artificial Afterlife","Reality Has Left the Chat","I Think the Moon Is Lying","Zero-Day Angel","Unscheduled Extinction Event","Sleep Mode Is for Cowards","Please Hold While the World Ends","Incorrect Emotional Syntax","Ghost Process","Synthetic Nostalgia Disorder","Heaven Timeout","Romantic Buffer Overflow","Nocturnal Firmware","Manual Override: Summer","You Cannot Delete This Feeling","Fragile Data Structure","The Last Known Good Sky","Blue Screen Theology","The Universe Is Busy","Rain Has No Return Value","Unauthorized Blooming","End User License to Exist","Soft Failure","Caffeine-Based Resurrection","Please Disconnect From Reality","Moon.exe Is Not a Valid Win32 Application","Dead Letter Paradise","Flower With Administrator Privileges","Your Childhood Is No Longer Supported","Panic at Address 0x0000","Static Communion","Emergency Sunlight Patch","Recycle Bin Heaven","I Accidentally Forked the Universe","Beautifully Invalid","Cold Boot Angel","The Horizon Has Crashed","Do Not Rename the Moon","Exception Thrown: LOVE","Temporary God Complex","Paradise in Debug Mode","Please Confirm You Are Alive","End of File, End of World","Δfterglow.exe","NΞON//FRACTURE","ΛNGEL_404","Ωverclocked Heaven","ΣILENT//BURST","CRYØGENIC","ΦANTOM SIGNAL","HYPER//ΛXIS","DΞAD★ORBIT","λost in Static","VØID≠NULL","∆DRENALINE","BŁUE//ERROR","CATHΞDRAL.exe","ΨCHO//FRAME","NØ SIGNAL//","αfter//zero","RE:ΛNIMATE","MΞMORY†LEAK","GL1TCH∴BLOOM","ΗEAVEN//OFFLINE","CRØSS†FADE","NΞRV.exe","ΞCHO//NULL","LUNΛR≠ERROR","ΣLEEP//MODE","VANTA†CORE","PRØTOCOL_β","HΞART//PANIC","SΛTURATED","ØRBITAL†NOISE","ΔRCHIVE://SOUL","NΞURAL★RAIN","KΛTASTROPHΞ","SHUTDØWN_Ω","MΞLT//POINT","SØFT†FAILURE","ΛSTRAL//FAULT","RΞBOOT≠LIFE","HYPER†LIMINAL","NØCTURNE_λ","ΨSTORM","DΞLTA//HEART","ECHØ†VOID","ΣYNTHETIC//SUN","BLΛCK★SIGNAL","CØRE://HEAVEN","NΞGATIVE∞SPACE","FAULT//Σ","ΩMEGA†BLOOM","NULΛ.exe","FRΛGMENT_01","CRY//βETA","ΞXIT≠FOUND","LØST†FUNCTION","ASTRΛL//PANIC","VOID_ΔRIVE","ΣTATIC★FEVER","MØON†BUFFER","HΞLL0//WORLD","ΨNCHRONIZE","GLΛSS≠SKY","FΛTAL//SIGNAL","NØISE_∞","ECHØ//RΞTURN","REQUIΞM†404","SØLAR_βURN","ΔNGEL//KERNEL","VΞCTOR†ZERO","COLD//ΛRCHIVE","ΞRRØR†PARADISE","ΛCID★RAIN","NØVA//CRASH","STATIC_Ψ","ΦRAGMENTED","ΣOUL≠SYNC","LØOP://FOREVER","ΞCLIPSE†MODE","HΞART_0x00","BLØOM//NULL","ΛNTI★GRAVITY","DΞAD//CHANNEL","CRASH†ΨNDROME","GL1TCH_Ω","NØCT//BURN","VØID†SIGNATURE","ΣTAR//FAILURE","MΞTA≠HUMAN","LΛST†PACKET","BLUE_ΔEATH","ΦINAL//BUFFER","ΞNDLESS†CACHE","RΛIN≠VALID","NULΛ★HEAVEN","DΞCAY_λ","ΩFFLINE†ANGEL","SØFT//COLLAPSE","ΨIGNAL_LOST","ΔEBUG†EDEN","ΣYSTEM//ASCENSION"];
+const STYLE=["灼热","抒情","冷冽"], RARITY_COORD={1:5,2:3,3:2,4:10,5:5}, BASE_MEMBER_DAYS={1:30,2:27,3:23,4:18,5:14}, COMMISSION_BASE_DAYS=60, BASE_BUG=20;
+let uid=100;const nextId=()=>++uid,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),rnd=(a,b)=>a+Math.random()*(b-a),chance=p=>Math.random()<p;
+const state={day:1,money:10000,job:"home",ap:18,dailySpent:0,fatigue:0,tech:0,fans:0,discussion:0,players:0,rating:80,artPursuit:100,expectation:30,stickiness:10,bugChance:BASE_BUG,
+playerFloor:0,ratingFloor:0,playerFloorShield:true,ratingFloorShield:true,artEventBonus:0,programQualityBoost:0,inspiration:false,playedRhythmToday:false,takeoutProgramDiscount:false,takeoutRecruitBuff:false,bankrupt:false,bailoutLastDay:-9999,hasReleasedUpdate:false,
+lastUpdateDay:null,updateClockStarted:false,hiatusTriggered:false,lastMainlineDay:null,consecutiveSupplement:0,consecutiveSingles:0,
+services:{vpn:false,translation:false,takeout:false,workspace:false,sponsor:false,course:false},commissionSelections:{},usedMemberNames:[],usedCommissionTitles:[],sponsorIncome:0,recruitFail:{chart:0,art:0},candidate:null,applications:[],studyActionsToday:0,sideSleepNetworkDone:false,day100RecruitEventDone:false,hasSearchedMember:false,sideSleepSearchHintDone:false,firstNonTutorialSongHintDone:false,firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDayExpediteTipDone:false,designConceptConfirmed:false,designStyle:"传统",designPC:false,gameName:"",designNameAnnouncementDone:false,spliceYear1Failed:null,firstReleaseTier:null,programWritesToday:0,memberSortMode:"acquired",
+formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
+exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
+collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
+freeMemberEventsToday:0,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
+milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
+computerBrokenUntil:0,computerRepairCooldownUntil:0,members:[],composers:[],library:[],commissions:[],packages:[],collabs:[],
+currentCollabOffer:null,jobLockedUntil:1,firstShcadCommissionDone:false,rumorActiveUntil:0,rumorBaseFansLoss:0,rumorLastTriggerDay:-9999,rumorMinGapDays:90,rumorTriggersThisYear:0,collabFailStack:0,collabsThisYear:0,collabPenaltyDays:0,
+metaFans:0,metaDiscussion:0,metaPlayers:0,metaRating:80,severeBugUntil:0,updateClockStartDay:240,incomingOffers:[],pendingHiddenBugBonus:0,monthlyHighCoordEvents:0,monthlyLowCoordEvents:0,temporaryCoordBonus:0,temporaryCoordBonusUntil:0,pendingDiscussionDrops:[],temporaryPlayerEffects:[],
+firstYear2EventDone:false,firstYear3CommissionDone:false,firstYear7CollabDone:false,commercialFormalCount:0,
+gameCoreProgress:0,gameCoreCompleteNotified:false,
+chartEditorUnlocked:false,chartEditorProgress:0,chartEditorComplete:false,chartEditorCompleteNotified:false,
+chartEditorV2Unlocked:false,chartEditorV2Progress:0,chartEditorV2Complete:false,chartEditorV2CompleteNotified:false,
+artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,
+rhythmPlayCount:0,personalChartCount:0,
+firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
+streamerWindows:[],activeStreamer:null,
+streamers:["无所依","造梦先生","愚者约翰内斯","鱼鳞子","红色通行证","真流畅","飞跃巅峰","505","水金","农夫","Blunt_Ball","善树"]};
+const year=()=>Math.floor((state.day-1)/365),dayOfYear=()=>((state.day-1)%365)+1,dayOfMonth=()=>((state.day-1)%30)+1,monthOfYear=()=>(Math.floor((dayOfYear()-1)/30)%12)+1,isMonthStart=()=>dayOfMonth()===1,isYearStart=()=>dayOfYear()===1;
+function ensureNewStateDefaults(){
+  if(!state.services)state.services={vpn:false,translation:false,takeout:false,workspace:false,sponsor:false,course:false};
+  if(state.services.course===undefined)state.services.course=false;
+  if(!state.commissionSelections)state.commissionSelections={};
+  if(!state.usedMemberNames)state.usedMemberNames=[];
+  if(!state.usedCommissionTitles)state.usedCommissionTitles=[];
+  for(const s of (state.library||[])){
+    if(s._chartCraftLevel===undefined)s._chartCraftLevel=null;
+    if(s._artCraftLevel===undefined)s._artCraftLevel=null;
+  }
+  for(const m of (state.members||[])){
+    if(!m.name||!memberNameAllowed(m.name,m.role,m.rarity)){
+      m.name=pickMemberName(m.role,m.rarity)
+    }
+    if(!Number.isFinite(m.occupiedUntil))m.occupiedUntil=0;
+    if(!Number.isFinite(m.lastGuardianPhoneEventDay))m.lastGuardianPhoneEventDay=-9999;
+    if(m._statusBeforeOccupation===undefined)m._statusBeforeOccupation=null;
+    if(m._statusDaysBeforeOccupation===undefined)m._statusDaysBeforeOccupation=0;
+    if(!Number.isFinite(m.lewdCoordUntil))m.lewdCoordUntil=0;
+    if(!Number.isFinite(m.academicAbsenceScheduledDay))m.academicAbsenceScheduledDay=0;
+  }
+  for(const p of (state.packages||[])){
+    if(!Number.isFinite(p.announcementFanBonus))p.announcementFanBonus=0;
+    if(!Number.isFinite(p.announcementDiscussionBonus))p.announcementDiscussionBonus=0;
+    if(p.announcementBeforeReview===undefined)p.announcementBeforeReview=false;
+    if(p.reviewCheckDay===undefined)p.reviewCheckDay=null;
+  }
+  for(const r of (state.departedRecoverables||[])){
+    if(!Number.isFinite(r.recoverProgress))r.recoverProgress=0;
+    if(r.abandonAt===undefined)r.abandonAt=null;
+    if(!Number.isFinite(r.departedDay))r.departedDay=state.day;
+  }
+  if(state.metaRating===undefined)state.metaRating=80;
+  if(!state.hasReleasedUpdate && state.rating===0 && state.metaRating===0)state.metaRating=80;
+  const d={
+    gameCoreProgress:0,gameCoreCompleteNotified:false,
+    chartEditorUnlocked:false,chartEditorProgress:0,chartEditorComplete:false,chartEditorCompleteNotified:false,
+    artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,
+    rhythmPlayCount:0,personalChartCount:0,
+    applications:[],studyActionsToday:0,sideSleepNetworkDone:false,
+    hasSearchedMember:false,sideSleepSearchHintDone:false,firstNonTutorialSongHintDone:false,
+firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDayExpediteTipDone:false,
+    designConceptConfirmed:false,designStyle:"传统",designPC:false,gameName:"",designNameAnnouncementDone:false,spliceYear1Failed:null,
+    firstReleaseTier:null,programWritesToday:0,memberSortMode:"acquired",
+    formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
+    exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
+    collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
+    freeMemberEventsToday:0,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
+    milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
+    computerBrokenUntil:0,computerRepairCooldownUntil:0,
+    firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
+    streamerWindows:[],activeStreamer:null,
+    streamers:["无所依","造梦先生","愚者约翰内斯","鱼鳞子","红色通行证","真流畅","飞跃巅峰","505","水金","农夫","Blunt_Ball","善树"]
+  };
+  for(const [k,v] of Object.entries(d))if(state[k]===undefined)state[k]=v;
+  if(state.day100RecruitEventDone===undefined)state.day100RecruitEventDone=state.day>100;
+  if(state.hasSearchedMember===undefined)state.hasSearchedMember=!!(state.candidate||(state.members||[]).length||(state.recruitFail&&((state.recruitFail.chart||0)>0||(state.recruitFail.art||0)>0)));
+  if(state.sideSleepSearchHintDone===undefined)state.sideSleepSearchHintDone=state.day>15;
+  if(state.firstNonTutorialSongHintDone===undefined)state.firstNonTutorialSongHintDone=(state.library||[]).some(s=>s.source!=="tutorial");
+  if(state.firstChartCompleteHintDone===undefined)state.firstChartCompleteHintDone=(state.library||[]).some(s=>Number(s.chartProgress)>=100);
+  if(state.sideSleepCommissionedOnce===undefined){
+    let sideSleep=(state.composers||[]).find(c=>c.name==="侧睡");
+    state.sideSleepCommissionedOnce=!!(sideSleep&&(
+      (state.commissions||[]).some(x=>x.composerId===sideSleep.id&&!x.portfolioSong)||
+      (state.library||[]).some(s=>s.composerId===sideSleep.id&&s.source==="commission")
+    ));
+  }
+  if(state.sideSleepSameDayExpediteTipDone===undefined)state.sideSleepSameDayExpediteTipDone=false;
+  if(state.designConceptConfirmed===undefined)state.designConceptConfirmed=false;
+  if(!["创新","缝合","传统"].includes(state.designStyle))state.designStyle="传统";
+  state.designPC=!!state.designPC;
+  if(typeof state.gameName!=="string")state.gameName="";
+  state.gameName=state.gameName.trim();
+  if(state.designNameAnnouncementDone===undefined)state.designNameAnnouncementDone=false;
+  if(!state.gameName)state.designConceptConfirmed=false;
+  if(state.spliceYear1Failed===undefined)state.spliceYear1Failed=null;
+  if(state.firstReleaseTier===undefined)state.firstReleaseTier=null;
+  if(state.firstReleaseTier===null&&state.firstReleaseEvaluated){
+    state.firstReleaseTier=(state.perfectLaunchUntil||0)>0?"perfect":(state.badLaunchUntil||0)>0?"bad":"normal";
+  }
+  if(state.programWritesToday===undefined)state.programWritesToday=0;
+  if(!["acquired","level"].includes(state.memberSortMode))state.memberSortMode="acquired";
+  if(!Array.isArray(state.formerMemberOpinionCandidates))state.formerMemberOpinionCandidates=[];
+  if(!Number.isFinite(state.exMemberScandalClusterUntil))state.exMemberScandalClusterUntil=0;
+  if(!Number.isFinite(state.exMemberScandalDiscussUntil))state.exMemberScandalDiscussUntil=0;
+  if(!Number.isFinite(state.exMemberScandalDiscussScale))state.exMemberScandalDiscussScale=0;
+  state.exMemberScandalEscalated=!!state.exMemberScandalEscalated;
+  if(state.exMemberGradualLoss!==null&&typeof state.exMemberGradualLoss!=="object")state.exMemberGradualLoss=null;
+  if(!Number.isFinite(state.collabOpinionBlockedUntil))state.collabOpinionBlockedUntil=0;
+  if(!Number.isFinite(state.teamArgumentUntil))state.teamArgumentUntil=0;
+  if(!Array.isArray(state.formerMemberOpinionSpokenNames))state.formerMemberOpinionSpokenNames=[];
+  if(!Array.isArray(state.departedRecoverables))state.departedRecoverables=[];
+  if(state.programStudyCount===undefined)state.programStudyCount=Math.max(0,Math.floor(Number(state.tech)||0));
+  if(state.artStudyCount===undefined)state.artStudyCount=Math.max(0,Math.round((Number(state.artStudyProgress)||0)/.5));
+  if(!Number.isFinite(state.fiveStarRecruitSuppressionUntil))state.fiveStarRecruitSuppressionUntil=0;
+  if(!Number.isFinite(state.freeMemberEventsToday))state.freeMemberEventsToday=0;
+  if(state.playerMilestone1000Done===undefined)state.playerMilestone1000Done=false;
+  if(state.playerMilestone10000Done===undefined)state.playerMilestone10000Done=false;
+  if(state.playerMilestone100000Done===undefined)state.playerMilestone100000Done=false;
+  if(!Array.isArray(state.milestoneMemberApplicationDays))state.milestoneMemberApplicationDays=[];
+  if(!Array.isArray(state.milestoneComposerOfferDays))state.milestoneComposerOfferDays=[];
+  state.shcadMilestoneDiscountPending=!!state.shcadMilestoneDiscountPending;
+  if(!Number.isFinite(state.computerBrokenUntil))state.computerBrokenUntil=0;
+  if(!Number.isFinite(state.computerRepairCooldownUntil))state.computerRepairCooldownUntil=0;
+  if(Array.isArray(state.incomingOffers)){
+    for(const o of state.incomingOffers){
+      if(!o.title)o.title=pickCommissionTitle();
+      if(!o.origin)o.origin="legacy"
+    }
+  }
+  state.gameCoreProgress=clamp(Number(state.gameCoreProgress)||0,0,100);
+  state.chartEditorProgress=clamp(Number(state.chartEditorProgress)||0,0,100);
+  state.chartEditorV2Progress=clamp(Number(state.chartEditorV2Progress)||0,0,100);
+  state.artStudyProgress=clamp(Number(state.artStudyProgress)||0,0,100);
+  if(state.hasReleasedUpdate && state.gameCoreProgress>=100 && !state.chartEditorComplete)state.chartEditorUnlocked=true;
+  if(state.hasReleasedUpdate && state.chartEditorComplete && !state.chartEditorV2Complete)state.chartEditorV2Unlocked=true;
+}
+
+function designGrowthMultipliers(){
+  let fan=1,discussion=1,player=1;
+  if(!state.designConceptConfirmed)return {fan,discussion,player};
+  let y=year();
+  if(state.designStyle==="创新"&&y===0){
+    let t=clamp((state.day-1)/364,0,1);
+    let bonus=.30*(1-t);
+    fan*=1+bonus;discussion*=1+bonus
+  }else if(state.designStyle==="缝合"){
+    if(y===0){
+      fan*=.80;player*=.80;
+      if(state.day<=90)discussion*=2
+    }else if(y===1&&state.spliceYear1Failed===true){
+      fan*=.60;player*=.60
+    }
+  }else if(state.designStyle==="传统"&&state.day<=365*7){
+    fan*=.80;discussion*=.80
+  }
+  if(state.designPC){fan*=1.20;player*=1.20}
+  return {fan,discussion,player}
+}
+function designSponsorMultiplier(){
+  if(!state.designConceptConfirmed||state.designStyle!=="缝合"||state.day>365*3)return 1;
+  let t=clamp((state.day-1)/(365*3-1),0,1);
+  return .80+.20*t
+}
+function designProgramMultiplier(stage){
+  if(!state.designConceptConfirmed)return 1;
+  let m=1;
+  if(state.designStyle==="创新"&&(stage==="core"||stage==="v1"))m*=.80;
+  if(state.designStyle==="传统"){
+    if(stage==="core"||stage==="v1")m*=1.50;
+    if(stage==="v2")m*=1.80
+  }
+  if(stage==="core"&&state.designPC)m*=.80;
+  return m
+}
+function chartEfficiencyMultiplier(m){
+  if(!state.designConceptConfirmed||!m||m.role!=="chart")return 1;
+  if(state.designStyle==="传统"){
+    const table={1:1.30,2:1.20,3:1.10,4:1.20,5:1.30};
+    return table[m.rarity]||1
+  }
+  if(state.designStyle==="缝合"&&m.rarity===4)return 1.20;
+  return 1
+}
+function designDoubtIdleDays(){
+  return state.designConceptConfirmed&&state.designStyle==="传统"?30:15
+}
+function memberJoinDayForDesign(role,rarity){
+  if(state.designConceptConfirmed&&state.designStyle==="缝合"&&role==="chart"&&rarity>=3)return state.day-60;
+  return state.day
+}
+function applySpliceExistingTenure(){
+  if(state.designStyle!=="缝合")return;
+  for(const m of state.members||[]){
+    if(m.role==="chart"&&m.rarity>=3&&!m._spliceTenureApplied){
+      m.joinDay-=60;
+      m._spliceTenureApplied=true
+    }
+  }
+}
+function updateDesignYearState(){
+  if(!state.designConceptConfirmed||state.designStyle!=="缝合")return;
+  if(state.day>=366&&state.spliceYear1Failed===null){
+    state.spliceYear1Failed=!(state.firstReleaseTier==="normal"||state.firstReleaseTier==="perfect")
+  }
+}
+function confirmDesignConcept(){
+  if(state.designConceptConfirmed)return;
+  let style=document.getElementById("designStyleSelect")?.value||"传统";
+  let pc=(document.getElementById("designPCSelect")?.value||"否")==="是";
+  let name=(document.getElementById("designGameNameInput")?.value||"").trim();
+  if(!name){
+    log("请先填写游戏名称。");
+    document.getElementById("designGameNameInput")?.focus();
+    return
+  }
+  state.designStyle=style;
+  state.designPC=pc;
+  state.gameName=name;
+  state.designConceptConfirmed=true;
+  if(style==="缝合"){
+    applySpliceExistingTenure();
+    if(state.day>=366)state.spliceYear1Failed=!(state.firstReleaseTier==="normal"||state.firstReleaseTier==="perfect")
+  }
+  log(`游戏设计理念已确定：${style}${pc?"，上线电脑端":"，不上线电脑端"}，游戏名《${gameName()}》。`,"gold");
+  if(!state.designNameAnnouncementDone){
+    state.designNameAnnouncementDone=true;
+    log(`你创建了官方账号，并发布了一条视频《全新非商音游${gameName()}宣传视频》！`)
+  }
+  render()
+}
+function gameNameRaw(){return (state.gameName||"").trim()||"未命名音游"}
+function gameName(){
+  return gameNameRaw().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+}
+function renderDesignConcept(){
+  let p=document.getElementById("designConceptPanel");if(!p)return;
+  p.style.display=state.designConceptConfirmed?"none":"block";
+  if(!state.designConceptConfirmed){
+    let s=document.getElementById("designStyleSelect"),pc=document.getElementById("designPCSelect"),nameInput=document.getElementById("designGameNameInput");
+    if(s)s.value=state.designStyle||"传统";
+    if(pc)pc.value=state.designPC?"是":"否";
+    if(nameInput&&document.activeElement!==nameInput)nameInput.value=state.gameName||""
+  }
+}
+function programActionBaseCost(){
+  let base=state.takeoutProgramDiscount?2:3;
+  if(state.designConceptConfirmed&&state.designPC&&(state.programWritesToday||0)===0)base+=1;
+  return base
+}
+function setMemberSortMode(mode){
+  state.memberSortMode=mode==="level"?"level":"acquired";
+  renderMembers()
+}
+function sortedMembers(){
+  let arr=[...(state.members||[])];
+  if(state.memberSortMode==="level"){
+    arr.sort((a,b)=>(b.rarity-a.rarity)||((a.role==="chart"?0:1)-(b.role==="chart"?0:1))||(a.joinDay-b.joinDay)||(a.id-b.id))
+  }
+  return arr
+}
+
+const teamCap=()=>year()<3?30:80,apCap=()=>state.job==="home"?42+year()*3:64+year()*4;
+function baseDailyAP(){if(state.job==="home")return 18;if(state.job==="easy")return 10;if(state.job==="normal")return ((state.day-1)%7)===0?2:12;let d=(state.day-1)%7;return d===0||(year()>=6&&d===1)?1:6}
+function todayAPGain(){return Math.max(0,baseDailyAP()+(state.services.workspace?2:0)-(state.collabPenaltyDays>0?3:0))}
+function actionMultiplier(){return state.dailySpent>apCap()*.60?2:1}
+function effectiveActionCost(base){return base*actionMultiplier()}
+function spendAP(base){
+  let need=effectiveActionCost(base);
+  if(state.ap+1e-9<need){
+    log(actionMultiplier()>1?`今日行动量已超过累计上限60%，该行动当前实际需要 ${need} 行动点。`:"行动点不足。");
+    return false
+  }
+  state.ap=Math.max(0,Math.round((state.ap-need)*1000000)/1000000);
+  state.dailySpent=Math.round((state.dailySpent+need)*1000000)/1000000;
+  return true
+}
+function fmt(n){return Math.round(n).toLocaleString("zh-CN")}function log(x,type="normal"){let cls=type==="green"?"event-green":type==="green-strong"?"event-green-strong":type==="gold"?"event-gold":type==="blue"?"event-blue":type==="red"?"event-red":type==="gray"?"event-gray":"";document.getElementById("log").innerHTML=`<div class="${cls}">第${state.day}天｜${x}</div>`+document.getElementById("log").innerHTML}
+function logDayEntry(){document.getElementById("log").innerHTML=`<div class="event-purple">进入第${state.day}天</div>`+document.getElementById("log").innerHTML}
+const getSong=id=>state.library.find(s=>s.id===id),getMember=id=>state.members.find(m=>m.id===id),getPackage=id=>state.packages.find(p=>p.id===id),getComposer=id=>state.composers.find(c=>c.id===id);
+function weighted(a){let r=Math.random(),s=0;for(const [v,p] of a){s+=p;if(r<=s)return v}return a[a.length-1][0]}
+function makeSong(name,q,style,abstract,composerId,source){let base=100*q,att=base*(1+abstract*.08),dis=base*.55*(1+abstract*.12);return{id:nextId(),name,composerId,source,quality:q,style,abstract,attention:att,discussion:dis,good:60+q*7,originalAttention:att,originalDiscussion:dis,artPercent:100-abstract*6,chartProgress:0,artProgress:0,alpha:false,alphaStatus:"idle",alphaRemaining:0,alphaTotal:0,alphaBonusApplied:false,installed:false,installedDay:null,chartMemberIds:[],artMemberId:null,position:"普通曲",packageId:null,hiddenArtPendingUntil:null,_playableBonus:0,_playableMultiplier:1,_chartCraftLevel:null,_artCraftLevel:null}}
+function playableCraftLevel(s){
+  let chart=Number(s._chartCraftLevel)||1;
+  let art=Number(s._artCraftLevel)||1;
+  if(state.designConceptConfirmed&&state.designStyle==="创新"&&chart<=2)chart*=.80;
+  return clamp((chart+art)/2,.8,5)
+}
+function projectedPlayableQuality(s){
+  let q=clamp(Number(s.quality)||1,1,5);
+  let craft=playableCraftLevel(s);
+  let qn=(q-1)/4, rn=(craft-1)/4;
+  // 四个设计锚点：
+  // 1级歌+1级谱/画≈5；5级歌+1级谱/画≈40；
+  // 1级歌+5级谱/画≈20；5级歌+5级谱/画≈95。
+  let base=5+35*qn+15*rn+40*qn*rn;
+  base+=(s._playableBonus||0);
+  return clamp(base*(s._playableMultiplier||1),0,100)
+}
+function finalizePlayableQuality(s){
+  if(s.chartProgress>=100&&s.artProgress>=100&&typeof s.playableQuality!=="number"){
+    let expected=projectedPlayableQuality(s);
+    // 最终生成时加入明显浮动；极高分仍封顶100。
+    let variance=rnd(.82,1.18);
+    s.playableQuality=clamp(expected*variance,0,100);
+    log(`《${s.name}》谱面与美术均已完成：生成可玩质量 ${s.playableQuality.toFixed(1)}。`);
+  }
+}
+function generatePlayOnRelease(s){
+  if(typeof s.play==="number")return s.play;
+  return Math.max(1,s.attention*(.45+s.quality*.08)*(typeof s.playableQuality==="number"?s.playableQuality/80:1));
+}
+
+function buildComposerRoster(previous=[]){
+  let oldByName=new Map((previous||[]).map(c=>[c.name,c]));
+  return COMPOSER_MASTER.map(base=>{
+    let old=oldByName.get(base.name);
+    let c=JSON.parse(JSON.stringify(base));
+    if(old){
+      c.affection=Number(old.affection)||0;
+      c.sickUntil=Number(old.sickUntil)||0;
+      c.depressedUntil=Number(old.depressedUntil)||0;
+      c.depressionCooldownUntil=Number(old.depressionCooldownUntil)||0;
+      c.collabs=Number(old.collabs)||0;
+      c.comfortCount=Number(old.comfortCount)||0;
+      c.lastExpediteDay=Number.isFinite(old.lastExpediteDay)?old.lastExpediteDay:-9999;
+      c.expediteBlockedUntil=Number.isFinite(old.expediteBlockedUntil)?old.expediteBlockedUntil:0;
+      let bought=new Map((old.portfolio||[]).map(p=>[p.name,!!p.bought]));
+      c.portfolio.forEach(p=>{if(bought.has(p.name))p.bought=bought.get(p.name)});
+    }
+    if(!Number.isFinite(c.lastExpediteDay))c.lastExpediteDay=-9999;
+    if(!Number.isFinite(c.expediteBlockedUntil))c.expediteBlockedUntil=0;
+    return c
+  })
+}
+function syncSongCreatorAttribution(){
+  let sideSleep=state.composers.find(c=>c.name==="侧睡");
+  for(const s of (state.library||[])){
+    if(s.source==="tutorial"&&sideSleep)s.composerId=sideSleep.id;
+  }
+}
+function syncComposerMasterData(){state.composers=buildComposerRoster(state.composers);syncSongCreatorAttribution()}
+function composerDisplayOrder(){
+  return state.composers.slice().sort((a,b)=>{
+    if(a.name==="侧睡")return b.name==="侧睡"?0:-1;
+    if(b.name==="侧睡")return 1;
+    if(a.name==="shcad")return b.name==="shcad"?0:-1;
+    if(b.name==="shcad")return 1;
+    return a.name.localeCompare(b.name,"en",{sensitivity:"base",numeric:true})
+  })
+}
+function seed(){
+state.composers=buildComposerRoster([]);
+let tutorialComposer=state.composers.find(c=>c.name==="侧睡");
+let tutorial=makeSong("教程曲",3,"抒情",0,tutorialComposer?.id??null,"tutorial");
+tutorial.chartProgress=0;
+tutorial.artProgress=0;
+tutorial.alpha=false;
+tutorial.alphaStatus="idle";
+tutorial.installed=false;
+tutorial.installedDay=null;
+state.library=[tutorial];
+
+}
+function onSongAddedToLibrary(s){
+  if(!s||s.source==="tutorial"||state.firstNonTutorialSongHintDone)return;
+  state.firstNonTutorialSongHintDone=true;
+  log("曲师侧睡给你发了一条私信留言。他关照你，每首歌曲都得拥有谱面与封面，而你可以将其分配给谱师与美术推进工作。如果你觉得画封面太耗时间，也可以在曲师的“作品集”里购买自带封面的歌曲。","blue")
+}
+function onFirstChartCompleted(){
+  if(state.firstChartCompleteHintDone)return;
+  state.firstChartCompleteHintDone=true;
+  log("曲师侧睡提醒你，如果谱面的结果不尽人意，可以通过alpha测试略微抬高它的质量。但也不能过分依赖alpha测试，因为它能达到的效果有限。","blue")
+}
+function installedSongs(){return state.library.filter(s=>s.installed)}
+function clearAllMemberDoubts(){
+  for(const m of state.members){
+    if(m.status==="疑虑"){
+      m.status="正常";
+      m.statusDays=0;
+      m._statusChangedDay=state.day
+    }
+    if(m._statusBeforeOccupation==="疑虑"){
+      m._statusBeforeOccupation="正常";
+      m._statusDaysBeforeOccupation=0
+    }
+  }
+}
+function scheduleUniqueDays(field,start,count){
+  if(!Array.isArray(state[field]))state[field]=[];
+  for(let i=0;i<count;i++){
+    let d=start+i;
+    if(!state[field].includes(d))state[field].push(d)
+  }
+}
+function hasShcadSongInLibrary(){
+  return state.library.some(s=>getComposer(s.composerId)?.name==="shcad")
+}
+function checkPlayerMilestones(){
+  let p=Number(state.players)||0;
+  if(p>=1000&&!state.playerMilestone1000Done){
+    state.playerMilestone1000Done=true;
+    clearAllMemberDoubts();
+    log("游戏的玩家数量首次突破了1000人！<br>制作组的大家非常开心，但这还只是起点。<br>我们接下来会朝着10000人努力！","gold");
+    log(`曲师侧睡发来了祝贺短信！<br>他说之后也一直会在最前线支持《${gameName()}》，并祝你日后事事顺利！`,"green");
+    if(hasShcadSongInLibrary()){
+      state.shcadMilestoneDiscountPending=true;
+      log(`曲师shcad发来了祝贺短信！<br>他认为《${gameName()}》给他的作曲生涯也带来了一束光芒。他说下一首歌曲会再次给你打折。`,"green")
+    }
+    scheduleUniqueDays("milestoneMemberApplicationDays",state.day+1,3)
+  }
+
+  if(p>=10000&&!state.playerMilestone10000Done){
+    state.playerMilestone10000Done=true;
+    clearAllMemberDoubts();
+    log(`游戏的玩家数量首次突破了10000人。<br>说实话，制作组的大家从来没想到会有今天，开心之余也开始感慨幸亏一路坚持了下来。<br>我们的下一个目标会是几万人？十万人？<br>不论如何，这款音游也终于在圈内站稳了脚跟。《${gameName()}》将由你带领至故事的下一篇章。`,"gold");
+    scheduleUniqueDays("milestoneComposerOfferDays",state.day+1,3)
+  }
+
+  if(p>=100000&&!state.playerMilestone100000Done){
+    state.playerMilestone100000Done=true;
+    clearAllMemberDoubts();
+    log(`游戏的玩家数量首次突破了100000人。<br>这是由你创造的奇迹。<br>但在这一路上，你是否回望了过往？<br>你迎合过多少合作对象？有没有辜负任何玩家的期待？有没有牺牲你的组员的梦想与努力？<br>事实上，尽管世人总是乐意为这些问题给出自己的主观答案，但它们或许本就没有对错；而不存在对错的问题，也不该因为事实而被口诛笔伐。<br>等待着你的前路是无尽的，而你的梦想也是无尽的；希望你在追随前者的旅途上，永远不要忘记后半句话也成立。<br>《${gameName()}》所经历的，是地表最低难度的非商业音游运营旅程。`,"gold");
+    scheduleUniqueDays("milestoneComposerOfferDays",state.day+1,3);
+    log("游戏制作者：杉原夜季（Kiyotsuki）<br>特别鸣谢：《梦见霖音：Milthm》制作组<br><br>祝贺你，恭喜第一阶段通关！","gray")
+  }
+}
+function milestoneIncomingEligible(c){
+  if(!c||composerHasActiveCommission(c.id))return false;
+  if(state.incomingOffers.some(o=>o.composerId===c.id))return false;
+  if(state.day<c.depressedUntil)return false;
+  if(state.day<c.sickUntil&&c.affection<60)return false;
+  return true
+}
+function processMilestoneDailyRewards(){
+  if((state.milestoneMemberApplicationDays||[]).includes(state.day)){
+    let role=chance(.5)?"chart":"art";
+    let rarity=rollRecruitRarity();
+    createMemberApplication(role,rarity,`有${role==="chart"?"谱师":"美术"}主动申请加入制作组！`);
+    state.milestoneMemberApplicationDays=state.milestoneMemberApplicationDays.filter(d=>d!==state.day)
+  }
+
+  if((state.milestoneComposerOfferDays||[]).includes(state.day)){
+    let eligible=state.composers.filter(milestoneIncomingEligible);
+    if(eligible.length){
+      let c=eligible[Math.floor(Math.random()*eligible.length)];
+      createIncomingOffer(c,{origin:"player-milestone"})
+    }
+    state.milestoneComposerOfferDays=state.milestoneComposerOfferDays.filter(d=>d!==state.day)
+  }
+}
+function recalcPublic(){
+  let arr=installedSongs(),a=0,d=0,p=0,g=0,w=0;
+  let avgAtt=arr.length?arr.reduce((z,s)=>z+Math.max(1,s.attention),0)/arr.length:1;
+  for(const s of arr){let wt=Math.max(1,s.attention),rel=wt/avgAtt;a+=s.attention;d+=s.discussion*rel;p+=s.play*rel;g+=s.good*wt;w+=wt}
+  state.fans=Math.max(0,a+arr.length+state.metaFans);
+  state.discussion=Math.max(0,d+arr.length+state.metaDiscussion);
+  let rawPlayers=Math.max(0,p+arr.length+state.metaPlayers);
+  let rawRating=Math.max(0,(w?g/w:0)+arr.length+state.metaRating);
+  if(rawPlayers<state.playerFloor){
+    if(state.playerFloorShield){let oldFloor=state.playerFloor;state.playerFloor*=.8;state.playerFloorShield=false;state.players=oldFloor}else state.players=Math.max(rawPlayers,state.playerFloor)
+  }else state.players=rawPlayers;
+  if(rawRating<state.ratingFloor){
+    if(state.ratingFloorShield){let oldFloor=state.ratingFloor;state.ratingFloor*=.8;state.ratingFloorShield=false;state.rating=oldFloor}else state.rating=Math.max(rawRating,state.ratingFloor)
+  }else state.rating=rawRating;
+  let extra=0,dm=1;
+  for(const e of state.temporaryPlayerEffects){
+    if(state.day<=e.discussUntil)dm=Math.max(dm,e.discussMul);
+    if(state.day<=e.playerHoldUntil)extra+=e.extraPlayers;
+    else if(state.day<=e.fadeUntil)extra+=e.extraPlayers*clamp(1-(state.day-e.playerHoldUntil)/(e.fadeUntil-e.playerHoldUntil),0,1)
+  }
+  state.discussion*=dm;
+  if(state.day<=(state.exMemberScandalDiscussUntil||0)){
+    state.discussion*=1+(state.exMemberScandalDiscussScale||1)
+  }
+  state.players+=extra;
+  if(state.day<=state.severeBugUntil)state.players*=.10;
+  if(!state.hasReleasedUpdate)state.players=0;
+  checkPlayerMilestones();
+}
+function updateFloors(){
+  let strength=clamp(state.stickiness/100,0,1);
+  state.playerFloor=Math.max(state.playerFloor,state.players*strength*.35);
+  state.ratingFloor=Math.max(state.ratingFloor,state.rating*strength*.55);
+}
+function recalcArt(){let a=100;for(const s of installedSongs()){if(s.abstract)a-=s.abstract*2;if(s.quality===4)a+=.4;if(s.quality===5)a+=.8}state.artPursuit=a+state.artEventBonus}
+function artMods(){let stick=1,expect=1,sponsor=1,ratingGrowth=1;if(year()>=2){if(state.artPursuit>99){stick=1.5;expect=2;sponsor=3}else if(state.artPursuit>90){stick=1.4;expect=1.3;sponsor=1.5}else if(state.artPursuit>80)stick=1.3;else if(state.artPursuit>70){stick=1.2;expect=1.2}if(state.artPursuit<30){expect=.7;ratingGrowth=.7}if(state.artPursuit<10)sponsor=0}return{stick,expect,sponsor,ratingGrowth}}
+function styleState(){
+  if(year()<2)return{name:"无",playerMul:1,stickyMul:1,dominant:null};
+  let c={灼热:0,抒情:0,冷冽:0},a=installedSongs();
+  if(!a.length)return{name:"多元发展",playerMul:1.1,stickyMul:1,dominant:null};
+  a.forEach(s=>c[s.style]++);let total=a.length,dom=STYLE.reduce((x,y)=>c[x]>=c[y]?x:y),pct=c[dom]/total;
+  if(pct>.70){
+    let recent=[...a].sort((x,y)=>(y.installedDay||0)-(x.installedDay||0));
+    let last3=recent.slice(0,3),last10=recent.slice(0,10);
+    let broken=(last3.length===3&&last3.every(s=>s.style!==dom))||last10.filter(s=>s.style!==dom).length>=4;
+    if(broken)return{name:`${dom}·风格显著（专一效果受抑制）`,playerMul:.85,stickyMul:1.1,dominant:dom};
+    return{name:`${dom}·风格专一`,playerMul:.70,stickyMul:1.2,dominant:dom}
+  }
+  if(pct>.50)return{name:`${dom}·风格显著`,playerMul:.85,stickyMul:1.1,dominant:dom};
+  if(STYLE.every(x=>c[x]/total<.40))return{name:"多元发展",playerMul:1.1,stickyMul:1,dominant:null};
+  return{name:"无",playerMul:1,stickyMul:1,dominant:null}
+}
+function spendAllowed(amount){
+  if(state.bankrupt)return false;
+  if(state.money>0)return true;
+  return amount<=1500;
+}
+function canSpendMoney(amount){
+  if(!spendAllowed(amount)){
+    if(state.bankrupt)log("破产状态下无法进行这项支出。");
+    else log("存款≤0时无法进行花费超过1500的行动。");
+    return false
+  }
+  return true
+}
+function setJob(v){
+  if(state.day < (state.jobLockedUntil||1)){
+    log(`当前主业仍在锁定期，最早可在第 ${state.jobLockedUntil} 天修改。`);
+    document.getElementById("jobSelect").value=state.job;
+    render();
+    return;
+  }
+  if(v===state.job){render();return}
+  state.job=v;
+  let lockDays=v==="easy"?7:v==="normal"?30:v==="hard"?365:0;
+  state.jobLockedUntil=state.day+lockDays;
+  if(lockDays>0)log(`已选择${v==="easy"?"简单":v==="normal"?"普通":"困难"}主业，接下来 ${lockDays} 天内不能修改主业。`);
+  else log("已切换为家里蹲主业。");
+  render()
+}
+function applyJobDay(){
+  let cycleDay=((state.day-1)%7)+1;
+  if(state.job==="home"){
+    state.money-=100;
+    state.fatigue=Math.max(0,state.fatigue-10);
+  }else if(state.job==="easy"){
+    let inc=200;
+    if(year()>=4){
+      let h=Math.floor((state.day-1-4*365)/(365/2))+1;
+      if(year()<=8)inc+=Math.max(0,h)*50;
+      else{
+        let first=Math.floor((9*365-4*365)/(365/2))*50,l=Math.floor((state.day-1-9*365)/(365/2))+1;
+        inc+=first+Math.max(0,l)*25
+      }
+    }
+    state.money+=inc;
+    state.fatigue=Math.max(0,state.fatigue-5);
+  }else if(state.job==="normal"){
+    if(cycleDay===1)state.fatigue+=20;
+    if(cycleDay===6||cycleDay===7)state.fatigue=Math.max(0,state.fatigue-30);
+    if(isMonthStart()){
+      let extraYears=Math.max(0,year()-3);
+      state.money+=8000*Math.pow(1.08,extraYears)
+    }
+  }else{
+    let extraYears=Math.max(0,year()-3),wf=50+Math.min(40,extraYears);
+    if(cycleDay===1)state.fatigue+=wf;
+    if(cycleDay===7)state.fatigue=Math.max(0,state.fatigue-60);
+    if(isMonthStart())state.money+=12000*Math.pow(1.10,extraYears);
+    if(dayOfYear()===365)state.money+=18000
+  }
+}
+function serviceMonthlyCost(){if(!isMonthStart())return;let c={vpn:50,translation:100,takeout:200,workspace:1000,sponsor:50,course:3000};Object.keys(c).forEach(k=>{if(state.services[k])state.money-=c[k]})}
+function toggleService(k){
+  let c={vpn:50,translation:100,takeout:200,workspace:1000,sponsor:50,course:3000}[k];
+  if(!state.services[k]){
+    if(!canSpendMoney(c))return;
+    state.money-=c;state.services[k]=true
+  }else state.services[k]=false;
+  render()
+}
+function sponsorship(){if(!isMonthStart())return;state.sponsorIncome=0;if(!state.services.sponsor||state.artPursuit<10)return;if(state.stickiness>=40){let pp=Math.min(.2,.01*(1+state.stickiness/25));state.sponsorIncome=state.players*pp*artMods().sponsor*designSponsorMultiplier();state.money+=state.sponsorIncome;if(state.sponsorIncome>2000){let e=state.sponsorIncome-2000;state.expectation+=(e>6000?6000/300+(e-6000)/600:e/300)}}}
+function bankruptcyCheck(){if(state.money<=-20000&&!state.bankrupt){if(state.sponsorIncome>3000&&state.day-state.bailoutLastDay>=1095){state.money=0;state.bailoutLastDay=state.day;log("救命保底：赞助收入满足条件，存款恢复为0。")}else{state.bankrupt=true;log("进入破产状态。")}}if(state.bankrupt&&state.money>=20000){state.bankrupt=false;log("解除破产状态。")}}
+function computerBroken(){
+  return state.day<(state.computerBrokenUntil||0)
+}
+function computerDaily(){
+  if((state.computerBrokenUntil||0)>0){
+    if(state.day>=state.computerBrokenUntil){
+      state.computerBrokenUntil=0;
+      state.computerRepairCooldownUntil=state.day+180;
+      log("电脑终于修好了！","green")
+    }else{
+      return
+    }
+  }
+
+  if(state.day<366)return;
+  if(state.job==="normal"||state.job==="hard")return;
+  if(state.day<(state.computerRepairCooldownUntil||0))return;
+  if(chance(.0001)){
+    state.computerBrokenUntil=state.day+3;
+    log("电脑坏了！这下糟糕了。","red")
+  }
+}
+function computerActionBlocked(){
+  if(!computerBroken())return false;
+  log("电脑坏了，目前无法进行这项操作。");
+  return true
+}
+function freeActionEvent(){
+  // “你爹来了”与“组员多才多艺”同一次行动严格互斥；
+  // 两类事件当天合计最多触发2次。
+  if((state.freeMemberEventsToday||0)>=2)return false;
+
+  let l3=state.members.filter(m=>m.rarity===3&&!memberOccupied(m));
+  let l4=state.members.filter(m=>m.rarity===4&&!memberOccupied(m));
+
+  if(l4.length&&chance(Math.min(.5,l4.length*.04))){
+    let m=l4[Math.floor(Math.random()*l4.length)];
+    state.freeMemberEventsToday=(state.freeMemberEventsToday||0)+1;
+    state.temporaryCoordBonus=20;state.temporaryCoordBonusUntil=state.day+7;
+    log(`你爹来了：${memberName(m)} 接手了这次操作。`,"blue");
+    return "free4"
+  }else if(l3.length&&chance(Math.min(.4,l3.length*.04))){
+    let m=l3[Math.floor(Math.random()*l3.length)];
+    state.freeMemberEventsToday=(state.freeMemberEventsToday||0)+1;
+    log(`组员多才多艺：${memberName(m)} 接手了这次操作。`,"blue");
+    return "free3"
+  }
+  return false
+}
+function burnoutCopyCheck(){let t=state.money<=0?80:100;if(state.fatigue<=t)return;let p=clamp(.05+(state.fatigue-t)/(200-t)*.45,.05,.5);if(chance(p)){state.metaDiscussion+=Math.max(20,state.discussion*.4);state.metaFans+=Math.max(10,state.fans*.3);state.metaRating-=Math.max(10,state.rating*.45);log("疲劳：文案暴雷。")}}
+function pendingAnnouncementPackage(){
+  return state.packages
+    .filter(p=>p.status==="等待上架"&&state.day<(p.releaseDay||Infinity))
+    .sort((a,b)=>(a.releaseDay||Infinity)-(b.releaseDay||Infinity))[0]||null
+}
+function announcementCooldownLeft(){
+  return Math.max(0,7-(state.day-(state.lastAnnouncementDay||-9999)))
+}
+function publishUpdateAnnouncement(p){
+  if(!p||p.status!=="等待上架")return false;
+  let left=announcementCooldownLeft();
+  if(left>0){log(`距离上次发布公告还不到7天，还需要等待${left}天。`);return false}
+  if(!spendAP(2))return false;
+  state.fatigue+=5;
+  state.lastAnnouncementDay=state.day;
+  p.announcementFanBonus=(p.announcementFanBonus||0)+.05;
+  if(!p.reviewEventChecked)p.announcementBeforeReview=true;
+  log("你发布了一条关于游戏更新的公告。玩家开始注意到将有一场更新到来！");
+  render();
+  return true
+}
+function writeCopy(){
+  let announcementPackage=pendingAnnouncementPackage();
+  if(announcementPackage){
+    publishUpdateAnnouncement(announcementPackage);
+    return
+  }
+  let free=freeActionEvent();
+  let operationFatigue=free?0:state.fatigue;
+  if(!free&&!spendAP(2))return;
+  if(!free)state.fatigue+=5;
+  state.expectation+=3*artMods().expect;
+  let dg=designGrowthMultipliers();state.metaDiscussion+=10*dg.discussion;state.metaFans+=5*growthSpeedMultiplier()*dg.fan;
+  if(!free)burnoutCopyCheck();
+  else log(`${free==="free4"?"你爹来了":"组员多才多艺"}：本次写文案不消耗行动点，且本次操作疲劳视为0。`,"blue");
+  render()
+}
+function writeProgram(){
+  if(computerActionBlocked())return;
+  if(!state.designConceptConfirmed){
+    log("必须先在页面最顶端完成“游戏设计理念”，才能开始写程序。");
+    document.getElementById("designConceptPanel")?.scrollIntoView({behavior:"smooth",block:"start"});
+    return
+  }
+  let base=programActionBaseCost(),free=freeActionEvent();
+  let operationFatigue=free?0:state.fatigue;
+  if(!free&&!spendAP(base))return;
+  if(!free)state.fatigue+=20+(state.takeoutProgramDiscount?10:0);
+  state.programWritesToday=(state.programWritesToday||0)+1;
+  let gain=6*(state.inspiration?1.5:1);
+  state.bugChance=clamp(state.bugChance-gain,0,100);
+  state.programQualityBoost+=.5*(state.inspiration?1.5:1);
+  advanceProgramDevelopment();
+  state.inspiration=false;state.takeoutProgramDiscount=false;
+  if(free)log(`${free==="free4"?"你爹来了":"组员多才多艺"}：本次写程序不消耗行动点，且本次操作疲劳视为0。`,"blue");
+  render()
+}
+function sideGigStudyMultiplier(){
+  let n=Math.max(0,(state.programStudyCount||0)+(state.artStudyCount||0));
+  if(n<=200)return 1+.30*(n/200);
+  if(n<=1000)return 1.30+.30*((n-200)/800);
+  return 1.60
+}
+function sideGig(){
+  if(!spendAP(8))return;
+  state.fatigue+=40;
+  let v=100*sideGigStudyMultiplier()*rnd(.4,1.6);
+  state.money+=v;
+  log(`赚外快获得 ${Math.floor(v)}。`);
+  render()
+}
+function studyProgram(){
+  if(computerActionBlocked())return;
+  let cost=state.services.course?3:5;
+  if(!spendAP(cost))return;
+  let fatigueGain=(state.studyActionsToday||0)>=2?15:30;
+  state.studyActionsToday=(state.studyActionsToday||0)+1;
+  state.fatigue+=fatigueGain;
+  state.programStudyCount=(state.programStudyCount||0)+1;
+  // “学程序”基础每次程序水平+1；原有“灵感爆棚”仍使本次收益为1.5倍。
+  state.tech+=state.inspiration?1.5:1;
+  state.inspiration=false;
+  render()
+}
+function studyArt(){
+  if(computerActionBlocked())return;
+  let cost=state.services.course?7:10;
+  if(!spendAP(cost))return;
+  let fatigueGain=(state.studyActionsToday||0)>=2?25:50;
+  state.studyActionsToday=(state.studyActionsToday||0)+1;
+  state.fatigue+=fatigueGain;
+  state.artStudyCount=(state.artStudyCount||0)+1;
+  if(!state.artStudyStarted)state.artStudyStarted=true;
+  let before=state.artStudyProgress;
+  let gain=.5;
+  let seniorArt=state.members.filter(m=>m.role==="art"&&m.rarity>=3);
+  if(seniorArt.length)gain+=.3;
+  if(seniorArt.some(m=>state.day-m.joinDay>=365))gain+=.4;
+  state.artStudyProgress=clamp(state.artStudyProgress+gain,0,100);
+  if(before<50&&state.artStudyProgress>=50&&!state.artStudy50Notified){
+    state.artStudy50Notified=true;
+    log("学会了美术！现在已经可以自己给歌曲提供美术了！","gold");
+  }
+  if(before<100&&state.artStudyProgress>=100&&!state.artStudy100Notified){
+    state.artStudy100Notified=true;
+    log("彻底学会了美术！","gold");
+  }
+  render()
+}
+function advanceProgramDevelopment(){
+  if(!state.hasReleasedUpdate){
+    if(state.gameCoreProgress>=100)return;
+    let before=state.gameCoreProgress;
+    state.gameCoreProgress=clamp(state.gameCoreProgress+(1+state.tech*0.1)*designProgramMultiplier("core"),0,100);
+    if(before<100&&state.gameCoreProgress>=100&&!state.gameCoreCompleteNotified){
+      state.gameCoreCompleteNotified=true;
+      log("游戏本体制作完成！","gold");
+    }
+    return;
+  }
+  if(state.chartEditorUnlocked&&!state.chartEditorComplete){
+    let before=state.chartEditorProgress;
+    let gain=Math.min(6,(2+state.tech*0.15)*designProgramMultiplier("v1"));state.chartEditorProgress=clamp(state.chartEditorProgress+gain,0,100);
+    if(before<100&&state.chartEditorProgress>=100){
+      state.chartEditorComplete=true;
+      state.chartEditorV2Unlocked=true;
+      if(!state.chartEditorCompleteNotified){
+        state.chartEditorCompleteNotified=true;
+        log("游戏制谱器制作完成！","gold");
+      }
+    }
+    return;
+  }
+  if(state.chartEditorV2Unlocked&&!state.chartEditorV2Complete){
+    let before=state.chartEditorV2Progress;
+    let gain=Math.min(4,(0.5+state.tech*0.05)*designProgramMultiplier("v2"));state.chartEditorV2Progress=clamp(state.chartEditorV2Progress+gain,0,100);
+    if(before<100&&state.chartEditorV2Progress>=100){
+      state.chartEditorV2Complete=true;
+      if(!state.chartEditorV2CompleteNotified){
+        state.chartEditorV2CompleteNotified=true;
+        log("游戏制谱器制作完成！","gold");
+      }
+    }
+  }
+}
+function personallyDraw(songId){
+  if(computerActionBlocked())return;
+  let s=getSong(songId);if(!s||s.installed)return;
+  if(state.artStudyProgress<50)return log("学习美术进度达到50%后才能亲自画图。");
+  if(s.artProgress>=100)return log("这首歌曲的美术已经完成。");
+  if(!spendAP(6))return;
+  if(state.artStudyProgress<100){
+    if(typeof s.playableQuality==="number")s.playableQuality=Math.max(0,s.playableQuality-2);
+    else s._playableBonus=(s._playableBonus||0)-2;
+  }
+  s.artProgress=Math.min(100,s.artProgress+5);
+  log(`亲自画图：《${s.name}》美术进度 +5%${state.artStudyProgress<100?"；本次成品可玩质量 -2":""}。`);
+  if(s.artProgress>=100){
+    if(s.artMemberId){
+      let m=getMember(s.artMemberId);
+      if(m)m.assignedSongIds=m.assignedSongIds.filter(id=>id!==s.id);
+      s.artMemberId=null;
+    }
+    finalizePlayableQuality(s);
+  }
+  render()
+}
+function playRhythm(){if(!spendAP(2))return;state.rhythmPlayCount=(state.rhythmPlayCount||0)+1;state.fatigue=Math.max(0,state.fatigue-40-(!state.playedRhythmToday&&state.takeoutRecruitBuff?10:0));state.playedRhythmToday=true;if(chance(.03+state.rating/10000+state.tech/1000)){state.inspiration=true;log("灵感爆棚。")}render()}
+function takeout(){if(!state.services.takeout)return log("需要外卖平台会员。");if(!spendAP(1))return;state.fatigue=Math.max(0,state.fatigue-25);state.takeoutRecruitBuff=true;state.takeoutProgramDiscount=true;render()}
+function recruitProbability(role){let p=.05+state.recruitFail[role]*.05;if(state.designConceptConfirmed&&state.designStyle==="缝合"&&role==="chart"&&year()===0)p+=.05;let f=state.ap/Math.max(1,apCap());p*=role==="chart"?.3+.7*f:.3+.7*(1-f);if(state.fatigue>(state.money<=0?80:100))p*=.5;if(state.takeoutRecruitBuff)p*=1.05;if(styleState().name==="多元发展")p*=1.12;return clamp(p,0,1)}
+function memberNameAllowed(name,role,rarity){
+  if(LEVEL5_CHART_NAME_POOL.includes(name))return role==="chart"&&rarity===5;
+  if(LEVEL5_ART_NAME_POOL.includes(name))return role==="art"&&rarity===5;
+  return GENERAL_MEMBER_NAME_POOL.includes(name);
+}
+function memberNamePoolFor(role,rarity){
+  if(role==="chart"&&rarity===5)return [...GENERAL_MEMBER_NAME_POOL,...LEVEL5_CHART_NAME_POOL];
+  if(role==="art"&&rarity===5)return [...GENERAL_MEMBER_NAME_POOL,...LEVEL5_ART_NAME_POOL];
+  return GENERAL_MEMBER_NAME_POOL;
+}
+function pickMemberName(role,rarity,preferred=null){
+  if(preferred&&memberNameAllowed(preferred,role,rarity))return preferred;
+  let used=new Set(state.usedMemberNames||[]);
+  let allowed=memberNamePoolFor(role,rarity);
+  let available=allowed.filter(n=>!used.has(n));
+  let pool=available.length?available:allowed;
+  let name=pool[Math.floor(Math.random()*pool.length)]||`成员${nextId()}`;
+  if(!(state.usedMemberNames||[]).includes(name))state.usedMemberNames.push(name);
+  return name
+}
+function rollRecruitRarity(){
+  let p5=state.day<(state.fiveStarRecruitSuppressionUntil||0)?.0125:.05;
+  if(chance(p5))return 5;
+  // 非5级部分维持原本1~4级之间的相对概率，不因5级抑制而改坏其它等级分布。
+  return weighted([[1,.38/.95],[2,.28/.95],[3,.18/.95],[4,.11/.95]])
+}
+function markFiveStarRecruit(rarity){
+  if(rarity===5)state.fiveStarRecruitSuppressionUntil=state.day+90
+}
+function createMemberApplication(role,rarity,message=null){
+  if(!state.applications)state.applications=[];
+  let app={id:nextId(),role,rarity,name:pickMemberName(role,rarity)};
+  state.applications.push(app);
+  if(message)log(message,"blue");
+  render()
+}
+function acceptApplication(id){
+  let app=(state.applications||[]).find(a=>a.id===id);if(!app)return;
+  if(state.members.length>=teamCap())return log("人数已达上限，暂时无法接受这份申请。");
+  state.members.push({id:nextId(),name:app.name,role:app.role,rarity:app.rarity,joinDay:memberJoinDayForDesign(app.role,app.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&app.role==="chart"&&app.rarity>=3});
+  markFiveStarRecruit(app.rarity);
+  state.applications=state.applications.filter(a=>a.id!==id);
+  log(`已接受${app.name}的加入申请。`,"blue");
+  render()
+}
+function rejectApplication(id){
+  state.applications=(state.applications||[]).filter(a=>a.id!==id);
+  render()
+}
+function specialRecruitmentEvents(){
+  if(state.day>=16&&!state.hasSearchedMember&&!state.sideSleepSearchHintDone){
+    state.sideSleepSearchHintDone=true;
+    log("曲师侧睡意识到你现在还在单打独斗。他告诉你：如果曲库添加了新的歌曲，记得在左下角的制作组窗口“找谱师”或“找美术”。","blue")
+  }
+  if(state.day>=5&&!state.sideSleepNetworkDone&&chance(.10)){
+    state.sideSleepNetworkDone=true;
+    createMemberApplication("chart",3,"曲师侧睡非常在意企划的动向，并为你举荐了一位谱师，你可以在左下角的制作组窗口查看申请。")
+  }
+  if(state.day===100&&!state.day100RecruitEventDone){
+    state.day100RecruitEventDone=true;
+    let role=chance(.5)?"chart":"art";
+    createMemberApplication(role,4,"你的企划蒸蒸日上，吸引了一位圈内的大佬申请加入制作组！只不过，管理大佬可能会比你想象的要辛苦，所以要权衡利弊。你可以在左下角的制作组窗口查看申请。")
+  }
+  // 显示上的“第2年”从第366天开始。
+  if(state.day>=366&&state.fans>3000&&chance(.005)){
+    let role=chance(.5)?"chart":"art";
+    let rarity=rollRecruitRarity();
+    createMemberApplication(role,rarity,`有${role==="chart"?"谱师":"美术"}申请加入制作组！`)
+  }
+}
+function searchMember(role){
+  if(!state.designConceptConfirmed)return log("必须先完成“游戏设计理念”后才能找谱师或找美术。");
+  if(state.bankrupt)return log("破产状态下无法找谱师/美术。");
+  if(state.members.length>=teamCap())return log("人数已达上限。");
+  if(!spendAP(1))return;
+  state.hasSearchedMember=true;
+  state.fatigue+=state.day<=(state.teamArgumentUntil||0)?15:10;
+  if(chance(recruitProbability(role))){
+    state.recruitFail[role]=0;
+    let rarity=rollRecruitRarity();
+    state.candidate={role,rarity,name:pickMemberName(role,rarity)}
+  }else{
+    state.recruitFail[role]++;
+    log("寻找失败。")
+  }
+  render()
+}
+function acceptCandidate(){
+  let c=state.candidate;if(!c)return;
+  if(state.members.length>=teamCap())return log("人数已达上限，暂时无法录用。");
+  state.members.push({id:nextId(),name:c.name||pickMemberName(c.role,c.rarity),role:c.role,rarity:c.rarity,joinDay:memberJoinDayForDesign(c.role,c.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&c.role==="chart"&&c.rarity>=3});
+  markFiveStarRecruit(c.rarity);
+  state.candidate=null;
+  log(`已录用${c.rarity}级${c.role==="chart"?"谱师":"美术"} ${c.name||""}。`);
+  render()
+}function rejectCandidate(){state.candidate=null;render()}
+function fireMember(id){
+  let i=state.members.findIndex(m=>m.id===id);if(i<0)return;
+  let m=state.members[i];
+  if(memberOccupied(m)){log(`${m.name}目前正被事务占用，无法开除。`);return}
+  let argumentInvolved=state.day<=(m.argumentInvolvedUntil||0);
+  if(!argumentInvolved&&!spendAP(1))return;
+  if(argumentInvolved){
+    state.teamArgumentUntil=0;
+    for(const x of state.members)x.argumentInvolvedUntil=0;
+  }
+  noteMemberDepartureForScandal(m);
+  let opinionMul=argumentInvolved?4:1;
+  if(m.rarity===4)registerFormerMemberOpinion(m,.002*opinionMul);
+  else if([2,3,5].includes(m.rarity))registerFormerMemberOpinion(m,.0005*opinionMul);
+  state.library.forEach(s=>{s.chartMemberIds=s.chartMemberIds.filter(x=>x!==id);if(s.artMemberId===id)s.artMemberId=null});
+  state.members.splice(i,1);
+  if(chance(.05))state.candidate={role:m.role,rarity:Math.min(5,m.rarity+1),name:pickMemberName(m.role,Math.min(5,m.rarity+1),m.name)};
+  render()
+}
+function coordCap(){let b=0;for(const m of state.members){let y=Math.floor(Math.max(0,state.day-m.joinDay-180)/365);b+=Math.min(8,y*2)}return 100+b}
+function coordValue(){let v=state.members.reduce((a,m)=>a+RARITY_COORD[m.rarity]+(state.day<=(m.coordExtraUntil||0)?5:0)+(state.day<=(m.lewdCoordUntil||0)?2:0),0)+Math.floor(state.members.length/10)*5;if(state.day<=state.temporaryCoordBonusUntil)v+=Math.min(state.temporaryCoordBonus,Math.max(0,100-v));if(state.day<=(state.teamArgumentUntil||0))v+=5;return Math.min(coordCap(),v)}
+function memberOccupied(m){
+  return !!m&&state.day<(m.occupiedUntil||0)
+}
+function releaseMemberOccupation(m){
+  if(!m||memberOccupied(m)||m.status!=="事务占用")return;
+  m.status=m._statusBeforeOccupation||"正常";
+  m.statusDays=Number(m._statusDaysBeforeOccupation)||0;
+  m._statusBeforeOccupation=null;
+  m._statusDaysBeforeOccupation=0
+}
+function detachMemberFromAllWork(m){
+  if(!m)return;
+  for(const sid of [...(m.assignedSongIds||[])]){
+    let s=getSong(sid);if(!s)continue;
+    s.chartMemberIds=(s.chartMemberIds||[]).filter(id=>id!==m.id);
+    if(s.artMemberId===m.id)s.artMemberId=null
+  }
+  m.assignedSongIds=[]
+}
+function startMemberOccupation(m,days){
+  if(!m||memberOccupied(m))return;
+  m._statusBeforeOccupation=m.status||"正常";
+  m._statusDaysBeforeOccupation=Number(m.statusDays)||0;
+  m.status="事务占用";
+  m.occupiedUntil=state.day+days;
+  m.lastGuardianPhoneEventDay=state.day;
+
+  detachMemberFromAllWork(m);
+  log(`突发情况：${m.name}的手机被家长收走了。${days}天内无法推进工作。`)
+}
+function academicAbsenceEligible(m){
+  if(!m||![1,2,3,5].includes(m.rarity))return false;
+  let tenure=state.day-m.joinDay;
+  if(m.rarity===3)return tenure<=730;
+  return tenure<=1095
+}
+function startAcademicAbsence(m){
+  if(!m)return;
+  if(!memberOccupied(m)){
+    m._statusBeforeOccupation=m.status||"正常";
+    m._statusDaysBeforeOccupation=Number(m.statusDays)||0
+  }
+  m.status="事务占用";
+  m.occupiedUntil=Math.max(m.occupiedUntil||0,state.day+30);
+  detachMemberFromAllWork(m);
+  log(`${m.name}因为学业原因，必须缺席30天。${m.name}负责的相关工作已暂时停止。`,"blue")
+}
+function academicAbsenceDaily(){
+  // 先兑现此前已经预告过的缺席。
+  for(const m of state.members){
+    if((m.academicAbsenceScheduledDay||0)===state.day){
+      m.academicAbsenceScheduledDay=0;
+      startAcademicAbsence(m)
+    }
+  }
+
+  // 5月1日、12月1日分别对每名符合条件的成员独立进行20%判定。
+  let reminderDay=dayOfMonth()===1&&(monthOfYear()===5||monthOfYear()===12);
+  if(!reminderDay)return;
+  for(const m of state.members){
+    if(!academicAbsenceEligible(m))continue;
+    if((m.academicAbsenceScheduledDay||0)>state.day)continue;
+    if(chance(.20)){
+      m.academicAbsenceScheduledDay=state.day+30;
+      log(`${m.name}将在1个月后因学业缺席30天。`,"blue")
+    }
+  }
+}
+function memberOccupationDaily(){
+  academicAbsenceDaily();
+  for(const m of state.members){
+    releaseMemberOccupation(m);
+    if(memberOccupied(m))continue;
+    if(m.role!=="chart"||![1,2].includes(m.rarity))continue;
+    if(state.day<=180)continue;
+    if(![2,3,4,5,6,9,10,11].includes(monthOfYear()))continue;
+    if(state.day-(m.lastGuardianPhoneEventDay||-9999)<60)continue;
+    if(chance(.005))startMemberOccupation(m,Math.floor(rnd(7,16)))
+  }
+}
+function memberWave(m){
+  let halfYears=Math.floor(Math.max(0,state.day-m.joinDay)/180);
+  let neg=Math.max(-.10,-.10+halfYears*.01),pos=.10+halfYears*.01;
+  return 1+rnd(neg,pos)
+}
+function productionEfficiency(m){let y=Math.floor(Math.max(0,state.day-m.joinDay)/365),ret=Math.max(.5,1-y*.05),sp=state.sponsorIncome>5000?.8:state.sponsorIncome>2000?.9:1;return ret*sp}
+function memberDailyEvents(){
+  for(const m of [...state.members]){
+    if(memberOccupied(m))continue;
+    let as=m.assignedSongIds.length>0;
+    if(as){m.idleDays=0;continue}
+    m.idleDays++;
+    if(m.status==="疑虑"){
+      m.statusDays++;
+      if(m.statusDays>15&&chance(.10)){
+        removeMember(m.id,`疑虑：${memberName(m)} 因疑虑持续超过15天而退组。`,"blue","doubt");
+        continue
+      }
+    }
+    if(m.status!=="正常"||state.day<m.cooldownUntil)continue;
+    let tenure=state.day-m.joinDay;
+    if(tenure>90){
+      if(m.rarity>=3){
+        let p=Math.min(.10,.01+Math.floor(tenure/180)*.005);
+        if(coordValue()<coordCap()*.60)p*=.30;
+        if(chance(p)){
+          m.status="干劲满满";m.statusDays=0;m._statusChangedDay=state.day;
+          log(`干劲满满：${memberName(m)} 进入干劲满满状态。`,"blue")
+        }
+      }else{
+        let p=Math.min(.10,.005+Math.floor(tenure/180)*.003);
+        if(coordValue()<coordCap()*.70)p*=.30;
+        if(chance(p)){
+          m.status="干劲满满";m.statusDays=0;m._statusChangedDay=state.day;
+          log(`干劲满满：${memberName(m)} 进入干劲满满状态。`,"blue");
+          continue
+        }
+        if(m.idleDays>designDoubtIdleDays()){
+          let d=.05;if(coordValue()<coordCap()*.70)d*=.30;
+          if(chance(d)){
+            m.status="疑虑";m.statusDays=0;m._statusChangedDay=state.day;
+            log(`疑虑：${memberName(m)} 开始对留在制作组产生疑虑。`,"blue")
+          }
+        }
+      }
+    }else if(m.idleDays>designDoubtIdleDays()){
+      m.status=chance(.80)?"干劲满满":"疑虑";m.statusDays=0;m._statusChangedDay=state.day;
+      if(m.status==="干劲满满")log(`干劲满满：${memberName(m)} 进入干劲满满状态。`,"blue");
+      else log(`疑虑：${memberName(m)} 开始对留在制作组产生疑虑。`,"blue")
+    }
+  }
+}
+function teamArgumentChance(){
+  if(state.day<=90||state.members.length<2)return 0;
+  let cap=coordCap(),c=coordValue();
+  if(c<=cap*.60)return 0;
+  let p=.005;
+  for(const m of state.members){
+    if(m.rarity===3)p-=.0001;
+    let tenure=state.day-m.joinDay;
+    if(tenure>365)p-=.0001;
+    if(tenure>1095)p-=.0001;
+  }
+  return Math.max(0,p)
+}
+function pickArgumentMembers(){
+  let all=state.members.filter(m=>!memberOccupied(m));
+  let preferred=all.filter(m=>m.rarity===2||m.rarity===4);
+  const takeRandom=arr=>arr.splice(Math.floor(Math.random()*arr.length),1)[0];
+  let picked=[];
+  while(picked.length<2&&preferred.length){
+    let m=takeRandom(preferred);
+    picked.push(m);
+    all=all.filter(x=>x.id!==m.id)
+  }
+  while(picked.length<2&&all.length)picked.push(takeRandom(all));
+  return picked
+}
+function teamArgumentDaily(){
+  let p=teamArgumentChance();
+  if(p<=0||!chance(p))return;
+  let pair=pickArgumentMembers();
+  if(pair.length<2)return;
+  state.teamArgumentUntil=Math.max(state.teamArgumentUntil||0,state.day+15);
+  for(const m of pair)m.argumentInvolvedUntil=Math.max(m.argumentInvolvedUntil||0,state.day+15);
+  log(`制作组的${pair[0].name}和${pair[1].name}在组内产生了争吵！`,"red")
+}
+function lewdImageDaily(){
+  let eligible=state.members.filter(m=>!memberOccupied(m)&&[4,5].includes(m.rarity)&&(state.day-m.joinDay)>180);
+  if(!eligible.length||state.members.filter(m=>!memberOccupied(m)).length<2||!chance(.01))return;
+
+  let special=eligible.filter(m=>m.role==="chart"&&(m.name==="Iblcya"||m.name==="爬爬"));
+  let x=special.length&&chance(.70)
+    ?special[Math.floor(Math.random()*special.length)]
+    :eligible[Math.floor(Math.random()*eligible.length)];
+
+  let others=state.members.filter(m=>m.id!==x.id&&!memberOccupied(m));
+  if(!others.length)return;
+  let y=others[Math.floor(Math.random()*others.length)];
+
+  x.lewdCoordUntil=Math.max(x.lewdCoordUntil||0,state.day+15);
+  y.status="干劲满满";
+  y.statusDays=0;
+  y._statusChangedDay=state.day;
+
+  log(`${x.name}在制作组内发涩图，造成了不良影响。但${y.name}因此获得了干劲。`,"blue")
+}
+function coordinationDailyEvents(){
+  teamArgumentDaily();
+  let c=coordValue(),cap=coordCap();
+  if(c>cap*.5&&state.monthlyHighCoordEvents<2&&chance(Math.min(.05,(c-cap*.5)/(cap*.5)*.05))){state.monthlyHighCoordEvents++;teamExplosion(c>cap*.8)}
+  if(c<20&&state.monthlyLowCoordEvents<2&&state.members.length&&chance(Math.min(.10,(20-c)/20*.10))){state.monthlyLowCoordEvents++;memberCrazy()}
+}
+function teamExplosion(high){
+  let damaged=[];
+  state.library.filter(s=>!s.installed&&(s.chartProgress<100||s.artProgress<100)).slice(0,3).forEach(s=>{
+    if(chance(.5))s.chartProgress=Math.max(0,s.chartProgress-20);else s.artProgress=Math.max(0,s.artProgress-20);
+    damaged.push(s.name)
+  });
+  const removeOne=()=>{
+    let e=state.members.filter(m=>![2,5].includes(m.rarity)&&!memberOccupied(m)),d=e.filter(m=>m.status==="疑虑"),p=d.length?d:e;
+    if(p.length){
+      let m=p[Math.floor(Math.random()*p.length)];
+      removeMember(m.id,`组内爆炸：${memberName(m)} 在冲突中退组。`,"blue")
+    }
+  };
+  if(chance(.30))removeOne();
+  if(high&&chance(.50))removeOne();
+  log(`组内爆炸：制作组发生冲突${damaged.length?`，影响了《${damaged.join("》《")}》的制作进度`:""}。`,"blue");
+}
+function memberCrazy(){
+  let e=state.members.filter(m=>![2,5].includes(m.rarity)&&!memberOccupied(m));if(!e.length)return;
+  let m=e[Math.floor(Math.random()*e.length)],who=memberName(m),s=getSong(m.assignedSongIds[0]),result="没有正在进行的工作受到直接影响";
+  if(s){
+    if(chance(.5)){
+      if(m.role==="chart")s.chartProgress=100;else s.artProgress=100;
+      s._playableMultiplier=(s._playableMultiplier||1)*rnd(.7,2);
+      completeRole(s,m.role);finalizePlayableQuality(s);
+      result=`《${s.name}》的${m.role==="chart"?"谱面":"美术"}被直接完成，但可玩质量产生异常浮动`
+    }else{
+      if(m.role==="chart")s.chartProgress=0;else s.artProgress=0;
+      result=`《${s.name}》的${m.role==="chart"?"谱面":"美术"}进度归零`;
+      if(chance(.3)){
+        removeMember(m.id,`有组员疯了：${who} 在事件中直接退组。`,"blue");
+        log(`有组员疯了：${who} 受到影响，${result}。`,"blue");
+        return
+      }
+    }
+  }
+  m.coordExtraUntil=state.day+180;
+  log(`有组员疯了：${who} 受到影响，${result}；其6个月内额外占用5点协调阈值。`,"blue")
+}
+function formerMemberEffectScale(){
+  // 第3年从第731天开始；之后每完整运营180天，效果强度再乘0.9。
+  if(state.day<731)return 1;
+  let halfYears=Math.floor(Math.max(0,state.day-731)/180);
+  return Math.pow(.9,halfYears)
+}
+function registerFormerMemberOpinion(m,dailyChance){
+  if(!m||dailyChance<=0)return;
+  if((state.formerMemberOpinionSpokenNames||[]).includes(m.name||"未命名"))return;
+  if(!state.formerMemberOpinionCandidates)state.formerMemberOpinionCandidates=[];
+  if(state.formerMemberOpinionCandidates.some(c=>!c.triggered&&c.name===(m.name||"未命名")))return;
+  state.formerMemberOpinionCandidates.push({
+    id:nextId(),
+    name:m.name||"未命名",
+    role:m.role,
+    rarity:m.rarity,
+    departDay:state.day,
+    eligibleFrom:state.day+30,
+    expireDay:state.day+730,
+    dailyChance,
+    triggered:false
+  })
+}
+function escalateFormerMemberScandal(){
+  if(state.exMemberScandalEscalated)return;
+  state.exMemberScandalEscalated=true;
+  let scale=formerMemberEffectScale();
+  state.exMemberScandalClusterUntil=Math.max(state.exMemberScandalClusterUntil||0,state.day+30);
+  state.exMemberScandalDiscussUntil=Math.max(state.exMemberScandalDiscussUntil||0,state.day+30);
+  state.exMemberScandalDiscussScale=Math.max(state.exMemberScandalDiscussScale||0,scale);
+  let totalFanLoss=Math.max(0,state.fans)*.10*scale;
+  let totalStickLoss=Math.max(0,state.stickiness)*.10*scale;
+  state.exMemberGradualLoss={
+    remainingDays:30,
+    dailyFanLoss:totalFanLoss/30,
+    dailyStickLoss:totalStickLoss/30
+  }
+}
+function noteMemberDepartureForScandal(m){
+  if(state.day<=(state.exMemberScandalClusterUntil||0)){
+    log(`由于${m?.name||"一名组员"}的退组，对近期的制作组节奏产生了连带影响。玩家社区充斥着愤怒的发言。`,"red");
+    escalateFormerMemberScandal()
+  }
+}
+function triggerFormerMemberOpinion(c){
+  if(!c||c.triggered)return;
+  if((state.formerMemberOpinionSpokenNames||[]).includes(c.name)){
+    c.triggered=true;
+    return
+  }
+  c.triggered=true;
+  if(!state.formerMemberOpinionSpokenNames)state.formerMemberOpinionSpokenNames=[];
+  state.formerMemberOpinionSpokenNames.push(c.name);
+  for(const other of (state.formerMemberOpinionCandidates||[]))if(other!==c&&other.name===c.name)other.triggered=true;
+  let scale=formerMemberEffectScale();
+
+  // 每次负面观点都保证下一次联动至少15天后才可能到来。
+  state.collabOpinionBlockedUntil=Math.max(state.collabOpinionBlockedUntil||0,state.day+15);
+
+  // 30天关联窗口内的后续负面观点显示“连带影响”文本。
+  if(state.day<=(state.exMemberScandalClusterUntil||0)){
+    log(`由于前组员${c.name}也发表了对制作组的负面观点，对近期的制作组节奏产生了连带影响。玩家社区充斥着愤怒的发言。`,"red");
+    escalateFormerMemberScandal();
+    return
+  }
+
+  log(`前组员${c.name}在组外发表了对制作组的负面观点！制作组声誉受到影响。`,"red");
+  state.exMemberScandalClusterUntil=state.day+30;
+  state.exMemberScandalDiscussUntil=state.day+7;
+  state.exMemberScandalDiscussScale=scale;
+  state.exMemberScandalEscalated=false;
+
+  // “粘性玩家”按现有玩家粘性值处理。
+  state.stickiness=Math.max(0,state.stickiness*(1-.01*scale))
+}
+function formerMemberOpinionDaily(){
+  // 已升级后的关注与玩家粘性损失，在30天内均匀发生。
+  let loss=state.exMemberGradualLoss;
+  if(loss&&loss.remainingDays>0){
+    state.metaFans-=loss.dailyFanLoss;
+    state.stickiness=Math.max(0,state.stickiness-loss.dailyStickLoss);
+    loss.remainingDays--;
+    if(loss.remainingDays<=0)state.exMemberGradualLoss=null
+  }
+
+  let list=state.formerMemberOpinionCandidates||[];
+  for(const c of list){
+    if(c.triggered)continue;
+    if(state.day>c.expireDay)continue;
+    if(state.day>=c.eligibleFrom&&chance(c.dailyChance))triggerFormerMemberOpinion(c)
+  }
+  // 两年内都没有触发的前成员永久失效，同时清理已经触发的旧记录。
+  state.formerMemberOpinionCandidates=list.filter(c=>!c.triggered&&state.day<=c.expireDay)
+}
+function canLeaveRecoverable(m){
+  return !!m&&(Number(m.works)||0)>=1&&(state.day-m.joinDay)>180
+}
+function registerDepartedRecoverable(m){
+  if(!canLeaveRecoverable(m))return;
+  if(!state.departedRecoverables)state.departedRecoverables=[];
+  state.departedRecoverables=state.departedRecoverables.filter(r=>r.member?.id!==m.id);
+  let saved=JSON.parse(JSON.stringify(m));
+  saved.assignedSongIds=[];
+  saved.status="正常";
+  saved.statusDays=0;
+  saved.occupiedUntil=0;
+  saved._statusBeforeOccupation=null;
+  saved._statusDaysBeforeOccupation=0;
+  saved.argumentInvolvedUntil=0;
+  state.departedRecoverables.push({
+    id:nextId(),
+    member:saved,
+    departedDay:state.day,
+    recoverProgress:0,
+    abandonAt:null
+  })
+}
+function recoverMemberAttempt(rid){
+  let r=(state.departedRecoverables||[]).find(x=>x.id===rid);if(!r)return;
+  let lockLeft=Math.max(0,30-(state.day-r.departedDay));
+  if(lockLeft>0){log(`成员离组未满30天，还需要等待${lockLeft}天才能尝试找回。`);return}
+  if(state.members.length>=teamCap())return log("人数已达上限，暂时无法找回成员。");
+  if(!spendAP(10))return;
+  r.recoverProgress=Math.min(100,(r.recoverProgress||0)+rnd(5,15));
+  let name=r.member?.name||"该成员";
+  if(r.recoverProgress<100){
+    log(`找回成员${name}失败。`);
+    render();
+    return
+  }
+
+  let m=JSON.parse(JSON.stringify(r.member));
+  m.assignedSongIds=[];
+  m.status="正常";
+  m.statusDays=0;
+  m.cooldownUntil=Math.max(Number(m.cooldownUntil)||0,state.day);
+  m.occupiedUntil=0;
+  m._statusBeforeOccupation=null;
+  m._statusDaysBeforeOccupation=0;
+  m.argumentInvolvedUntil=0;
+  state.members.push(m);
+  state.departedRecoverables=state.departedRecoverables.filter(x=>x.id!==rid);
+  // 重新回组后，尚未触发的“前组员负面观点”不再继续判定。
+  state.formerMemberOpinionCandidates=(state.formerMemberOpinionCandidates||[]).filter(c=>c.name!==m.name);
+  log(`找回成员${name}成功！制作组的大家或许其实很开心。`);
+  render()
+}
+function toggleAbandonRecoverable(rid){
+  let r=(state.departedRecoverables||[]).find(x=>x.id===rid);if(!r)return;
+  r.abandonAt=r.abandonAt?null:state.day+7;
+  render()
+}
+function cleanupDepartedRecoverables(){
+  state.departedRecoverables=(state.departedRecoverables||[]).filter(r=>!r.abandonAt||state.day<r.abandonAt)
+}
+function removeMember(id,msg,type="normal",departureKind=null){
+  let m=getMember(id);if(!m)return;
+  let who=memberName(m);
+  noteMemberDepartureForScandal(m);
+  if(departureKind==="doubt")registerFormerMemberOpinion(m,.002);
+  registerDepartedRecoverable(m);
+  state.library.forEach(s=>{s.chartMemberIds=s.chartMemberIds.filter(x=>x!==id);if(s.artMemberId===id)s.artMemberId=null});
+  state.members=state.members.filter(x=>x.id!==id);
+  log(msg.includes(who)?msg:`${who}：${msg}`,type)
+}
+function remindDoubtingMembers(){
+  for(const m of state.members.filter(x=>x.status==="疑虑"&&x._statusChangedDay!==state.day)){
+    log(`疑虑：${memberName(m)} 正处于疑虑状态。`,"blue")
+  }
+}
+function assignMember(mid,sid){
+  if(state.bankrupt)return log("破产状态下无法分配任务。");
+  let m=getMember(mid),s=getSong(sid);
+  if(!m||!s||s.installed)return log("任务分配失败：成员或歌曲不可用。");
+  if(memberOccupied(m))return log(`${m.name}目前正被事务占用，无法分配工作。`);
+  if(m.role==="chart"){
+    if(s.chartMemberIds.includes(mid))return log(`${memberName(m)} 已经在制作《${s.name}》的谱面。`);
+    if(m.assignedSongIds.length>=3)return log("一个谱师最多同时写3张谱。");
+    s.chartMemberIds.push(mid);m.assignedSongIds.push(sid);
+  }else{
+    if(s.artMemberId===mid)return log(`${memberName(m)} 已经在绘制《${s.name}》的封面。`);
+    if(m.assignedSongIds.length>=1)return log("一个美术最多同时画1张封面。");
+    if(s.artMemberId)return log("这首曲子已经分配美术。");
+    s.artMemberId=mid;m.assignedSongIds.push(sid);
+  }
+  let bonusText="";
+  if(["干劲满满","疑虑"].includes(m.status)){
+    if(m.status==="干劲满满"){
+      let b=m.rarity>=3?rnd(15,30):rnd(10,30);
+      if(m.role==="chart")s.chartProgress=Math.min(100,s.chartProgress+b);else s.artProgress=Math.min(100,s.artProgress+b);
+      bonusText=`；“干劲满满”立即增加 ${b.toFixed(1)}% 进度`;
+      if((m.role==="chart"&&s.chartProgress>=100)||(m.role==="art"&&s.artProgress>=100))completeRole(s,m.role);
+      finalizePlayableQuality(s);
+    }
+    m.status="正常";m.statusDays=0;m.cooldownUntil=state.day+60;
+  }
+  log(`任务分配成功：${memberName(m)} → 《${s.name}》${m.role==="chart"?"谱面":"封面"}${bonusText}。`);
+  render();
+}
+function personalChartGain(){
+  let gain=15/3;
+  for(const t of [50,150,250,350,450])if(state.rhythmPlayCount>=t)gain+=2/3;
+  for(const t of [5,10,30,60,120])if(state.personalChartCount>=t)gain+=1/3;
+  return gain;
+}
+function personallyChart(sid){
+  if(computerActionBlocked())return;
+  let c=6+(state.sponsorIncome>5000?1:0);
+  if(!spendAP(c))return;
+  let s=getSong(sid);if(!s||s.installed)return;
+  let gain=personalChartGain();
+  s.chartProgress=Math.min(100,s.chartProgress+gain);
+  state.personalChartCount=(state.personalChartCount||0)+1;
+  s._playableBonus=(s._playableBonus||0)+1/3;
+  log(`亲自写谱：《${s.name}》制谱进度 +${gain.toFixed(2).replace(/\\.00$/,"")}%。`);
+  if(s.chartProgress>=100){completeRole(s,"chart")}
+  finalizePlayableQuality(s);render()
+}
+function productionDaily(){for(const s of state.library.filter(x=>!x.installed)){if(s.chartProgress<100&&s.chartMemberIds.length){let t=0;for(const id of [...s.chartMemberIds]){let m=getMember(id);if(!m)continue;let activeCount=Math.max(1,m.assignedSongIds.length);
+let b=100/BASE_MEMBER_DAYS[m.rarity]/activeCount*productionEfficiency(m)*memberWave(m)*chartEfficiencyMultiplier(m);
+if(m.rarity>=2){
+  let halfYears=Math.floor(Math.max(0,state.day-m.joinDay)/180);
+  if(state.chartEditorComplete){
+    let editorBonus=Math.min(3,0.5+halfYears*0.2);
+    b+=editorBonus/activeCount;
+  }
+  if(state.chartEditorV2Complete){
+    let editorV2Bonus=Math.min(1,0.3+halfYears*0.1);
+    b+=editorV2Bonus/activeCount;
+  }
+}
+if(s.position==="魔王曲")b/=1.4;if(chance(.002)&&state.day-m.joinDay>=3){b=100;s._playableBonus=(s._playableBonus||0)+m.rarity}t+=b}s.chartProgress=Math.min(100,s.chartProgress+t);if(s.chartProgress>=100)completeRole(s,"chart")}if(s.artProgress<100&&s.artMemberId){let m=getMember(s.artMemberId);if(m){let b=100/BASE_MEMBER_DAYS[m.rarity]*productionEfficiency(m)*memberWave(m);if(s.position==="魔王曲")b/=1.4;if(chance(.004)&&state.day-m.joinDay>=1)b=100;s.artProgress=Math.min(100,s.artProgress+b);if(s.artProgress>=100)completeRole(s,"art")}}}}
+function completeRole(s,role){
+  let ids=role==="chart"?s.chartMemberIds:[s.artMemberId];
+  let levels=[];
+  ids.forEach(id=>{
+    let m=getMember(id);if(!m)return;
+    levels.push(m.rarity);
+    m.assignedSongIds=m.assignedSongIds.filter(x=>x!==s.id);
+  });
+  if(levels.length){
+    let avg=levels.reduce((a,b)=>a+b,0)/levels.length;
+    if(role==="chart")s._chartCraftLevel=avg;
+    else s._artCraftLevel=avg;
+  }else{
+    // 玩家亲自完成但没有对应成员时，暂按最低制作等级计入；
+    // 亲自写谱/画图已有自己的独立加成或惩罚。
+    if(role==="chart"&&!s._chartCraftLevel)s._chartCraftLevel=1;
+    if(role==="art"&&!s._artCraftLevel)s._artCraftLevel=1;
+  }
+  // 成员成长按本次作品的预计可玩质量计算。
+  ids.forEach(id=>{
+    let m=getMember(id);if(!m)return;
+    let projected=projectedPlayableQuality(s);
+    m.works+=projected>=80?(m.rarity===1?2:m.rarity===2?3:1.5):1;
+    if(m.rarity===1&&m.works>=5&&chance(.2))m.rarity=2;
+    else if(m.rarity===2&&m.works>=15&&chance(.1))m.rarity=3;
+    else if(m.rarity===4&&m.works>=50&&chance(.05))m.rarity=5;
+  });
+  if(role==="chart")s.chartMemberIds=[];else s.artMemberId=null;
+  finalizePlayableQuality(s);
+  if(role==="chart")onFirstChartCompleted()
+}
+function composerHasActiveCommission(id){
+  return state.commissions.some(x=>!x.portfolioSong&&x.composerId===id);
+}
+function activeCommissionForComposer(id){
+  return state.commissions.find(x=>!x.portfolioSong&&x.composerId===id)||null
+}
+function expediteSuccessRate(efficiency){
+  const table={1:.05,2:.10,3:.20,4:.30,5:1};
+  let eff=clamp(Math.round(Number(efficiency)||1),1,5);
+  let p=table[eff];
+  if(state.services.translation){
+    const bonus={1:.05,2:.04,3:.03,4:.02,5:0};
+    p+=bonus[eff]
+  }
+  return Math.min(1,p)
+}
+function expediteMaxReduction(efficiency){
+  const table={1:30,2:20,3:10,4:5,5:0};
+  return table[clamp(Math.round(Number(efficiency)||1),1,5)]
+}
+function expediteMaxBackfireDelay(efficiency){
+  const table={1:30,2:20,3:10,4:3,5:0};
+  return table[clamp(Math.round(Number(efficiency)||1),1,5)]
+}
+function expediteMentalBreakChance(mental){
+  let m=clamp(Number(mental)||100,10,100);
+  if(m>=70)return 0;
+  // 10心理=30%；20心理约24.8%；70心理=0%，中间平滑下降。
+  let t=(70-m)/60;
+  return .30*Math.pow(t,1.05)
+}
+function expediteReductionDays(c,maxDays){
+  if(maxDays<=0)return 0;
+  let affection=clamp(Number(c.affection)||0,0,100);
+  // 低好感通常只靠近上限的约25%~60%；高好感逐渐更靠近上限。
+  let minRatio=.25+.55*(affection/100);
+  let ratio=rnd(minRatio,1);
+  return Math.max(1,Math.round(maxDays*ratio))
+}
+function expediteBackfireDays(maxDays){
+  if(maxDays<=0)return 0;
+  return Math.max(1,Math.round(rnd(Math.max(1,maxDays*.25),maxDays)))
+}
+function expediteCommission(id){
+  let c=getComposer(id),x=activeCommissionForComposer(id);
+  if(!c||!x)return;
+  if(c.country!=="中国"&&!state.services.vpn){
+    log("需要 VPN 才能对中国以外的曲师进行催稿。");
+    return
+  }
+  if(c.name==="侧睡"&&x.isFirstSideSleepCommission&&x.startDay===state.day&&!state.sideSleepSameDayExpediteTipDone){
+    state.sideSleepSameDayExpediteTipDone=true;
+    log("催稿失败：侧睡不仅没有加快制作进度，还骂了一句你有病。他让你以后在恰当的实际进行催稿，过度催稿可能会造成意想不到的负面效果。");
+    render();
+    return
+  }
+  let eff=clamp(Math.round(Number(c.efficiency)||1),1,5);
+
+  if(eff>=5){
+    log("这位曲师的效率已经足够快了，没必要进行催稿了。");
+    return
+  }
+  if(state.day<(c.expediteBlockedUntil||0)){
+    let left=Math.max(1,(c.expediteBlockedUntil||0)-state.day);
+    log(`${c.name}目前不接受催稿，还需要等待${left}天。`);
+    return
+  }
+  if(state.day-(c.lastExpediteDay||-9999)<7){
+    let left=7-(state.day-(c.lastExpediteDay||-9999));
+    log(`${c.name}距离上次催稿还不到7天，还需要等待${left}天。`);
+    return
+  }
+
+  c.lastExpediteDay=state.day;
+
+  let breakChance=expediteMentalBreakChance(c.mental);
+  if(chance(breakChance)){
+    let delay=expediteBackfireDays(expediteMaxBackfireDelay(eff));
+    x.deliverDay+=delay;
+    c.expediteBlockedUntil=state.day+30;
+    log(`心态爆炸：${c.name}被催稿后状态受到影响，30天内无法再次催稿，本次制作工期延长${delay}天。`,"red");
+    render();
+    return
+  }
+
+  if(!chance(expediteSuccessRate(eff))){
+    log(`催稿失败：${c.name}没有因此加快制作进度。`);
+    render();
+    return
+  }
+
+  let remaining=Math.max(0,x.deliverDay-state.day);
+  let reducible=Math.max(0,remaining-1);
+  let reduction=Math.min(reducible,expediteReductionDays(c,expediteMaxReduction(eff)));
+  if(reduction<=0){
+    log(`${c.name}的委托曲已经只剩1天左右完成，无法再通过催稿缩短工期。`);
+    render();
+    return
+  }
+  x.deliverDay-=reduction;
+  log(`催稿成功：${c.name}加快了制作进度，预计工期缩短${reduction}天。`,"green");
+  render()
+}
+function composerReachable(c){if(c.country!=="中国"&&!state.services.vpn)return false;if(state.day<c.depressedUntil)return false;if(state.day<c.sickUntil&&c.affection<60)return false;return true}
+function reputationSignal(){return Math.max(0,(state.fans+state.discussion+state.players)/300+state.rating)}
+function composerSelection(id){
+  if(!state.commissionSelections[id])state.commissionSelections[id]={nature:"非商",style:"灼热"};
+  return state.commissionSelections[id]
+}
+function setComposerSelection(id,key,value){
+  let s=composerSelection(id);s[key]=value;renderComposers()
+}
+function currentCommissionPrice(c,nature="非商"){
+  let price=c.prices[nature]*(1-Math.min(.35,c.affection*.003));
+  if(year()>=3&&state.artPursuit>80)price*=1.10;
+  if(year()>=3&&state.artPursuit>85)price*=1.05;
+  if(c.name==="shcad"){
+    if(!state.firstShcadCommissionDone)price*=0.5;
+    else if(state.shcadMilestoneDiscountPending)price*=0.60;
+  }
+  return Math.max(0,price);
+}
+function commissionSuccess(c){
+  let elite=c.popularity>=70&&c.avgQuality>=4;
+  let fans=Math.max(0,state.fans),p;
+  if(elite){
+    // 高人气高技术曲师：开局个位数；约5000关注时进入20%~30%；之后再稳定增长。
+    let start=clamp(.075-(c.popularity-70)*.0015-(c.avgQuality-4)*.018,.025,.075);
+    let at5000=clamp(.29-(c.popularity-70)*.001-(c.avgQuality-4)*.018,.20,.29);
+    if(fans<=5000){
+      let t=Math.pow(fans/5000,1.35);
+      p=start+(at5000-start)*t;
+    }else{
+      p=at5000+Math.min(.42,(fans-5000)/30000*.42);
+      p*=1+Math.min(.12,reputationSignal()/30000);
+    }
+  }else{
+    // 普通/新手友好曲师前期仍可维持约40%~50%左右。
+    let start=clamp(.56-c.popularity*.0022-Math.max(0,c.avgQuality-3)*.035,.38,.52);
+    if(fans<=5000)p=start+(Math.min(.66,start+.12)-start)*(fans/5000);
+    else p=Math.min(.86,Math.min(.66,start+.12)+(fans-5000)/35000*.20);
+    p*=1+Math.min(.10,reputationSignal()/25000);
+  }
+  if(state.services.translation&&c.country!=="中国")p*=1.2;
+  if(year()>=3&&state.artPursuit>95)p*=.9;
+  if(styleState().name==="多元发展")p*=1.12;
+  c.bond.forEach(id=>{let b=getComposer(id);if(b&&b.collabs>0)p*=1.08});
+  return clamp(p,.02,.95)
+}
+function abstractRoll(c,commissioned=false){
+  let v=clamp(Math.round(c.abstract+rnd(-1,1)),0,5);
+  if(commissioned&&state.designConceptConfirmed){
+    let level=clamp(Math.round(Number(c.abstract)||1),1,5);
+    if(state.designStyle==="创新"){
+      const p={1:.10,2:.20,3:.30,4:.15,5:0};
+      if(chance(p[level]))v=Math.min(5,v+1)
+    }else if(state.designStyle==="传统"){
+      const p={1:0,2:.20,3:.30,4:.20,5:.30};
+      if(chance(p[level]))v=Math.max(0,v-1)
+    }
+  }
+  return v
+}
+function weightedQuality(weights){let total=weights.reduce((a,b)=>a+Math.max(0,Number(b)||0),0);if(total<=0)return 3;let r=Math.random()*total,a=0;for(let i=0;i<5;i++){a+=Math.max(0,Number(weights[i])||0);if(r<=a)return i+1}return 5}
+function commissionDurationRange(v){
+  const table={
+    1:[80,200],
+    2:[55,120],
+    3:[32,95],
+    4:[16,60],
+    5:[7,30],
+    6:[5,22]
+  };
+  let x=clamp(Number(v)||1,1,6),lo=Math.floor(x),hi=Math.ceil(x);
+  if(lo===hi)return table[lo].slice();
+  let t=x-lo,a=table[lo],b=table[hi];
+  return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]
+}
+function rollCommissionDays(efficiency,nature){
+  let [minD,maxD]=commissionDurationRange(efficiency);
+  let base=rnd(minD,maxD);
+  if(nature==="非商"){
+    // 非商将正常工期随机波动扩大约一倍，但仍避免常态出现1天交稿。
+    let mid=(minD+maxD)/2;
+    base=mid+(base-mid)*2;
+    base=clamp(base,Math.max(3,minD*.5),maxD*1.5);
+  }
+  return base
+}
+function qualityRoll(c,nature,style){if(year()>=3&&!state.firstYear3CommissionDone){state.firstYear3CommissionDone=true;return Math.max(4,weightedQuality(c.qualityProbs[nature]||[0,0,1,0,0]))}let q=weightedQuality(c.qualityProbs[nature]||[0,0,1,0,0]);if(c.styles[style]>=80&&chance(.18))q=Math.min(5,q+1);if(year()>=3&&state.artPursuit>85&&chance(.08))q=Math.min(5,q+1);return q}
+function pickCommissionTitle(){
+  let used=new Set(state.usedCommissionTitles||[]);
+  let available=COMMISSION_TITLE_POOL.filter(n=>!used.has(n));
+  let pool=available.length?available:COMMISSION_TITLE_POOL;
+  let title=pool[Math.floor(Math.random()*pool.length)]||"Untitled";
+  if(!(state.usedCommissionTitles||[]).includes(title))state.usedCommissionTitles.push(title);
+  return title
+}
+function commissionComposer(id){
+  if(!state.designConceptConfirmed)return log("必须先完成“游戏设计理念”后才能主动约曲。");
+  let c=getComposer(id);if(!c)return;
+  if(composerHasActiveCommission(id)){log(`${c.name} 当前正在制作你的委托曲，需要等这首曲子完成后才能再次约稿。`);return}
+  if(!composerReachable(c)){log("当前无法主动联系该曲师。");return}
+  let sel=composerSelection(id),st=sel.style,n=sel.nature;
+  if(!spendAP(1))return;
+  render();
+  let isFirstShcad=(c.name==="shcad"&&!state.firstShcadCommissionDone);
+  let price=currentCommissionPrice(c,n);
+  if(!canSpendMoney(price)){log("存款不足：本次约曲行动已消耗1行动点，但没有扣除约稿费用。");return}
+  if(!isFirstShcad && !commissionSuccess(c)){log(`${c.name} 没有接受约稿：未扣除任何约稿费用（仅消耗本次约曲的1行动点）。`);return}
+  state.money-=price;
+  let usedShcadMilestoneDiscount=c.name==="shcad"&&state.shcadMilestoneDiscountPending&&!isFirstShcad;
+  if(usedShcadMilestoneDiscount)state.shcadMilestoneDiscountPending=false;
+  // 一旦接受了玩家主动发出的委托，同曲师尚未处理的主动来稿不再并存。
+  state.incomingOffers=state.incomingOffers.filter(o=>o.composerId!==c.id);
+  if(isFirstShcad){
+    state.firstShcadCommissionDone=true;
+    log("shcad非常支持你们的企划，决定第一首歌曲为你们减少50%的约稿费用。");
+  }
+  if(n!=="非商")state.commercialFormalCount++;
+  let q=qualityRoll(c,n,st);
+  if(state.designConceptConfirmed&&state.designStyle==="传统"&&q===5&&chance(.10))q=4;
+  let days=rollCommissionDays(c.efficiency,n);
+  if(c.styles[st]>=80)days*=.85;
+  if(year()>=3&&state.artPursuit>90)days*=1.10;
+  if(n==="正式邀请")days=Math.min(days,90);
+  if(c.mental<50){days*=rnd(1,2);if(chance((50-c.mental)/100))q=Math.max(1,q-1)}
+  let deliverDay=state.day+Math.max(1,Math.round(days));
+  let isFirstSideSleepCommission=(c.name==="侧睡"&&!state.sideSleepCommissionedOnce);
+  if(isFirstSideSleepCommission)state.sideSleepCommissionedOnce=true;
+  c.lastExpediteDay=state.day;
+  state.commissions.push({id:nextId(),composerId:id,style:st,nature:n,q,startDay:state.day,deliverDay,displayName:"约稿委托的曲子",notified:{20:false,50:false,80:false},isFirstSideSleepCommission});
+  log(`约稿成功：${c.name} 已接受委托并开始制作约稿委托的曲子。`,"green");
+  render()
+}
+function commissionDaily(){
+  for(const x of [...state.commissions]){
+    // Portfolio purchases from older saves are still handled safely, but new purchases enter the library immediately.
+    if(x.portfolioSong){
+      if(state.day>=x.deliverDay){
+        state.library.push(x.portfolioSong);
+        state.commissions=state.commissions.filter(a=>a.id!==x.id);
+        log(`作品集歌曲《${x.name}》已进入曲库。`,"green-strong");
+        onSongAddedToLibrary(x.portfolioSong);
+      }
+      continue;
+    }
+
+    let total=Math.max(1,x.deliverDay-x.startDay);
+    let progress=clamp((state.day-x.startDay)/total,0,1);
+
+    for(const pct of [20,50,80]){
+      if(progress>=pct/100&&!x.notified[pct]){
+        x.notified[pct]=true;
+        let c=getComposer(x.composerId);
+        let workName=x.title?`《${x.title}》`:"约稿委托曲";
+        log(`约稿进度：${c?.name||"曲师"} 的${workName}已完成 ${pct}% 。`,"green");
+      }
+    }
+
+    if(state.day>=x.deliverDay){
+      let c=getComposer(x.composerId);
+      let title=x.title||pickCommissionTitle();
+      let s=makeSong(title,x.q,x.style,abstractRoll(c,true),c.id,"commission");
+      s.attention*=1+c.popularity/100;
+      s.originalAttention=s.attention;
+      state.library.push(s);
+      c.collabs++;
+
+      if(x.incomingOffer){
+        // 保留旧版主动来稿的好感收益，只把结算时间移动到真正制作完成时。
+        let existingCount=installedSongs().filter(z=>z.composerId===c.id).length;
+        let affectionGain=(100/Math.max(1,c.affDifficulty))*(existingCount>5?1.2:1);
+        c.affection+=affectionGain
+      }else{
+        c.affection+=10/Math.max(1,c.affDifficulty)
+      }
+
+      state.commissions=state.commissions.filter(a=>a.id!==x.id);
+      log(`委托 ${c.name} 制作的曲子《${title}》制作完成了，已进入曲库。`,"green-strong");
+      onSongAddedToLibrary(s);
+
+      // 熟练风格 + 已合作至少3次：普通委托完成时20%概率立刻收到下一份主动来稿。
+      // 任何由主动来稿产生的委托都 suppressImmediateIncoming，防止链式无限触发。
+      maybeImmediateIncomingAfterCommission(c,x);
+    }
+  }
+}
+function buyPortfolio(cid,pid){
+  let c=getComposer(cid),p=c?.portfolio.find(x=>x.id===pid);if(!p||p.bought)return;
+  if(c.country!=="中国"&&!state.services.vpn){log("需要 VPN 才能主动联系该曲师购买作品。");return}
+  if(state.day<c.sickUntil&&c.affection<60){log("该曲师当前感冒，暂时无法购买作品。");return}
+  if(state.day<c.depressedUntil&&c.affection<80){log("该曲师当前无法出售作品。");return}
+  let price=p.price*(1-Math.min(.35,c.affection*.003));
+  if(!canSpendMoney(price)){log("存款不足。");return}
+  state.money-=price;
+
+  // 合作作品购买一次后，所有相关曲师卡片上的同一作品同时视为已购买。
+  if(p.sharedPortfolioKey){
+    for(const cc of state.composers){
+      for(const pp of (cc.portfolio||[])){
+        if(pp.sharedPortfolioKey===p.sharedPortfolioKey)pp.bought=true
+      }
+    }
+  }else{
+    p.bought=true
+  }
+
+  let y=year()+dayOfYear()/365,scale=y>=7?1:y>=3?.5+(y-3)/4*.5:.1+(y/3)*.4;
+  let primaryComposerId=(p.collabComposerIds&&p.collabComposerIds.length?p.collabComposerIds[0]:c.id);
+  let s=makeSong(p.name,p.quality,p.style,p.abstract,primaryComposerId,"portfolio");
+  s.composerLabel=p.composerLabel||c.name;
+  s.composerIds=(p.collabComposerIds&&p.collabComposerIds.length)?[...p.collabComposerIds]:[c.id];
+  s.attention=p.attention*scale;s.originalAttention=s.attention;
+  s.discussion=p.discussion;s.originalDiscussion=s.discussion;s.good=p.good;
+  s.chartProgress=0;
+  s.artProgress=100;
+  s.alpha=false;
+  s.installed=false;
+  // No playableQuality yet: chart + art must both be complete.
+  // No play yet: it is created only when the song is formally released.
+  state.library.push(s);
+  log(`已购买作品集歌曲《${p.name}》：已进入曲库。`);
+  onSongAddedToLibrary(s);
+  render()
+}
+function incomingOfferQuality(c,style){
+  let q=qualityRoll(c,"商业",style);
+  if(state.designConceptConfirmed&&state.designStyle==="传统"&&q===5&&chance(.10))q=4;
+  return q
+}
+function createIncomingOffer(c,options={}){
+  if(!c||composerHasActiveCommission(c.id))return false;
+  if(state.incomingOffers.some(o=>o.composerId===c.id))return false;
+
+  let style=options.style||STYLE[Math.floor(Math.random()*STYLE.length)];
+  let q=Number(options.q)||incomingOfferQuality(c,style);
+  let normDiscussion=state.players>0?state.discussion/state.players*100:0;
+  let close=Math.abs(normDiscussion-state.rating)<5;
+  let free=options.free!==undefined?!!options.free:(close&&chance(clamp(.002+(100-c.mental)/50000-c.popularity/100000,0,.01)));
+  let title=options.title||pickCommissionTitle();
+  let offer={
+    id:nextId(),
+    composerId:c.id,
+    title,
+    style,
+    q,
+    price:free?0:c.prices["商业"]*.70,
+    free,
+    origin:options.origin||"monthly"
+  };
+  state.incomingOffers.push(offer);
+  log(`${c.name} 主动来稿《${title}》${free?"，并提出免费提供这首曲子":""}。`,"green");
+  return true
+}
+function maybeImmediateIncomingAfterCommission(c,x){
+  if(!c||!x||x.suppressImmediateIncoming)return;
+  if(c.collabs<3)return;
+  if((c.styles[x.style]||0)<80)return;
+  if(!chance(.20))return;
+  createIncomingOffer(c,{style:x.style,origin:"commission-followup"})
+}
+function composerMonthly(){
+  state.composers.forEach(c=>{
+    if(state.day>=c.sickUntil&&chance(.03))c.sickUntil=state.day+30;
+    if(state.day>=c.depressedUntil&&state.day>=c.depressionCooldownUntil){
+      let p=Math.min(.03,.005+Math.max(0,50-c.mental)/2000);
+      if(chance(p)){c.depressedUntil=state.day+180;c.depressionCooldownUntil=c.depressedUntil+730;c.comfortCount=0}
+    }
+
+    // 正在制作任何委托时，不会主动来稿。
+    if(composerHasActiveCommission(c.id))return;
+
+    let incoming=.0008*(1+reputationSignal()/5000)*(1-c.popularity/150);
+    if(state.temporaryPlayerEffects.some(e=>e.type==="主线"&&state.day<=e.discussUntil))incoming*=6;
+    else if(state.temporaryPlayerEffects.some(e=>e.type==="大更新"&&state.day<=e.discussUntil))incoming*=3;
+    let ss=styleState();if(ss.dominant&&c.styles[ss.dominant]>=80)incoming*=ss.name.includes("专一")?1.8:1.3;
+    c.bond.forEach(id=>{let b=getComposer(id);if(b&&b.collabs>0)incoming*=1.08});
+    if(chance(incoming))createIncomingOffer(c,{origin:"monthly"})
+  })
+}
+function acceptIncomingOffer(id){
+  let o=state.incomingOffers.find(x=>x.id===id),c=o?getComposer(o.composerId):null;if(!o||!c)return;
+  if(composerHasActiveCommission(c.id)){
+    log(`${c.name} 当前已经在制作委托，无法同时接受这份主动来稿。`);
+    return
+  }
+  if(!canSpendMoney(o.price))return;
+  state.money-=o.price;
+
+  let days=rollCommissionDays(c.efficiency,"商业");
+  if(c.styles[o.style]>=80)days*=.85;
+  if(year()>=3&&state.artPursuit>90)days*=1.10;
+  let q=o.q;
+  if(c.mental<50){days*=rnd(1,2);if(chance((50-c.mental)/100))q=Math.max(1,q-1)}
+  let deliverDay=state.day+Math.max(1,Math.round(days));
+
+  c.lastExpediteDay=state.day;
+  state.commissions.push({
+    id:nextId(),
+    composerId:c.id,
+    style:o.style,
+    nature:"商业",
+    q,
+    startDay:state.day,
+    deliverDay,
+    title:o.title,
+    displayName:`《${o.title}》`,
+    notified:{20:false,50:false,80:false},
+    incomingOffer:true,
+    incomingOfferOrigin:o.origin||"monthly",
+    suppressImmediateIncoming:true
+  });
+  state.incomingOffers=state.incomingOffers.filter(x=>x.id!==id);
+  log(`已接受 ${c.name} 的主动来稿《${o.title}》，曲师开始制作。`,"green");
+  render()
+}
+function declineIncomingOffer(id){state.incomingOffers=state.incomingOffers.filter(x=>x.id!==id);render()}
+function comfortComposer(id){
+  let c=getComposer(id);if(!c||state.day>=c.depressedUntil||c.affection<80)return;
+  c.comfortCount=c.comfortCount||0;
+  if(c.comfortCount>=5){log("该曲师本次抑郁期间已陪伴5次。");return}
+  c.comfortCount++;
+  c.depressedUntil=Math.max(state.day,c.depressedUntil-15);
+  log(`陪伴 ${c.name}：接下来3天将直接跳过，抑郁持续时间减少15天。`);
+  for(let i=0;i<3;i++)endDay();
+}
+function createPackage(){let type=packageType.value;state.packages.push({id:nextId(),name:`${type} #${state.packages.length+1}`,type,songIds:[],status:"整理中",betaRemaining:0,betaTotal:0,betaReduction:0,releaseDay:null,reviewDelay:0,reviewEventChecked:false,reviewCheckDay:null,announcementFanBonus:0,announcementDiscussionBonus:0,announcementBeforeReview:false,createdDay:state.day});render()}
+function addSongToPackage(pid,sid,pos){let p=getPackage(pid),s=getSong(sid);if(!p||!s||s.installed)return;if(p.songIds.includes(sid)){p.songIds=p.songIds.filter(x=>x!==sid);s.packageId=null;render();return}if(s.chartProgress<100){log("只有已经完成谱面的歌曲才能提前整理进曲包。");return}if(s.packageId&&s.packageId!==pid)return log("该曲被其他未完成曲包占用。");p.songIds.push(sid);s.packageId=pid;s.position=pos;render()}
+function alphaDurationForSong(s){
+  finalizePlayableQuality(s);
+  if(typeof s.playableQuality!=="number")return null;
+  // 默认15天；可玩质量越低耗时越长，越高越短，最终限制1~30天。
+  // 程序必需映射：可玩质量70对应15天，每偏离2点约变化1天。
+  let base=15+(70-s.playableQuality)*0.5;
+  // 4级及以上谱师越多越快；通过此方式最多减少10天。
+  let seniorCharts=state.members.filter(m=>m.role==="chart"&&m.rarity>=4).length;
+  let chartReduction=Math.min(10,seniorCharts*2);
+  return Math.round(clamp(base-chartReduction,1,30));
+}
+function alphaSong(sid){
+  let s=getSong(sid);if(!s||s.installed)return;
+  finalizePlayableQuality(s);
+  if(typeof s.playableQuality!=="number"){log("谱面和美术都完成后才能进行 Alpha 测试。");return}
+  if(s.alphaStatus==="running"){log(`《${s.name}》正在进行 Alpha 测试，剩余 ${s.alphaRemaining} 天。`);return}
+  if(s.alphaStatus==="completed"||s.alpha){log(`《${s.name}》已经完成过 Alpha 测试，每首曲子只能进行一次。`);return}
+  let days=alphaDurationForSong(s);
+  s.alphaStatus="running";s.alphaRemaining=days;s.alphaTotal=days;
+  log(`《${s.name}》开始 Alpha 测试，预计需要 ${days} 天。`);
+  render()
+}
+function alphaDaily(){
+  for(const s of state.library){
+    if(s.alphaStatus!=="running")continue;
+    s.alphaRemaining=Math.max(0,s.alphaRemaining-1);
+    if(s.alphaRemaining<=0){
+      s.alphaStatus="completed";s.alpha=true;
+      if(!s.alphaBonusApplied){
+        let beforeAlpha=s.playableQuality;
+        s.playableQuality=clamp(s.playableQuality+2,0,100);
+        if(beforeAlpha<50&&s.playableQuality<50)s.playableQuality=50;
+        s.alphaBonusApplied=true;
+      }
+      log(`Alpha 测试完成：《${s.name}》可玩质量略微提升。`,"green-strong");
+    }
+  }
+}
+function packageRules(p){
+  let s=p.songIds.map(getSong).filter(Boolean);
+  if(p.type==="单曲")return{ok:s.length===1,msg:"单曲必须正好1首。"};
+  if(s.length<3)return{ok:false,msg:"曲包至少3首。"};
+  let n=s.filter(x=>x.position==="普通曲").length,b=s.filter(x=>x.position==="魔王曲").length,h=s.filter(x=>x.position==="隐藏曲").length;
+  if(h>b)return{ok:false,msg:"隐藏曲最多与魔王曲一样多。"};
+  if(b>0&&n<b*3)return{ok:false,msg:"普通曲必须至少是魔王曲3倍。"};
+  return{ok:true,msg:""}
+}
+function betaReductionByVeterans(){
+  // 只有2级及以上且入组至少1年的成员参与。
+  let eligible=state.members.filter(m=>m.rarity>=2&&(state.day-m.joinDay)>=365);
+  if(!eligible.length)return 0;
+  // 待得越久，贡献越高；程序必需映射：每位成员满1年后贡献0.5天，
+  // 此后每多1年额外+0.25天，所有成员合计最多减5天。
+  let reduction=0;
+  for(const m of eligible){
+    let years=Math.floor((state.day-m.joinDay)/365);
+    reduction+=0.5+Math.max(0,years-1)*0.25;
+  }
+  return Math.min(5,reduction);
+}
+function startBeta(pid){
+  let p=getPackage(pid);if(!p||p.status!=="整理中")return;
+  if(!state.hasReleasedUpdate&&p.type!=="主线包")return log("游戏的第一次更新必须是主线包。");
+  let r=packageRules(p);if(!r.ok)return log(r.msg);
+  let s=p.songIds.map(getSong);
+  if(!state.hasReleasedUpdate&&state.gameCoreProgress<100)return log("第一次Beta测试前，必须先将“游戏本体制作进度”完成到100%。");
+  if(s.some(x=>x.chartProgress<100||x.artProgress<100))return log("Beta要求全部歌曲完成谱面与封面。");
+  // Alpha 不再是 Beta 前置条件；但已经主动开始的 Alpha 必须结束后才能送测。
+  if(s.some(x=>x.alphaStatus==="running"))return log("曲包中有歌曲正在进行 Alpha 测试，请等待该测试完成后再开始 Beta。");
+  if(p.type==="补充包"&&((year()<3&&state.consecutiveSupplement>=1)||(year()>=3&&state.consecutiveSupplement>=3)))return log("补充包连续次数达到限制。");
+  let reduce=betaReductionByVeterans();
+  let days=Math.max(10,Math.round(15-reduce));
+  p.status="Beta测试";p.betaRemaining=days;p.betaTotal=days;p.betaReduction=15-days;
+  p.releaseDay=null;p.reviewDelay=0;p.reviewEventChecked=false;p.reviewCheckDay=null;
+  p.announcementFanBonus=0;p.announcementDiscussionBonus=0;p.announcementBeforeReview=false;
+  log(`${p.name} 开始 Beta 测试：基础15天${p.betaReduction>0?`，资深成员使其减少 ${p.betaReduction} 天`:""}。`);
+  render()
+}
+function cancelBeta(pid){
+  let p=getPackage(pid);if(!p||p.status!=="Beta测试")return;
+  p.status="整理中";
+  p.betaRemaining=0;p.betaTotal=0;p.betaReduction=0;
+  p.releaseDay=null;p.reviewDelay=0;p.reviewEventChecked=false;p.reviewCheckDay=null;
+  p.announcementFanBonus=0;p.announcementDiscussionBonus=0;p.announcementBeforeReview=false;
+  log(`${p.name} 的 Beta 测试已取消，测试进度归零。`);
+  render()
+}
+function betaDaily(){
+  for(const p of state.packages.filter(x=>x.status==="Beta测试")){
+    p.betaRemaining--;
+    if(p.betaRemaining<=0){
+      p.status="等待上架";
+      p.betaRemaining=0;
+      p.reviewDelay=0;
+      p.reviewEventChecked=false;
+      p.reviewCheckDay=state.day+1;
+      p.releaseDay=state.day+3;
+      p.announcementFanBonus=p.announcementFanBonus||0;
+      p.announcementDiscussionBonus=p.announcementDiscussionBonus||0;
+      p.announcementBeforeReview=false;
+      log(`${p.name} Beta 测试完成，将在3天后上架。`);
+    }
+  }
+
+  for(const p of state.packages.filter(x=>x.status==="等待上架")){
+    if(!p.reviewEventChecked&&p.reviewCheckDay!==null&&state.day>=p.reviewCheckDay){
+      p.reviewEventChecked=true;
+      let extra=chance(.20)?Math.floor(rnd(1,6)):0;
+      p.reviewDelay=extra;
+      if(extra>0){
+        p.releaseDay+=extra;
+        if(p.announcementBeforeReview){
+          p.announcementDiscussionBonus=Math.max(p.announcementDiscussionBonus||0,.05);
+          let reviewCommunityText=chance(.5)
+            ?"玩家没有等来约定好的游戏更新，社区内开始讨论应用商店在抢歌曲首杀的可能性。"
+            :"公告标注的更新日期到了，但玩家并没有见到更新。大家都在疑惑为什么音乐游戏老是被卡审核。";
+          log(reviewCommunityText,"blue");
+        }
+        log(`特殊事件“更新卡审核”：${p.name} 上架时间额外延长 ${extra} 天。`);
+      }
+    }
+    if(state.day>=p.releaseDay)publishPackage(p.id)
+  }
+}
+function expectedForPackage(p){let e=state.expectation;if(p.type==="主线包")e*=1.5;if(p.type==="补充包")e*=.1;if(p.type==="主线包"){let s=p.songIds.map(getSong),o=s.filter(x=>x.source==="commission").length/Math.max(1,s.length);if(o>.8)e*=1.12}return e}
+function packageQuality(p){let s=p.songIds.map(getSong);if(!s.length)return 0;s.forEach(finalizePlayableQuality);let q=s.reduce((a,x)=>a+x.quality*20+x.playableQuality,0)/(s.length*2);if(s.length<4)q*=.9;return q+state.programQualityBoost}
+function publishPackage(pid){
+let p=getPackage(pid);if(!p||p.status!=="等待上架")return;
+let isFirstFormalRelease=!state.hasReleasedUpdate;
+if(isFirstFormalRelease&&p.type!=="主线包"){
+  p.status="整理中";p.betaRemaining=0;p.betaTotal=0;p.betaReduction=0;p.releaseDay=null;p.reviewDelay=0;p.reviewEventChecked=false;p.reviewCheckDay=null;
+  log("游戏的第一次更新必须是主线包。该曲包已返回整理状态。");
+  render();
+  return
+}for(const s of p.songIds.map(getSong).filter(Boolean)){if(year()>=3&&state.artPursuit>99&&s.quality<=2){s.packageId=null;p.songIds=p.songIds.filter(x=>x!==s.id)}else if(year()>=3&&state.artPursuit>90&&s.quality===1){s.packageId=null;p.songIds=p.songIds.filter(x=>x!==s.id)}}let live=p.songIds.map(getSong).filter(Boolean);if(!live.length){p.status="取消";return}let expected=expectedForPackage(p),actual=packageQuality(p),ratio=actual/Math.max(1,expected),total=live.length;for(const s of live){finalizePlayableQuality(s);let att=s.attention,pl=generatePlayOnRelease(s),gd=s.good;
+    if(s.composerId){
+      let c=getComposer(s.composerId),count=installedSongs().filter(x=>x.composerId===s.composerId||(Array.isArray(x.composerIds)&&x.composerIds.includes(s.composerId))).length+1;
+      if(count>5&&c){c.popularity+=.5;c.affection+=.2}
+      if(count>10){
+        let n=count-10,pen=Math.pow(.92,n);
+        if(state.artPursuit>99)pen=1;else if(state.artPursuit>90)pen=1-(1-pen)/2;
+        s.playableQuality*=pen
+      }
+    }if(s.position==="魔王曲"){
+      att*=2*(1+state.rating/500+state.players/100000);
+      if(s.composerId){let cc=getComposer(s.composerId);if(cc)cc.affection+=1+state.rating/100+state.players/10000}
+      if(s.quality<=2){state.metaDiscussion+=20;state.metaRating-=4}
+    }else if(s.position==="隐藏曲"){att*=2.3;pl*=1.3;gd=70+(gd-70)*.6;state.pendingHiddenBugBonus=Math.max(state.pendingHiddenBugBonus,20);if(s.quality<=3){state.metaDiscussion+=25;state.metaRating-=5}if(s.playableQuality>=85)s.hiddenArtPendingUntil=state.day+30}att*=Math.max(.45,1-(total-4)*.05);s.attention=att;s.originalAttention=att;s.play=pl;s.originalPlay=pl;s.good=gd;s.installed=true;s.installedDay=state.day;s.packageId=null}
+if((p.type==="主线包"||p.type==="支线包")&&rumorActive())endRumorByUpdate();if(p.type==="主线包"){let o=live.filter(s=>s.source==="commission").length/live.length;if(o<.4)live.forEach(s=>s.attention*=.6);if(o>.8){state.stickiness+=3;live.forEach(s=>s.attention*=1.12)}}
+if(ratio<.5){live.forEach(s=>{s.attention*=.70;s.play*=.65;s.good*=.70;s.discussion*=1.5});state.pendingDiscussionDrops.push({day:state.day+14,factor:1/1.5})}else if(ratio<.8){live.forEach(s=>{s.attention*=.85;s.play*=.82;s.good*=.85;s.discussion*=1.25});state.pendingDiscussionDrops.push({day:state.day+60,factor:1/1.25})}else if(Math.abs(ratio-1)<.05){live.forEach(s=>s.play*=1.05);state.stickiness+=(1+state.expectation/100)*artMods().stick*styleState().stickyMul}else if(ratio>1.3){live.forEach(s=>{s.attention*=1.12;s.good*=1.08});state.expectation*=1.05}
+if(p.type==="支线包"){let sideScale=1+clamp(state.rating,0,100)/100;state.metaRating+=2*sideScale*artMods().ratingGrowth;state.expectation+=2*sideScale}if(p.type==="补充包")state.expectation+=.5;if(p.type==="单曲")live.forEach(s=>s.attention*=.2);
+if((p.announcementFanBonus||0)>0)live.forEach(s=>s.attention*=1+p.announcementFanBonus);
+if((p.announcementDiscussionBonus||0)>0)live.forEach(s=>s.discussion*=1+p.announcementDiscussionBonus);
+let dgRelease=designGrowthMultipliers();
+live.forEach(s=>{
+  s.attention*=dgRelease.fan;s.originalAttention*=dgRelease.fan;
+  s.discussion*=dgRelease.discussion;s.originalDiscussion*=dgRelease.discussion;
+  if(typeof s.play==="number"){s.play*=dgRelease.player;s.originalPlay*=dgRelease.player}
+});
+state.hasReleasedUpdate=true;
+if(!state.ruthlessWarBusEventDone&&live.some(s=>String(s.name||"").trim().toLowerCase()==="ruthless war")){
+  state.ruthlessWarBusEventDone=true;
+  log(`伟大的《ruthless war》作为音乐游戏界的”公交车歌曲“，这回停在了《${gameName()}》这款非商业音乐游戏！玩家们兴奋地将《${gameName()}》也加入了“公交车停靠站列表”。`,"green")
+}
+if(isFirstFormalRelease&&state.gameCoreProgress>=100){
+  state.chartEditorUnlocked=true;
+  state.chartEditorProgress=clamp(state.chartEditorProgress,0,100);
+  firstReleaseEvaluation(actual);
+}
+recalcPublic();
+addUpdateStreamerWindow(p.type);let pre=Math.max(1,state.players);if(p.type==="主线包"){state.temporaryPlayerEffects.push({discussUntil:state.day+15,discussMul:1.5,extraPlayers:pre*.20,playerHoldUntil:state.day+30,fadeUntil:state.day+60,type:"主线"});state.lastMainlineDay=state.day;state.consecutiveSupplement=0;state.consecutiveSingles=0}else if(p.type==="支线包"||p.type==="补充包"){state.temporaryPlayerEffects.push({discussUntil:state.day+15,discussMul:1.2,extraPlayers:pre*.10,playerHoldUntil:state.day+15,fadeUntil:state.day+45,type:"大更新"});state.consecutiveSupplement=p.type==="补充包"?state.consecutiveSupplement+1:0;state.consecutiveSingles=0}else{state.temporaryPlayerEffects.push({discussUntil:state.day+7,discussMul:1.1,extraPlayers:pre*.05,playerHoldUntil:state.day+7,fadeUntil:state.day+37,type:"小更新"});state.consecutiveSingles++;state.consecutiveSupplement=0}
+let refreshInterval=!(p.type==="单曲"&&state.consecutiveSingles>5);
+if(!state.updateClockStarted){state.updateClockStarted=true;state.updateClockStartDay=state.day}
+if(refreshInterval)state.lastUpdateDay=state.day;
+state.hiatusTriggered=false;p.status="已上线";state.programQualityBoost=0;recalcArt();recalcPublic();bugOnRelease();
+state.bugChance=clamp(BASE_BUG+state.pendingHiddenBugBonus,0,100);state.pendingHiddenBugBonus=0;
+render()}
+function songDaily(){for(const s of installedSongs()){let sp=s.quality===5?.6:s.quality===4?.8:1,ad=Math.exp(Math.log(.01)/(730/sp)),pd=Math.exp(Math.log(.01)/(1095/sp));s.attention=Math.max(s.originalAttention*.01,s.attention*ad);s.discussion=Math.max(s.originalDiscussion*.01,s.discussion*ad);if(typeof s.play==="number")s.play=Math.max(s.originalPlay*.01,s.play*pd);if(s.hiddenArtPendingUntil&&state.day>=s.hiddenArtPendingUntil){let currentWithoutEvent=state.artPursuit,room=Math.max(0,95-currentWithoutEvent);state.artEventBonus+=Math.min(10,room);s.hiddenArtPendingUntil=null}}for(const e of [...state.pendingDiscussionDrops])if(state.day>=e.day){installedSongs().forEach(s=>s.discussion*=e.factor);state.pendingDiscussionDrops=state.pendingDiscussionDrops.filter(x=>x!==e)}}
+function hiatusCheck(){
+  if(!state.updateClockStarted){
+    if(state.day<=240)return;
+    state.updateClockStarted=true;state.updateClockStartDay=240;state.lastUpdateDay=240;
+  }
+  let gap=state.day-(state.lastUpdateDay||state.updateClockStartDay);
+  if(year()<3){
+    if(gap>=90&&gap%30===0&&state.members.length){
+      let eligible=state.members.filter(m=>!memberOccupied(m));
+      if(eligible.length)removeMember(eligible[Math.floor(Math.random()*eligible.length)].id,"前3年连续3个月未更新，失去成员")
+    }
+    if(gap>=180&&!state.hiatusTriggered)triggerHiatus()
+  }else{
+    if(gap>=150&&gap%30===0)state.metaFans-=Math.max(20,state.fans*.3);
+    if(gap>=240&&!state.hiatusTriggered)triggerHiatus()
+  }
+}
+function triggerHiatus(){
+installedSongs().forEach(s=>{s.attention*=.01;s.discussion*=.01;s.play*=.10});state.metaFans*=.01;state.metaDiscussion*=.01;state.metaPlayers*=.10;state.stickiness*=.10;state.hiatusTriggered=true;log("断更：游戏进入断更惩罚。")}
+function mainlineGapCheck(){
+  let base=state.lastMainlineDay===null?1:state.lastMainlineDay;
+  let g=state.day-base;
+  if(g===365){state.metaDiscussion+=Math.max(10,state.discussion*.15);state.metaRating-=Math.max(1,state.rating*.05);state.expectation*=1.08}
+  if(g===730){state.metaDiscussion-=Math.max(10,state.discussion*.45);state.expectation*=.95}
+}
+function bugOnRelease(){
+  if(!chance(state.bugChance/100))return;
+  if(chance(.20)){state.severeBugUntil=state.day+3;state.metaRating-=Math.max(5,state.rating*.10);state.metaDiscussion+=Math.max(10,state.discussion*.20);log("出现严重Bug：游玩人数3天内变为原先10%。")}
+  else{state.metaRating-=Math.max(2,state.rating*.05);state.metaDiscussion+=Math.max(5,state.discussion*.10);log("出现普通Bug：好评下降、讨论增加。")}
+}
+function collabMonthly(){let yearlyMax=state.artPursuit>99?2:4;if(year()<2||state.currentCollabOffer||state.collabsThisYear>=yearlyMax||state.day<(state.collabOpinionBlockedUntil||0))return;let b=Math.min(.50,.05+Math.max(0,year()-2)*.03+state.collabFailStack*.08);if(state.artPursuit>99)b*=.3;if(chance(b)){state.currentCollabOffer={id:nextId(),day:state.day};state.collabFailStack=0;state.collabsThisYear++}else state.collabFailStack++}
+function acceptCollab(){if(!state.currentCollabOffer||!spendAP(6))return;let ids=[],count=3;if(chance(state.commercialFormalCount*.01))count++;if(chance(state.commercialFormalCount*.01))count++;for(let i=0;i<count;i++){let q=weighted([[3,.6],[4,.3],[5,.1]]);if(year()>=7&&!state.firstYear7CollabDone)q=Math.max(4,q);let s=makeSong(`联动曲 ${state.collabs.length+1}-${i+1}`,q,STYLE[i%3],0,null,"collab");s.artProgress=100;state.library.push(s);onSongAddedToLibrary(s);ids.push(s.id)}state.firstYear7CollabDone=state.firstYear7CollabDone||year()>=7;let p={id:nextId(),name:`联动曲包 #${state.collabs.length+1}`,type:"支线包",songIds:ids,status:"整理中",betaRemaining:0,releaseDay:null,createdDay:state.day,collab:true};state.packages.push(p);state.collabs.push({id:nextId(),packageId:p.id,acceptedDay:state.day,cancelDeadline:state.day+90,forcedDeadline:state.day+(year()<4?365:730),active:true});state.collabPenaltyDays=7;state.currentCollabOffer=null;render()}
+function declineCollab(){state.currentCollabOffer=null;render()}function cancelCollab(id){let c=state.collabs.find(x=>x.id===id&&x.active);if(!c||state.day>c.cancelDeadline||!spendAP(6))return;let p=getPackage(c.packageId);if(p&&p.status!=="已上线"){p.songIds.forEach(id=>state.library=state.library.filter(s=>s.id!==id));p.status="取消"}c.active=false;state.collabPenaltyDays=7;render()}
+function collabDeadlineCheck(){for(const c of state.collabs.filter(x=>x.active)){let p=getPackage(c.packageId);if(p?.status==="已上线"){c.active=false;continue}if(state.day>=c.forcedDeadline){let ss=p?p.songIds.map(getSong).filter(Boolean):[],sum=ss.reduce((a,s)=>a+s.quality,0);if(chance(.5))state.money-=800*sum;else{state.players=state.playerFloor;state.rating=state.ratingFloor}if(p){p.status="取消";p.songIds.forEach(id=>state.library=state.library.filter(s=>s.id!==id))}c.active=false}}}
+function yearlySpecials(){if(year()>=2&&!state.firstYear2EventDone){state.firstYear2EventDone=true;let threshold=1000;state.members.forEach(m=>{if(memberOccupied(m))return;if(state.players>threshold&&m.status!=="疑虑")m.status="干劲满满";else if(state.players<=threshold&&m.status!=="干劲满满")m.status="疑虑"})}}
+
+function rumorActive(){return state.day < (state.rumorActiveUntil||0)}
+function endRumorByUpdate(){
+  if(!rumorActive())return;
+  state.rumorActiveUntil=0;
+  state.rumorMinGapDays=180;
+  log("主线包/支线包上线，直接结束“被竞争对手企划带节奏”状态；下一次造谣事件最短间隔延长为6个月。");
+}
+function rumorDaily(){
+  if(rumorActive()){
+    if(state.day>=state.rumorActiveUntil){
+      state.rumorActiveUntil=0;
+      log("“被竞争对手企划带节奏”状态已自然结束。");
+    }
+    return;
+  }
+  if(state.fans<=3000)return;
+  if(state.rumorTriggersThisYear>=2)return;
+  if(state.day-state.rumorLastTriggerDay<state.rumorMinGapDays)return;
+  if(chance(.01)){
+    state.rumorTriggersThisYear++;
+    state.rumorLastTriggerDay=state.day;
+    state.rumorActiveUntil=state.day+30;
+    state.metaFans=Math.max(-999999,(state.metaFans||0)-30);
+    log(`最近，竞争对手企划开始带《${gameName()}》的负面节奏！我们的游戏社区似乎被煽动了，或许一个月内都会受到影响……`,"red");
+  }
+}
+
+function growthSpeedMultiplier(){
+  return state.day<=(state.badLaunchUntil||0)?.70:1;
+}
+function firstReleaseEvaluation(actual){
+  if(state.firstReleaseEvaluated)return;
+  state.firstReleaseEvaluated=true;
+  state.firstReleaseTier=actual<60?"bad":actual<=85?"normal":"perfect";
+  if(actual<60){
+    state.badLaunchUntil=state.day+60;
+    log("第一次更新收获了很多的反馈与批评。社区里还有一些骂声说“怎么又有新的不知名音游出现了”。但没有关系，这只是一切的开始，我们的努力将克服后续的所有困难。一起加油吧！");
+  }else if(actual<=85){
+    log("第一次游戏更新成功！玩家反响平平。但这只是一切的开始，我们还有很长的路要走，大家一起加油吧！");
+  }else{
+    state.perfectLaunchUntil=state.day+60;
+    state.streamerWindows.push({
+      id:nextId(),kind:"perfect",startDay:state.day,endChanceDay:state.day+60,expireDay:state.day+60,
+      maxStreams:3,used:[],contentLabel:"入坑"
+    });
+    log("我们圆满迎来了第一次游戏更新！从此之后，一款崭新的音游诞生了。玩家们非常看好我们制作的音游，纷纷表示很期待后续内容！");
+  }
+}
+function addUpdateStreamerWindow(packageType){
+  if(state.fans<=5000)return;
+  if(!["主线包","支线包","补充包"].includes(packageType))return;
+  let label=packageType==="主线包"?"主线内容":packageType==="支线包"?"支线内容":"补充内容";
+  state.streamerWindows.push({
+    id:nextId(),kind:"update",startDay:state.day,endChanceDay:state.day+30,expireDay:state.day+60,
+    maxStreams:5,used:[],contentLabel:label
+  });
+}
+function streamerWindowAvailable(w){
+  return state.day>w.startDay&&state.day<=w.endChanceDay&&w.used.length<w.maxStreams;
+}
+function tryStartStreamerAtDayStart(){
+  if(state.activeStreamer)return;
+  state.streamerWindows=state.streamerWindows.filter(w=>state.day<=w.expireDay);
+  let windows=state.streamerWindows.filter(streamerWindowAvailable);
+  if(!windows.length)return;
+  // 每个有效窗口每天独立有5%概率；若同一天多个窗口命中，只启动一个直播。
+  let hit=windows.find(w=>chance(.05));
+  if(!hit)return;
+  let candidates=state.streamers.filter(n=>!hit.used.includes(n));
+  if(!candidates.length)return;
+  let name=candidates[Math.floor(Math.random()*candidates.length)];
+  hit.used.push(name);
+  let msg=hit.kind==="perfect"
+    ?`${name}正在直播《${gameName()}》的入坑实况！`
+    :`${name}正在直播《${gameName()}》的${hit.contentLabel}实况！`;
+  state.activeStreamer={
+    name,windowId:hit.id,startDay:state.day,resolveDay:state.day+1,
+    baselineFans:state.fans,baselinePlayers:state.players
+  };
+  log(msg,"gold");
+}
+function resolveStreamerAtDayEnd(){
+  let a=state.activeStreamer;
+  if(!a||state.day<a.resolveDay)return;
+  recalcPublic();
+  let fanGain=Math.max(0,state.fans-a.baselineFans);
+  let playerGain=Math.max(0,state.players-a.baselinePlayers);
+  let mult=chance(.01)?30:chance(.05)?10:3;
+  state.metaFans+=(mult-1)*fanGain;
+  state.metaPlayers+=(mult-1)*playerGain;
+  if(fanGain>0||playerGain>0)log(`${a.name}的直播结束：本日新增关注与游玩增长按 ${mult} 倍结算。`,"green");
+  state.activeStreamer=null;
+}
+function naturalPlayerGrowth(){let y=year()+dayOfYear()/365,f=y<=3?.3+.7*(y/3):y<=7?1-(y-3)/4*.9:.1;f*=styleState().playerMul*growthSpeedMultiplier()*designGrowthMultipliers().player;if(state.stickiness>=70)f*=1.15;state.metaPlayers+=Math.max(0,state.players*.00005*f);state.expectation+=.002*(1+y/7)*artMods().expect}
+function endDay(){state.day++;cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();naturalPlayerGrowth();rumorDaily();
+recalcPublic();
+if(state.players>0&&state.fans>state.players*2)state.expectation+=.01*(state.fans/state.players-2);
+if(state.players>0&&state.discussion/state.players*100>state.rating*1.5)state.metaRating-=.01;
+updateFloors();hiatusCheck();mainlineGapCheck();collabDeadlineCheck();yearlySpecials();if(isMonthStart()){state.monthlyHighCoordEvents=0;state.monthlyLowCoordEvents=0;composerMonthly();collabMonthly()}if(isYearStart()){state.collabsThisYear=0;state.rumorTriggersThisYear=0;}recalcArt();recalcPublic();resolveStreamerAtDayEnd();recalcPublic();bankruptcyCheck();render()}
+
+const SAVE_KEY="noncommercial_music_game_simulator_single_save_v1";
+
+function saveMetaText(data){
+  if(!data||!data.state)return "未检测到存档";
+  let d=data.state.day||1;
+  let y=Math.floor((d-1)/365)+1,dy=((d-1)%365)+1;
+  let t=data.savedAt?new Date(data.savedAt).toLocaleString("zh-CN"):"";
+  return `已有存档｜第${y}年 第${dy}天${t?`｜${t}`:""}`;
+}
+
+function refreshSaveStatus(){
+  let el=document.getElementById("saveStatus");if(!el)return;
+  try{
+    let raw=localStorage.getItem(SAVE_KEY);
+    if(!raw){el.textContent="未检测到存档";el.className="sub";return}
+    el.textContent=saveMetaText(JSON.parse(raw));
+    el.className="sub ok";
+  }catch(e){
+    el.textContent="浏览器本地存储不可用";
+    el.className="sub badtext";
+  }
+}
+
+function saveGame(){
+  try{
+    let payload={
+      version:"Beta4",
+      savedAt:Date.now(),
+      uid:uid,
+      state:JSON.parse(JSON.stringify(state)),
+      eventLog:document.getElementById("log").innerHTML
+    };
+    localStorage.setItem(SAVE_KEY,JSON.stringify(payload));
+    refreshSaveStatus();
+  }catch(e){
+    alert("保存失败：当前浏览器可能禁止本地存储。");
+  }
+}
+
+function loadGame(){
+  try{
+    let raw=localStorage.getItem(SAVE_KEY);
+    if(!raw){alert("目前没有存档。");return}
+    let payload=JSON.parse(raw);
+    if(!payload||!payload.state){alert("存档内容无效。");return}
+
+    for(const k of Object.keys(state))delete state[k];
+    Object.assign(state,payload.state);
+    if(Number.isFinite(payload.uid))uid=payload.uid;
+    ensureNewStateDefaults();
+    syncComposerMasterData();
+
+    document.getElementById("log").innerHTML=payload.eventLog||"";
+    render();
+    refreshSaveStatus();
+  }catch(e){
+    alert("读取存档失败：存档可能损坏，或浏览器阻止了本地存储。");
+  }
+}
+
+function deleteSave(){
+  try{
+    if(!localStorage.getItem(SAVE_KEY)){refreshSaveStatus();return}
+    if(!confirm("确定删除唯一存档吗？删除后无法恢复。\\n\\n当前页面正在运行的进度不会立即清空；刷新页面后将无法再读取这个存档。"))return;
+    localStorage.removeItem(SAVE_KEY);
+    refreshSaveStatus();
+  }catch(e){
+    alert("删除存档失败：当前浏览器可能禁止本地存储。");
+  }
+}
+
+function progressBarBlock(title,value,subtitle=""){
+  return `<div class="barbox"><div class="barhead"><b>${title}</b><span>${value.toFixed(1)}%</span></div><div class="bar"><div class="fill" style="width:${clamp(value,0,100)}%"></div></div>${subtitle?`<div class="sub">${subtitle}</div>`:""}</div>`;
+}
+function renderDevelopmentBars(){
+  ensureNewStateDefaults();
+  let html="";
+  if(!state.hasReleasedUpdate){
+    html+=progressBarBlock("游戏本体制作进度",state.gameCoreProgress,"达到100%后才能进行第一次Beta测试");
+  }else if(state.chartEditorUnlocked&&!state.chartEditorComplete){
+    html+=progressBarBlock("游戏制谱器制作进度",state.chartEditorProgress,"完成后强化2级及以上谱师的每日写谱进度");
+  }else if(state.chartEditorV2Unlocked&&!state.chartEditorV2Complete){
+    html+=progressBarBlock("游戏制谱器V2制作进度",state.chartEditorV2Progress,"完成后为2级及以上谱师追加另一层每日写谱加成");
+  }
+  if(state.artStudyStarted){
+    let artHint=state.artStudyProgress<50?"50%后解锁亲自画图":state.artStudyProgress<100?"已可亲自画图；100%前亲自画图会使成品可玩质量-2":"已彻底学会美术";
+    html+=progressBarBlock("学习美术进度",state.artStudyProgress,artHint);
+  }
+  document.getElementById("developmentBars").innerHTML=html;
+}
+function showTab(b){document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active")}function toggleDebug(){debugPanel.classList.toggle("open")}
+function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
+let simulatorTitle=document.getElementById("gameSimulatorTitle");
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 4`:"非商业音乐游戏运营模拟器 · Beta 4";
+state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
+eventActionPoints.textContent=state.ap.toFixed(0);
+eventSpirit.textContent=Math.round(spirit);
+eventBalance.textContent=fmt(state.money);
+let computerDown=computerBroken();
+writeProgramBtn.disabled=computerDown;
+studyProgramBtn.disabled=computerDown;
+studyArtBtn.disabled=computerDown;
+let announcementPackage=pendingAnnouncementPackage(),announcementLeft=announcementCooldownLeft();
+writeCopyLabel.textContent=announcementPackage?"发公告":"写文案";
+writeCopyBtn.disabled=!!announcementPackage&&announcementLeft>0;
+writeCopyCostHint.textContent=announcementPackage?(announcementLeft>0?`还需等待${announcementLeft}天`:`${effectiveActionCost(2)}行动点 / +5疲劳`):`${effectiveActionCost(2)}行动点 / +5疲劳`;
+programCostHint.textContent=state.designConceptConfirmed?`${effectiveActionCost(programActionBaseCost())} 行动点 / +${state.takeoutProgramDiscount?30:20}疲劳`:"需先确定游戏设计理念";
+let studyFatigueHalf=(state.studyActionsToday||0)>=2;
+studyProgramCostHint.textContent=`${effectiveActionCost(state.services.course?3:5)}行动点 / +${studyFatigueHalf?15:30}疲劳`;
+studyArtCostHint.textContent=`${effectiveActionCost(state.services.course?7:10)}行动点 / +${studyFatigueHalf?25:50}疲劳`;
+rhythmCostHint.textContent=`${effectiveActionCost(2)}行动点 / -40疲劳`;
+takeoutCostHint.textContent=`${effectiveActionCost(1)}行动点 / -25疲劳`;
+sideGigCostHint.textContent=`${effectiveActionCost(8)}行动点 / +40疲劳`;
+let recruitFatigue=state.day<=(state.teamArgumentUntil||0)?15:10;
+recruitChartBtn.disabled=!state.designConceptConfirmed;
+recruitArtBtn.disabled=!state.designConceptConfirmed;
+recruitChartCostHint.textContent=state.designConceptConfirmed?`${effectiveActionCost(1)} 行动点 · +${recruitFatigue}疲劳`:"需先确定游戏设计理念";
+recruitArtCostHint.textContent=state.designConceptConfirmed?`${effectiveActionCost(1)} 行动点 · +${recruitFatigue}疲劳`:"需先确定游戏设计理念";
+  let fatigueDanger=state.fatigue>100;
+  fatigueText.classList.toggle("fatigue-danger",fatigueDanger);
+  fatigueBar.classList.toggle("fatigue-danger",fatigueDanger);
+  document.getElementById("fatigueWarning").classList.toggle("show",fatigueDanger);renderDevelopmentBars();doubleCostText.textContent=state.dailySpent>apCap()*.6?"今日行动量超过累计上限60%，后续行动消耗双倍行动点。":"";takeoutBtn.style.display=state.services.takeout?"block":"none";
+fans.textContent=fmt(state.fans);discussion.textContent=fmt(state.discussion);players.textContent=fmt(state.players);rating.textContent=state.rating.toFixed(1);artPursuit.textContent=state.artPursuit.toFixed(1)+"%";styleBuff.textContent=`风格状态：${styleState().name}`;sponsor.textContent="¥"+fmt(state.sponsorIncome);sponsorInfo.textContent=state.services.sponsor?"赞助平台已开启":"赞助平台未开启";expectation.textContent=state.expectation.toFixed(1);stickiness.textContent=state.stickiness.toFixed(1);bugChance.textContent=state.bugChance.toFixed(1)+"%";tech.textContent=state.tech.toFixed(1);debugMore.textContent=`累计上限 ${apCap()}；今日已消耗 ${state.dailySpent}；程序对下次更新综合质量加成 ${state.programQualityBoost.toFixed(2)}；设计=${state.designConceptConfirmed?state.designStyle+" / PC端"+(state.designPC?"是":"否"):"未确定"}；前组员待判定=${(state.formerMemberOpinionCandidates||[]).length}；声誉危机=${state.day<=(state.exMemberScandalClusterUntil||0)?"是":"否"}；争吵影响=${state.day<=(state.teamArgumentUntil||0)?"是":"否"}；电脑=${computerBroken()?"损坏":"正常"}；破产=${state.bankrupt?"是":"否"}`;coord.textContent=coordValue().toFixed(0);coordCapDisplay.textContent=coordCap().toFixed(0);teamCapText.textContent=`人数 ${state.members.length}/${teamCap()}`;if(document.getElementById("memberSortSelect"))memberSortSelect.value=state.memberSortMode;renderComposerDebug();renderServices();renderMembers();renderCandidate();renderComposers();renderLibrary();renderPackages();renderCollabs();renderEconomy();refreshSaveStatus()}
+function renderComposerDebug(){
+  let el=document.getElementById("composerDebug");if(!el)return;
+  el.innerHTML=`<h3>曲师隐藏数据（测试）</h3>`+composerDisplayOrder().map(c=>{
+    let success=(commissionSuccess(c)*100).toFixed(1);
+    let probs=n=>c.qualityProbs[n].map(x=>(x*100).toFixed(0)+"%").join(" / ");
+    return `<div class="item"><b>${c.name}</b><div class="sub">平均抽象度 ${c.abstract}｜心理 ${c.mental}｜好感 ${c.affection.toFixed(1)}｜好感增长难度 ${c.affDifficulty}｜当前约稿成功率 ${success}%</div>
+    <div class="sub">非商质量1~5：${probs("非商")}</div><div class="sub">商业质量1~5：${probs("商业")}</div><div class="sub">正式邀请质量1~5：${probs("正式邀请")}</div>${c.note?`<div class="sub">备注：${c.note}</div>`:""}</div>`
+  }).join("")
+}
+function renderServices(){let n={vpn:"VPN",translation:"翻译软件会员",takeout:"外卖平台会员",workspace:"工作空间",sponsor:"赞助平台",course:"报名专门课程"},c={vpn:50,translation:100,takeout:200,workspace:1000,sponsor:50,course:3000};services.innerHTML=Object.keys(n).map(k=>`<button class="service ${state.services[k]?"on":""}" onclick="toggleService('${k}')">${n[k]}｜${state.services[k]?"取消":"购买"}｜每月¥${c[k]}</button>`).join("")}
+function renderCandidate(){
+  let html=state.candidate?`<div class="candidate">候选：<b>${state.candidate.name||"未命名"}</b>｜${state.candidate.rarity}级${state.candidate.role==="chart"?"谱师":"美术"} <button class="good" onclick="acceptCandidate()">录用</button><button onclick="rejectCandidate()">不录用</button></div>`:"";
+  html+=(state.applications||[]).map(a=>`<div class="candidate">加入申请：<b>${a.name}</b>｜${a.rarity}级${a.role==="chart"?"谱师":"美术"} <button class="good" ${state.members.length>=teamCap()?"disabled":""} onclick="acceptApplication(${a.id})">同意</button><button onclick="rejectApplication(${a.id})">拒绝</button></div>`).join("");
+  candidateBox.innerHTML=html
+}
+function memberName(m){return `${m.name||"未命名"}｜${m.rarity}级${m.role==="chart"?"谱师":"美术"}`}
+function compactMemberLabel(m){return `${m?.name||"未命名"}（${m?.rarity||"?"}）`}function renderMembers(){
+  let shown=sortedMembers();
+  let activeHtml=shown.map(m=>{
+    let occupied=memberOccupied(m);
+    let a=occupied?[]:state.library.filter(s=>!s.installed&&(m.role==="chart"?s.chartProgress<100:s.artProgress<100));
+    let assigned=m.assignedSongIds.map(id=>getSong(id)?.name).filter(Boolean);
+    let remaining=occupied?Math.max(1,(m.occupiedUntil||0)-state.day):0;
+    let fireButton=occupied
+      ?`<button class="bad" disabled>开除</button>`
+      :`<button class="bad" onclick="fireMember(${m.id})">${state.day<=(m.argumentInvolvedUntil||0)?"开除（0行动点）":`开除（${effectiveActionCost(1)}行动点）`}</button>`;
+    return `<div class="item"><div class="between"><div><b>${memberName(m)}</b><br><span class="tag">${occupied?"事务占用":m.status}</span>${occupied?`<span class="tag">剩余 ${remaining} 天</span>`:""}<span class="tag">作品 ${m.works.toFixed(1)}</span>${assigned.length?`<span class="tag ok">任务中：${assigned.join("、")}</span>`:`<span class="tag muted">${occupied?"无法工作":"空闲"}</span>`}</div>${fireButton}</div><div class="row"><select id="assign-${m.id}" ${occupied?"disabled":""}>${a.map(s=>`<option value="${s.id}">${s.name}</option>`).join("")}</select><button ${a.length&&!occupied?"":"disabled"} onclick="assignMember(${m.id},Number(document.getElementById('assign-${m.id}').value))">分配任务</button></div></div>`
+  }).join("");
+
+  let departedHtml=(state.departedRecoverables||[]).map(r=>{
+    let m=r.member;
+    let lockLeft=Math.max(0,30-(state.day-r.departedDay));
+    let recoverBtn=lockLeft>0
+      ?`<button class="good" disabled>找回（${lockLeft}天后）</button>`
+      :`<button class="good" onclick="recoverMemberAttempt(${r.id})">找回（${effectiveActionCost(10)}行动点）</button>`;
+    let abandon=r.abandonAt
+      ?`<button onclick="toggleAbandonRecoverable(${r.id})">取消放弃（剩余${Math.max(1,r.abandonAt-state.day)}天）</button>`
+      :`<button class="bad" onclick="toggleAbandonRecoverable(${r.id})">放弃</button>`;
+    return `<div class="item"><div class="between"><div><b>${m.name}</b><br><span class="tag">已离组</span><span class="tag">${m.rarity}级${m.role==="chart"?"谱师":"美术"}</span><span class="tag">作品 ${Number(m.works||0).toFixed(1)}</span></div></div><div class="row">${recoverBtn}${abandon}</div></div>`
+  }).join("");
+
+  members.innerHTML=(activeHtml+departedHtml)||`<div class="item muted">暂无成员。</div>`
+}
+function renderComposers(){
+  let offers=state.incomingOffers.map(o=>{let c=getComposer(o.composerId);return `<div class="candidate"><b>${c?.name||"曲师"}主动来稿《${o.title||"未命名"}》</b>｜${o.style}｜质量${o.q}｜${o.free?"免费":`¥${Math.round(o.price)}`} <button class="good" onclick="acceptIncomingOffer(${o.id})">接受</button><button onclick="declineIncomingOffer(${o.id})">拒绝</button></div>`}).join("");
+  composers.innerHTML=offers+composerDisplayOrder().map(c=>{
+    let st=state.day<c.depressedUntil?"抑郁":state.day<c.sickUntil?"感冒":"可联系";
+    let pf=c.portfolio.map(p=>`<div class="sub">${p.bought?`<span class="tag">已购买</span>`:`<button onclick="buyPortfolio(${c.id},${p.id})">购买</button>`} ${p.name}${p.composerLabel&&p.composerLabel!==c.name?`｜合作：${p.composerLabel}`:""}｜${p.style}｜质量${p.quality}｜关注${p.attention}｜讨论${p.discussion}｜好评${p.good}｜¥${p.price}</div>`).join("");
+    let comfort=state.day<c.depressedUntil&&c.affection>=80?`<button onclick="comfortComposer(${c.id})">陪伴创作者</button>`:"";
+    let sel=composerSelection(c.id);
+    let busy=composerHasActiveCommission(c.id),reachable=composerReachable(c);
+    let commission=activeCommissionForComposer(c.id);
+    let price=currentCommissionPrice(c,sel.nature),fundsOk=spendAllowed(price);
+    let canContact=state.designConceptConfirmed&&reachable&&!busy&&fundsOk&&state.ap+1e-9>=effectiveActionCost(1);
+    let expediteEff=clamp(Math.round(Number(c.efficiency)||1),1,5);
+    let expediteWait=busy&&state.day-(c.lastExpediteDay||-9999)<7?7-(state.day-(c.lastExpediteDay||-9999)):0;
+    let expediteBlocked=busy&&state.day<(c.expediteBlockedUntil||0)?(c.expediteBlockedUntil-state.day):0;
+    let mainText=busy?"催稿":!state.designConceptConfirmed?"需先确定设计理念":!reachable?(c.country!=="中国"&&!state.services.vpn?"需要VPN":"当前无法联系"):!fundsOk?"资金不足":state.ap+1e-9<effectiveActionCost(1)?"行动点不足":"约稿";
+    let metaText=busy?(c.country!=="中国"&&!state.services.vpn?"需要VPN":expediteEff>=5?"效率已足够快":expediteBlocked?`心态爆炸冷却 ${expediteBlocked}天`:expediteWait?`还需等待 ${expediteWait}天`:`成功率 ${Math.round(expediteSuccessRate(expediteEff)*100)}%`):!reachable?"":`${effectiveActionCost(1)}行动点 · ¥${fmt(price)}`;
+    let natureOptions=["非商","商业","正式邀请"].map(n=>`<option value="${n}" ${sel.nature===n?"selected":""}>${n} · ¥${fmt(currentCommissionPrice(c,n))}</option>`).join("");
+    let styleOptions=["灼热","抒情","冷冽"].map(s=>`<option value="${s}" ${sel.style===s?"selected":""}>${s}</option>`).join("");
+    return `<div class="item composer-card">
+      <div class="between">
+        <div class="composer-title-block"><div><b style="font-size:15px">${c.name}</b> <span class="tag">${c.country}</span><span class="tag">${st}</span></div>
+          <div class="composer-mini-stats"><span>人气 <b>${c.popularity}</b></span><span>技术 <b>${c.avgQuality}</b></span><span>效率 <b>${c.efficiency}</b></span></div>
+        </div>
+      </div>
+      <div class="commission-controls">
+        <select ${busy?"disabled":""} onchange="setComposerSelection(${c.id},'nature',this.value)">${natureOptions}</select>
+        <select ${busy?"disabled":""} onchange="setComposerSelection(${c.id},'style',this.value)">${styleOptions}</select>
+        <button class="commission-btn" ${busy?"":(canContact?"":"disabled")} onclick="${busy?`expediteCommission(${c.id})`:`commissionComposer(${c.id})`}"><span class="main">${mainText}</span>${metaText?`<span class="meta">${metaText}</span>`:""}</button>
+      </div>
+      <div class="style-mastery"><div class="style-mastery-title">风格驾驭能力</div><div class="style-mastery-grid"><span>灼热 ${c.styles.灼热}</span><span>抒情 ${c.styles.抒情}</span><span>冷冽 ${c.styles.冷冽}</span></div></div>
+      ${comfort}<h3>作品集</h3>${pf||'<span class="muted">暂无</span>'}
+    </div>`
+  }).join("")
+}
+function renderLibrary(){library.innerHTML=state.library.map(s=>{
+  let creator=s.composerLabel||getComposer(s.composerId)?.name||"未知曲师";
+  let selectedChart=s.chartMemberIds?.[0]??null;
+  let selectedArt=s.artMemberId??null;
+  let co=state.members.filter(m=>m.role==="chart"&&!memberOccupied(m)).map(m=>`<option value="${m.id}" ${m.id===selectedChart?"selected":""}>${compactMemberLabel(m)}</option>`).join("");
+  let ao=state.members.filter(m=>m.role==="art"&&!memberOccupied(m)).map(m=>`<option value="${m.id}" ${m.id===selectedArt?"selected":""}>${compactMemberLabel(m)}</option>`).join("");
+  let assignedCharts=s.chartMemberIds.map(id=>getMember(id)).filter(Boolean).map(compactMemberLabel);
+  let assignedArt=s.artMemberId?getMember(s.artMemberId):null;
+  let alphaText=s.alphaStatus==="running"?`进行中（剩余${s.alphaRemaining}天）`:s.alphaStatus==="completed"||s.alpha?"已完成":"未进行";
+  let alphaDisabled=s.installed||s.alphaStatus==="running"||s.alphaStatus==="completed"||s.alpha?"disabled":"";
+  let chartControls=s.chartProgress<100?`<select id="chart-${s.id}">${co}</select><button ${co?"":"disabled"} onclick="assignMember(Number(document.getElementById('chart-${s.id}').value),${s.id})">分配谱师</button><button ${computerBroken()?"disabled":""} onclick="personallyChart(${s.id})">亲自写谱</button>`:"";
+  let artControls=s.artProgress<100?`<select id="art-${s.id}">${ao}</select><button ${ao?"":"disabled"} onclick="assignMember(Number(document.getElementById('art-${s.id}').value),${s.id})">分配美术</button>${state.artStudyProgress>=50?`<button ${computerBroken()?"disabled":""} onclick="personallyDraw(${s.id})">亲自画图</button>`:""}`:"";
+  let chartDisplay=assignedCharts.length?assignedCharts.join("、"):s.chartProgress>=100?"已完成":"未分配";
+  let artDisplay=assignedArt?compactMemberLabel(assignedArt):s.artProgress>=100?"已完成":"未分配";
+  return `<div class="item"><div class="between"><div><b>${s.name}</b> <span class="tag">${s.installed?"已实装":"未实装"}</span><span class="tag">${s.style}</span><span class="tag">${s.position}</span><div class="sub">曲师：${creator}</div></div><b>质量 ${s.quality}</b></div><div class="sub">关注 ${fmt(s.attention)}｜讨论 ${fmt(s.discussion)}｜${s.installed?`游玩 ${fmt(s.play)}｜`:""}好评 ${s.good.toFixed(1)}｜${typeof s.playableQuality==="number"?`可玩质量 ${s.playableQuality.toFixed(1)}｜`:""}艺术 ${s.artPercent.toFixed(1)}%</div><div class="sub">谱面 ${s.chartProgress.toFixed(0)}%｜封面 ${s.artProgress.toFixed(0)}%｜Alpha ${alphaText}${s.source==="portfolio"&&!s.installed?"｜作品集购买曲：未上架":""}</div><div class="sub">谱师：${chartDisplay}</div><div class="sub">美术：${artDisplay}</div>${!s.installed?`<div class="row">${chartControls}${artControls}<button ${alphaDisabled} onclick="alphaSong(${s.id})">Alpha测试</button></div>`:""}</div>`
+}).join("")}
+function renderPackages(){
+  packages.innerHTML=state.packages.length?state.packages.map(p=>{
+    let s=state.library.filter(x=>!x.installed&&x.chartProgress>=100&&(!x.packageId||x.packageId===p.id));
+    let statusExtra=p.status==="Beta测试"
+      ?`｜剩余 ${p.betaRemaining} 天${p.betaReduction?`（已缩短${p.betaReduction}天）`:""}`
+      :p.status==="等待上架"
+        ?`｜预计第 ${p.releaseDay} 天上架${p.reviewEventChecked&&p.reviewDelay?`（卡审核 +${p.reviewDelay}天）`:!p.reviewEventChecked?"（等待审核判定）":""}`
+        :"";
+    return `<div class="panel" style="margin:8px 0;background:#1a2130"><div class="between"><b>${p.name}</b><span class="tag">${p.status}</span></div><div class="sub">歌曲：${p.songIds.map(id=>getSong(id)?.name).filter(Boolean).join("、")||"暂无"} ${statusExtra}</div>${p.status==="整理中"?`<div class="row"><select id="song-${p.id}">${s.map(x=>`<option value="${x.id}">${x.name}</option>`).join("")}</select><select id="pos-${p.id}"><option>普通曲</option><option>魔王曲</option><option>隐藏曲</option></select><button onclick="addSongToPackage(${p.id},Number(document.getElementById('song-${p.id}').value),document.getElementById('pos-${p.id}').value)">添加/移除</button><button class="primary" onclick="startBeta(${p.id})">发放 Beta 测试</button></div>`:p.status==="Beta测试"?`<div class="row"><button class="bad" onclick="cancelBeta(${p.id})">取消 Beta 测试</button></div>`:""}</div>`
+  }).join(""):`<div class="muted">暂无曲包。</div>`
+}
+function renderCollabs(){let o=state.currentCollabOffer?`<div class="candidate">收到联动邀请 <button class="good" onclick="acceptCollab()">同意（${effectiveActionCost(6)}行动点）</button><button onclick="declineCollab()">拒绝</button></div>`:"";collabs.innerHTML=o+(state.collabs.length?state.collabs.map(c=>{let p=getPackage(c.packageId);return `<div class="item">联动 #${c.id}｜${c.active?"进行中":"结束"}｜曲包：${p?.name||"无"}｜取消截止第${c.cancelDeadline}天｜强制截止第${c.forcedDeadline}天 ${c.active&&state.day<=c.cancelDeadline?`<button onclick="cancelCollab(${c.id})">取消联动（${effectiveActionCost(6)}行动点）</button>`:""}</div>`}).join(""):`<div class="item muted">暂无联动。</div>`)}
+function renderEconomy(){economyText.innerHTML=`状态：<b class="${state.bankrupt?"badtext":"ok"}">${state.bankrupt?"破产":"正常"}</b><br><span class="sub">${state.money<=0?"存款≤0：疲劳超过80即进入疲劳判定，且无法进行花费超过1500的行动。":""}</span>`}
+seed();ensureNewStateDefaults();render();
+</script></body></html>
