@@ -17,7 +17,9 @@
     ],
     "sharedPortfolioKey": "大二|猫的咖啡厅",
     "ownerComposerId": 3,
-    "ownerComposerName": "大二"
+    "ownerComposerName": [
+      "大二"
+    ]
   },
   {
     "id": 50001,
@@ -37,7 +39,9 @@
     ],
     "sharedPortfolioKey": "留存|梦工厂",
     "ownerComposerId": 4,
-    "ownerComposerName": "留存"
+    "ownerComposerName": [
+      "留存"
+    ]
   },
   {
     "id": 50023,
@@ -58,7 +62,10 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard",
     "ownerComposerId": 6,
-    "ownerComposerName": "可燃冰"
+    "ownerComposerName": [
+      "可燃冰",
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50007,
@@ -78,7 +85,9 @@
     ],
     "sharedPortfolioKey": "白女皇|时间长流",
     "ownerComposerId": 9,
-    "ownerComposerName": "白女皇"
+    "ownerComposerName": [
+      "白女皇"
+    ]
   },
   {
     "id": 50002,
@@ -98,7 +107,9 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|最华丽的独奏",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50011,
@@ -118,7 +129,9 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|温室花房第1作：afternoon",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50012,
@@ -138,7 +151,9 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|温室花房第2作：sunlight",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50013,
@@ -158,7 +173,9 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|温室花房第3作：flower",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50014,
@@ -178,7 +195,9 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|温室花房第4作：rain",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
     "id": 50015,
@@ -198,28 +217,32 @@
     ],
     "sharedPortfolioKey": "PICKUPNEAR|温室花房第5作：dandelion",
     "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "ownerComposerName": [
+      "PICKUPNEAR"
+    ]
   },
   {
-    "id": 50023,
-    "name": "温室花房第6作：blizzard",
-    "price": 2400,
-    "quality": 3,
-    "abstract": 2,
-    "style": "冷冽",
-    "attention": 40,
-    "discussion": 10,
-    "good": 60,
+    "id": 51005,
+    "name": "温室花房第9作：recitation",
+    "price": 5000,
+    "quality": 4,
+    "abstract": 3,
+    "style": "灼热",
+    "attention": 60,
+    "discussion": 60,
+    "good": 80,
     "bought": false,
     "note": "",
-    "composerLabel": "PICKUPNEAR vs. 可燃冰",
+    "composerLabel": "PICKUPNEAR vs. 纵连大师",
     "collabComposerIds": [
-      11,
-      6
+      1005
     ],
-    "sharedPortfolioKey": "PICKUPNEAR vs. 可燃冰|温室花房第6作：blizzard",
-    "ownerComposerId": 11,
-    "ownerComposerName": "PICKUPNEAR"
+    "sharedPortfolioKey": "PICKUPNEAR vs. 纵连大师|温室花房第9作：recitation",
+    "ownerComposerId": 1005,
+    "ownerComposerName": [
+      "PICKUPNEAR",
+      "纵连大师"
+    ]
   },
   {
     "id": 50004,
@@ -239,7 +262,9 @@
     ],
     "sharedPortfolioKey": "Flower|infinite-cardinal",
     "ownerComposerId": 14,
-    "ownerComposerName": "Flower"
+    "ownerComposerName": [
+      "Flower"
+    ]
   },
   {
     "id": 50006,
@@ -259,7 +284,9 @@
     ],
     "sharedPortfolioKey": "Flower|返校日",
     "ownerComposerId": 14,
-    "ownerComposerName": "Flower"
+    "ownerComposerName": [
+      "Flower"
+    ]
   },
   {
     "id": 50005,
@@ -279,7 +306,9 @@
     ],
     "sharedPortfolioKey": "atsusamushi|School Violence",
     "ownerComposerId": 15,
-    "ownerComposerName": "atsusamushi"
+    "ownerComposerName": [
+      "atsusamushi"
+    ]
   },
   {
     "id": 50018,
@@ -299,7 +328,9 @@
     ],
     "sharedPortfolioKey": "shcad|花海的贤者",
     "ownerComposerId": 16,
-    "ownerComposerName": "shcad"
+    "ownerComposerName": [
+      "shcad"
+    ]
   },
   {
     "id": 50017,
@@ -319,7 +350,9 @@
     ],
     "sharedPortfolioKey": "侧睡|薪火",
     "ownerComposerId": 17,
-    "ownerComposerName": "侧睡"
+    "ownerComposerName": [
+      "侧睡"
+    ]
   },
   {
     "id": 50010,
@@ -339,7 +372,9 @@
     ],
     "sharedPortfolioKey": "Lemon|水晶指针",
     "ownerComposerId": 19,
-    "ownerComposerName": "Lemon"
+    "ownerComposerName": [
+      "Lemon"
+    ]
   },
   {
     "id": 50009,
@@ -359,7 +394,9 @@
     ],
     "sharedPortfolioKey": "贪吃蛇|恐龙时代",
     "ownerComposerId": 21,
-    "ownerComposerName": "贪吃蛇"
+    "ownerComposerName": [
+      "贪吃蛇"
+    ]
   },
   {
     "id": 50029,
@@ -380,7 +417,10 @@
     ],
     "sharedPortfolioKey": "贪吃蛇 vs. heaven_cube|点火器",
     "ownerComposerId": 21,
-    "ownerComposerName": "贪吃蛇"
+    "ownerComposerName": [
+      "贪吃蛇",
+      "heaven_cube"
+    ]
   },
   {
     "id": 50008,
@@ -400,7 +440,9 @@
     ],
     "sharedPortfolioKey": "美食街|春日吹雪",
     "ownerComposerId": 22,
-    "ownerComposerName": "美食街"
+    "ownerComposerName": [
+      "美食街"
+    ]
   },
   {
     "id": 50016,
@@ -420,7 +462,9 @@
     ],
     "sharedPortfolioKey": "stardust|Before Light",
     "ownerComposerId": 23,
-    "ownerComposerName": "stardust"
+    "ownerComposerName": [
+      "stardust"
+    ]
   },
   {
     "id": 50019,
@@ -440,7 +484,9 @@
     ],
     "sharedPortfolioKey": "boTanicaMin|碎裂的心",
     "ownerComposerId": 24,
-    "ownerComposerName": "boTanicaMin"
+    "ownerComposerName": [
+      "boTanicaMin"
+    ]
   },
   {
     "id": 50025,
@@ -460,7 +506,9 @@
     ],
     "sharedPortfolioKey": "boTanicaMin|乌托邦",
     "ownerComposerId": 24,
-    "ownerComposerName": "boTanicaMin"
+    "ownerComposerName": [
+      "boTanicaMin"
+    ]
   },
   {
     "id": 50020,
@@ -480,7 +528,9 @@
     ],
     "sharedPortfolioKey": "topaz|九龙城寨",
     "ownerComposerId": 25,
-    "ownerComposerName": "topaz"
+    "ownerComposerName": [
+      "topaz"
+    ]
   },
   {
     "id": 50021,
@@ -500,7 +550,9 @@
     ],
     "sharedPortfolioKey": "topaz|熊猫骑士",
     "ownerComposerId": 25,
-    "ownerComposerName": "topaz"
+    "ownerComposerName": [
+      "topaz"
+    ]
   },
   {
     "id": 50022,
@@ -520,7 +572,9 @@
     ],
     "sharedPortfolioKey": "whiteball|ruthless war",
     "ownerComposerId": 26,
-    "ownerComposerName": "whiteball"
+    "ownerComposerName": [
+      "whiteball"
+    ]
   },
   {
     "id": 50024,
@@ -540,7 +594,9 @@
     ],
     "sharedPortfolioKey": "sentinel|when the sun",
     "ownerComposerId": 29,
-    "ownerComposerName": "sentinel"
+    "ownerComposerName": [
+      "sentinel"
+    ]
   },
   {
     "id": 50030,
@@ -560,7 +616,9 @@
     ],
     "sharedPortfolioKey": "sentinel|lapis",
     "ownerComposerId": 29,
-    "ownerComposerName": "sentinel"
+    "ownerComposerName": [
+      "sentinel"
+    ]
   },
   {
     "id": 50026,
@@ -580,7 +638,9 @@
     ],
     "sharedPortfolioKey": "夜枭大叔|artcore",
     "ownerComposerId": 31,
-    "ownerComposerName": "夜枭大叔"
+    "ownerComposerName": [
+      "夜枭大叔"
+    ]
   },
   {
     "id": 50027,
@@ -600,7 +660,9 @@
     ],
     "sharedPortfolioKey": "野猪野|空气循环",
     "ownerComposerId": 33,
-    "ownerComposerName": "野猪野"
+    "ownerComposerName": [
+      "野猪野"
+    ]
   },
   {
     "id": 50028,
@@ -620,28 +682,9 @@
     ],
     "sharedPortfolioKey": "电钻侠|与电钻共舞",
     "ownerComposerId": 34,
-    "ownerComposerName": "电钻侠"
-  },
-  {
-    "id": 50029,
-    "name": "点火器",
-    "price": 10000,
-    "quality": 4,
-    "abstract": 2,
-    "style": "灼热",
-    "attention": 50,
-    "discussion": 40,
-    "good": 80,
-    "bought": false,
-    "note": "",
-    "composerLabel": "贪吃蛇 vs. heaven_cube",
-    "collabComposerIds": [
-      21,
-      37
-    ],
-    "sharedPortfolioKey": "贪吃蛇 vs. heaven_cube|点火器",
-    "ownerComposerId": 37,
-    "ownerComposerName": "heaven_cube"
+    "ownerComposerName": [
+      "电钻侠"
+    ]
   },
   {
     "id": 50031,
@@ -661,7 +704,9 @@
     ],
     "sharedPortfolioKey": "牛肉屋|狂风的裂隙",
     "ownerComposerId": 38,
-    "ownerComposerName": "牛肉屋"
+    "ownerComposerName": [
+      "牛肉屋"
+    ]
   },
   {
     "id": 51001,
@@ -681,7 +726,9 @@
     ],
     "sharedPortfolioKey": "焦耳|NightGUST",
     "ownerComposerId": 1001,
-    "ownerComposerName": "焦耳"
+    "ownerComposerName": [
+      "焦耳"
+    ]
   },
   {
     "id": 51002,
@@ -701,7 +748,9 @@
     ],
     "sharedPortfolioKey": "KuROWhite|Feel the Nostalgia",
     "ownerComposerId": 1002,
-    "ownerComposerName": "KuROWhite"
+    "ownerComposerName": [
+      "KuROWhite"
+    ]
   },
   {
     "id": 51003,
@@ -721,7 +770,9 @@
     ],
     "sharedPortfolioKey": "USAGI|Small Mommy",
     "ownerComposerId": 1003,
-    "ownerComposerName": "USAGI"
+    "ownerComposerName": [
+      "USAGI"
+    ]
   },
   {
     "id": 51004,
@@ -741,27 +792,8 @@
     ],
     "sharedPortfolioKey": "ふるかぶ|LightTheater",
     "ownerComposerId": 1004,
-    "ownerComposerName": "ふるかぶ"
-  },
-  {
-    "id": 51005,
-    "name": "温室花房第9作：recitation",
-    "price": 5000,
-    "quality": 4,
-    "abstract": 3,
-    "style": "灼热",
-    "attention": 60,
-    "discussion": 60,
-    "good": 80,
-    "bought": false,
-    "note": "",
-    "composerLabel": "PICKUPNEAR vs. 纵连大师",
-    "collabComposerIds": [
-      null,
-      1005
-    ],
-    "sharedPortfolioKey": "PICKUPNEAR vs. 纵连大师|温室花房第9作：recitation",
-    "ownerComposerId": 1005,
-    "ownerComposerName": "纵连大师"
+    "ownerComposerName": [
+      "ふるかぶ"
+    ]
   }
 ]
