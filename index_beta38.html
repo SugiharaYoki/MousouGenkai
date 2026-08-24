@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
-<title>非商业音乐游戏运营模拟器 Beta37</title>
+<title>非商业音乐游戏运营模拟器 Beta38</title>
 <style>
 :root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
@@ -543,7 +543,7 @@ html.manual-pc .main{
   </div>
   <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
 </section>
-<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 37</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 38</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
 <div class="layout"><div class="col">
 <section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
 <button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
@@ -713,7 +713,7 @@ freeMemberEventsToday:0,feedbackEmailEventDone:false,saveReminder60Done:false,co
 milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
 computerBrokenUntil:0,computerRepairCooldownUntil:0,members:[],composers:[],library:[],commissions:[],packages:[],collabs:[],
 currentCollabOffer:null,jobLockedUntil:1,firstShcadCommissionDone:false,rumorActiveUntil:0,rumorBaseFansLoss:0,rumorLastTriggerDay:-9999,rumorMinGapDays:90,rumorTriggersThisYear:0,collabFailStack:0,collabsThisYear:0,collabPenaltyDays:0,
-metaFans:0,metaDiscussion:0,metaPlayers:0,metaRating:80,severeBugUntil:0,updateClockStartDay:240,incomingOffers:[],pendingHiddenBugBonus:0,monthlyHighCoordEvents:0,monthlyLowCoordEvents:0,temporaryCoordBonus:0,temporaryCoordBonusUntil:0,pendingDiscussionDrops:[],temporaryPlayerEffects:[],
+metaFans:0,metaDiscussion:0,metaPlayers:0,metaRating:80,severeBugUntil:0,updateClockStartDay:240,incomingOffers:[],lastIncomingOfferDayByComposer:{},pendingHiddenBugBonus:0,monthlyHighCoordEvents:0,monthlyLowCoordEvents:0,temporaryCoordBonus:0,temporaryCoordBonusUntil:0,pendingDiscussionDrops:[],temporaryPlayerEffects:[],
 firstYear2EventDone:false,firstYear3CommissionDone:false,firstYear7CollabDone:false,commercialFormalCount:0,
 gameCoreProgress:0,gameCoreCompleteNotified:false,
 chartEditorUnlocked:false,chartEditorProgress:0,chartEditorComplete:false,chartEditorCompleteNotified:false,
@@ -723,12 +723,23 @@ rhythmPlayCount:0,personalChartCount:0,
 firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
 streamerWindows:[],activeStreamer:null,
 streamers:["无所依","造梦先生","愚者约翰内斯","鱼鳞子","红色通行证","真流畅","飞跃巅峰","505","水金","农夫","Blunt_Ball","善树"]};
+function formatLargeCount(n){
+  n=Number(n)||0;
+  if(n>=1000000)return Math.floor(n/1000)+"千";
+  return Math.floor(n);
+}
+function applyPopulationCaps(){
+  state.metaFans=Math.min(12000000,state.metaFans||0);
+  state.metaPlayers=Math.min(12000000,state.metaPlayers||0);
+  state.metaDiscussion=Math.min(24000000,state.metaDiscussion||0);
+}
 const year=()=>Math.floor((state.day-1)/365),dayOfYear=()=>((state.day-1)%365)+1,dayOfMonth=()=>((state.day-1)%30)+1,monthOfYear=()=>(Math.floor((dayOfYear()-1)/30)%12)+1,isMonthStart=()=>dayOfMonth()===1,isYearStart=()=>dayOfYear()===1;
 function ensureNewStateDefaults(){
   if(!state.services)state.services={vpn:false,translation:false,takeout:false,workspace:false,sponsor:false,course:false};
   if(state.services.course===undefined)state.services.course=false;
   if(!state.commissionSelections)state.commissionSelections={};
   if(!state.usedMemberNames)state.usedMemberNames=[];
+  if(!state.lastIncomingOfferDayByComposer)state.lastIncomingOfferDayByComposer={};
   if(!state.usedCommissionTitles)state.usedCommissionTitles=[];
   for(const s of (state.library||[])){
     if(s._chartCraftLevel===undefined)s._chartCraftLevel=null;
@@ -1165,6 +1176,7 @@ function processMilestoneDailyRewards(){
   }
 }
 function recalcPublic(){
+  applyPopulationCaps();
   let arr=installedSongs(),a=0,d=0,p=0,g=0,w=0;
   let avgAtt=arr.length?arr.reduce((z,s)=>z+Math.max(1,s.attention),0)/arr.length:1;
   for(const s of arr){let wt=Math.max(1,s.attention),rel=wt/avgAtt;a+=s.attention;d+=s.discussion*rel;p+=s.play*rel;g+=s.good*wt;w+=wt}
@@ -2658,6 +2670,7 @@ function incomingOfferQuality(c,style){
   return q
 }
 function createIncomingOffer(c,options={}){
+  if((state.incomingOffers||[]).length>=1)return false;
   if(!c||composerHasActiveCommission(c.id))return false;
   if(state.incomingOffers.some(o=>o.composerId===c.id))return false;
 
@@ -2677,6 +2690,8 @@ function createIncomingOffer(c,options={}){
     free,
     origin:options.origin||"monthly"
   };
+  if(!state.lastIncomingOfferDayByComposer)state.lastIncomingOfferDayByComposer={};
+  state.lastIncomingOfferDayByComposer[c.id]=state.day;
   state.incomingOffers.push(offer);
   log(`${c.name} 主动来稿《${title}》${free?"，并提出免费提供这首曲子":""}。`,"green");
   return true
@@ -2704,7 +2719,7 @@ function composerMonthly(){
     else if(state.temporaryPlayerEffects.some(e=>e.type==="大更新"&&state.day<=e.discussUntil))incoming*=3;
     let ss=styleState();if(ss.dominant&&c.styles[ss.dominant]>=80)incoming*=ss.name.includes("专一")?1.8:1.3;
     c.bond.forEach(id=>{let b=getComposer(id);if(b&&b.collabs>0)incoming*=1.08});
-    if(chance(incoming))createIncomingOffer(c,{origin:"monthly"})
+    if((state.incomingOffers||[]).length===0&&state.day-(state.lastIncomingOfferDayByComposer[c.id]||-9999)>=90&&chance(incoming))createIncomingOffer(c,{origin:"monthly"})
   })
 }
 function acceptIncomingOffer(id){
@@ -3128,7 +3143,7 @@ function refreshSaveStatus(){
 
 function buildSavePayload(){
   return {
-    version:"Beta37",
+    version:"Beta38",
     savedAt:Date.now(),
     uid:uid,
     state:JSON.parse(JSON.stringify(state)),
@@ -3317,7 +3332,7 @@ function applyDeviceMode(){
 }
 function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
 let simulatorTitle=document.getElementById("gameSimulatorTitle");
-if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 37`:"非商业音乐游戏运营模拟器 · Beta 37";
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 38`:"非商业音乐游戏运营模拟器 · Beta 38";
 state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
 eventActionPoints.textContent=state.ap.toFixed(0);
 eventSpirit.textContent=Math.round(spirit);
