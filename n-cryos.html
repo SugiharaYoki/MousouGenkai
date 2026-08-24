@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 非商业音游运营模拟器 作者：杉原夜季 特别鸣谢：《梦见霖音：Milthm》制作组 -->
-<title>非商业音乐游戏运营模拟器 Beta41</title>
+<title>非商业音乐游戏运营模拟器 Beta34</title>
 <style>
 :root{--bg:#0c1017;--p:#171d28;--p2:#202838;--l:#344158;--t:#edf2fb;--m:#9aa8bd;--a:#6f91ff;--g:#73d58c;--w:#e3bc68;--b:#ef7f88}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(#0b0f16,#111723);color:var(--t);font-family:"Microsoft YaHei",system-ui,sans-serif}
@@ -543,7 +543,7 @@ html.manual-pc .main{
   </div>
   <div class="design-confirm-row"><button class="primary" onclick="confirmDesignConcept()">确定</button></div>
 </section>
-<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 41</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
+<div class="top"><div><h1 id="gameSimulatorTitle">非商业音乐游戏运营模拟器 · Beta 34</h1></div><div class="time"><b id="timeMain"></b><div class="sub" id="dateSub"></div></div></div>
 <div class="layout"><div class="col">
 <section class="panel mobile-operation"><h2>操作面板</h2><div class="two"><div class="card"><div class="k">主业</div><div class="v" id="jobName" style="font-size:18px"></div></div><div class="card money-card"><div class="k">存款</div><div class="v" id="money"></div>
 <button class="money-sidegig" onclick="sideGig()"><b>赚外快</b><span id="sideGigCostHint">8行动点 / +40疲劳</span></button></div></div>
@@ -551,11 +551,10 @@ html.manual-pc .main{
 <div class="barbox"><div class="barhead"><b>行动点</b><span id="apText"></span></div><div class="bar"><div id="apBar" class="fill"></div></div></div>
 <div class="barbox"><div class="barhead"><b>精神</b><span id="fatigueText"></span></div><div class="bar"><div id="fatigueBar" class="fill"></div></div></div><div id="fatigueWarning">⚠ 精神过低：当前精神低于100，部分行动可能触发疲劳效果。</div><div id="developmentBars"></div><div class="statusline" id="doubleCostText"></div>
 <div class="action-grid">
-<button class="action work-orange" id="writeCopyBtn" onclick="writeCopy()"><b id="writeCopyLabel">写文案</b><span id="writeCopyCostHint">2行动点 / +5疲劳</span></button><button class="action work-orange" id="derivativeAnnouncementBtn" onclick="publishDerivativeAnnouncement()" style="display:none"><b>发公告·带衍生图</b><span>2行动点 / +5疲劳</span></button>
+<button class="action work-orange" id="writeCopyBtn" onclick="writeCopy()"><b id="writeCopyLabel">写文案</b><span id="writeCopyCostHint">2行动点 / +5疲劳</span></button>
 <button class="action work-orange" id="writeProgramBtn" onclick="writeProgram()"><b>写程序</b><span id="programCostHint"></span></button>
 
 <button class="action learn-purple" id="studyProgramBtn" onclick="studyProgram()"><b>学程序</b><span id="studyProgramCostHint">5行动点 / +30疲劳</span></button><button class="action learn-purple" id="studyArtBtn" onclick="studyArt()"><b>学美术</b><span id="studyArtCostHint">10行动点 / +50疲劳</span></button>
-<button class="action learn-purple" id="createDerivativeBtn" onclick="createDerivative()" style="display:none"><b>创作衍生图</b><span>8行动点 / -30精神</span></button>
 <button class="action stress-down" onclick="playRhythm()"><b>打音游</b><span id="rhythmCostHint">2行动点 / -40疲劳</span></button>
 <button class="action stress-down" id="takeoutBtn" onclick="takeout()"><b>点外卖</b><span id="takeoutCostHint">1行动点 / -25疲劳</span></button>
 
@@ -576,7 +575,7 @@ html.manual-pc .main{
 </section>
 <section class="panel mobile-services"><h2>会员服务</h2><div class="sub">购买/取消不消耗行动点；购买当天立即扣费，之后按月扣费。</div><div id="services"></div></section>
 <section class="panel mobile-team"><h2>制作组</h2>
-<div class="between"><span>协调阈值：<b id="coord"></b> / <b id="coordCapDisplay"></b><br><span id="derivativeCountLine" style="display:none">可用衍生图数量：<b id="derivativeCount"></b></span></span><span class="sub" id="teamCapText"></span></div>
+<div class="between"><span>协调阈值：<b id="coord"></b> / <b id="coordCapDisplay"></b></span><span class="sub" id="teamCapText"></span></div>
 <div class="row" style="margin:5px 0">
   <span class="sub">成员排序</span>
   <select id="memberSortSelect" onchange="setMemberSortMode(this.value)">
@@ -592,7 +591,7 @@ html.manual-pc .main{
 <div class="list" id="members"></div></section>
 <section class="panel mobile-economy"><h2>经济状态</h2><div id="economyText"></div>
 <div class="sub" style="margin-top:12px;text-align:right;line-height:1.6;opacity:.72;font-size:10px">
-  最后更新日期：2026年08月24日 14:00:00<br>
+  最后更新日期：2026年08月24日 02:30:00<br>
   反馈与提议：邮箱 yukidare2766@gmail.com
 </div></section>
 </div><div class="col">
@@ -694,7 +693,8 @@ let uid=100;const nextId=()=>++uid,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),rnd=
      let m=matches.find(x=>x.owner===c.name)||matches[0];
      if(!m)return;
      if(m.price!=null)p.price=m.price;
-          if(m.abstract!=null)p.abstract=m.abstract;
+     if(m.quality!=null)p.quality=m.quality;
+     if(m.abstract!=null)p.abstract=m.abstract;
      if(m.style!=null)p.style=m.style;
      if(m.attention!=null)p.attention=m.attention;
      if(m.discussion!=null)p.discussion=m.discussion;
@@ -709,40 +709,27 @@ lastUpdateDay:null,updateClockStarted:false,hiatusTriggered:false,lastMainlineDa
 services:{vpn:false,translation:false,takeout:false,workspace:false,sponsor:false,course:false},commissionSelections:{},usedMemberNames:[],usedCommissionTitles:[],sponsorIncome:0,recruitFail:{chart:0,art:0},candidate:null,applications:[],studyActionsToday:0,sideSleepNetworkDone:false,day100RecruitEventDone:false,hasSearchedMember:false,sideSleepSearchHintDone:false,firstNonTutorialSongHintDone:false,firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDayExpediteTipDone:false,designConceptConfirmed:false,designStyle:"传统",designPC:false,gameName:"",designNameAnnouncementDone:false,spliceYear1Failed:null,firstReleaseTier:null,programWritesToday:0,memberSortMode:"acquired",
 formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
 exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
-collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,derivativeProgress:0,derivativeCount:0,fiveStarRecruitSuppressionUntil:0,
-freeMemberEventsToday:0,feedbackEmailEventDone:false,saveReminder60Done:false,copyFanMonthIndex:0,copyFanMonthStartFans:0,copyFanGainThisMonth:0,takeoutCountToday:0,overeatingStacks:0,takeoutBlockedToday:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,recommendCommissionCooldown:0,mysteryDonationCooldown:0,mysteryDonationFollowups:[],playerMilestone10000Done:false,playerMilestone100000Done:false,
+collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
+freeMemberEventsToday:0,feedbackEmailEventDone:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,recommendCommissionCooldown:0,mysteryDonationCooldown:0,mysteryDonationFollowups:[],playerMilestone10000Done:false,playerMilestone100000Done:false,
 milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
 computerBrokenUntil:0,computerRepairCooldownUntil:0,members:[],composers:[],library:[],commissions:[],packages:[],collabs:[],
 currentCollabOffer:null,jobLockedUntil:1,firstShcadCommissionDone:false,rumorActiveUntil:0,rumorBaseFansLoss:0,rumorLastTriggerDay:-9999,rumorMinGapDays:90,rumorTriggersThisYear:0,collabFailStack:0,collabsThisYear:0,collabPenaltyDays:0,
-metaFans:0,metaDiscussion:0,metaPlayers:0,metaRating:80,severeBugUntil:0,updateClockStartDay:240,incomingOffers:[],lastIncomingOfferDayByComposer:{},pendingHiddenBugBonus:0,monthlyHighCoordEvents:0,monthlyLowCoordEvents:0,temporaryCoordBonus:0,temporaryCoordBonusUntil:0,pendingDiscussionDrops:[],temporaryPlayerEffects:[],
+metaFans:0,metaDiscussion:0,metaPlayers:0,metaRating:80,severeBugUntil:0,updateClockStartDay:240,incomingOffers:[],pendingHiddenBugBonus:0,monthlyHighCoordEvents:0,monthlyLowCoordEvents:0,temporaryCoordBonus:0,temporaryCoordBonusUntil:0,pendingDiscussionDrops:[],temporaryPlayerEffects:[],
 firstYear2EventDone:false,firstYear3CommissionDone:false,firstYear7CollabDone:false,commercialFormalCount:0,
 gameCoreProgress:0,gameCoreCompleteNotified:false,
 chartEditorUnlocked:false,chartEditorProgress:0,chartEditorComplete:false,chartEditorCompleteNotified:false,
 chartEditorV2Unlocked:false,chartEditorV2Progress:0,chartEditorV2Complete:false,chartEditorV2CompleteNotified:false,
-artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,derivativeProgress:0,derivativeCount:0,
+artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,
 rhythmPlayCount:0,personalChartCount:0,
 firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
 streamerWindows:[],activeStreamer:null,
 streamers:["无所依","造梦先生","愚者约翰内斯","鱼鳞子","红色通行证","真流畅","飞跃巅峰","505","水金","农夫","Blunt_Ball","善树"]};
-function formatLargeCount(n){
-  n=Number(n)||0;
-  if(n>=1000000)return Math.floor(n/1000)+"千";
-  return Math.floor(n);
-}
-function applyPopulationCaps(){
-  state.metaFans=Math.min(12000000,state.metaFans||0);
-  state.metaPlayers=Math.min(12000000,state.metaPlayers||0);
-  state.metaDiscussion=Math.min(24000000,state.metaDiscussion||0);
-}
 const year=()=>Math.floor((state.day-1)/365),dayOfYear=()=>((state.day-1)%365)+1,dayOfMonth=()=>((state.day-1)%30)+1,monthOfYear=()=>(Math.floor((dayOfYear()-1)/30)%12)+1,isMonthStart=()=>dayOfMonth()===1,isYearStart=()=>dayOfYear()===1;
 function ensureNewStateDefaults(){
   if(!state.services)state.services={vpn:false,translation:false,takeout:false,workspace:false,sponsor:false,course:false};
   if(state.services.course===undefined)state.services.course=false;
   if(!state.commissionSelections)state.commissionSelections={};
   if(!state.usedMemberNames)state.usedMemberNames=[];
-  if(!Number.isFinite(state.derivativeProgress))state.derivativeProgress=0;
-  if(!Number.isFinite(state.derivativeCount))state.derivativeCount=0;
-  if(!state.lastIncomingOfferDayByComposer)state.lastIncomingOfferDayByComposer={};
   if(!state.usedCommissionTitles)state.usedCommissionTitles=[];
   for(const s of (state.library||[])){
     if(s._chartCraftLevel===undefined)s._chartCraftLevel=null;
@@ -758,7 +745,6 @@ function ensureNewStateDefaults(){
     if(m._statusDaysBeforeOccupation===undefined)m._statusDaysBeforeOccupation=0;
     if(!Number.isFinite(m.lewdCoordUntil))m.lewdCoordUntil=0;
     if(!Number.isFinite(m.academicAbsenceScheduledDay))m.academicAbsenceScheduledDay=0;
-    if(!Number.isFinite(m.actualJoinDay))m.actualJoinDay=m.joinDay;
   }
   for(const p of (state.packages||[])){
     if(!Number.isFinite(p.announcementFanBonus))p.announcementFanBonus=0;
@@ -776,7 +762,7 @@ function ensureNewStateDefaults(){
   const d={
     gameCoreProgress:0,gameCoreCompleteNotified:false,
     chartEditorUnlocked:false,chartEditorProgress:0,chartEditorComplete:false,chartEditorCompleteNotified:false,
-    artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,derivativeProgress:0,derivativeCount:0,
+    artStudyStarted:false,artStudyProgress:0,artStudy50Notified:false,artStudy100Notified:false,
     rhythmPlayCount:0,personalChartCount:0,
     applications:[],studyActionsToday:0,sideSleepNetworkDone:false,
     hasSearchedMember:false,sideSleepSearchHintDone:false,firstNonTutorialSongHintDone:false,
@@ -785,8 +771,8 @@ firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDa
     firstReleaseTier:null,programWritesToday:0,memberSortMode:"acquired",
     formerMemberOpinionCandidates:[],exMemberScandalClusterUntil:0,exMemberScandalDiscussUntil:0,
     exMemberScandalDiscussScale:0,exMemberScandalEscalated:false,exMemberGradualLoss:null,
-    collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,derivativeProgress:0,derivativeCount:0,fiveStarRecruitSuppressionUntil:0,
-    freeMemberEventsToday:0,feedbackEmailEventDone:false,saveReminder60Done:false,copyFanMonthIndex:0,copyFanMonthStartFans:0,copyFanGainThisMonth:0,takeoutCountToday:0,overeatingStacks:0,takeoutBlockedToday:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
+    collabOpinionBlockedUntil:0,teamArgumentUntil:0,formerMemberOpinionSpokenNames:[],ruthlessWarBusEventDone:false,lastAnnouncementDay:-9999,departedRecoverables:[],programStudyCount:0,artStudyCount:0,fiveStarRecruitSuppressionUntil:0,
+    freeMemberEventsToday:0,feedbackEmailEventDone:false,monthlyPraiseLocks:[],documentExplosionCount90:0,documentExplosionPenalty:0,playerMilestone1000Done:false,playerMilestone10000Done:false,playerMilestone100000Done:false,
     milestoneMemberApplicationDays:[],milestoneComposerOfferDays:[],shcadMilestoneDiscountPending:false,
     computerBrokenUntil:0,computerRepairCooldownUntil:0,
     firstReleaseEvaluated:false,badLaunchUntil:0,perfectLaunchUntil:0,
@@ -836,13 +822,6 @@ firstChartCompleteHintDone:false,sideSleepCommissionedOnce:false,sideSleepSameDa
   if(!Number.isFinite(state.fiveStarRecruitSuppressionUntil))state.fiveStarRecruitSuppressionUntil=0;
   if(!Number.isFinite(state.freeMemberEventsToday))state.freeMemberEventsToday=0;
   if(state.feedbackEmailEventDone===undefined)state.feedbackEmailEventDone=false;
-  if(state.saveReminder60Done===undefined)state.saveReminder60Done=false;
-  if(!Number.isFinite(state.copyFanMonthIndex))state.copyFanMonthIndex=0;
-  if(!Number.isFinite(state.copyFanMonthStartFans))state.copyFanMonthStartFans=0;
-  if(!Number.isFinite(state.copyFanGainThisMonth))state.copyFanGainThisMonth=0;
-  if(!Number.isFinite(state.takeoutCountToday))state.takeoutCountToday=0;
-  if(!Number.isFinite(state.overeatingStacks))state.overeatingStacks=0;
-  state.takeoutBlockedToday=!!state.takeoutBlockedToday;
   if(state.playerMilestone1000Done===undefined)state.playerMilestone1000Done=false;
   if(state.playerMilestone10000Done===undefined)state.playerMilestone10000Done=false;
   if(state.playerMilestone100000Done===undefined)state.playerMilestone100000Done=false;
@@ -1179,7 +1158,6 @@ function processMilestoneDailyRewards(){
   }
 }
 function recalcPublic(){
-  applyPopulationCaps();
   let arr=installedSongs(),a=0,d=0,p=0,g=0,w=0;
   let avgAtt=arr.length?arr.reduce((z,s)=>z+Math.max(1,s.attention),0)/arr.length:1;
   for(const s of arr){let wt=Math.max(1,s.attention),rel=wt/avgAtt;a+=s.attention;d+=s.discussion*rel;p+=s.play*rel;g+=s.good*wt;w+=wt}
@@ -1359,15 +1337,11 @@ function freeActionEvent(){
     state.temporaryCoordBonus=20;state.temporaryCoordBonusUntil=state.day+7;
     log(`你爹来了：${memberName(m)} 接手了这次操作。`,"blue");
     return "free4"
-  }else if(l3.length){
-    let multiChance=Math.min(.4,l3.length*.04);
-    if(l3.some(m=>state.day-(m.actualJoinDay??m.joinDay)<=7))multiChance=Math.min(1,multiChance*3);
-    if(chance(multiChance)){
-      let m=l3[Math.floor(Math.random()*l3.length)];
-      state.freeMemberEventsToday=(state.freeMemberEventsToday||0)+1;
-      log(`组员多才多艺：${memberName(m)} 接手了这次操作。`,"blue");
-      return "free3"
-    }
+  }else if(l3.length&&chance(Math.min(.4,l3.length*.04))){
+    let m=l3[Math.floor(Math.random()*l3.length)];
+    state.freeMemberEventsToday=(state.freeMemberEventsToday||0)+1;
+    log(`组员多才多艺：${memberName(m)} 接手了这次操作。`,"blue");
+    return "free3"
   }
   return false
 }
@@ -1379,26 +1353,6 @@ function pendingAnnouncementPackage(){
 }
 function announcementCooldownLeft(){
   return Math.max(0,7-(state.day-(state.lastAnnouncementDay||-9999)))
-}
-function publishDerivativeAnnouncement(){
-  let p=pendingAnnouncementPackage();
-  return publishUpdateAnnouncementWithDerivative(p)
-}
-function publishUpdateAnnouncementWithDerivative(p){
-  if((state.derivativeCount||0)<=0)return false;
-  if(!p||p.status!=="等待上架")return false;
-  let left=announcementCooldownLeft();
-  if(left>0){log(`距离上次发布公告还不到7天，还需要等待${left}天。`);return false}
-  if(!spendAP(2))return false;
-  state.fatigue+=5;
-  state.lastAnnouncementDay=state.day;
-  state.derivativeCount--;
-  p.announcementFanBonus=(p.announcementFanBonus||0)+.10;
-  if(!p.reviewEventChecked)p.announcementBeforeReview=true;
-  state.temporaryPlayerEffects.push({type:"衍生图公告",until:state.day+15,stickinessBonus:.01});
-  log("你发布了一条带有衍生图的更新公告。玩家更加期待这次更新！");
-  render();
-  return true
 }
 function publishUpdateAnnouncement(p){
   if(!p||p.status!=="等待上架")return false;
@@ -1413,28 +1367,6 @@ function publishUpdateAnnouncement(p){
   render();
   return true
 }
-function currentOperationMonth(){
-  return Math.floor((state.day-1)/30)+1
-}
-function ensureCopyFanMonth(){
-  let m=currentOperationMonth();
-  if(state.copyFanMonthIndex!==m){
-    recalcPublic();
-    state.copyFanMonthIndex=m;
-    state.copyFanMonthStartFans=Math.max(0,Number(state.fans)||0);
-    state.copyFanGainThisMonth=0
-  }
-}
-function addCopyFanGain(rawGain){
-  ensureCopyFanMonth();
-  let month=currentOperationMonth();
-  let cap=month<=3?100:Math.max(0,state.copyFanMonthStartFans*1.2);
-  let remain=Math.max(0,cap-(state.copyFanGainThisMonth||0));
-  let actual=Math.min(Math.max(0,rawGain),remain);
-  state.metaFans+=actual;
-  state.copyFanGainThisMonth=(state.copyFanGainThisMonth||0)+actual;
-  return actual
-}
 function writeCopy(){
   let announcementPackage=pendingAnnouncementPackage();
   if(announcementPackage){
@@ -1442,16 +1374,11 @@ function writeCopy(){
     return
   }
   let free=freeActionEvent();
-  let copyYearCost=Math.min(10,Math.max(0,year()));
-  let apCost=2+copyYearCost;
-  let spiritCost=Math.min(60,5*year());
   let operationFatigue=free?0:state.fatigue;
-  if(!free&&!spendAP(apCost))return;
-  if(!free){state.fatigue+=spiritCost;}
+  if(!free&&!spendAP(2))return;
+  if(!free)state.fatigue+=5;
   state.expectation+=3*artMods().expect;
-  let dg=designGrowthMultipliers();
-  state.metaDiscussion+=10*dg.discussion;
-  addCopyFanGain(5*growthSpeedMultiplier()*dg.fan);
+  let dg=designGrowthMultipliers();state.metaDiscussion+=10*dg.discussion;state.metaFans+=5*growthSpeedMultiplier()*dg.fan;
   if(!free)burnoutCopyCheck();
   else log(`${free==="free4"?"你爹来了":"组员多才多艺"}：本次写文案不消耗行动点，且本次操作疲劳视为0。`,"blue");
   render()
@@ -1501,27 +1428,6 @@ function studyProgram(){
   // “学程序”基础每次程序水平+1；原有“灵感爆棚”仍使本次收益为1.5倍。
   state.tech+=state.inspiration?1.5:1;
   state.inspiration=false;
-  render()
-}
-function createDerivative(){
-  if(state.artStudyProgress<100)return;
-  let free=freeActionEvent();
-  let cost=state.takeoutProgramDiscount?7:8;
-  if(!free&&!spendAP(cost))return;
-  if(!free)state.spirit=Math.max(0,state.spirit-30);
-  state.takeoutProgramDiscount=false;
-
-  let gain=rnd(3,8);
-  state.derivativeProgress+=gain;
-  log(`花了点时间，为《${state.gameName||"游戏"}》画了一会衍生图。`);
-
-  if(state.derivativeProgress>=100){
-    state.derivativeCount++;
-    state.derivativeProgress=0;
-    log(`新的衍生图创作完毕了！当前可分配的衍生图数量：${state.derivativeCount}`,"green");
-  }
-
-  if(free)log(`${free==="free4"?"你爹来了":"组员多才多艺"}：本次创作衍生图不消耗行动点。`,"blue");
   render()
 }
 function studyArt(){
@@ -1608,34 +1514,7 @@ function personallyDraw(songId){
   render()
 }
 function playRhythm(){if(!spendAP(2))return;state.rhythmPlayCount=(state.rhythmPlayCount||0)+1;state.fatigue=Math.max(0,state.fatigue-40-(!state.playedRhythmToday&&state.takeoutRecruitBuff?10:0));state.playedRhythmToday=true;if(chance(.03+state.rating/10000+state.tech/1000)){state.inspiration=true;log("灵感爆棚。")}render()}
-function takeout(){
-  if(!state.services.takeout)return log("需要外卖平台会员。");
-  if(state.takeoutBlockedToday)return log("今天已经吃坏肚子，不能再点外卖了。");
-  if((state.takeoutCountToday||0)>=6)return log("今天已经点过6次外卖了。");
-  if(!spendAP(1))return;
-
-  state.takeoutCountToday=(state.takeoutCountToday||0)+1;
-  state.fatigue=Math.max(0,state.fatigue-25);
-  state.takeoutRecruitBuff=true;
-  state.takeoutProgramDiscount=true;
-
-  if(state.takeoutCountToday>=4){
-    state.overeatingStacks=(state.overeatingStacks||0)+1
-  }
-
-  let sickChance=Math.min(1,(state.overeatingStacks||0)*.20);
-  if((state.overeatingStacks||0)>0&&chance(sickChance)){
-    state.fatigue+=30;
-    state.takeoutBlockedToday=true;
-    log("吃得太多了！肚子好痛，没法正常干活了。","red")
-  }
-  render()
-}
-function resetTakeoutForNewDay(){
-  state.takeoutCountToday=0;
-  state.takeoutBlockedToday=false;
-  state.overeatingStacks=Math.max(0,(state.overeatingStacks||0)-2)
-}
+function takeout(){if(!state.services.takeout)return log("需要外卖平台会员。");if(!spendAP(1))return;state.fatigue=Math.max(0,state.fatigue-25);state.takeoutRecruitBuff=true;state.takeoutProgramDiscount=true;render()}
 function recruitProbability(role){let p=.05+state.recruitFail[role]*.05;if(state.designConceptConfirmed&&state.designStyle==="缝合"&&role==="chart"&&year()===0)p+=.05;let f=state.ap/Math.max(1,apCap());p*=role==="chart"?.3+.7*f:.3+.7*(1-f);if(state.fatigue>(state.money<=0?80:100))p*=.5;if(state.takeoutRecruitBuff)p*=1.05;if(styleState().name==="多元发展")p*=1.12;return clamp(p,0,1)}
 function memberNameAllowed(name,role,rarity){
   if(LEVEL5_CHART_NAME_POOL.includes(name))return role==="chart"&&rarity===5;
@@ -1695,7 +1574,7 @@ function createMemberApplication(role,rarity,message=null){
 function acceptApplication(id){
   let app=(state.applications||[]).find(a=>a.id===id);if(!app)return;
   if(state.members.length>=teamCap())return log("人数已达上限，暂时无法接受这份申请。");
-  state.members.push({id:nextId(),name:app.name,role:app.role,rarity:app.rarity,joinDay:memberJoinDayForDesign(app.role,app.rarity),actualJoinDay:state.day,idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&app.role==="chart"&&app.rarity>=3});
+  state.members.push({id:nextId(),name:app.name,role:app.role,rarity:app.rarity,joinDay:memberJoinDayForDesign(app.role,app.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&app.role==="chart"&&app.rarity>=3});
   markFiveStarRecruit(app.rarity);
   state.applications=state.applications.filter(a=>a.id!==id);
   log(`已接受${app.name}的加入申请。`,"blue");
@@ -1786,7 +1665,7 @@ function searchMember(role){
 function acceptCandidate(){
   let c=state.candidate;if(!c)return;
   if(state.members.length>=teamCap())return log("人数已达上限，暂时无法录用。");
-  state.members.push({id:nextId(),name:c.name||pickUniqueMemberName(c.role,c.rarity),role:c.role,rarity:c.rarity,joinDay:memberJoinDayForDesign(c.role,c.rarity),actualJoinDay:state.day,idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&c.role==="chart"&&c.rarity>=3});
+  state.members.push({id:nextId(),name:c.name||pickUniqueMemberName(c.role,c.rarity),role:c.role,rarity:c.rarity,joinDay:memberJoinDayForDesign(c.role,c.rarity),idleDays:0,status:"正常",statusDays:0,cooldownUntil:0,works:0,assignedSongIds:[],coordExtraUntil:0,_spliceTenureApplied:state.designConceptConfirmed&&state.designStyle==="缝合"&&c.role==="chart"&&c.rarity>=3});
   markFiveStarRecruit(c.rarity);
   state.candidate=null;
   log(`已录用${c.rarity}级${c.role==="chart"?"谱师":"美术"} ${c.name||""}。`);
@@ -2023,24 +1902,9 @@ function teamExplosion(high){
   if(high&&chance(.50))removeOne();
   log(`组内爆炸：制作组发生冲突${damaged.length?`，影响了《${damaged.join("》《")}》的制作进度`:""}。`,"blue");
 }
-function memberCrazyProgressThreshold(m){
-  if(m.rarity===1)return 80;
-  if(m.rarity===2)return 70;
-  return 50
-}
-function memberCrazyHasProtectedWork(m){
-  let threshold=memberCrazyProgressThreshold(m);
-  return (m.assignedSongIds||[]).some(id=>{
-    let s=getSong(id);if(!s)return false;
-    let progress=m.role==="chart"?Number(s.chartProgress)||0:Number(s.artProgress)||0;
-    return progress>threshold
-  })
-}
 function memberCrazy(){
-  // 实际入组7天内的新成员绝不会触发“疯了”。
-  let e=state.members.filter(m=>!memberOccupied(m)&&state.day-(m.actualJoinDay??m.joinDay)>7);
-  if(!e.length)return;
-  let m=e[Math.floor(Math.random()*e.length)],who=m.name||"未命名",s=getSong((m.assignedSongIds||[])[0]),result="没有正在进行的工作受到直接影响";
+  let e=state.members.filter(m=>![2,5].includes(m.rarity)&&!memberOccupied(m));if(!e.length)return;
+  let m=e[Math.floor(Math.random()*e.length)],who=m.name||"未命名",s=getSong(m.assignedSongIds[0]),result="没有正在进行的工作受到直接影响";
   if(s){
     if(chance(.5)){
       if(m.role==="chart")s.chartProgress=100;else s.artProgress=100;
@@ -2048,15 +1912,8 @@ function memberCrazy(){
       completeRole(s,m.role);finalizePlayableQuality(s);
       result=`《${s.name}》的${m.role==="chart"?"谱面":"美术"}被直接完成，但歌曲的可玩质量可能受到影响`
     }else{
-      let protectedWork=memberCrazyHasProtectedWork(m);
-      if(m.role==="chart"){
-        s.chartProgress=protectedWork?Math.max(0,s.chartProgress-20):0
-      }else{
-        s.artProgress=protectedWork?Math.max(0,s.artProgress-20):0
-      }
-      result=protectedWork
-        ?`《${s.name}》的${m.role==="chart"?"谱面":"美术"}进度下降20%`
-        :`《${s.name}》的${m.role==="chart"?"谱面":"美术"}进度归零`;
+      if(m.role==="chart")s.chartProgress=0;else s.artProgress=0;
+      result=`《${s.name}》的${m.role==="chart"?"谱面":"美术"}进度归零`;
       if(chance(.3)){
         removeMember(m.id,`有组员疯了：${who}在事件中直接退组。`,"blue");
         log(`有组员疯了：${who}受到影响，${result}。`,"blue");
@@ -2539,9 +2396,7 @@ function commissionComposer(id){
   let isFirstShcad=(c.name==="shcad"&&!state.firstShcadCommissionDone);
   let price=currentCommissionPrice(c,n);
   if(!canSpendMoney(price)){log("存款不足：本次约曲行动已消耗1行动点，但没有扣除约稿费用。");return}
-  let earlyHighPriceNoncommercial=state.day<=90&&n==="非商"&&price>=4500;
-  let accepted=isFirstShcad?true:(earlyHighPriceNoncommercial?chance(.05):commissionSuccess(c));
-  if(!accepted){log(`${c.name} 没有接受约稿：未扣除任何约稿费用（仅消耗本次约曲的1行动点）。`);return}
+  if(!isFirstShcad && !commissionSuccess(c)){log(`${c.name} 没有接受约稿：未扣除任何约稿费用（仅消耗本次约曲的1行动点）。`);return}
   state.money-=price;
   let usedShcadMilestoneDiscount=c.name==="shcad"&&state.shcadMilestoneDiscountPending&&!isFirstShcad;
   if(usedShcadMilestoneDiscount)state.shcadMilestoneDiscountPending=false;
@@ -2621,15 +2476,6 @@ function commissionDaily(){
   }
 }
 
-function portfolioQualityFromGood(good){
-  let g=Number(good)||0;
-  if(g<30)return 1;
-  if(g<50)return 2;
-  if(g<70)return 3;
-  if(g<85)return 4;
-  if(g<96)return 5;
-  return 6;
-}
 function createSongFromPortfolio(p,c){
   let composerIds=(p.collabComposerIds&&p.collabComposerIds.length)?[...p.collabComposerIds]:[c.id];
   let s={
@@ -2640,7 +2486,7 @@ function createSongFromPortfolio(p,c){
     composerIds,
     composerLabel:p.composerLabel||c.name,
     style:p.style,
-    quality:portfolioQualityFromGood(p.good),
+    quality:p.quality,
     abstract:p.abstract,
     attention:p.attention*4,
     originalAttention:p.attention*4,
@@ -2717,7 +2563,6 @@ function incomingOfferQuality(c,style){
   return q
 }
 function createIncomingOffer(c,options={}){
-  if((state.incomingOffers||[]).length>=1)return false;
   if(!c||composerHasActiveCommission(c.id))return false;
   if(state.incomingOffers.some(o=>o.composerId===c.id))return false;
 
@@ -2737,8 +2582,6 @@ function createIncomingOffer(c,options={}){
     free,
     origin:options.origin||"monthly"
   };
-  if(!state.lastIncomingOfferDayByComposer)state.lastIncomingOfferDayByComposer={};
-  state.lastIncomingOfferDayByComposer[c.id]=state.day;
   state.incomingOffers.push(offer);
   log(`${c.name} 主动来稿《${title}》${free?"，并提出免费提供这首曲子":""}。`,"green");
   return true
@@ -2766,7 +2609,7 @@ function composerMonthly(){
     else if(state.temporaryPlayerEffects.some(e=>e.type==="大更新"&&state.day<=e.discussUntil))incoming*=3;
     let ss=styleState();if(ss.dominant&&c.styles[ss.dominant]>=80)incoming*=ss.name.includes("专一")?1.8:1.3;
     c.bond.forEach(id=>{let b=getComposer(id);if(b&&b.collabs>0)incoming*=1.08});
-    if((state.incomingOffers||[]).length===0&&state.day-(state.lastIncomingOfferDayByComposer[c.id]||-9999)>=90&&chance(incoming))createIncomingOffer(c,{origin:"monthly"})
+    if(chance(incoming))createIncomingOffer(c,{origin:"monthly"})
   })
 }
 function acceptIncomingOffer(id){
@@ -3128,11 +2971,6 @@ function resolveStreamerAtDayEnd(){
   state.activeStreamer=null;
 }
 function naturalPlayerGrowth(){let y=year()+dayOfYear()/365,f=y<=3?.3+.7*(y/3):y<=7?1-(y-3)/4*.9:.1;f*=styleState().playerMul*growthSpeedMultiplier()*designGrowthMultipliers().player;if(state.stickiness>=70)f*=1.15;state.metaPlayers+=Math.max(0,state.players*.00005*f);state.expectation+=.002*(1+y/7)*artMods().expect}
-function saveReminder60Daily(){
-  if(state.saveReminder60Done||state.day<60)return;
-  state.saveReminder60Done=true;
-  log("别忘记你可以对游戏进行存档！存档保存于当前浏览器本地，无法在设备或不同浏览器间互通。如果你想要导出存档，不妨试试“删除存档”右边的“向上”箭头。","gold")
-}
 function feedbackEmailMilestoneDaily(){
   if(state.feedbackEmailEventDone||state.day<100)return;
   state.feedbackEmailEventDone=true;
@@ -3159,7 +2997,7 @@ function protectedArtScore(value){
   return Math.min(100,value);
 }
 
-function endDay(){state.day++;resetTakeoutForNewDay();ensureCopyFanMonth();praiseMonthlyLockDaily();applyDocumentExplosionDecay();cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();saveReminder60Daily();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();recommendationCommissionDaily();mysteryDonationDaily();naturalPlayerGrowth();rumorDaily();
+function endDay(){state.day++;praiseMonthlyLockDaily();applyDocumentExplosionDecay();cleanupDepartedRecoverables();updateDesignYearState();logDayEntry();feedbackEmailMilestoneDaily();computerDaily();processMilestoneDailyRewards();state.dailySpent=0;state.studyActionsToday=0;state.programWritesToday=0;state.freeMemberEventsToday=0;state.playedRhythmToday=false;state.takeoutProgramDiscount=false;state.takeoutRecruitBuff=false;tryStartStreamerAtDayStart();applyJobDay();serviceMonthlyCost();sponsorship();state.ap=Math.min(apCap(),state.ap+todayAPGain());if(state.collabPenaltyDays>0)state.collabPenaltyDays--;memberOccupationDaily();productionDaily();commissionDaily();songDaily();alphaDaily();betaDaily();formerMemberOpinionDaily();memberDailyEvents();lewdImageDaily();coordinationDailyEvents();remindDoubtingMembers();specialRecruitmentEvents();recommendationCommissionDaily();mysteryDonationDaily();naturalPlayerGrowth();rumorDaily();
 recalcPublic();
 if(state.players>0&&state.fans>state.players*2)state.expectation+=.01*(state.fans/state.players-2);
 if(state.players>0&&state.discussion/state.players*100>state.rating*1.5)state.metaRating-=.01;
@@ -3190,7 +3028,7 @@ function refreshSaveStatus(){
 
 function buildSavePayload(){
   return {
-    version:"Beta41",
+    version:"Beta34",
     savedAt:Date.now(),
     uid:uid,
     state:JSON.parse(JSON.stringify(state)),
@@ -3379,7 +3217,7 @@ function applyDeviceMode(){
 }
 function render(){ensureNewStateDefaults();updateDesignYearState();renderDesignConcept();
 let simulatorTitle=document.getElementById("gameSimulatorTitle");
-if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 41`:"非商业音乐游戏运营模拟器 · Beta 41";
+if(simulatorTitle)simulatorTitle.textContent=state.designConceptConfirmed&&state.gameName?`非商业音乐游戏《${state.gameName}》运营模拟器 · Beta 34`:"非商业音乐游戏运营模拟器 · Beta 34";
 state.fatigue=clamp(state.fatigue,0,200);recalcArt();recalcPublic();timeMain.textContent=`第 ${year()+1} 年 · 第 ${dayOfYear()} 天`;dateSub.textContent=`第${monthOfYear()}月 / 本月第${dayOfMonth()}天`;let j={home:"家里蹲",easy:"简单",normal:"普通",hard:"困难"};jobName.textContent=j[state.job];jobSelect.value=state.job;jobLockText.textContent=state.day<(state.jobLockedUntil||1)?`主业锁定至第 ${state.jobLockedUntil} 天`:"可修改主业";money.textContent=fmt(state.money);apText.textContent=`${state.ap.toFixed(0)} / ${apCap()}`;apBar.style.width=`${Math.min(100,state.ap/apCap()*100)}%`;let spirit=clamp(200-state.fatigue,0,200);fatigueText.textContent=`${Math.round(spirit)} / 200`;fatigueBar.style.width=`${Math.min(100,spirit/200*100)}%`;
 eventActionPoints.textContent=state.ap.toFixed(0);
 eventSpirit.textContent=Math.round(spirit);
@@ -3387,12 +3225,9 @@ eventBalance.textContent=fmt(state.money);
 let computerDown=computerBroken();
 writeProgramBtn.disabled=computerDown;
 studyProgramBtn.disabled=computerDown;
-if((state.programStudyCount||0)>=600)studyProgramBtn.style.display="none";
 studyArtBtn.disabled=computerDown;
 let announcementPackage=pendingAnnouncementPackage(),announcementLeft=announcementCooldownLeft();
 writeCopyLabel.textContent=announcementPackage?"发公告":"写文案";
-let derivativeAnnouncementBtn=document.getElementById("derivativeAnnouncementBtn");
-if(derivativeAnnouncementBtn)derivativeAnnouncementBtn.style.display=(announcementPackage&&(state.derivativeCount||0)>0)?"":"none";
 writeCopyBtn.disabled=!!announcementPackage&&announcementLeft>0;
 writeCopyCostHint.textContent=announcementPackage?(announcementLeft>0?`还需等待${announcementLeft}天`:`${effectiveActionCost(2)}行动点 / +5疲劳`):`${effectiveActionCost(2)}行动点 / +5疲劳`;
 programCostHint.textContent=state.designConceptConfirmed?`${effectiveActionCost(programActionBaseCost())} 行动点 / +${state.takeoutProgramDiscount?30:20}疲劳`:"需先确定游戏设计理念";
@@ -3411,7 +3246,7 @@ recruitArtCostHint.textContent=state.designConceptConfirmed?`${effectiveActionCo
   fatigueText.classList.toggle("fatigue-danger",fatigueDanger);
   fatigueBar.classList.toggle("fatigue-danger",fatigueDanger);
   document.getElementById("fatigueWarning").classList.toggle("show",fatigueDanger);renderDevelopmentBars();doubleCostText.textContent=state.dailySpent>apCap()*.6?"今日行动量超过累计上限60%，后续行动消耗双倍行动点。":"";takeoutBtn.style.display=state.services.takeout?"block":"none";
-fans.textContent=fmt(state.fans);discussion.textContent=fmt(state.discussion);players.textContent=fmt(state.players);rating.textContent=state.rating.toFixed(1);artPursuit.textContent=state.artPursuit.toFixed(1)+"%";styleBuff.textContent=`风格状态：${styleState().name}`;sponsor.textContent="¥"+fmt(state.sponsorIncome);sponsorInfo.textContent=state.services.sponsor?"赞助平台已开启":"赞助平台未开启";expectation.textContent=state.expectation.toFixed(1);stickiness.textContent=state.stickiness.toFixed(1);bugChance.textContent=state.bugChance.toFixed(1)+"%";tech.textContent=state.tech.toFixed(1);debugMore.textContent=`累计上限 ${apCap()}；今日已消耗 ${state.dailySpent}；程序对下次更新综合质量加成 ${state.programQualityBoost.toFixed(2)}；设计=${state.designConceptConfirmed?state.designStyle+" / PC端"+(state.designPC?"是":"否"):"未确定"}；前组员待判定=${(state.formerMemberOpinionCandidates||[]).length}；声誉危机=${state.day<=(state.exMemberScandalClusterUntil||0)?"是":"否"}；争吵影响=${state.day<=(state.teamArgumentUntil||0)?"是":"否"}；电脑=${computerBroken()?"损坏":"正常"}；破产=${state.bankrupt?"是":"否"}`;coord.textContent=coordValue().toFixed(0);coordCapDisplay.textContent=coordCap().toFixed(0);document.getElementById("derivativeCount").textContent=state.derivativeCount||0;if(document.getElementById("derivativeCountLine"))document.getElementById("derivativeCountLine").style.display=state.artStudyProgress>=100?"":"none";teamCapText.textContent=`人数 ${state.members.length}/${teamCap()}`;if(document.getElementById("memberSortSelect"))memberSortSelect.value=state.memberSortMode;renderComposerDebug();renderServices();renderMembers();renderCandidate();renderComposers();renderLibrary();renderPackages();renderCollabs();renderEconomy();refreshSaveStatus()}
+fans.textContent=fmt(state.fans);discussion.textContent=fmt(state.discussion);players.textContent=fmt(state.players);rating.textContent=state.rating.toFixed(1);artPursuit.textContent=state.artPursuit.toFixed(1)+"%";styleBuff.textContent=`风格状态：${styleState().name}`;sponsor.textContent="¥"+fmt(state.sponsorIncome);sponsorInfo.textContent=state.services.sponsor?"赞助平台已开启":"赞助平台未开启";expectation.textContent=state.expectation.toFixed(1);stickiness.textContent=state.stickiness.toFixed(1);bugChance.textContent=state.bugChance.toFixed(1)+"%";tech.textContent=state.tech.toFixed(1);debugMore.textContent=`累计上限 ${apCap()}；今日已消耗 ${state.dailySpent}；程序对下次更新综合质量加成 ${state.programQualityBoost.toFixed(2)}；设计=${state.designConceptConfirmed?state.designStyle+" / PC端"+(state.designPC?"是":"否"):"未确定"}；前组员待判定=${(state.formerMemberOpinionCandidates||[]).length}；声誉危机=${state.day<=(state.exMemberScandalClusterUntil||0)?"是":"否"}；争吵影响=${state.day<=(state.teamArgumentUntil||0)?"是":"否"}；电脑=${computerBroken()?"损坏":"正常"}；破产=${state.bankrupt?"是":"否"}`;coord.textContent=coordValue().toFixed(0);coordCapDisplay.textContent=coordCap().toFixed(0);teamCapText.textContent=`人数 ${state.members.length}/${teamCap()}`;if(document.getElementById("memberSortSelect"))memberSortSelect.value=state.memberSortMode;renderComposerDebug();renderServices();renderMembers();renderCandidate();renderComposers();renderLibrary();renderPackages();renderCollabs();renderEconomy();refreshSaveStatus()}
 function renderComposerDebug(){
   let el=document.getElementById("composerDebug");if(!el)return;
   el.innerHTML=`<h3>曲师隐藏数据（测试）</h3>`+composerDisplayOrder().map(c=>{
