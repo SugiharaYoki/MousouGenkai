@@ -746,18 +746,18 @@
   {
     "id": 51005,
     "name": "温室花房第9作：recitation",
-    "price": 5000,
+    "price": 2400,
     "quality": 4,
     "abstract": 3,
     "style": "灼热",
-    "attention": 60,
-    "discussion": 60,
-    "good": 80,
+    "attention": 40,
+    "discussion": 40,
+    "good": 60,
     "bought": false,
     "note": "",
     "composerLabel": "PICKUPNEAR vs. 纵连大师",
     "collabComposerIds": [
-      null,
+      11,
       1005
     ],
     "sharedPortfolioKey": "PICKUPNEAR vs. 纵连大师|温室花房第9作：recitation",
