@@ -57,7 +57,7 @@ function getCurrentPageIndex() {
 
 document.addEventListener("DOMContentLoaded", function () {
   var container = document.getElementById("side-stories");
-  container.addEventListener("wheel", function (event) {
+  container?.addEventListener("wheel", function (event) {
     event.preventDefault();
     container.scrollBy({
       top: 0,

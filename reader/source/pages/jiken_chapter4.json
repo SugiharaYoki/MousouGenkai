@@ -1,0 +1,30 @@
+{
+  "url": "jiken_chapter4.html",
+  "series": "jiken",
+  "kind": "story",
+  "panels": [],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v01.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "时钟博物馆之章：4",
+  "layout": "page.html",
+  "scripts": [
+    "reader/runtime.js",
+    "jiken_scripts.js",
+    "popmimi.js",
+    "scripts_hint.js",
+    "multiuse_scripts.js"
+  ],
+  "mascot": true,
+  "toolbarProfile": "toolbar/profile-01.json",
+  "showHint": false,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『八月朔日怜隐事件簿』  章节选择",
+  "directoryClass": "chapter-list chapter-list-jiken",
+  "sideStories": null
+}

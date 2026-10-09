@@ -1,0 +1,34 @@
+{
+  "stages": {
+    "1": "致世界：桔梗的魔女与虚实之境（mousou_side2_1.html）",
+    "2": "致世界：桔梗的魔女与虚实之境（mousou_side2_2.html）"
+  },
+  "content": [
+    {
+      "until": 1,
+      "html": "<span class=\"syslang\">元素：？</span>"
+    },
+    {
+      "from": 2,
+      "html": "<span class=\"syslang\">元素：地</span>"
+    },
+    "<br>",
+    {
+      "until": 1,
+      "html": "<span class=\"syslang\">武器：？</span>"
+    },
+    {
+      "from": 2,
+      "html": "<span class=\"syslang\">武器：赤手空拳</span>"
+    },
+    "<br><br>本篇故事的主角。",
+    {
+      "until": 1,
+      "html": "初入TBO的玩家，事前决定主修魔法类技能。"
+    },
+    {
+      "from": 2,
+      "html": "初入TBO的玩家，主修魔法类技能。<br>对古怪食物的烹饪尤其钟情。"
+    }
+  ]
+}

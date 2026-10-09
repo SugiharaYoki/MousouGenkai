@@ -1,0 +1,13 @@
+{
+  "stages": {
+    "1": "妄想限界：白夜今明 第壹章（mousou_chapter2.html）",
+    "2": "妄想限界：白夜今明 第贰章（mousou_chapter3.html）"
+  },
+  "content": [
+    "<span class=\"syslang\">元素：月</span><br><span class=\"syslang\">武器：念写相机</span><br><br>主角之一。23岁自由职业者，摄影狂热族，同时也是在视觉设计领域小有成就的AI训练者。",
+    {
+      "from": 2,
+      "html": "<br>为寻找最完美的“类人实物”参考范例而进入TBO偷拍女性玩家，直到被绫栾追杀并意外结识其他六名主角。"
+    }
+  ]
+}

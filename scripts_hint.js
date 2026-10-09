@@ -262,9 +262,9 @@ function showHint() {
   }, randomSentence.length * 280 + 740);
 }
 
-hintButton.addEventListener("click", showHint);
+hintButton?.addEventListener("click", showHint);
 
-document.getElementById('restrictButton').onclick = function() {
+document.getElementById('restrictButton')?.addEventListener('click', function() {
   if (restrictToggle) {
     document.getElementById('modal').style.display = 'none';
     restrictToggle = false;
@@ -272,7 +272,7 @@ document.getElementById('restrictButton').onclick = function() {
     document.getElementById('modal').style.display = 'block';
     restrictToggle = true;
   }
-};
+});
 function checkCode() {
   var inputCode = document.getElementById('codeInput').value;
   if (inputCode === "Moonlight") {

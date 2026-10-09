@@ -1,0 +1,33 @@
+<div id="bottom"></div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+    </div>
+    <script>
+        var disqus_config = function () {
+          this.page.url = window.location.href;
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://sugiharayoki.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        function copyLink() {
+        const textarea = document.createElement('textarea');
+        textarea.value = window.location.href;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const shareMessage = document.getElementById('shareMessage');
+        shareMessage.style.display = 'block';
+        setTimeout(() => {shareMessage.style.display = 'none';}, 2000);
+      }
+        let buttonHidden = false;
+        
+    </script>
+  </main>
+  <script id="dsq-count-scr" src="//sugiharayoki.disqus.com/count.js" async></script>
+</body>
+</html>

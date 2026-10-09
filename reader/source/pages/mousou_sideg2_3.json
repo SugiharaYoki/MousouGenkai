@@ -1,0 +1,427 @@
+{
+  "url": "mousou_sideg2_3.html",
+  "series": "sideg2",
+  "kind": "story",
+  "panels": [
+    {
+      "id": "character-tabs",
+      "kind": "characters",
+      "title": "登场人物情报库",
+      "cards": [
+        {
+          "label": "向濑白夜",
+          "id": "character1",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "向濑白夜",
+          "stage": 2
+        },
+        {
+          "label": "黑羽谅璃",
+          "id": "character2",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "黑羽谅璃",
+          "stage": 1
+        },
+        {
+          "label": "和歌森勿栖",
+          "id": "character3",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "和歌森勿栖",
+          "stage": 1
+        },
+        {
+          "label": "久礼夏月",
+          "id": "character4",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "久礼夏月",
+          "stage": 2
+        },
+        {
+          "label": "月见花绫栾",
+          "id": "character5",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "月见花绫栾",
+          "stage": 7
+        },
+        {
+          "label": "方聆弦",
+          "id": "character6",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "方聆弦",
+          "stage": 2
+        },
+        {
+          "label": "神来社词音",
+          "id": "character7",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "神来社词音",
+          "stage": 2
+        },
+        {
+          "label": "茶屋和伊",
+          "id": "character8",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "茶屋和伊",
+          "stage": 2
+        },
+        {
+          "label": "河野葵",
+          "id": "character28",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "河野葵",
+          "stage": 2
+        },
+        {
+          "label": "二阶堂才新",
+          "id": "character17",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "二阶堂才新",
+          "stage": 1
+        }
+      ]
+    },
+    {
+      "id": "term-tabs",
+      "kind": "terms",
+      "title": "白夜的游戏笔记",
+      "cards": [
+        {
+          "label": "月星Online",
+          "id": "term1",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星Online",
+          "stage": 1
+        },
+        {
+          "label": "TBO",
+          "id": "term2",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "TBO",
+          "stage": 1
+        },
+        {
+          "label": "NeuralLinker",
+          "id": "term3",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "NeuralLinker",
+          "stage": 2
+        },
+        {
+          "label": "月星历",
+          "id": "term4",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星历",
+          "stage": 1
+        },
+        {
+          "label": "五大角色属性",
+          "id": "term5",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "五大角色属性",
+          "stage": 1
+        },
+        {
+          "label": "七元素",
+          "id": "term6",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "七元素",
+          "stage": 1
+        },
+        {
+          "label": "锡安",
+          "id": "term7",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "锡安",
+          "stage": 2
+        },
+        {
+          "label": "佩蒂利亚大陆",
+          "id": "term8",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "佩蒂利亚大陆",
+          "stage": 1
+        },
+        {
+          "label": "艾兹维泽区域",
+          "id": "term9",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "艾兹维泽区域",
+          "stage": 2
+        },
+        {
+          "label": "亚穆路陀区域",
+          "id": "term10",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "亚穆路陀区域",
+          "stage": 2
+        },
+        {
+          "label": "伦卡由旬区域",
+          "id": "term11",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "伦卡由旬区域",
+          "stage": 1
+        },
+        {
+          "label": "普莱洛达区域",
+          "id": "term12",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "普莱洛达区域",
+          "stage": 2
+        },
+        {
+          "label": "塞壬区域",
+          "id": "term13",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "塞壬区域",
+          "stage": 2
+        },
+        {
+          "label": "姆歇戎区域",
+          "id": "term14",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "姆歇戎区域",
+          "stage": 2
+        },
+        {
+          "label": "薙峯霞林区域",
+          "id": "term15",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "薙峯霞林区域",
+          "stage": 2
+        },
+        {
+          "label": "叶赖锡安区域",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "叶赖锡安区域",
+          "stage": 2
+        },
+        {
+          "label": "虚无山脉",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "虚无山脉",
+          "stage": 1
+        },
+        {
+          "label": "区域迷宫",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "区域迷宫",
+          "stage": 1
+        },
+        {
+          "label": "道具与素材A",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "道具与素材A",
+          "stage": 1
+        },
+        {
+          "label": "道具与素材B",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "道具与素材B",
+          "stage": 1
+        },
+        {
+          "label": "道具与素材C",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "道具与素材C",
+          "stage": 1
+        }
+      ]
+    },
+    {
+      "id": "term-tabs2",
+      "kind": "terms",
+      "title": "白夜的游戏笔记",
+      "cards": [
+        {
+          "label": "月星的生物A",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星的生物A",
+          "stage": 1
+        },
+        {
+          "label": "月星的生物B",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星的生物B",
+          "stage": 1
+        },
+        {
+          "label": "玩家操作理念",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "玩家操作理念",
+          "stage": 1
+        },
+        {
+          "label": "战技",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "战技",
+          "stage": 1
+        },
+        {
+          "label": "魔法",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "魔法",
+          "stage": 2
+        },
+        {
+          "label": "「心念」",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "「心念」",
+          "stage": 1
+        },
+        {
+          "label": "成就系统",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "成就系统",
+          "stage": 1
+        },
+        {
+          "label": "四大强化程序",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "四大强化程序",
+          "stage": 1
+        },
+        {
+          "label": "重生锚A",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "重生锚A",
+          "stage": 1
+        },
+        {
+          "label": "重生锚B",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "重生锚B",
+          "stage": 1
+        },
+        {
+          "label": "安全区",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "安全区",
+          "stage": 1
+        },
+        {
+          "label": "佩蒂利亚翡翠",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "佩蒂利亚翡翠",
+          "stage": 1
+        },
+        {
+          "label": "玩家死亡",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "玩家死亡",
+          "stage": 1
+        },
+        {
+          "label": "生命值",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "生命值",
+          "stage": 1
+        },
+        {
+          "label": "饱食度",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "饱食度",
+          "stage": 1
+        },
+        {
+          "label": "匿声季",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "匿声季",
+          "stage": 1
+        }
+      ]
+    }
+  ],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v07.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "妄想限界：白夜今明 雾花的封砦霞城",
+  "layout": "page.html",
+  "scripts": [
+    "scripts_hint.js",
+    "reader/runtime.js",
+    "scripts_sideg2.js",
+    "multiuse_scripts.js"
+  ],
+  "mascot": false,
+  "toolbarProfile": "toolbar/profile-05.json",
+  "showHint": true,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『妄想限界：白夜今明』  雾花的封砦霞城",
+  "directoryClass": "chapter-list",
+  "sideStories": "side-stories/v01.html"
+}

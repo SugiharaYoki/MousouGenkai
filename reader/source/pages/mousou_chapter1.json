@@ -1,0 +1,133 @@
+{
+  "url": "mousou_chapter1.html",
+  "series": "main",
+  "kind": "story",
+  "panels": [
+    {
+      "id": "character-tabs",
+      "kind": "characters",
+      "title": "登场人物情报库",
+      "cards": [
+        {
+          "label": "向濑白夜",
+          "id": "character1",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "向濑白夜",
+          "stage": 1
+        },
+        {
+          "label": "黑羽谅璃",
+          "id": "character2",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "黑羽谅璃",
+          "stage": 1
+        },
+        {
+          "label": "和歌森勿栖",
+          "id": "character3",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "和歌森勿栖",
+          "stage": 1
+        },
+        {
+          "label": "久礼夏月",
+          "id": "character4",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "久礼夏月",
+          "stage": 2
+        },
+        {
+          "label": "月见花绫栾",
+          "id": "character5",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "月见花绫栾",
+          "stage": 2
+        },
+        {
+          "label": "方聆弦",
+          "id": "character6",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "方聆弦",
+          "stage": 2
+        },
+        {
+          "label": "神来社词音",
+          "id": "character7",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "神来社词音",
+          "stage": 2
+        },
+        {
+          "label": "茶屋和伊",
+          "id": "character8",
+          "class": "character-tab",
+          "enabled": false,
+          "character": "茶屋和伊",
+          "stage": 2
+        }
+      ]
+    },
+    {
+      "id": "term-tabs",
+      "kind": "terms",
+      "title": "白夜的游戏笔记",
+      "cards": [
+        {
+          "label": "月星Online",
+          "id": "term1",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星Online",
+          "stage": 1
+        },
+        {
+          "label": "TBO",
+          "id": "term2",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "TBO",
+          "stage": 1
+        },
+        {
+          "label": "NeuralLinker",
+          "id": "term3",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "NeuralLinker",
+          "stage": 1
+        }
+      ]
+    }
+  ],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v03.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "妄想限界：白夜今明 第零章",
+  "layout": "page.html",
+  "scripts": [
+    "reader/runtime.js",
+    "scripts.js",
+    "multiuse_scripts.js",
+    "popmimi.js",
+    "scripts_hint.js"
+  ],
+  "mascot": true,
+  "toolbarProfile": "toolbar/profile-02.json",
+  "showHint": true,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『妄想限界：白夜今明』  章节选择",
+  "directoryClass": "chapter-list",
+  "sideStories": "side-stories/v01.html"
+}

@@ -1,0 +1,11 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara"
+  },
+  "toggleWorldMap": {
+    "class": "custom-button"
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term"
+  }
+}

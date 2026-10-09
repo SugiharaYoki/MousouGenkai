@@ -1,0 +1,55 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara",
+    "style": {
+      "background-color": "#1e5785"
+    },
+    "html": "曾見<br>之人"
+  },
+  "toggleWorldMap": {
+    "class": "custom-button",
+    "style": {
+      "background-color": "#2a8d8d"
+    },
+    "html": "曾遊<br>之世"
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term",
+    "style": {
+      "background-color": "#1d337e"
+    },
+    "html": "曾聞<br>之事"
+  },
+  "toggleInvertColors": {
+    "style": {
+      "background-color": "#441a86"
+    },
+    "html": "曾度<br>之日"
+  },
+  "fontSizer": {
+    "style": {
+      "background-color": "#630a75"
+    },
+    "html": "曾書<br>之文"
+  },
+  "toggleCharacterList2": {
+    "style": {
+      "background-color": "#345f83"
+    }
+  },
+  "toggleTermList2": {
+    "style": {
+      "background-color": "#384c8d"
+    }
+  },
+  "toggleInvertColors2": {
+    "style": {
+      "background-color": "#502e86"
+    }
+  },
+  "fontSizer2": {
+    "style": {
+      "background-color": "#6d297a"
+    }
+  }
+}

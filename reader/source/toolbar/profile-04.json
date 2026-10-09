@@ -1,0 +1,55 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara",
+    "style": {
+      "background-color": "#6622aa"
+    },
+    "html": "人事<br>見聞"
+  },
+  "toggleWorldMap": {
+    "class": "custom-button",
+    "style": {
+      "background-color": "#8822aa"
+    },
+    "html": "大陸<br>測絵"
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term",
+    "style": {
+      "background-color": "#4422aa"
+    },
+    "html": "諒璃<br>所写"
+  },
+  "toggleInvertColors": {
+    "style": {
+      "background-color": "#2222aa"
+    },
+    "html": "昼夜<br>傾覆"
+  },
+  "fontSizer": {
+    "style": {
+      "background-color": "#2244aa"
+    },
+    "html": "秘文<br>解読"
+  },
+  "toggleCharacterList2": {
+    "style": {
+      "background-color": "#6a4094"
+    }
+  },
+  "toggleTermList2": {
+    "style": {
+      "background-color": "rgb(120, 78, 139)"
+    }
+  },
+  "toggleInvertColors2": {
+    "style": {
+      "background-color": "#383896"
+    }
+  },
+  "fontSizer2": {
+    "style": {
+      "background-color": "rgb(68, 84, 138)"
+    }
+  }
+}

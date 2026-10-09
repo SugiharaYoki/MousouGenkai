@@ -1,0 +1,30 @@
+{
+  "url": "mousou_chapter0.html",
+  "series": "main",
+  "kind": "intro",
+  "panels": [],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v02.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "妄想限界：白夜今明 初始微光",
+  "layout": "page.html",
+  "scripts": [
+    "reader/runtime.js",
+    "scripts.js",
+    "multiuse_scripts.js",
+    "popmimi.js",
+    "scripts_hint.js"
+  ],
+  "mascot": true,
+  "toolbarProfile": "toolbar/profile-01.json",
+  "showHint": true,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『妄想限界：白夜今明』  章节选择",
+  "directoryClass": "chapter-list",
+  "sideStories": "side-stories/v01.html"
+}

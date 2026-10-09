@@ -1,0 +1,102 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button hidden custom-button-chara",
+    "style": {
+      "position": "fixed",
+      "bottom": "180px",
+      "right": "20px",
+      "width": "40px",
+      "height": "40px",
+      "background-color": "#71688a"
+    },
+    "html": "角色<br>百科"
+  },
+  "toggleWorldMap": {
+    "class": "custom-button hidden",
+    "style": {
+      "position": "fixed",
+      "bottom": "230px",
+      "right": "20px",
+      "width": "40px",
+      "height": "40px",
+      "background-color": "#bb6fa4"
+    },
+    "html": "世界<br>地図"
+  },
+  "toggleTermList": {
+    "class": "custom-button hidden custom-button-term",
+    "style": {
+      "position": "fixed",
+      "bottom": "130px",
+      "right": "20px",
+      "width": "40px",
+      "height": "40px",
+      "background-color": "#8a7d68"
+    },
+    "html": "白夜<br>筆記"
+  },
+  "toggleInvertColors": {
+    "class": "custom-button custom-button-theme",
+    "style": {
+      "position": "fixed",
+      "bottom": "80px",
+      "right": "20px",
+      "width": "40px",
+      "height": "40px",
+      "background-color": "#7089ab"
+    },
+    "html": "更替<br>昼夜"
+  },
+  "fontSizer": {
+    "class": "custom-button custom-button-fontsize",
+    "style": {
+      "position": "fixed",
+      "bottom": "30px",
+      "right": "20px",
+      "width": "40px",
+      "height": "40px",
+      "background-color": "#688a7d"
+    },
+    "html": "文字<br>尺寸"
+  },
+  "toggleCharacterList2": {
+    "class": "extra custom-button extra-chara",
+    "style": {
+      "position": "fixed",
+      "bottom": "189px",
+      "height": "20px",
+      "background-color": "#7a7588"
+    },
+    "html": "Pg.1"
+  },
+  "toggleTermList2": {
+    "class": "extra custom-button extra-term",
+    "style": {
+      "position": "fixed",
+      "bottom": "139px",
+      "height": "20px",
+      "background-color": "#8b8479"
+    },
+    "html": "Pg.1"
+  },
+  "toggleInvertColors2": {
+    "class": "extra custom-button extra-theme",
+    "style": {
+      "position": "fixed",
+      "bottom": "89px",
+      "height": "20px",
+      "background-color": "#8a98ac"
+    },
+    "html": "黒夜"
+  },
+  "fontSizer2": {
+    "class": "extra custom-button extra-fontsize",
+    "style": {
+      "position": "fixed",
+      "bottom": "39px",
+      "height": "20px",
+      "background-color": "#788a83"
+    },
+    "html": "16"
+  }
+}

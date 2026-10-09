@@ -1,0 +1,25 @@
+{
+  "stages": {
+    "1": "妄想限界：白夜今明 第柒章（mousou_chapter9.html）",
+    "2": "妄想限界：白夜今明 雾花的封砦霞城（mousou_sideg2_2.html）",
+    "3": "妄想限界：白夜今明 资料页面（mousou_chapter6.html）"
+  },
+  "content": [
+    "<span class=\"syslang\">元素：地</span><br>",
+    {
+      "until": 1,
+      "html": "<span class=\"syslang\">武器：？？？</span>"
+    },
+    {
+      "html": "<span class=\"syslang\">武器：长剪双刃</span>",
+      "only": [
+        2
+      ]
+    },
+    {
+      "from": 3,
+      "html": "<span class=\"syslang\">武器：巨剪</span>"
+    },
+    "<br><br>公会“津风礼社”的成员，精通许多种类的日式古典技艺，也是绫栾初入津风礼社时的引路者。<br>平日里是公会的门番（是自告奋勇从事着这份工作！），接待拜访者或赶走想要慰问绫栾全家的不速之客。<br>这么一想，她的真实实力应该不会低。"
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "url": "mousou_chapter4.html",
+  "series": "main",
+  "kind": "story",
+  "panels": [
+    {
+      "id": "character-tabs",
+      "kind": "characters",
+      "title": "登场人物情报库",
+      "cards": [
+        {
+          "label": "向濑白夜",
+          "id": "character1",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "向濑白夜",
+          "stage": 2
+        },
+        {
+          "label": "黑羽谅璃",
+          "id": "character2",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "黑羽谅璃",
+          "stage": 1
+        },
+        {
+          "label": "和歌森勿栖",
+          "id": "character3",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "和歌森勿栖",
+          "stage": 1
+        },
+        {
+          "label": "久礼夏月",
+          "id": "character4",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "久礼夏月",
+          "stage": 2
+        },
+        {
+          "label": "月见花绫栾",
+          "id": "character5",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "月见花绫栾",
+          "stage": 2
+        },
+        {
+          "label": "方聆弦",
+          "id": "character6",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "方聆弦",
+          "stage": 2
+        },
+        {
+          "label": "神来社词音",
+          "id": "character7",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "神来社词音",
+          "stage": 1
+        },
+        {
+          "label": "茶屋和伊",
+          "id": "character8",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "茶屋和伊",
+          "stage": 1
+        }
+      ]
+    },
+    {
+      "id": "term-tabs",
+      "kind": "terms",
+      "title": "白夜的游戏笔记",
+      "cards": [
+        {
+          "label": "月星Online",
+          "id": "term1",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星Online",
+          "stage": 1
+        },
+        {
+          "label": "TBO",
+          "id": "term2",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "TBO",
+          "stage": 1
+        },
+        {
+          "label": "NeuralLinker",
+          "id": "term3",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "NeuralLinker",
+          "stage": 2
+        },
+        {
+          "label": "月星历",
+          "id": "term4",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星历",
+          "stage": 1
+        },
+        {
+          "label": "五大角色属性",
+          "id": "term5",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "五大角色属性",
+          "stage": 1
+        },
+        {
+          "label": "四大元素",
+          "id": "term6",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "四大元素",
+          "stage": 1
+        },
+        {
+          "label": "锡安",
+          "id": "term7",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "锡安",
+          "stage": 1
+        },
+        {
+          "label": "佩蒂利亚大陆",
+          "id": "term8",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "佩蒂利亚大陆",
+          "stage": 1
+        },
+        {
+          "label": "艾兹维泽区域",
+          "id": "term9",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "艾兹维泽区域",
+          "stage": 1
+        },
+        {
+          "label": "亚穆路陀区域",
+          "id": "term10",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "亚穆路陀区域",
+          "stage": 1
+        },
+        {
+          "label": "伦卡由旬区域",
+          "id": "term11",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "伦卡由旬区域",
+          "stage": 1
+        },
+        {
+          "label": "普莱洛达区域",
+          "id": "term12",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "普莱洛达区域",
+          "stage": 1
+        },
+        {
+          "label": "塞壬区域",
+          "id": "term13",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "塞壬区域",
+          "stage": 1
+        },
+        {
+          "label": "姆歇戎区域",
+          "id": "term14",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "姆歇戎区域",
+          "stage": 1
+        },
+        {
+          "label": "薙峯霞林区域",
+          "id": "term15",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "薙峯霞林区域",
+          "stage": 1
+        },
+        {
+          "label": "叶赖锡安区域",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "叶赖锡安区域",
+          "stage": 1
+        }
+      ]
+    }
+  ],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v04.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "妄想限界：白夜今明 第叁章",
+  "layout": "page.html",
+  "scripts": [
+    "reader/runtime.js",
+    "scripts.js",
+    "multiuse_scripts.js",
+    "popmimi.js",
+    "scripts_hint.js"
+  ],
+  "mascot": true,
+  "toolbarProfile": "toolbar/profile-03.json",
+  "showHint": true,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『妄想限界：白夜今明』  章节选择",
+  "directoryClass": "chapter-list",
+  "sideStories": "side-stories/v01.html"
+}

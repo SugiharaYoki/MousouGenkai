@@ -1,0 +1,50 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara",
+    "style": {
+      "background-color": "#ad6119"
+    }
+  },
+  "toggleWorldMap": {
+    "class": "custom-button",
+    "style": {
+      "background-color": "#419e39"
+    }
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term",
+    "style": {
+      "background-color": "#219485"
+    }
+  },
+  "toggleInvertColors": {
+    "style": {
+      "background-color": "#253f88"
+    }
+  },
+  "fontSizer": {
+    "style": {
+      "background-color": "#8d2a88"
+    }
+  },
+  "toggleCharacterList2": {
+    "style": {
+      "background-color": "#976433"
+    }
+  },
+  "toggleTermList2": {
+    "style": {
+      "background-color": "#3d9185"
+    }
+  },
+  "toggleInvertColors2": {
+    "style": {
+      "background-color": "#3a4d81"
+    }
+  },
+  "fontSizer2": {
+    "style": {
+      "background-color": "#863b83"
+    }
+  }
+}

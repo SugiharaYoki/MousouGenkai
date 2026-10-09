@@ -1,0 +1,21 @@
+{
+  "id": "sideg3",
+  "script": "scripts_sideg3.js",
+  "activeClass": "active-sideg3",
+  "pageSize": 5,
+  "readingDivisor": 1000,
+  "countDivisor": 100,
+  "fallbackHtml": "<br><br><h3><span class=\"leadingtext\">纵使此世由纷争与妄想所交叠纠缠，<br>汝之心念终将凝成赴往真实的微光。</span></h3><br><br>",
+  "tailHtml": "也来浏览一下这些网站吧！",
+  "chapters": [
+    {
+      "title": "觑宇壹章：薄暗晨星的银幕",
+      "shortTitle": "觑宇壹章 故事",
+      "filePath": "csideg3_1.txt",
+      "id": 1,
+      "summary": "<span class='syslang'>&nbsp&nbsp作者：杉原夜季&nbsp&nbsp</span><br><br>出原知久与桦泽里歌作为官方制作组成员进入《月星-Online-》后，本该于传送广场等待二人登录的另外三位制作组成员却不见踪影。",
+      "url": "mousou_sideg3_1.html",
+      "kind": "story"
+    }
+  ]
+}

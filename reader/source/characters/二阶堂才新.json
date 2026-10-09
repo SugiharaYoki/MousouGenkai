@@ -1,0 +1,22 @@
+{
+  "stages": {
+    "1": "妄想限界：白夜今明 第柒章（mousou_chapter9.html）",
+    "2": "妄想限界：白夜今明 第玖章（mousou_chapter11.html）"
+  },
+  "content": [
+    "<span class=\"syslang\">元素：火</span><br>",
+    {
+      "until": 1,
+      "html": "<span class=\"syslang\">武器：？？？</span>"
+    },
+    {
+      "from": 2,
+      "html": "<span class=\"syslang\">武器：符札</span>"
+    },
+    "<br><br>身着巫女服，看似只有初中年龄的女孩。<br>神出鬼没的行踪与捉摸不透的志向使她几乎不被绝大多数玩家所正常目击。<br>公会“津风礼社”的会长。",
+    {
+      "from": 2,
+      "html": "<br><br>曾于白夜前往飞鸟泉腹地之时拦在白夜必经之路上，癫狂般喊出要让竹取“打破系统的限制”，并试图杀害同样在场的玖琳然。"
+    }
+  ]
+}

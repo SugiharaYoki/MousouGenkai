@@ -1,0 +1,180 @@
+{
+  "url": "mousou_sideg_2.html",
+  "series": "sideg",
+  "kind": "story",
+  "panels": [
+    {
+      "id": "character-tabs",
+      "kind": "characters",
+      "title": "登场人物情报库",
+      "cards": [
+        {
+          "label": "谢廖平",
+          "id": "character1",
+          "class": "character-tab",
+          "enabled": true,
+          "character": "谢廖平",
+          "stage": 1
+        }
+      ]
+    },
+    {
+      "id": "term-tabs",
+      "kind": "terms",
+      "title": "白夜的游戏笔记",
+      "cards": [
+        {
+          "label": "月星Online",
+          "id": "term1",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星Online",
+          "stage": 1
+        },
+        {
+          "label": "TBO",
+          "id": "term2",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "TBO",
+          "stage": 1
+        },
+        {
+          "label": "NeuralLinker",
+          "id": "term3",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "NeuralLinker",
+          "stage": 2
+        },
+        {
+          "label": "月星历",
+          "id": "term4",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "月星历",
+          "stage": 1
+        },
+        {
+          "label": "五大角色属性",
+          "id": "term5",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "五大角色属性",
+          "stage": 1
+        },
+        {
+          "label": "七元素",
+          "id": "term6",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "七元素",
+          "stage": 2
+        },
+        {
+          "label": "锡安",
+          "id": "term7",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "锡安",
+          "stage": 1
+        },
+        {
+          "label": "佩蒂利亚大陆",
+          "id": "term8",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "佩蒂利亚大陆",
+          "stage": 1
+        },
+        {
+          "label": "艾兹维泽区域",
+          "id": "term9",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "艾兹维泽区域",
+          "stage": 1
+        },
+        {
+          "label": "亚穆路陀区域",
+          "id": "term10",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "亚穆路陀区域",
+          "stage": 1
+        },
+        {
+          "label": "伦卡由旬区域",
+          "id": "term11",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "伦卡由旬区域",
+          "stage": 1
+        },
+        {
+          "label": "普莱洛达区域",
+          "id": "term12",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "普莱洛达区域",
+          "stage": 1
+        },
+        {
+          "label": "塞壬区域",
+          "id": "term13",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "塞壬区域",
+          "stage": 1
+        },
+        {
+          "label": "姆歇戎区域",
+          "id": "term14",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "姆歇戎区域",
+          "stage": 1
+        },
+        {
+          "label": "薙峯霞林区域",
+          "id": "term15",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "薙峯霞林区域",
+          "stage": 1
+        },
+        {
+          "label": "叶赖锡安区域",
+          "id": "term16",
+          "class": "character-tab term-tab",
+          "enabled": true,
+          "term": "叶赖锡安区域",
+          "stage": 1
+        }
+      ]
+    }
+  ],
+  "parts": {
+    "head": "head.html",
+    "header": "header/v08.html",
+    "directory": "directory.html",
+    "toolbar": "toolbar.html",
+    "footer": "footer.html"
+  },
+  "title": "妄想限界：白夜今明 落月星辉的史诗",
+  "layout": "page.html",
+  "scripts": [
+    "scripts_hint.js",
+    "reader/runtime.js",
+    "scripts_sideg.js",
+    "multiuse_scripts.js"
+  ],
+  "mascot": false,
+  "toolbarProfile": "toolbar/profile-06.json",
+  "showHint": true,
+  "tailText": "",
+  "resourceTools": null,
+  "directoryTitle": "『妄想限界：白夜今明』  落月星辉的史诗",
+  "directoryClass": "chapter-list",
+  "sideStories": "side-stories/v01.html"
+}

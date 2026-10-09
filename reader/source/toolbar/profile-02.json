@@ -1,0 +1,8 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara"
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term"
+  }
+}

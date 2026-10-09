@@ -1,0 +1,55 @@
+{
+  "toggleCharacterList": {
+    "class": "custom-button custom-button-chara",
+    "style": {
+      "background-color": "#117a23"
+    },
+    "html": "玩家"
+  },
+  "toggleWorldMap": {
+    "class": "custom-button",
+    "style": {
+      "background-color": "#0c3574"
+    },
+    "html": "地図"
+  },
+  "toggleTermList": {
+    "class": "custom-button custom-button-term",
+    "style": {
+      "background-color": "rgb(122, 88, 14)"
+    },
+    "html": "筆記"
+  },
+  "toggleInvertColors": {
+    "style": {
+      "background-color": "#360c7a"
+    },
+    "html": "主題"
+  },
+  "fontSizer": {
+    "style": {
+      "background-color": "#61111c"
+    },
+    "html": "字体"
+  },
+  "toggleCharacterList2": {
+    "style": {
+      "background-color": "#117a23"
+    }
+  },
+  "toggleTermList2": {
+    "style": {
+      "background-color": "rgb(122, 88, 14)"
+    }
+  },
+  "toggleInvertColors2": {
+    "style": {
+      "background-color": "#360c7a"
+    }
+  },
+  "fontSizer2": {
+    "style": {
+      "background-color": "#61111c"
+    }
+  }
+}
