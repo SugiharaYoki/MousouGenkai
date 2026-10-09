@@ -6,29 +6,41 @@
   "content": [
     "<span class=\"syslang\">元素：地</span><br>",
     {
-      "until": 1,
+      "from": 1,
+      "except": [
+        2
+      ],
       "html": "<span class=\"syslang\">武器：先尝试造根笔！</span>"
     },
     {
       "from": 2,
+      "until": 2,
       "html": "<span class=\"syslang\">武器：钢笔</span>"
     },
     "<br><br>",
     {
-      "until": 1,
+      "from": 1,
+      "except": [
+        2
+      ],
       "html": "似乎被心理疾病所困扰的少年。"
     },
     {
       "from": 2,
+      "until": 2,
       "html": "内向却总是在努力搭话路人，韵笺才浅公会的成员兼情报员。"
     },
     "<br>",
     {
-      "until": 1,
+      "from": 1,
+      "except": [
+        2
+      ],
       "html": "初入《月星-Online-》的玩家。极少数“非直接选中”的TBO公测玩家之一。<br><br>唯一能称得上兴趣爱好的活动是收藏、研究钢笔。平日里也有接许多修钢笔的私活（甚至会为熟人免费帮忙修笔）。"
     },
     {
       "from": 2,
+      "until": 2,
       "html": "于现实中是人格分裂症患者。"
     }
   ]

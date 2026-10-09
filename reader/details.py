@@ -37,14 +37,14 @@ def _compile(document):
         if isinstance(block, str):
             targets, text = levels, block
         else:
-            if not isinstance(block, dict) or set(block) - {'html', 'from', 'until', 'only', 'note'}:
-                raise ValueError('Unknown content rule; use html, from, until, or only')
+            if not isinstance(block, dict) or set(block) - {'html', 'from', 'until', 'only', 'except', 'note'}:
+                raise ValueError('Unknown content rule; use html, from, until, only, or except')
             text = block.get('html')
             if not isinstance(text, str):
                 raise ValueError('Each content rule needs an html string')
             if 'only' in block:
-                if 'from' in block or 'until' in block:
-                    raise ValueError('only cannot be combined with from/until')
+                if 'from' in block or 'until' in block or 'except' in block:
+                    raise ValueError('only cannot be combined with from/until/except')
                 only = block['only']
                 if not isinstance(only, list) or not only:
                     raise ValueError('only must be a nonempty list of stages')
@@ -57,6 +57,16 @@ def _compile(document):
                 if lower > upper:
                     raise ValueError('from must not exceed until (both are inclusive)')
                 targets = {level for level in levels if lower <= level <= upper}
+                if 'except' in block:
+                    excluded = block['except']
+                    if not isinstance(excluded, list) or not excluded:
+                        raise ValueError('except must be a nonempty list of stages')
+                    exceptions = {level_value(value) for value in excluded}
+                    if len(exceptions) != len(excluded):
+                        raise ValueError('Duplicate stage in except')
+                    if not exceptions <= targets:
+                        raise ValueError('except must refer to stages inside the range')
+                    targets -= exceptions
         if text and not targets:
             raise ValueError('Content has no declared stage to display it')
         for level in targets:

@@ -6,20 +6,28 @@
   "content": [
     "<span class=\"syslang\">元素：地</span><br>",
     {
-      "until": 1,
+      "from": 1,
+      "except": [
+        2
+      ],
       "html": "<span class=\"syslang\">武器：？？？</span>"
     },
     {
       "from": 2,
+      "until": 2,
       "html": "<span class=\"syslang\">武器：神农尺</span>"
     },
     "<br>",
     {
-      "until": 1,
+      "from": 1,
+      "except": [
+        2
+      ],
       "html": "<span class=\"syslang\">？？？：绪蘖的余梦</span>"
     },
     {
       "from": 2,
+      "until": 2,
       "html": "<span class=\"syslang\">心念：绪蘖的余梦</span>"
     },
     "<br><br>韵笺才浅公会的管理层，同时也是公会的副会长。<br>百里流霜的亲姐姐。"

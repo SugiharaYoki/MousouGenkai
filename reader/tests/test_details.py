@@ -59,6 +59,25 @@ class StageTests(unittest.TestCase):
     def test_stage_zero_is_empty_even_when_common_text_exists(self):
         self.assertEqual(self.render(0), '')
 
+    def test_live_main_story_fact_continues_past_numbered_branch_exceptions(self):
+        # Stage 3 is a historical branch; stage 4 is a resource-page variant.
+        # Neither should terminate an ongoing fact learned at main stage 2.
+        self.document['content'] = [
+            '共通。',
+            {'from': 2, 'except': [3, 4], 'html': '主线新武器。'},
+            {'from': 3, 'until': 4, 'html': '旧视角武器。'},
+        ]
+        self.save()
+        self.assertEqual(self.render(1), '共通。')
+        self.assertEqual(self.render(2), '共通。主线新武器。')
+        self.assertEqual(self.render(3), '共通。旧视角武器。')
+        self.assertEqual(self.render(4), '共通。旧视角武器。')
+        for stage in (5, 6, 10):
+            self.document['stages'][str(stage)] = '后续主线'
+        self.save()
+        for stage in (5, 6, 10):
+            self.assertEqual(self.render(stage), self.render(2))
+
     def test_invalid_selection_fails_instead_of_showing_another_stage(self):
         catalog = DetailCatalog(self.source)
         cards = [
@@ -84,6 +103,13 @@ class StageTests(unittest.TestCase):
             {'from': 5, 'html': 'undeclared'},
             {'only': [True], 'html': 'not a stage'},
             {'until': 0, 'html': 'zero is reserved'},
+            {'only': [1], 'except': [1], 'html': 'ambiguous'},
+            {'from': 2, 'except': [1], 'html': 'outside range'},
+            {'from': 2, 'except': [], 'html': 'empty'},
+            {'from': 2, 'except': [3, 3], 'html': 'duplicate'},
+            {'from': 2, 'except': [5], 'html': 'undeclared'},
+            {'from': 2, 'except': [True], 'html': 'not a stage'},
+            {'from': 2, 'except': [2, 3, 4], 'html': 'never visible'},
         ]
         for rule in rules:
             self.document['content'] = [rule]
