@@ -1365,7 +1365,7 @@ button:hover {
   bottom: 5px;
   color: rgb(221, 221, 221);
   z-index: 500;
-  font-family: 'tfeibaiw02';
+  font-family: 'GenJyuuNormal';
   font-size: 14px;
   height: 100vh;
   padding-right: 20px;
@@ -1388,7 +1388,7 @@ button:hover {
 .web-update2 {
   color: rgb(221, 221, 221);
   z-index: 500;
-  font-family: 'tfeibaiw02';
+  font-family: 'GenJyuuNormal';
   font-size: 14px;
   height: 100vh;
   padding-left: 20px;
